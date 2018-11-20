@@ -51,7 +51,9 @@ export class BillingRecurringStep4Component implements OnInit {
   publish() {
     this.service4.billingPost(this.data).subscribe(result => {
       if (result.success == true) {
-        this.router.navigate(['./dashboard']);
+        console.log('recurring result', result);
+        localStorage.setItem('publishId', result.data.id);
+        this.router.navigate(['./billing/billingmodeloverview']);
       }
       console.log('Api', this.data);
     });

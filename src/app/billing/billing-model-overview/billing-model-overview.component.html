@@ -1,6 +1,6 @@
 <!-- - SINGLE -->
 
-<div class="billingModelContainer">
+<div class="billingModelContainer" *ngIf="single">
   <div class="bm-header"><b>Billing Model Overview</b></div>
 
   <div class="bm-main flex-center-center">
@@ -16,19 +16,19 @@
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  Product<br />
-                  <span>Billing Model</span>
+                  {{ title }}<br />
+                  <span>{{ description }}</span>
                 </p>
               </div>
               <div class="large">
                 <div>
                   <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
-                  $4.99
+                  {{ currency | CustomeCurrency }}{{ amount }}
                 </div>
               </div>
               <div class="footerText">
                 <p>115,011.88 PMA</p>
-                <span>Subscribers 2.1K</span>
+                <span>Subscribers {{ subscribers }}</span>
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@
 
 <!-- - RECURRING -->
 
-<div class="billingModelContainer">
+<div class="billingModelContainer" *ngIf="recurring">
   <div class="bm-header"><b>Billing Model Overview</b></div>
 
   <div class="bm-main flex-center-center">
@@ -134,7 +134,7 @@
               </div>
               <div class="footerText">
                 <p>PMA 309,028.18</p>
-                <span>Subscribers 3.5k</span>
+                <span>Subscribers {{ subscribers }}</span>
               </div>
             </div>
           </div>
@@ -218,7 +218,7 @@
   </div>
 </div>
 
-<div class="billingModelContainer">
+<div class="billingModelContainer" *ngIf="recurring">
   <div class="bm-main flex-center-center">
     <div class="transaction-table">
       <div class="row">
@@ -289,7 +289,7 @@
 
 <!-- - SINGLE + RECURRING -->
 
-<div class="billingModelContainer">
+<div class="billingModelContainer" *ngIf="singleRecurring">
   <div class="bm-header"><b>Billing Model Overview</b></div>
 
   <div class="bm-main flex-center-center">
@@ -322,7 +322,7 @@
               </div>
               <div class="footerText">
                 <p>115,011.88 PMA</p>
-                <span>Subscribers 217</span>
+                <span>Subscribers {{ subscribers }}</span>
               </div>
             </div>
           </div>
@@ -354,17 +354,20 @@
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
                     <td class="value-td">10</td>
-                    <td class="value-td">0.00031</td>
-                    <td class="value-td">0.00310</td>
+                    <td class="value-td">0.00031<*ngIf="singleRecurring"</td>
+                    <td class="value-td">0.00310<*ngIf="singleRecurring"</td>
                   </tr>
+
                   <tr>
-                    <td class="userId">Transfers from PullPayment Account to Treasury</td>
+                    <td class="userId">Transfers *ngIf="singleRecurring" PullPayment Account to Treasury</td>
                     <td class="value-td">1</td>
-                    <td class="value-td">0.00031</td>
-                    <td class="value-td">0.00031</td>
+                    <td class="value-td">0.00031<*ngIf="singleRecurring"</td>
+                    <td class="value-td">0.00031<*ngIf="singleRecurring"</td>
                   </tr>
+
                   <tr>
                     <td class="userId">Total</td>
+                    *ngIf="singleRecurring"
                     <td class="value-td"></td>
                     <td class="value-td"></td>
                     <td class="total-td">0.418</td>
@@ -408,7 +411,7 @@
   </div>
 </div>
 
-<div class="billingModelContainer">
+<div class="billingModelContainer" *ngIf="singleRecurring">
   <div class="bm-main flex-center-center">
     <div class="transaction-table">
       <div class="row">

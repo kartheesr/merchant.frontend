@@ -33,11 +33,13 @@
                 </div>
                 <div class="ImgCont" *ngIf="array.typeID == 2">
                   <img src="assets/images/recurring.svg" width="15" />
-                  <p [ngClass]="array.typeID == 2 ? 'type2header' : 'type2header'">Recurring</p>
+                  <!-- <p [ngClass]="array.typeID == 2 ? 'type2header' : 'type2header'">Recurring</p> -->
+                  <p>Recurring</p>
                 </div>
                 <div class="ImgCont" *ngIf="array.typeID == 3">
                   <img src="assets/images/single+recurring.svg" width="25" />
-                  <p [ngClass]="array.typeID == 3 ? 'type1header' : 'type2header'">Single + Recurring</p>
+                  <!-- <p [ngClass]="array.typeID == 3 ? 'type1header' : 'type2header'">Single + Recurring</p> -->
+                  <p>Single + Recurring</p>
                 </div>
                 <img src="assets/images/3Dotted.png" class="billingImg1" width="10" (click)="open(content)" />
               </div>
@@ -47,11 +49,11 @@
                     {{ array.title }} <br />
                     <span>{{ array.description }}</span>
                   </p>
-                  <a>{{ array.frequency }} day</a>
+                  <a class="LinkTag">{{ array.frequency }} day</a>
                 </div>
                 <div class="large">
                   <div>
-                    <div class="ImgCont"><img src="assets/images/refresh-b.svg" width="18" /></div>
+                    <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
                     {{ array.currency | CustomeCurrency }}{{ array.amount }}
                   </div>
                 </div>

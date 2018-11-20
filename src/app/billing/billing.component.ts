@@ -28,6 +28,12 @@ export class BillingComponent implements OnInit {
   submitted = false;
   show1: boolean;
   show2: boolean;
+
+  SinglePullValue: number;
+  RecurringPullValue: number;
+  SingleWithRecurringValue: number;
+  RecurringWithTrialValue: number;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -35,12 +41,10 @@ export class BillingComponent implements OnInit {
     private i18nService: I18nService,
     config: NgbModalConfig,
     private modalService: NgbModal,
-    // private authenticationService: AuthenticationService,
     private billingService: BillingService
   ) {
     config.backdrop = 'static';
     config.keyboard = false;
-    //this.createForm();
   }
 
   ngOnInit() {
@@ -48,29 +52,44 @@ export class BillingComponent implements OnInit {
     this.Getpull();
     this.getPullPayment();
   }
-
   open(content) {
     this.modalService.open(content);
   }
   open1(data) {
     this.modalService.open(data);
   }
-  // open2(array) {
-  //   //this.modalService.open(array);
-  //   console.log("data", array.id);
-  //   this.modalService.open(array);
-  // }
+  update(data) {
+    console.log(' Update data', data);
+    localStorage.setItem('editId', data);
+    this.router.navigate(['/billing/step1']);
+  }
+
   Saveclick() {
     console.log('button clicked');
   }
   Getpull() {
     console.log('GetAPI');
+    this.SinglePullValue = 0;
+    this.RecurringPullValue = 0;
+    this.SingleWithRecurringValue = 0;
+    this.RecurringWithTrialValue = 0;
     this.billingService.Getpull().subscribe(result => {
       if (result.success == true) {
         console.log('GETsuccess', result);
         this.show1 = false;
         this.show2 = true;
         this.sample = result.data;
+        for (let val of result.data) {
+          if (val.typeID == 1) {
+            this.SinglePullValue++;
+          } else if (val.typeID == 2) {
+            this.RecurringPullValue++;
+          } else if (val.typeID == 3) {
+            this.SingleWithRecurringValue++;
+          } else {
+            this.RecurringWithTrialValue++;
+          }
+        }
       } else {
         this.show1 = true;
         this.show2 = false;

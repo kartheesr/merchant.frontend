@@ -26,12 +26,10 @@ export class BillingModule {}
 @Component({
   selector: 'ngbd-modal-config',
   templateUrl: './billing.component.html',
-  // add NgbModalConfig and NgbModal to the component providers
   providers: [NgbModalConfig, NgbModal]
 })
 export class NgbdModalConfig {
   constructor(config: NgbModalConfig, private modalService: NgbModal) {
-    // customize default values of modals used by this component tree
     config.backdrop = 'static';
     config.keyboard = false;
   }
@@ -39,9 +37,4 @@ export class NgbdModalConfig {
   open(content) {
     this.modalService.open(content);
   }
-
-  // deletePull(array) {
-  //   this.modalService.open(array);
-  //   console.log("data", array.id);
-  // }
 }

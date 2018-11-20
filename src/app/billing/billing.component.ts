@@ -63,10 +63,9 @@ export class BillingComponent implements OnInit {
     localStorage.setItem('editId', data);
     this.router.navigate(['/billing/step1']);
   }
-
-  Saveclick() {
-    console.log('button clicked');
-  }
+  // Saveclick() {
+  //   console.log('button clicked');
+  // }
   Getpull() {
     console.log('GetAPI');
     this.SinglePullValue = 0;

@@ -27,16 +27,16 @@
             <div class="boxHead">
               <div class="boxHead">
                 <div class="ImgCont" *ngIf="array.typeID == 1">
-                  <img src="assets/images/refresh.svg" width="15" />
+                  <img src="assets/images/single.svg" width="15" />
                   <p [ngClass]="array.typeID == 1 ? 'type1header' : 'type2header'">Single</p>
                 </div>
                 <div class="ImgCont" *ngIf="array.typeID == 2">
-                  <img src="assets/images/refresh.svg" width="15" />
-                  <p [ngClass]="array.typeID == 1 ? 'type1header' : 'type2header'">Recurring</p>
+                  <img src="assets/images/recurring.svg" width="15" />
+                  <p [ngClass]="array.typeID == 2 ? 'type2header' : 'type2header'">Recurring</p>
                 </div>
                 <div class="ImgCont" *ngIf="array.typeID == 3">
-                  <img src="assets/images/refresh.svg" width="15" />
-                  <p [ngClass]="array.typeID == 1 ? 'type1header' : 'type2header'">Single + Recurring</p>
+                  <img src="assets/images/single+recurring.svg" width="25" />
+                  <p [ngClass]="array.typeID == 3 ? 'type1header' : 'type2header'">Single + Recurring</p>
                 </div>
                 <img src="assets/images/3Dotted.png" class="billingImg1" width="10" (click)="open(content)" />
               </div>
@@ -115,6 +115,4 @@
       </div>
     </div>
   </div>
-
-  <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
 </div>

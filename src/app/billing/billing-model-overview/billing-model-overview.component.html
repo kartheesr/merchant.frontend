@@ -26,7 +26,7 @@
                 </div>
               </div>
               <div class="footerText">
-                <p>115,011.88 PMA</p>
+                <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
                 <span>Subscribers {{ subscribers }}</span>
               </div>
             </div>
@@ -73,25 +73,28 @@
 
             <div class="row">
               <div class="col-xs-12 col-sm-3 cols-md-3">
-                <div class="QRCode"><img src="assets/images/QrCode.png" width="150" /></div>
+                <div class="QRCode">
+                  <!-- <img src="assets/images/QrCode.png" width="150" /> -->
+                  <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+                </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent">
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.
-                  </p>
-                </div>
+                <div class="QRContent"><input type="text" value="{{value}}" #userinput /></div>
               </div>
             </div>
 
             <label class="title new_title">PAYMENT BUTTON<span class="information-icon">i</span></label
             ><br />
             <div class="paymentBtn row">
-              <div class="col-md-3 logo3"><img src="assets/images/logo3.png" /></div>
-              <div class="col-md-3 logo3"><img src="assets/images/logo2.png" /></div>
-              <div class="col-md-3 logo3"><img src="assets/images/logo1.png" /></div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo3.png" />
+              </div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo2.png" />
+              </div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo1.png" />
+              </div>
             </div>
           </div>
         </div>
@@ -120,19 +123,19 @@
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  Product<br />
-                  <span>Platinum</span>
+                  {{ title }}<br />
+                  <span>{{ description }}</span>
                 </p>
-                <a href="">1 year</a>
+                <a href="">{{ frequency }} days</a>
               </div>
               <div class="large">
                 <div>
                   <div class="ImgCont"><img src="assets/images/refresh-b.svg" width="18" /></div>
-                  $99.999
+                  {{ currency | CustomeCurrency }}{{ amount }}
                 </div>
               </div>
               <div class="footerText">
-                <p>PMA 309,028.18</p>
+                <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
                 <span>Subscribers {{ subscribers }}</span>
               </div>
             </div>
@@ -162,21 +165,21 @@
                 <tbody>
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
-                    <td class="value-td">10</td>
-                    <td class="value-td">0.00031</td>
-                    <td class="value-td">0.00310</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
                   </tr>
                   <tr>
                     <td class="userId">Transfers from PullPayment Account to Treasury</td>
-                    <td class="value-td">1</td>
-                    <td class="value-td">0.00031</td>
-                    <td class="value-td">0.00031</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
                   </tr>
                   <tr>
                     <td class="userId">Total</td>
-                    <td class="value-td"></td>
-                    <td class="value-td"></td>
-                    <td class="total-td">0.418</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
+                    <td class="total-td">0</td>
                   </tr>
                 </tbody>
               </table>
@@ -190,25 +193,28 @@
 
             <div class="row">
               <div class="col-xs-12 col-sm-3 cols-md-3">
-                <div class="QRCode"><img src="assets/images/QrCode.png" width="150" /></div>
+                <div class="QRCode">
+                  <!-- <img src="assets/images/QrCode.png" width="150" /> -->
+                  <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+                </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent">
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.
-                  </p>
-                </div>
+                <div class="QRContent"><input type="text" value="{{value}}" #userinput /></div>
               </div>
             </div>
 
             <label class="title new_title">PAYMENT BUTTON<span class="information-icon">i</span></label
             ><br />
             <div class="paymentBtn row">
-              <div class="col-md-3 logo3"><img src="assets/images/logo3.png" /></div>
-              <div class="col-md-3 logo3"><img src="assets/images/logo2.png" /></div>
-              <div class="col-md-3 logo3"><img src="assets/images/logo1.png" /></div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo3.png" />
+              </div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo2.png" />
+              </div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo1.png" />
+              </div>
             </div>
           </div>
         </div>
@@ -304,23 +310,25 @@
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  Product<br />
-                  <span>Billing Model</span>
+                  {{ title }}<br />
+                  <span>{{ description }}</span>
                 </p>
-                <a href="">6 months</a>
+                <a href="">{{ frequency }} days</a>
               </div>
               <div class="large">
                 <div>
                   <div class="ImgCont"><img src="assets/images/single+recurring_Group.png" /></div>
-                  $69.99
+                  {{ currency | CustomeCurrency }}{{ amount }}
                 </div>
-                <div>
-                  <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
-                  $29.99
-                </div>
+                <!--
+                  <div>
+                    <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
+                    $29.99
+                  </div>
+                -->
               </div>
               <div class="footerText">
-                <p>115,011.88 PMA</p>
+                <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
                 <span>Subscribers {{ subscribers }}</span>
               </div>
             </div>
@@ -352,24 +360,23 @@
                 <tbody>
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
-                    <td class="value-td">10</td>
-                    <td class="value-td">0.00031<*ngIf="singleRecurring"</td>
-                    <td class="value-td">0.00310<*ngIf="singleRecurring"</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
                   </tr>
 
                   <tr>
-                    <td class="userId">Transfers *ngIf="singleRecurring" PullPayment Account to Treasury</td>
-                    <td class="value-td">1</td>
-                    <td class="value-td">0.00031<*ngIf="singleRecurring"</td>
-                    <td class="value-td">0.00031<*ngIf="singleRecurring"</td>
+                    <td class="userId">Transfers PullPayment Account to Treasury</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Total</td>
-                    *ngIf="singleRecurring"
-                    <td class="value-td"></td>
-                    <td class="value-td"></td>
-                    <td class="total-td">0.418</td>
+                    <td class="value-td">0</td>
+                    <td class="value-td">0</td>
+                    <td class="total-td">0</td>
                   </tr>
                 </tbody>
               </table>
@@ -383,25 +390,28 @@
 
             <div class="row">
               <div class="col-xs-12 col-sm-3 cols-md-3">
-                <div class="QRCode"><img src="assets/images/QrCode.png" width="150" /></div>
+                <div class="QRCode">
+                  <!-- <img src="assets/images/QrCode.png" width="150" /> -->
+                  <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+                </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent">
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.
-                  </p>
-                </div>
+                <div class="QRContent"><input type="text" value="{{value}}" #userinput /></div>
               </div>
             </div>
 
             <label class="title new_title">PAYMENT BUTTON<span class="information-icon">i</span></label
             ><br />
             <div class="paymentBtn row">
-              <div class="col-md-3 logo3"><img src="assets/images/logo3.png" /></div>
-              <div class="col-md-3 logo3"><img src="assets/images/logo2.png" /></div>
-              <div class="col-md-3 logo3"><img src="assets/images/logo1.png" /></div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo3.png" />
+              </div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo2.png" />
+              </div>
+              <div class="col-md-3 logo3" (click)="copyInputMessage(userinput)" value="click to copy">
+                <img src="assets/images/logo1.png" />
+              </div>
             </div>
           </div>
         </div>

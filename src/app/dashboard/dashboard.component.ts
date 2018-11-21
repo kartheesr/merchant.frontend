@@ -58,7 +58,6 @@ export class DashboardComponent implements OnInit {
     });
   }
   txhash() {
-    console.log('this funcion is called');
     // var data = "0xd5bb7fe4284f34f33becb66f166d26f4bf8fcb97d0184c51b9b1d8604510bcba"
     this.dashboardService.redirectToEtherscan().subscribe(result => {
       console.log('this funcion is called 1');

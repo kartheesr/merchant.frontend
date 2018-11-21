@@ -112,15 +112,24 @@
             <div class="billingBox">
               <div class="boxHead">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-2 col-md-2">
-                    <input type="radio" value="Single" name="billing" [(ngModel)]="model.billing" />
-                  </div>
                   <div class="col-xs-12 col-sm-6 col-md-6">
-                    <p>
-                      <b>Single<br /><span>PullPayment</span></b>
-                    </p>
+                    <!-- <input type="radio" value="Single" name="billing" [(ngModel)]="model.billing" /> -->
+                    <label class="container">
+                      <p>
+                        <b>Single<br /><span>PullPayment</span></b>
+                      </p>
+                      <input type="radio" value="Single" name="billing" [(ngModel)]="model.billing" />
+                      <span class="checkmark"></span>
+                    </label>
                   </div>
-                  <div class="col-xs-12 col-sm-4 col-md-4"><img src="assets/images/single.svg" /></div>
+                  <!--
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                      <p>
+                        <b>Single<br /><span>PullPayment</span></b>
+                      </p>
+                    </div>
+                  -->
+                  <div class="col-xs-12 col-sm-6 col-md-6"><img src="assets/images/single.svg" /></div>
                 </div>
               </div>
               <div class="boxCont"><p>Access a one-time payment from your customers.</p></div>
@@ -131,15 +140,24 @@
             <div class="billingBox">
               <div class="boxHead">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-2 col-md-2">
-                    <input type="radio" value="Recurring" name="billing" [(ngModel)]="model.billing" />
-                  </div>
                   <div class="col-xs-12 col-sm-6 col-md-6">
-                    <p>
-                      <b>Recurring<br /><span>PullPayment</span></b>
-                    </p>
+                    <!-- <input type="radio" value="Recurring" name="billing" [(ngModel)]="model.billing" /> -->
+                    <label class="container">
+                      <p>
+                        <b>Recurring<br /><span>PullPayment</span></b>
+                      </p>
+                      <input type="radio" value="Recurring" name="billing" [(ngModel)]="model.billing" />
+                      <span class="checkmark"></span>
+                    </label>
                   </div>
-                  <div class="col-xs-12 col-sm-4 col-md-4"><img src="assets/images/recurring.svg" /></div>
+                  <!--
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                      <p>
+                        <b>Recurring<br /><span>PullPayment</span></b>
+                      </p>
+                    </div>
+                  -->
+                  <div class="col-xs-12 col-sm-6 col-md-6"><img src="assets/images/recurring.svg" /></div>
                 </div>
               </div>
               <div class="boxCont">
@@ -155,14 +173,25 @@
             <div class="billingBox">
               <div class="boxHead">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-2 col-md-2">
-                    <input type="radio" value="Single and Recurring" name="billing" [(ngModel)]="model.billing" />
+                  <div class="col-xs-12 col-sm-8 col-md-8">
+                    <!--
+                      <input type="radio" value="Single and Recurring" name="billing" [(ngModel)]="model.billing" />
+                    -->
+                    <label class="container">
+                      <p>
+                        <b>Single + Recurring<br /><span>PullPayment</span></b>
+                      </p>
+                      <input type="radio" value="Single and Recurring" name="billing" [(ngModel)]="model.billing" />
+                      <span class="checkmark"></span>
+                    </label>
                   </div>
-                  <div class="col-xs-12 col-sm-6 col-md-6">
-                    <p>
-                      <b>Single + Recurring<br /><span>PullPayment</span></b>
-                    </p>
-                  </div>
+                  <!--
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                      <p>
+                        <b>Single + Recurring<br /><span>PullPayment</span></b>
+                      </p>
+                    </div>
+                  -->
                   <div class="col-xs-12 col-sm-4 col-md-4"><img src="assets/images/single+recurring.svg" /></div>
                 </div>
               </div>
@@ -187,35 +216,35 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  
+
   <script type="text/javascript">
     $(document).ready(function () {
       $('.nav-tabs > li a[title]').tooltip();
-      
+
       $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-  
+
           var $target = $(e.target);
-      
+
           if ($target.parent().hasClass('disabled')) {
               return false;
           }
       });
-  
+
       $(".next-step").click(function (e) {
-  
+
           var $active = $('.wizard .nav-tabs li.active');
           $active.next().removeClass('disabled');
           nextTab($active);
-  
+
       });
       $(".prev-step").click(function (e) {
-  
+
           var $active = $('.wizard .nav-tabs li.active');
           prevTab($active);
-  
+
       });
   });
-  
+
   function nextTab(elem) {
       $(elem).next().find('a[data-toggle="tab"]').click();
   }

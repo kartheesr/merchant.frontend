@@ -138,3 +138,9 @@
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
+.table th,
+.table td {
+  padding: 0.9rem !important;
+  vertical-align: top !important;
+  border-top: 1px solid #e3ebf3 !important;
+}

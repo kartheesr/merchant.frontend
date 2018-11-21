@@ -5,7 +5,7 @@
       <div class="pma-box active">
         <div>
           <h3>{{ treasuryCurrency ? treasuryCurrency : 'PMA' }}</h3>
-          <p>{{ treasuryBalance ? treasuryBalance : '0.0' }}</p>
+          <p>{{ treasuryBalance | number: '2.2-2' }}</p>
         </div>
       </div>
     </div>

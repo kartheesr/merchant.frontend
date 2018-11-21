@@ -27,13 +27,16 @@ export class DashboardComponent implements OnInit {
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit() {
-    this.getPullPayment();
+    // this.getPullPayment();
+    this.dashboardService.getTreasuryBalance().subscribe(result => {
+      this.treasuryBalance = result.result * 132.2324;
+      this.gasBalance = result.result;
+    });
   }
   getPullPayment() {
     this.isLoading = true;
 
     this.dashboardService.getPullPayment().subscribe(result => {
-      console.log('response of pullPayment', result);
       this.treasuryBalance = result.data.treasury.balance;
       this.treasuryCurrency = result.data.treasury.currency;
       this.pullPaymentsBalance = result.data.pullPayments.balance;
@@ -59,8 +62,6 @@ export class DashboardComponent implements OnInit {
   }
   txhash() {
     // var data = "0xd5bb7fe4284f34f33becb66f166d26f4bf8fcb97d0184c51b9b1d8604510bcba"
-    this.dashboardService.redirectToEtherscan().subscribe(result => {
-      console.log('this funcion is called 1');
-    });
+    this.dashboardService.redirectToEtherscan().subscribe(result => {});
   }
 }

@@ -27,37 +27,26 @@ export class BillingHybirdStep4Component implements OnInit {
     this.Step1data = this.service1.model;
     this.Step2data = this.service2.model;
     this.Step3data = this.service3.model;
-    console.log('Step1' + JSON.stringify(this.Step1data));
-    console.log('Step2' + JSON.stringify(this.Step2data));
-    console.log('Step3' + JSON.stringify(this.Step3data));
-    console.log('1' + this.Step2data.billingModelName);
-    console.log('2' + this.Step2data.billModelDes);
-    console.log('3' + this.Step3data.Periodprice);
-    console.log('4' + this.Step3data.price);
-    console.log('5' + this.Step3data.PeriodCurrency);
-    console.log('6' + this.Step3data.Recurringdays);
     let data = {
       merchantID: '4a17335e-bf18-11e8-a355-000000fb1459',
       title: this.Step2data.billingModelName,
       description: this.Step2data.billModelDes,
-      amount: parseInt(this.Step3data.Periodprice),
+      amount: parseInt(this.Step3data.price),
       initialPaymentAmount: 0,
       trialPeriod: 0,
-      currency: this.Step3data.PeriodCurrency,
+      currency: this.Step3data.Currency,
       numberOfPayments: parseInt(this.Step3data.Recurringdays),
       typeID: 3,
-      frequency: 604800,
+      frequency: parseInt(this.Step3data.billingdays),
       networkID: 3,
       automatedCashOut: true,
       cashOutFrequency: 1
     };
     this.data = data;
-    console.log(this.data);
   }
   publish() {
     this.service4.billingPost(this.data).subscribe(result => {
       if (result.success == true) {
-        console.log(result);
         //this.router.navigate(['/dashboard']);
       }
     });

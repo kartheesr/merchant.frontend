@@ -11,6 +11,8 @@ export class BillingHybridStep3Component implements OnInit {
   model: any = {};
   public amountCurrency: any;
   public calendarlist: any;
+  public Placeholdername: any;
+  public Priceplaceholdername: any;
   constructor(private router: Router, private service: BillingServiceStep3) {
     this.amountCurrency = [
       {
@@ -55,6 +57,8 @@ export class BillingHybridStep3Component implements OnInit {
     this.model.calendar = this.calendarlist[0].label;
     this.model.PeriodCurrency = this.amountCurrency[0].label;
     this.model.billingcalendar = this.calendarlist[0].label;
+    this.Placeholdername = '$0.00';
+    this.Priceplaceholdername = '$0.00';
   }
 
   ngOnInit() {}
@@ -63,5 +67,18 @@ export class BillingHybridStep3Component implements OnInit {
       this.service.setValues(this.model);
       this.router.navigate(['billing/step4/hybrid']);
     }
+  }
+  handlechangecurrency(data) {
+    alert(data.value);
+    if (data.value == 'USD') this.Placeholdername = '$0.00';
+    else if (data.value == 'EUR') this.Placeholdername = '€0.00';
+    else if (data.value == 'GBP') this.Placeholdername = '£0.00';
+    else if (data.value == 'JPY') this.Placeholdername = '¥0.00';
+  }
+  handlechangeperiodcurrency(data) {
+    if (data.value == 'USD') this.Priceplaceholdername = '$0.00';
+    else if (data.value == 'EUR') this.Priceplaceholdername = '€0.00';
+    else if (data.value == 'GBP') this.Priceplaceholdername = '£0.00';
+    else if (data.value == 'JPY') this.Priceplaceholdername = '¥0.00';
   }
 }

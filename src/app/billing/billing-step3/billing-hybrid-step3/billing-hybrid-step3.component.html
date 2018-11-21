@@ -14,6 +14,7 @@
                   #Currency="ngModel"
                   required
                   [ngClass]="{ 'is-invalid': hybirdForm.submitted && Currency.errors?.required }"
+                  (change)="handlechangecurrency(Currency)"
                 >
                   <option *ngFor="let item of amountCurrency" [ngValue]="item.label">{{ item.label }}</option>
                 </select>
@@ -22,7 +23,7 @@
                 <input
                   class="input"
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                  placeholder="$ 0.00"
+                  placeholder="{{Placeholdername}}"
                   name="price"
                   [(ngModel)]="model.price"
                   #price="ngModel"
@@ -44,7 +45,7 @@
                   placeholder="No."
                   name="days"
                   min="1"
-                  max="31"
+                  maxlength="31"
                   [(ngModel)]="model.days"
                   #days="ngModel"
                   required
@@ -75,6 +76,7 @@
                   #PeriodCurrency="ngModel"
                   required
                   [ngClass]="{ 'is-invalid': hybirdForm.submitted && PeriodCurrency.errors?.required }"
+                  (change)="handlechangeperiodcurrency(PeriodCurrency)"
                 >
                   <option *ngFor="let item of amountCurrency" [ngValue]="item.label">{{ item.label }}</option>
                 </select>
@@ -84,7 +86,7 @@
                   class="input"
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   id="Periodprice"
-                  placeholder="$ 0.00"
+                  placeholder="{{Priceplaceholdername}}"
                   name="Periodprice"
                   [(ngModel)]="model.Periodprice"
                   #Periodprice="ngModel"

@@ -38,24 +38,20 @@ export class BillingRecurringStep4Component implements OnInit {
       trialPeriod: 0,
       currency: this.data3.rupees,
       numberOfPayments: 1,
-      typeID: 1,
+      typeID: 2,
       frequency: 604800,
       networkID: 1,
       automatedCashOut: true,
       cashOutFrequency: 1
     };
-
     this.data = data;
-    console.log('data', data);
   }
   publish() {
     this.service4.billingPost(this.data).subscribe(result => {
       if (result.success == true) {
-        console.log('recurring result', result);
         localStorage.setItem('publishId', result.data.id);
         this.router.navigate(['./billing/billingmodeloverview']);
       }
-      console.log('Api', this.data);
     });
   }
   onPublish() {

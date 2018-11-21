@@ -10,6 +10,7 @@ import { BillingServiceStep3 } from './billing-step3.service';
 export class BillingStep3Component implements OnInit {
   model: any = {};
   public selectOption: any;
+  Placeholdername: string;
   constructor(private router: Router, private service: BillingServiceStep3) {
     this.selectOption = [
       {
@@ -34,6 +35,7 @@ export class BillingStep3Component implements OnInit {
       }
     ];
     this.model.rupees = this.selectOption[0].label;
+    this.Placeholdername = '$0.00';
   }
 
   ngOnInit() {}
@@ -44,5 +46,11 @@ export class BillingStep3Component implements OnInit {
       this.router.navigate(['/billing/step4']);
     }
     return this.model;
+  }
+  handleChangeCurrency(data) {
+    if (data.value == 'USD') this.Placeholdername = '$0.00';
+    else if (data.value == 'EUR') this.Placeholdername = '€0.00';
+    else if (data.value == 'GBP') this.Placeholdername = '£0.00';
+    else if (data.value == 'JPY') this.Placeholdername = '¥0.00';
   }
 }

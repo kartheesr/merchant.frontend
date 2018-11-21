@@ -22,7 +22,7 @@
   .billingBoxCont {
     width: 100%;
     label {
-      font-style: 11px;
+      font-size: 12px;
       color: #333333;
     }
     select {
@@ -147,4 +147,12 @@ input:checked + .slider:before {
   color: #eb3232;
   font-size: 12px;
   text-align: left;
+}
+
+.SingleRecurringClass {
+  margin-bottom: 25px;
+}
+.BillingCycleClass {
+  font-size: 13px;
+  color: #000;
 }

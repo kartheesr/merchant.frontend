@@ -28,26 +28,44 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="qrCodeContainer">
-      <label>EXTERNAL WALLET FUNDING</label>
-      <div class="col">
-        <div class="qrCont">
-          <!-- <img src="assets/images/qr-code.png" /> -->
-          <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+  <!--
+    <div class="row">
+      <div class="qrCodeContainer">
+        <label>EXTERNAL WALLET FUNDING</label>
+        <div class="col">
+          <div class="qrCont">
+            <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+          </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="qrContents">
-          <p>Scan the QR Code to send funds to your Wallet and <br />refill your Transfer Gas tank</p>
-          <div class="qrCodeField">
-            <input type="text" value="{{value}}" #userinput />
-            <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+        <div class="col">
+          <div class="qrContents">
+            <p>Scan the QR Code to send funds to your Wallet and <br />refill your Transfer Gas tank</p>
+            <div class="qrCodeField">
+              <input type="text" value="{{value}}" #userinput />
+              <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+            </div>
           </div>
         </div>
       </div>
     </div>
+  -->
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 cols-md-12"><label>EXTERNAL WALLET FUNDING</label></div>
+    <div class="col-xs-12 col-sm-2 cols-md-2 QRCodeClass">
+      <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
+    </div>
+    <div class="col-xs-12 col-sm-10 cols-md-10">
+      <div class="qrContents">
+        <p>Scan the QR Code to send funds to your Wallet and <br />refill your Transfer Gas tank</p>
+        <div class="qrCodeField">
+          <input type="text" value="{{value}}" #userinput />
+          <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="transaction-table">
     <div class="row">
       <div class="col"><label>TRANSACTION HISTORY</label></div>

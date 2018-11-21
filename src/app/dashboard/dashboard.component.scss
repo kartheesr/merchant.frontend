@@ -67,7 +67,7 @@
     .qrCont {
       margin-top: 10px;
       img {
-        margin-right: 20px;
+        // margin-right: 20px;
         width: 120px;
       }
       .qrContents {
@@ -76,7 +76,7 @@
         position: relative;
         height: 120px;
         p {
-          font-size: 13px;
+          font-size: 12px;
           color: #9b9b9b;
         }
         .qrCodeField {
@@ -118,4 +118,23 @@
   ul.pagination li:last-child {
     padding: 0px;
   }
+}
+
+.qrContents {
+  margin-top: 10px !important;
+}
+
+.qrContents p {
+  font-size: 13px !important;
+  color: #9b9b9b !important;
+}
+.qrCont img {
+  margin: 0px 0px 0px -13px !important;
+}
+.qrCodeField {
+  margin-top: 50px !important;
+}
+.QRCodeClass {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }

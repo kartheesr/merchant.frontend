@@ -10,6 +10,7 @@ import { StepperComponent } from '../stepper/stepper.component';
 })
 export class BillingStep3Component implements OnInit {
   model: any = {};
+  editId;
   public selectOption: any;
   Placeholdername: string;
   constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
@@ -38,8 +39,13 @@ export class BillingStep3Component implements OnInit {
     this.model.rupees = this.selectOption[0].label;
     this.Placeholdername = '$0.00';
   }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.editId = localStorage.getItem('editId');
+    if (this.editId) {
+      console.log('editidstep23', this.editId);
+      this.Updateget();
+    }
+  }
   onSubmit(data) {
     if (data.value) {
       this.stepTrack.onStep4();
@@ -49,10 +55,23 @@ export class BillingStep3Component implements OnInit {
     }
     return this.model;
   }
-
   onBack() {
     this.stepTrack.onBackStep2();
     this.router.navigate(['pullpayments/step2']);
+  }
+  Updateget() {
+    console.log('getupdatestep3');
+    this.service.Updateget(this.editId).subscribe(result => {
+      console.log('getUpdateAPIste 3', this.editId);
+      if (result.success == true) {
+        console.log('safsdf23453');
+        if (this.editId) {
+          console.log('step3', result);
+          this.model.amount = result.data.amount;
+          this.model.rupees = result.data.currency;
+        }
+      }
+    });
   }
   handleChangeCurrency(data) {
     if (data.value == 'USD') this.Placeholdername = '$0.00';

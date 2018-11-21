@@ -49,6 +49,7 @@ export class BillingComponent implements OnInit {
 
   ngOnInit() {
     this.show1 = true;
+    console.log('gihdfg');
     this.Getpull();
     this.getPullPayment();
   }
@@ -61,11 +62,9 @@ export class BillingComponent implements OnInit {
   update(data) {
     console.log(' Update data', data);
     localStorage.setItem('editId', data);
-    this.router.navigate(['/billing/step1']);
+    this.router.navigate(['/pullpayments/step1']);
   }
-  // Saveclick() {
-  //   console.log('button clicked');
-  // }
+
   Getpull() {
     console.log('GetAPI');
     this.SinglePullValue = 0;
@@ -73,20 +72,24 @@ export class BillingComponent implements OnInit {
     this.SingleWithRecurringValue = 0;
     this.RecurringWithTrialValue = 0;
     this.billingService.Getpull().subscribe(result => {
+      console.log('GETAPI 2');
       if (result.success == true) {
-        console.log('GETsuccess', result);
-        this.show1 = false;
-        this.show2 = true;
-        this.sample = result.data;
-        for (let val of result.data) {
-          if (val.typeID == 1) {
-            this.SinglePullValue++;
-          } else if (val.typeID == 2) {
-            this.RecurringPullValue++;
-          } else if (val.typeID == 3) {
-            this.SingleWithRecurringValue++;
-          } else {
-            this.RecurringWithTrialValue++;
+        if (result.data.length != 0) {
+          console.log('GETsuccess', result);
+          console.log('GETsuccess', result.data.length);
+          this.show1 = false;
+          this.show2 = true;
+          this.sample = result.data;
+          for (let val of result.data) {
+            if (val.typeID == 1) {
+              this.SinglePullValue++;
+            } else if (val.typeID == 2) {
+              this.RecurringPullValue++;
+            } else if (val.typeID == 3) {
+              this.SingleWithRecurringValue++;
+            } else {
+              this.RecurringWithTrialValue++;
+            }
           }
         }
       } else {

@@ -6,6 +6,7 @@ import { BillingServiceStep3 } from '../billing-step3/billing-step3.service';
 import { BillingServiceCall } from './billing-step4.service';
 import { Router } from '@angular/router';
 import { StepperComponent } from '../stepper/stepper.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-billing-step4',
@@ -17,6 +18,8 @@ export class BillingStep4Component implements OnInit {
   data2: any = {};
   data3: any = {};
   data: any = {};
+  getputdata: any = {};
+  editId;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -29,7 +32,23 @@ export class BillingStep4Component implements OnInit {
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
     this.data3 = this.service3.model;
-    console.log('Data1====>', this.data1);
+    this.editId = localStorage.getItem('editId');
+    let putdata = {
+      id: this.editId,
+      title: this.data2.billingModelName,
+      description: this.data2.billModelDes,
+      amount: this.data3.amount,
+      initialPaymentAmount: 0,
+      trialPeriod: 0,
+      currency: this.data3.rupees,
+      numberOfPayments: 1,
+      typeID: 1,
+      frequency: 60,
+      networkID: 1,
+      automatedCashOut: true,
+      cashOutFrequency: 1
+    };
+    this.getputdata = putdata;
     let data = {
       merchantID: '4a17335e-bf18-11e8-a355-000000fb1459',
       title: this.data2.billingModelName,
@@ -46,20 +65,36 @@ export class BillingStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
+    if (this.editId) {
+      this.Updateput();
+    } else {
+      this.onPublish();
+    }
   }
 
   publish() {
-    this.service4.billingPost(this.data).subscribe(result => {
-      if (result.success == true) {
-        localStorage.setItem('publishId', result.data.id);
-        this.router.navigate(['./billing/billingmodeloverview']);
-      }
-    });
+    if (this.editId) {
+      this.Updateput();
+    } else {
+      this.service4.billingPost(this.data).subscribe(result => {
+        if (result.success == true) {
+          localStorage.setItem('publishId', result.data.id);
+          this.router.navigate(['./billing/billingmodeloverview']);
+        }
+      });
+    }
   }
 
   onBack() {
     this.stepTrack.onBackStep3();
     this.router.navigate(['pullpayments/single/step3']);
+  }
+  Updateput() {
+    this.service4.Updateput(this.editId, this.getputdata).subscribe(result => {
+      localStorage.removeItem('editId');
+      localStorage.setItem('publishId', result.data.id);
+      this.router.navigate(['./billing/billingmodeloverview']);
+    });
   }
   onPublish() {
     this.publish();

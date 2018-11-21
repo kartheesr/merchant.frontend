@@ -11,6 +11,7 @@ import { StepperComponent } from '../stepper/stepper.component';
 })
 export class BillingStep2Component implements OnInit {
   model: any = {};
+  editId;
   datavalidation: any = {};
   constructor(
     private router: Router,
@@ -21,6 +22,10 @@ export class BillingStep2Component implements OnInit {
   ) {}
   ngOnInit() {
     this.datavalidation = this.billingdata.model;
+    this.editId = localStorage.getItem('editId');
+    if (this.editId) {
+      this.Updateget();
+    }
   }
   onBack() {
     this.stepTrack.onBackStep1();
@@ -32,5 +37,15 @@ export class BillingStep2Component implements OnInit {
     if (this.datavalidation.billing == 'Single') this.router.navigate(['pullpayments/single/step3']);
     else if (this.datavalidation.billing == 'Recurring') this.router.navigate(['pullpayments/recurring/step3']);
     else if (this.datavalidation.billing == 'Single and Recurring') this.router.navigate(['pullpayments/hybrid/step3']);
+  }
+  Updateget() {
+    this.service.Updateget(this.editId).subscribe(result => {
+      if (result.success == true) {
+        if (this.editId) {
+          this.model.billingModelName = result.data.title;
+          this.model.billModelDes = result.data.description;
+        }
+      }
+    });
   }
 }

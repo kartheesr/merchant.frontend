@@ -18,8 +18,8 @@ export class BillingService {
   public userID: string;
   private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
-    'api-request-source': 'portal',
-    Authorization: localStorage.getItem('token')
+    'api-request-source': 'portal'
+    // Authorization: localStorage.getItem('token')
   });
   constructor(private _http: HttpClient) {
     this.actionUrl = `${Constants.apiPrefix}pull-payment-models/`;

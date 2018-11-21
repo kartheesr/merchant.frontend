@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   pullPaymentsCurrency;
   gasBalance;
   gasCurrency;
-  value: string = '0x3ef78A06d3FBA9E9508df0F4f0865Ca9261F992F';
+  value: string = '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a';
   transactionHistorArray;
 
   constructor(private dashboardService: DashboardService) {}

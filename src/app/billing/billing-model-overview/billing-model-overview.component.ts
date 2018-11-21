@@ -27,7 +27,7 @@ export class BillingModelOverviewComponent implements OnInit {
 
     this.service.Getpull().subscribe(result => {
       if (result.success == true) {
-        this.subscribers = result.data.lenght;
+        this.subscribers = result.data.length;
       }
     });
 
@@ -36,10 +36,10 @@ export class BillingModelOverviewComponent implements OnInit {
       localStorage.removeItem('publishId');
 
       if (result.data.typeID == 1) {
-        this.description = result.description;
-        this.title = result.title;
-        this.amount = result.amount;
-        this.currency = result.currency;
+        this.description = result.data.description;
+        this.title = result.data.title;
+        this.amount = result.data.amount;
+        this.currency = result.data.currency;
         this.single = true;
         this.recurring = false;
         this.singleRecurring = false;

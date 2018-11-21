@@ -55,12 +55,9 @@
     #0c51d5 99%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e62fa', endColorstr='#0c51d5',GradientType=0 ); /* IE6-9 */
-
   .info-holder {
-    // position: relative;
-    // top: 50%;
-    // -webkit-transform: translateY(-50%);
-    // -moz-transform: translateY(-50%);
+    // position: relative; // top: 50%;
+    // -webkit-transform: translateY(-50%); // -moz-transform: translateY(-50%);
     // -ms-transform: translateY(-50%);
     // transform: translateY(-50%);
     img {
@@ -79,13 +76,12 @@
     z-index: -1;
   }
 }
-
 .form-holder {
   display: inline-block;
-
   .form-content {
     position: relative;
     text-align: center;
+
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -109,7 +105,6 @@
     }
   }
 }
-
 .flex-center {
   display: flex;
   align-items: center;
@@ -142,11 +137,9 @@
   border-color: #eb3232 !important;
   box-shadow: none;
 }
-
 /* -----------------------------------
   2 - Responsive Styles
-------------------------------------*/
-
+------------------------------------ */
 // Small devices ( phones, 576px)
 @media (max-width: 576px) {
   .form-holder {
@@ -211,7 +204,6 @@
     width: calc(62% - 4px);
   }
 }
-
 @media (min-width: 1400px) and (max-width: 1600px) {
   .login-container {
     min-height: calc(100vh - 50px);
@@ -222,10 +214,10 @@
   .form-holder {
     width: calc(62% - 4px);
   }
-
   .form-holder .form-content .form-items {
     max-width: 380px;
   }
+
   .form-content h3 {
     font-size: 34px;
   }
@@ -234,7 +226,7 @@
     margin-top: 42px;
   }
   .form-content input {
-    font-size: 18px;
+    font-size: 16px;
     height: 40px;
   }
   .form-content .form-button .ibtn {
@@ -246,7 +238,6 @@
     top: 78px;
   }
 }
-
 @media (min-width: 1600px) {
   .login-container {
     min-height: calc(100vh - 50px);
@@ -257,10 +248,10 @@
   .form-holder {
     width: calc(62% - 4px);
   }
-
   .form-holder .form-content .form-items {
     max-width: 540px;
   }
+
   .form-content h3 {
     font-size: 44px;
   }
@@ -277,17 +268,14 @@
     height: 44px;
     width: 135px;
   }
-
   .field-container .errorIcon {
     top: 83px;
   }
 }
-
 @include media-breakpoint-down(md) {
   .info-holder {
     display: none;
   }
-
   .form-holder {
     margin-left: 0;
   }

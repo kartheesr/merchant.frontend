@@ -31,13 +31,13 @@
                   <!-- <p [ngClass]="array.typeID == 1 ? 'type1header' : 'type2header'">Single</p> -->
                   <p>Single</p>
                 </div>
-                <div class="ImgCont" *ngIf="array.typeID == 2">
-                  <img src="assets/images/recurring.svg" width="15" />
+                <div class="ImgCont RecurringClass" *ngIf="array.typeID == 2">
+                  <img src="assets/images/Group.png" />
                   <!-- <p [ngClass]="array.typeID == 2 ? 'type2header' : 'type2header'">Recurring</p> -->
                   <p>Recurring</p>
                 </div>
-                <div class="ImgCont" *ngIf="array.typeID == 3">
-                  <img src="assets/images/single+recurring.svg" width="25" />
+                <div class="ImgCont SingleRecurringClass" *ngIf="array.typeID == 3">
+                  <img src="assets/images/single+recurring.png" />
                   <!-- <p [ngClass]="array.typeID == 3 ? 'type1header' : 'type2header'">Single + Recurring</p> -->
                   <p>Single + Recurring</p>
                 </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="large">
                   <div>
-                    <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
+                    <div class="ImgCont"><img src="assets/images/single+recurring_Group.png" /></div>
                     {{ array.currency | CustomeCurrency }}{{ array.amount }}
                   </div>
                 </div>

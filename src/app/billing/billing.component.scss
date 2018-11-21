@@ -70,7 +70,7 @@
 
             p {
               text-transform: uppercase;
-              float: left;
+              // float: left;
             }
 
             img {
@@ -169,4 +169,11 @@
 
 .headerUnderLine {
   border-bottom: 1px solid #dee2e6;
+}
+
+.RecurringClass p {
+  color: #003aa7 !important;
+}
+.SingleRecurringClass p {
+  color: #2f00a2 !important;
 }

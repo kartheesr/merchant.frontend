@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./billing-hybrid-step3.component.scss']
 })
 export class BillingHybridStep3Component implements OnInit {
-  model: any = {};
+  public model: any;
   public amountCurrency: any;
   public calendarlist: any;
   public Placeholdername: any;
@@ -53,6 +53,21 @@ export class BillingHybridStep3Component implements OnInit {
         value: 2
       }
     ];
+  }
+
+  ngOnInit() {
+    this.model = {
+      Currency: '',
+      price: '',
+      days: '',
+      calendar: '',
+      PeriodCurrency: '',
+      Periodprice: '',
+      billingdays: '',
+      billingcalendar: '',
+      Recurringdays: '',
+      daycount: ''
+    };
     this.model.Currency = this.amountCurrency[0].label;
     this.model.calendar = this.calendarlist[0].label;
     this.model.PeriodCurrency = this.amountCurrency[0].label;
@@ -60,8 +75,6 @@ export class BillingHybridStep3Component implements OnInit {
     this.Placeholdername = '$0.00';
     this.Priceplaceholdername = '$0.00';
   }
-
-  ngOnInit() {}
   onSubmit(data) {
     if (data.value) {
       this.service.setValues(this.model);
@@ -73,12 +86,17 @@ export class BillingHybridStep3Component implements OnInit {
     if (data.value == 'USD') this.Placeholdername = '$0.00';
     else if (data.value == 'EUR') this.Placeholdername = '€0.00';
     else if (data.value == 'GBP') this.Placeholdername = '£0.00';
-    else if (data.value == 'JPY') this.Placeholdername = '¥0.00';
+    else this.Placeholdername = '¥0.00';
   }
   handlechangeperiodcurrency(data) {
     if (data.value == 'USD') this.Priceplaceholdername = '$0.00';
     else if (data.value == 'EUR') this.Priceplaceholdername = '€0.00';
     else if (data.value == 'GBP') this.Priceplaceholdername = '£0.00';
-    else if (data.value == 'JPY') this.Priceplaceholdername = '¥0.00';
+    else this.Priceplaceholdername = '¥0.00';
+  }
+  handlechangecalculate(data) {
+    if (data.value == 'Day') this.model.daycount = this.model.days;
+    else if (data.value == 'Month') this.model.daycount = this.model.days * 30;
+    else this.model.daycount = this.model.days * 365;
   }
 }

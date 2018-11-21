@@ -37,7 +37,7 @@ export class BillingHybirdStep4Component implements OnInit {
       currency: this.Step3data.Currency,
       numberOfPayments: parseInt(this.Step3data.Recurringdays),
       typeID: 3,
-      frequency: parseInt(this.Step3data.billingdays),
+      frequency: parseInt(this.Step3data.calendar == 'Day' ? this.Step3data.days : this.Step3data.daycount),
       networkID: 3,
       automatedCashOut: true,
       cashOutFrequency: 1
@@ -49,7 +49,6 @@ export class BillingHybirdStep4Component implements OnInit {
       if (result.success == true) {
         localStorage.setItem('publishId', result.data.id);
         this.router.navigate(['./billing/billingmodeloverview']);
-        //this.router.navigate(['/dashboard']);
       }
     });
   }

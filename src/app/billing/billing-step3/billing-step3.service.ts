@@ -7,7 +7,6 @@ export class BillingServiceStep3 {
   public model: any;
   setValues(values) {
     this.model = values;
-    console.log('data3', values);
   }
   constructor() {}
 }

@@ -45,7 +45,7 @@
                   placeholder="No."
                   name="days"
                   min="1"
-                  maxlength="31"
+                  max="31"
                   [(ngModel)]="model.days"
                   #days="ngModel"
                   required
@@ -59,6 +59,7 @@
                   #calendar="ngModel"
                   required
                   [ngClass]="{ 'is-invalid': hybirdForm.submitted && calendar.errors?.required }"
+                  (change)="handlechangecalculate(calendar)"
                 >
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
                 </select>

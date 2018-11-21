@@ -47,6 +47,8 @@ export class BillingHybirdStep4Component implements OnInit {
   publish() {
     this.service4.billingPost(this.data).subscribe(result => {
       if (result.success == true) {
+        localStorage.setItem('publishId', result.data.id);
+        this.router.navigate(['./billing/billingmodeloverview']);
         //this.router.navigate(['/dashboard']);
       }
     });

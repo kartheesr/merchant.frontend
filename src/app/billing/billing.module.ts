@@ -23,19 +23,3 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
   providers: [currencyPipe]
 })
 export class BillingModule {}
-
-@Component({
-  selector: 'ngbd-modal-config',
-  templateUrl: './billing.component.html',
-  providers: [NgbModalConfig, NgbModal]
-})
-export class NgbdModalConfig {
-  constructor(config: NgbModalConfig, private modalService: NgbModal) {
-    config.backdrop = 'static';
-    config.keyboard = false;
-  }
-
-  open(content) {
-    this.modalService.open(content);
-  }
-}

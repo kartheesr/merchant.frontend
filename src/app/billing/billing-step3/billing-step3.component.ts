@@ -42,14 +42,12 @@ export class BillingStep3Component implements OnInit {
   ngOnInit() {
     this.editId = localStorage.getItem('editId');
     if (this.editId) {
-      console.log('editidstep23', this.editId);
       this.Updateget();
     }
   }
   onSubmit(data) {
     if (data.value) {
       this.stepTrack.onStep4();
-      console.log('This Model-->', this.model);
       this.service.setValues(this.model);
       this.router.navigate(['pullpayments/single/step4']);
     }
@@ -60,13 +58,9 @@ export class BillingStep3Component implements OnInit {
     this.router.navigate(['pullpayments/step2']);
   }
   Updateget() {
-    console.log('getupdatestep3');
     this.service.Updateget(this.editId).subscribe(result => {
-      console.log('getUpdateAPIste 3', this.editId);
       if (result.success == true) {
-        console.log('safsdf23453');
         if (this.editId) {
-          console.log('step3', result);
           this.model.amount = result.data.amount;
           this.model.rupees = result.data.currency;
         }

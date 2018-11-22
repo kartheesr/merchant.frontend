@@ -10,6 +10,9 @@
       <div class="whoe-wizard">
         <div class="wizard-inner">
           <div class="connecting-line"></div>
+          <div [ngClass]="{ lineHiglight1: step2 }"></div>
+          <div [ngClass]="{ lineHiglight2: step3 }"></div>
+          <div [ngClass]="{ lineHiglight3: step4 }"></div>
           <ul class="nav">
             <li class="active">
               <a

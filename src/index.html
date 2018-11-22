@@ -26,5 +26,12 @@
       <p>This page requires JavaScript to work properly. Please enable JavaScript in your browser.</p>
     </noscript>
     <app-root></app-root>
+
+    <script type="text/javascript">
+      history.pushState(null, null, location.href);
+      window.onpopstate = function() {
+        history.go(1);
+      };
+    </script>
   </body>
 </html>

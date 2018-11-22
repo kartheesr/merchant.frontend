@@ -188,6 +188,39 @@ div.is-invalid {
   z-index: 1;
 }
 
+.lineHiglight1 {
+  height: 2px;
+  background: #1c67f5;
+  position: absolute;
+  width: 23.3%;
+  margin-left: 30px;
+  left: 0;
+  right: 0;
+  top: 55%;
+  z-index: 1;
+}
+.lineHiglight2 {
+  height: 2px;
+  background: #1c67f5;
+  position: absolute;
+  width: 46.6%;
+  margin-left: 30px;
+  left: 0;
+  right: 0;
+  top: 55%;
+  z-index: 1;
+}
+.lineHiglight3 {
+  height: 2px;
+  background: #1c67f5;
+  position: absolute;
+  width: 70%;
+  margin-left: 30px;
+  left: 0;
+  right: 0;
+  top: 55%;
+  z-index: 1;
+}
 .wizard .nav-tabs > li.active > a,
 .wizard .nav-tabs > li.active > a:hover,
 .wizard .nav-tabs > li.active > a:focus {

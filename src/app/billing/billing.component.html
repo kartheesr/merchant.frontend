@@ -41,7 +41,12 @@
                   <!-- <p [ngClass]="array.typeID == 3 ? 'type1header' : 'type2header'">Single + Recurring</p> -->
                   <p>Single + Recurring</p>
                 </div>
-                <img src="assets/images/3Dotted.png" class="billingImg1" width="10" (click)="open(content)" />
+                <img
+                  src="assets/images/3Dotted.png"
+                  class="billingImg1  btn-light"
+                  width="10"
+                  (click)="open(content)"
+                />
               </div>
               <div class="boxCont">
                 <div class="pad-l-20">
@@ -75,7 +80,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body"><p>Hello, World!</p></div>
+                <div class="modal-body"><p>Select an action</p></div>
                 <div class="modal-footer">
                   <button
                     type="button"
@@ -100,7 +105,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body"><p>Are Sure Do you want Delete ?</p></div>
+                <div class="modal-body"><p>Are you sure you want to delete this billing model?</p></div>
                 <div class="modal-footer">
                   <button
                     type="button"

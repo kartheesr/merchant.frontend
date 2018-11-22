@@ -17,6 +17,7 @@ export class BillingStep1Component implements OnInit {
   editId: any = {};
   typeID;
   Typeid1: any = {};
+  newForm;
   @Output() topic = new EventEmitter<string>();
   constructor(
     private router: Router,
@@ -25,8 +26,11 @@ export class BillingStep1Component implements OnInit {
     private step1: StepperComponent
   ) {}
   ngOnInit() {
+    this.newForm = localStorage.getItem('newForm');
     this.editId = localStorage.getItem('editId');
-    if (this.editId) {
+    if (this.newForm) {
+      this.model.billing = '';
+    } else if (this.editId) {
       this.Updateget();
     }
   }

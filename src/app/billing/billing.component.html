@@ -16,7 +16,9 @@
       <div class="row">
         <div class="col">Billing Models</div>
         <div class="col text-right">
-          <button href="" routerLink="/pullpayments/step1"><img src="assets/images/plus.svg" /> NEW</button>
+          <button href="" (click)="new()" routerLink="/pullpayments/step1">
+            <img src="assets/images/plus.svg" /> NEW
+          </button>
         </div>
       </div>
     </div>
@@ -28,17 +30,14 @@
               <div class="boxHead">
                 <div class="ImgCont" *ngIf="array.typeID == 1">
                   <img src="assets/images/Vector.png" />
-                  <!-- <p [ngClass]="array.typeID == 1 ? 'type1header' : 'type2header'">Single</p> -->
                   <p>Single</p>
                 </div>
                 <div class="ImgCont RecurringClass" *ngIf="array.typeID == 2">
                   <img src="assets/images/Group.png" />
-                  <!-- <p [ngClass]="array.typeID == 2 ? 'type2header' : 'type2header'">Recurring</p> -->
                   <p>Recurring</p>
                 </div>
                 <div class="ImgCont SingleRecurringClass" *ngIf="array.typeID == 3">
                   <img src="assets/images/single+recurring.png" />
-                  <!-- <p [ngClass]="array.typeID == 3 ? 'type1header' : 'type2header'">Single + Recurring</p> -->
                   <p>Single + Recurring</p>
                 </div>
                 <img

@@ -11,6 +11,7 @@ import { StepperComponent } from '../stepper/stepper.component';
 export class BillingStep3Component implements OnInit {
   model: any = {};
   editId;
+  newForm;
   public selectOption: any;
   Placeholdername: string;
   constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
@@ -41,7 +42,10 @@ export class BillingStep3Component implements OnInit {
   }
   ngOnInit() {
     this.editId = localStorage.getItem('editId');
-    if (this.editId) {
+    this.newForm = localStorage.getItem('newForm');
+    if (this.newForm) {
+      this.model.billing = '';
+    } else if (this.editId) {
       this.Updateget();
     }
   }

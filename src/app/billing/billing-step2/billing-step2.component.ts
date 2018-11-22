@@ -13,6 +13,7 @@ export class BillingStep2Component implements OnInit {
   model: any = {};
   editId;
   datavalidation: any = {};
+  newForm;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -23,7 +24,10 @@ export class BillingStep2Component implements OnInit {
   ngOnInit() {
     this.datavalidation = this.billingdata.model;
     this.editId = localStorage.getItem('editId');
-    if (this.editId) {
+    this.newForm = localStorage.getItem('newForm');
+    if (this.newForm) {
+      this.model.billing = '';
+    } else if (this.editId) {
       this.Updateget();
     }
   }

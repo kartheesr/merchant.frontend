@@ -11,6 +11,7 @@ import { StepperComponent } from '@app/billing/stepper/stepper.component';
 export class BillingRecurringStep3Component implements OnInit {
   public model;
   editId;
+  newForm;
   public selectOption: any;
   public recurrenceOption = [];
   constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
@@ -69,7 +70,10 @@ export class BillingRecurringStep3Component implements OnInit {
     this.model.Period1 = this.recurrenceOption[0].label;
     this.model.rupees = this.selectOption[0].label;
     this.editId = localStorage.getItem('editId');
-    if (this.editId) {
+    this.newForm = localStorage.getItem('newForm');
+    if (this.newForm) {
+      this.model.billing = '';
+    } else if (this.editId) {
       this.Updateget();
     }
   }

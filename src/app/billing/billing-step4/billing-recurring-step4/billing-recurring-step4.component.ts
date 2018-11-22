@@ -34,6 +34,7 @@ export class BillingRecurringStep4Component implements OnInit {
     this.data2 = this.service2.model;
     this.data3 = this.service3.model;
     this.editId = localStorage.getItem('editId');
+    localStorage.removeItem('newForm');
     let putdata = {
       id: this.editId,
       title: this.data2.billingModelName,

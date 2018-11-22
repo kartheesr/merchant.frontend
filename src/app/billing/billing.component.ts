@@ -28,6 +28,7 @@ export class BillingComponent implements OnInit {
   submitted = false;
   show1: boolean;
   show2: boolean;
+  newForm = 'newForm';
 
   SinglePullValue: number;
   RecurringPullValue: number;
@@ -61,6 +62,7 @@ export class BillingComponent implements OnInit {
   }
   update(data) {
     console.log(' Update data', data);
+    localStorage.removeItem('newForm');
     localStorage.setItem('editId', data);
     this.router.navigate(['/pullpayments/step1']);
   }
@@ -97,6 +99,11 @@ export class BillingComponent implements OnInit {
         this.show2 = false;
       }
     });
+  }
+
+  new() {
+    localStorage.setItem('newForm', this.newForm);
+    localStorage.removeItem('editId');
   }
 
   deletePull(data) {

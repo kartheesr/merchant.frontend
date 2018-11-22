@@ -58,7 +58,7 @@
                   <tbody>
                     <tr>
                       <td class="userId text-left">Single Pull Transaction</td>
-                      <td class="total-td">0.00031</td>
+                      <td class="total-td">{{ data.EtherValue }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -168,21 +168,21 @@
                 <tbody>
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
+                    <td class="value-td">{{ data.Recurrence }}</td>
+                    <td class="value-td">{{ data.EtherValue }}</td>
+                    <td class="value-td">{{ data.TotalCost }}</td>
                   </tr>
                   <tr>
                     <td class="userId">Transfers from PullPayment Account to Treasury</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
+                    <td class="value-td">{{ data.TransRecurrence }}</td>
+                    <td class="value-td">{{ data.EtherValue }}</td>
+                    <td class="value-td">{{ data.TotalcostRecuurence }}</td>
                   </tr>
                   <tr>
                     <td class="userId">Total</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
-                    <td class="total-td">0</td>
+                    <td class="value-td"></td>
+                    <td class="value-td"></td>
+                    <td class="total-td">{{ data.TotalETH }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -385,30 +385,30 @@
                 <tbody>
                   <tr>
                     <td class="userId">Initial Charge</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
+                    <td class="value-td">{{ data.initialRecurrence }}</td>
+                    <td class="value-td">{{ data.initialETH }}</td>
+                    <td class="value-td">{{ data.initialETH }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
+                    <td class="value-td">{{ data.Recurrence }}</td>
+                    <td class="value-td">{{ data.initialETH }}</td>
+                    <td class="value-td">{{ data.RecurrenceETH }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Transfers PullPayment Account to Treasury</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
+                    <td class="value-td">{{ data.PullRecurrence }}</td>
+                    <td class="value-td">{{ data.initialETH }}</td>
+                    <td class="value-td">{{ data.PullRecurrencecost }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Total</td>
-                    <td class="value-td">0</td>
-                    <td class="value-td">0</td>
-                    <td class="total-td">0</td>
+                    <td class="value-td"></td>
+                    <td class="value-td"></td>
+                    <td class="total-td">{{ data.TotalETH }}</td>
                   </tr>
                 </tbody>
               </table>

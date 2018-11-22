@@ -1,13 +1,17 @@
 <div class="billingModelContainer">
   <div class="bm-main flex-center-center">
     <div class="billingBoxCont">
-      <label>GAS FUNDING FOR EACH SUBSCRIBED CUSTOMER</label>
+      <label class="labelalign">GAS FUNDING FOR EACH SUBSCRIBED CUSTOMER</label>
       <div>
-        <label>Frequency</label>
+        <label class="labelalign">Frequency</label>
         <div class="col-xs-12 col-sm-6 col-md-6">
-          <select name="transactions">
-            <option value="At the end of contract">At the end of contract</option>
-            <option value="On every transaction">On every transaction</option>
+          <select
+            name="transactions"
+            [(ngModel)]="model.transactions"
+            #transactions="ngModel"
+            (change)="handleChangetransactions(transactions)"
+          >
+            <option *ngFor="let item of transcationoption" [ngValue]="item.label">{{ item.label }}</option>
           </select>
         </div>
       </div>
@@ -22,30 +26,30 @@
           </tr>
           <tr>
             <td class="row1">Inital Charge</td>
-            <td class="row2">1</td>
-            <td class="row3">0.00031</td>
-            <td class="row4">0.00031</td>
+            <td class="row2">{{ model.initialRecurrence }}</td>
+            <td class="row3">{{ model.initialETH }}</td>
+            <td class="row4">{{ model.initialETH }}</td>
           </tr>
           <tr>
             <td class="row1">Recurring Pull Transaction</td>
-            <td class="row2">10</td>
-            <td class="row3">0.00031</td>
-            <td class="row4">0.00310</td>
+            <td class="row2">{{ model.Recurrence }}</td>
+            <td class="row3">{{ model.initialETH }}</td>
+            <td class="row4">{{ model.RecurrenceETH }}</td>
           </tr>
           <tr>
             <td class="row1">
               Transfers from<br />
               PullPayment Account to Treasury
             </td>
-            <td class="row2">0</td>
-            <td class="row3">0</td>
-            <td class="row4">0</td>
+            <td class="row2">{{ model.PullRecurrence }}</td>
+            <td class="row3">{{ model.initialETH }}</td>
+            <td class="row4">{{ model.PullRecurrencecost }}</td>
           </tr>
           <tr>
             <td class="row1">Total</td>
             <td class="row2"></td>
             <td class="row3"></td>
-            <td class="row4 rowcolor">0</td>
+            <td class="row4 rowcolor">{{ model.TotalETH }}</td>
           </tr>
         </table>
       </div>

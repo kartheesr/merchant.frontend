@@ -3,6 +3,7 @@ import { BillingService } from '../billing.service';
 import { CurrencyPipe } from '@angular/common';
 import { DashboardService } from '@app/dashboard/dashboard.service';
 import { DOCUMENT } from '@angular/common';
+import { BillingServiceCall } from '../billing-step4/billing-step4.service';
 
 @Component({
   selector: 'app-billing-model-overview',
@@ -23,12 +24,14 @@ export class BillingModelOverviewComponent implements OnInit {
   public frequency;
   public pmaAmount;
   public transactionHistorArray;
+  public data;
   value: string = '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a';
 
   constructor(
     public service: BillingService,
     @Inject(DOCUMENT) private document: any,
-    public dashboardService: DashboardService
+    public dashboardService: DashboardService,
+    public overviewdata: BillingServiceCall
   ) {}
   typeID;
 
@@ -52,6 +55,7 @@ export class BillingModelOverviewComponent implements OnInit {
       localStorage.removeItem('publishId');
 
       if (result.data.typeID == 1) {
+        this.data = this.overviewdata.model;
         this.description = result.data.description;
         this.title = result.data.title;
         this.amount = result.data.amount;
@@ -61,6 +65,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.recurring = false;
         this.singleRecurring = false;
       } else if (result.data.typeID == 2) {
+        this.data = this.overviewdata.model;
         this.description = result.data.description;
         this.title = result.data.title;
         this.amount = result.data.amount;
@@ -71,6 +76,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.single = false;
         this.singleRecurring = false;
       } else {
+        this.data = this.overviewdata.model;
         this.description = result.data.description;
         this.title = result.data.title;
         this.amount = result.data.amount;

@@ -6,6 +6,8 @@ import { BillingServiceCall } from '../billing-step4.service';
 import { Router } from '@angular/router';
 import { JsonpCallbackContext } from '@angular/common/http/src/jsonp';
 import { StepperComponent } from '@app/billing/stepper/stepper.component';
+import Web3 from 'web3';
+var web3 = new Web3();
 
 @Component({
   selector: 'app-billing-hybird-step4',
@@ -19,6 +21,8 @@ export class BillingHybirdStep4Component implements OnInit {
   data: any = {};
   getputdata: any = {};
   editId;
+  public model: any = {};
+  public transcationoption: any;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -26,9 +30,34 @@ export class BillingHybirdStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) {}
+  ) {
+    this.transcationoption = [
+      {
+        id: 1,
+        label: 'At the end of contract',
+        value: 0
+      },
+      {
+        id: 2,
+        label: 'On every transaction',
+        value: 1
+      }
+    ];
+  }
 
   ngOnInit() {
+    this.model = {
+      transactions: '',
+      initialRecurrence: 1,
+      initialETH: '',
+      initialcost: '',
+      Recurrence: '',
+      RecurrenceETH: '',
+      PullRecurrence: 1,
+      PullRecurrencecost: '',
+      TotalETH: ''
+    };
+    this.model.transactions = this.transcationoption[0].label;
     this.Step1data = this.service1.model;
     this.Step2data = this.service2.model;
     this.Step3data = this.service3.model;
@@ -65,6 +94,23 @@ export class BillingHybirdStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
+    this.service4.gasvalueCalcualtion().subscribe(result => {
+      let double = result.result * 2;
+      let data = web3.fromWei(double, 'ether');
+      this.model.initialETH = data;
+      this.model.initialcost = this.model.initialETH;
+      let sample = this.model.initialETH * this.Step3data.Recurringdays;
+      this.model.RecurrenceETH = sample.toFixed(20).replace(/0+$/, '');
+      let cost = this.model.PullRecurrence * this.model.initialETH;
+      this.model.PullRecurrencecost = cost.toFixed(20).replace(/0+$/, '');
+      let Total =
+        parseFloat(this.model.RecurrenceETH) +
+        parseFloat(this.model.initialcost) +
+        parseFloat(this.model.PullRecurrencecost);
+      this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+    });
+    this.model.Recurrence = this.Step3data.Recurringdays;
+    this.service4.setValues(this.model);
   }
   publish() {
     if (this.editId) {
@@ -91,5 +137,28 @@ export class BillingHybirdStep4Component implements OnInit {
   }
   onPublish() {
     this.publish();
+  }
+  handleChangetransactions(data) {
+    if (data.value == 'At the end of contract') {
+      this.model.PullRecurrence = 1;
+      let cost = this.model.PullRecurrence * this.model.initialETH;
+      this.model.PullRecurrencecost = cost.toFixed(20).replace(/0+$/, '');
+      let Total =
+        parseFloat(this.model.RecurrenceETH) +
+        parseFloat(this.model.initialcost) +
+        parseFloat(this.model.PullRecurrencecost);
+      this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+      this.service4.setValues(this.model);
+    } else {
+      this.model.PullRecurrence = this.Step3data.Recurringdays;
+      let cost = this.model.PullRecurrence * this.model.initialETH;
+      this.model.PullRecurrencecost = cost.toFixed(20).replace(/0+$/, '');
+      let Total =
+        parseFloat(this.model.RecurrenceETH) +
+        parseFloat(this.model.initialcost) +
+        parseFloat(this.model.PullRecurrencecost);
+      this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+      this.service4.setValues(this.model);
+    }
   }
 }

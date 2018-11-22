@@ -10,6 +10,7 @@ import { User } from '@app/models/User';
   providedIn: 'root'
 })
 export class BillingServiceCall {
+  public model: any;
   public actionUrl: string;
   public step4recuuringactionUrl: string;
   public gasValueURL: string;
@@ -17,6 +18,9 @@ export class BillingServiceCall {
     'Content-Type': 'application/json',
     'api-request-source': 'portal'
   });
+  setValues(values) {
+    this.model = values;
+  }
   constructor(private _http: HttpClient) {
     this.actionUrl = `${Constants.apiPrefix}pull-payment-models/`;
     this.gasValueURL = `https://api.etherscan.io/api?module=proxy&action=eth_gasPrice&apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiO…TQzfQ.3imXDPiYRKPzWi9BQKhaFKeGVr-PtE5dgcjijQHZVHs`;

@@ -1,13 +1,19 @@
 <div class="billingModelContainer">
   <div class="bmr-main flex-center-center">
     <div class="mainContent">
-      <label class="billingBoxCont">GAS FUNDING FOR EACH SUBCRIBED CUSTOMER</label>
-      <div class="row"><label class="subheading">Frequency</label></div>
-      <div class="col-xs-12 col-sm-8 col-md-8">
-        <select name="transactions">
-          <option value="On every transaction">At the end of contract</option>
-          <option value="On every transaction">On every transaction</option>
-        </select>
+      <div class="billingBoxCont">
+        <label calss="labelalign">GAS FUNDING FOR EACH SUBCRIBED CUSTOMER</label><br />
+        <label class="labelalign">Frequency</label>
+        <div class="col-xs-12 col-sm-8 col-md-8">
+          <select
+            name="transactions"
+            [(ngModel)]="model.transactions"
+            #transactions="ngModel"
+            (change)="handleChangetransactions(transactions)"
+          >
+            <option *ngFor="let item of transcationoption" [ngValue]="item.label">{{ item.label }}</option>
+          </select>
+        </div>
       </div>
       <div class="TableData">
         <div class="row">
@@ -18,22 +24,22 @@
         </div>
         <div class="row">
           <div class="Columndata col-md-3">Recurring Pull Transaction</div>
-          <div class="Columndata col-md-3">10</div>
-          <div class="Columndata col-md-3">0.00031</div>
-          <div class="Columndata col-md-3">0.00031</div>
+          <div class="Columndata col-md-3">{{ model.Recurrence }}</div>
+          <div class="Columndata col-md-3">{{ model.EtherValue }}</div>
+          <div class="Columndata col-md-3">{{ model.TotalCost }}</div>
           <!-- <div class="bgSet2 col-md-3">0.00031</div> -->
         </div>
         <div class="row">
           <div class="Columndata col-md-3">Transfers from PullPayment Account to Treasury</div>
-          <div class="Columndata col-md-3">1</div>
-          <div class="Columndata col-md-3">0.00031</div>
-          <div class="Columndata col-md-3">0.00031</div>
+          <div class="Columndata col-md-3">{{ model.TransRecurrence }}</div>
+          <div class="Columndata col-md-3">{{ model.EtherValue }}</div>
+          <div class="Columndata col-md-3">{{ model.TotalcostRecuurence }}</div>
         </div>
         <div class="row">
           <div class="Columndata col-md-3">Total</div>
           <div class="Columndata col-md-3"></div>
           <div class="Columndata col-md-3"></div>
-          <div class="Columndata2 col-md-3">0.00620</div>
+          <div class="Columndata2 col-md-3">{{ model.TotalETH }}</div>
         </div>
       </div>
       <!--

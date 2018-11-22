@@ -7,6 +7,8 @@ import { BillingServiceCall } from './billing-step4.service';
 import { Router } from '@angular/router';
 import { StepperComponent } from '../stepper/stepper.component';
 import { Observable } from 'rxjs';
+import Web3 from 'web3';
+var web3 = new Web3();
 
 @Component({
   selector: 'app-billing-step4',
@@ -20,6 +22,7 @@ export class BillingStep4Component implements OnInit {
   data: any = {};
   getputdata: any = {};
   editId;
+  public model: any = {};
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -29,6 +32,9 @@ export class BillingStep4Component implements OnInit {
     private stepTrack: StepperComponent
   ) {}
   ngOnInit() {
+    this.model = {
+      EtherValue: ''
+    };
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
     this.data3 = this.service3.model;
@@ -65,6 +71,12 @@ export class BillingStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
+    this.service4.gasvalueCalcualtion().subscribe(result => {
+      let cal = result.result * 2;
+      let data = web3.fromWei(cal, 'ether');
+      this.model.EtherValue = data;
+      this.service4.setValues(this.model);
+    });
   }
 
   publish() {

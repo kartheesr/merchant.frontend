@@ -27,16 +27,19 @@ mainContent {
     label {
       font-style: 11px;
       color: #333333;
+      margin-left: 20px;
     }
     select {
-      width: 130px;
+      width: 420px;
       height: 38px;
       border-color: #ccd1d9 solid;
       background-color: #fcfdff;
       font-size: 14px;
       line-height: 21px;
-      border-radius: 3px;
+      border-radius: 1px;
       padding: 0px 20px;
+      border: none;
+      margin-left: 10px;
     }
     input {
       width: 300px;

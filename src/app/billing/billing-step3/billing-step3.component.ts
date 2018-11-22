@@ -51,7 +51,7 @@ export class BillingStep3Component implements OnInit {
       this.stepTrack.onStep4();
       console.log('This Model-->', this.model);
       this.service.setValues(this.model);
-      this.router.navigate(['/pullpayments/single/step4']);
+      this.router.navigate(['pullpayments/single/step4']);
     }
     return this.model;
   }

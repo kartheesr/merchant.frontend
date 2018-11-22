@@ -65,11 +65,6 @@ export class BillingStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
-    if (this.editId) {
-      this.Updateput();
-    } else {
-      this.onPublish();
-    }
   }
 
   publish() {

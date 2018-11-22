@@ -50,7 +50,6 @@ export class BillingComponent implements OnInit {
 
   ngOnInit() {
     this.show1 = true;
-    console.log('gihdfg');
     this.Getpull();
     this.getPullPayment();
   }
@@ -61,24 +60,19 @@ export class BillingComponent implements OnInit {
     this.modalService.open(data);
   }
   update(data) {
-    console.log(' Update data', data);
     localStorage.removeItem('newForm');
     localStorage.setItem('editId', data);
     this.router.navigate(['/pullpayments/step1']);
   }
 
   Getpull() {
-    console.log('GetAPI');
     this.SinglePullValue = 0;
     this.RecurringPullValue = 0;
     this.SingleWithRecurringValue = 0;
     this.RecurringWithTrialValue = 0;
     this.billingService.Getpull().subscribe(result => {
-      console.log('GETAPI 2');
       if (result.success == true) {
         if (result.data.length != 0) {
-          console.log('GETsuccess', result);
-          console.log('GETsuccess', result.data.length);
           this.show1 = false;
           this.show2 = true;
           this.sample = result.data;
@@ -107,11 +101,8 @@ export class BillingComponent implements OnInit {
   }
 
   deletePull(data) {
-    console.log('delete start', data.id);
     this.billingService.Deletepull(data.id).subscribe(result => {
-      console.log('delete2', result);
       if (result.success == true) {
-        console.log('deleteif', result);
         this.Getpull();
       }
     });
@@ -119,7 +110,6 @@ export class BillingComponent implements OnInit {
   getPullPayment() {
     this.isLoading = true;
     this.billingService.getPullPayment().subscribe(result => {
-      console.log('response of pullPayment', result);
       this.pullPaymentsBalance = result.data.pullPayments.balance;
       this.pullPaymentsCurrency = result.data.pullPayment.currency;
     });

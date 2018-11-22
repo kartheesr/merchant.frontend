@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BillingServiceStep3 } from '../billing-step3.service';
 import { Router } from '@angular/router';
+import { StepperComponent } from '@app/billing/stepper/stepper.component';
 
 @Component({
   selector: 'app-billing-hybrid-step3',
@@ -13,7 +14,7 @@ export class BillingHybridStep3Component implements OnInit {
   public calendarlist: any;
   public Placeholdername: any;
   public Priceplaceholdername: any;
-  constructor(private router: Router, private service: BillingServiceStep3) {
+  constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
     this.amountCurrency = [
       {
         id: 1,
@@ -77,9 +78,14 @@ export class BillingHybridStep3Component implements OnInit {
   }
   onSubmit(data) {
     if (data.value) {
+      this.stepTrack.onStep4();
       this.service.setValues(this.model);
-      this.router.navigate(['billing/step4/hybrid']);
+      this.router.navigate(['pullpayments/hybrid/step4']);
     }
+  }
+  onBack() {
+    this.stepTrack.onBackStep2();
+    this.router.navigate(['pullpayments/step2']);
   }
   handlechangecurrency(data) {
     alert(data.value);

@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { BillingHybridStep3Component } from '@app/billing/billing-step3/billing-hybrid-step3/billing-hybrid-step3.component';
 import { BillingModelOverviewComponent } from '@app/billing/billing-model-overview/billing-model-overview.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { StepperComponent } from './stepper/stepper.component';
+
 // import { BillingHybirdStep4Component } from '@app/billing/billing-step4/billing-hybird-step4/billing-hybird-step4.component';
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     BillingStep4Component,
     currencyPipe,
     BillingHybridStep3Component,
-    BillingModelOverviewComponent
+    BillingModelOverviewComponent,
+    StepperComponent
     // BillingHybirdStep4Component
   ],
   imports: [CommonModule, BillingRoutingModule, FormsModule, NgxQRCodeModule],

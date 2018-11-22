@@ -11,19 +11,26 @@ import { BillingHybridStep3Component } from './billing-step3/billing-hybrid-step
 import { BillingModelOverviewComponent } from './billing-model-overview/billing-model-overview.component';
 import { BillingHybirdStep4Component } from './billing-step4/billing-hybird-step4/billing-hybird-step4.component';
 import { BillingRecurringStep4Component } from './billing-step4/billing-recurring-step4/billing-recurring-step4.component';
+import { StepperComponent } from './stepper/stepper.component';
 
 const routes: Routes = [
   Shell.childRoutes([
     { path: '', redirectTo: '/billing', pathMatch: 'full' },
     { path: 'billing', component: BillingComponent },
-    { path: 'billing/step2', component: BillingStep2Component },
-    { path: 'billing/step1', component: BillingStep1Component },
-    { path: 'billing/step3', component: BillingStep3Component },
-    { path: 'billing/step4', component: BillingStep4Component },
-    { path: 'billing/step3/recurring', component: BillingRecurringStep3Component },
-    { path: 'billing/step3/hybrid', component: BillingHybridStep3Component },
-    { path: 'billing/recurring/step4', component: BillingRecurringStep4Component },
-    { path: 'billing/step4/hybrid', component: BillingHybirdStep4Component },
+    {
+      path: 'pullpayments',
+      component: StepperComponent,
+      children: [
+        { path: 'step1', component: BillingStep1Component },
+        { path: 'step2', component: BillingStep2Component },
+        { path: 'single/step3', component: BillingStep3Component },
+        { path: 'single/step4', component: BillingStep4Component },
+        { path: 'recurring/step3', component: BillingRecurringStep3Component },
+        { path: 'recurring/step4', component: BillingRecurringStep4Component },
+        { path: 'hybrid/step3', component: BillingHybridStep3Component },
+        { path: 'hybrid/step4', component: BillingHybirdStep4Component }
+      ]
+    },
     { path: 'billing/billingmodeloverview', component: BillingModelOverviewComponent }
   ])
 ];

@@ -1,5 +1,4 @@
 <div class="billingModelContainer">
-  <div class="bmr-header"><b>Recurring Billing Models</b></div>
   <form #f="ngForm" (ngSubmit)="f.valid && onSubmit(f)">
     <div class="bmr-main flex-center-center">
       <div class="billingBoxCont">
@@ -152,7 +151,8 @@
             <img src="assets/images/Step3-Recurring.png" class="singleimg" />
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
-            <button class="backbtn">Back</button> <button type="submit" class="continuebtn">Continue</button>
+            <button class="backbtn" (click)="onBack()">Back</button>
+            <button type="submit" class="continuebtn">Continue</button>
           </div>
         </div>
       </div>

@@ -5,6 +5,8 @@ import { BillingServiceStep3 } from '../../billing-step3/billing-step3.service';
 import { BillingServiceCall } from '../billing-step4.service';
 import { Router } from '@angular/router';
 import { JsonpCallbackContext } from '@angular/common/http/src/jsonp';
+import { StepperComponent } from '@app/billing/stepper/stepper.component';
+
 @Component({
   selector: 'app-billing-hybird-step4',
   templateUrl: './billing-hybird-step4.component.html',
@@ -20,7 +22,8 @@ export class BillingHybirdStep4Component implements OnInit {
     private service1: BillingServiceStep1,
     private service2: BillingServiceStep2,
     private service3: BillingServiceStep3,
-    private service4: BillingServiceCall
+    private service4: BillingServiceCall,
+    private stepTrack: StepperComponent
   ) {}
 
   ngOnInit() {
@@ -43,6 +46,10 @@ export class BillingHybirdStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
+  }
+  onBack() {
+    this.stepTrack.onBackStep3();
+    this.router.navigate(['pullpayments/single/step3']);
   }
   publish() {
     this.service4.billingPost(this.data).subscribe(result => {

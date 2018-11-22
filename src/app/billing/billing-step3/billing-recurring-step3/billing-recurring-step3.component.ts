@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BillingServiceStep3 } from '../billing-step3.service';
+import { StepperComponent } from '@app/billing/stepper/stepper.component';
+
 @Component({
   selector: 'app-billing-recurring-step3',
   templateUrl: './billing-recurring-step3.component.html',
@@ -10,7 +12,7 @@ export class BillingRecurringStep3Component implements OnInit {
   public model;
   public selectOption: any;
   public recurrenceOption = [];
-  constructor(private router: Router, private service: BillingServiceStep3) {
+  constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
     this.selectOption = [
       {
         id: 1,
@@ -66,11 +68,16 @@ export class BillingRecurringStep3Component implements OnInit {
     this.model.Period1 = this.recurrenceOption[0].label;
     this.model.rupees = this.selectOption[0].label;
   }
+  onBack() {
+    this.stepTrack.onBackStep2();
+    this.router.navigate(['pullpayments/step2']);
+  }
   onSubmit(data) {
     console.log(this.model);
     if (data.value) {
+      this.stepTrack.onStep4();
       this.service.setValues(this.model);
-      this.router.navigate(['billing/recurring/step4']);
+      this.router.navigate(['pullpayments/recurring/step4']);
     }
   }
 }

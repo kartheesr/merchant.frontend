@@ -1,5 +1,4 @@
 <div class="billingModelContainer">
-  <div class="bm-header"><b>Single Billing Models</b></div>
   <form #f="ngForm" (ngSubmit)="f.valid && onSubmit(f)">
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
@@ -39,13 +38,11 @@
               </div>
             </div>
           </div>
-
           <div class="col-xs-12 col-sm-4 col-md-4">
             <img src="assets/images/Single_billing.png" class="singleimg" />
           </div>
-
           <div class="col-xs-12 col-sm-12 col-md-12">
-            <button type="reset" routerLink="/billing/step2" class="backbtn">Back</button>
+            <button type="reset" (click)="onBack()" class="backbtn">Back</button>
             <button type="submit" class="continuebtn">Continue</button>
           </div>
         </div>

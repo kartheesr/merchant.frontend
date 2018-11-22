@@ -1,6 +1,4 @@
 <div class="billingModelContainer">
-  <div class="bm-header"><b>Single + Recurring Billing Models</b></div>
-
   <div class="bm-main flex-center-center">
     <div class="billingBoxCont">
       <label>GAS FUNDING FOR EACH SUBSCRIBED CUSTOMER</label>
@@ -71,7 +69,7 @@
   </div>
 
   <div class="bm-footer">
-    <button type="reset" routerLink="/billing/step3/hybird" class="backbtn">Back</button>
+    <button type="reset" (click)="onBack()" class="backbtn">Back</button>
     <button type="submit" class="continuebtn" (click)="onPublish()">Publish</button>
   </div>
 </div>

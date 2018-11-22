@@ -4,6 +4,7 @@ import { BillingServiceStep1 } from '../../billing-step1/billing-step1.service';
 import { BillingServiceStep2 } from '../../billing-step2/billing-step2.service';
 import { BillingServiceStep3 } from '../../billing-step3/billing-step3.service';
 import { BillingServiceCall } from '../../billing-step4/billing-step4.service';
+import { StepperComponent } from '@app/billing/stepper/stepper.component';
 //import { BillingRecurringStep4Service } from './billing-recurring-step4.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class BillingRecurringStep4Component implements OnInit {
     private service1: BillingServiceStep1,
     private service2: BillingServiceStep2,
     private service3: BillingServiceStep3,
-    private service4: BillingServiceCall
+    private service4: BillingServiceCall,
+    private stepTrack: StepperComponent
   ) {}
 
   ngOnInit() {
@@ -56,5 +58,9 @@ export class BillingRecurringStep4Component implements OnInit {
   }
   onPublish() {
     this.publish();
+  }
+  onBack() {
+    this.stepTrack.onBackStep3();
+    this.router.navigate(['pullpayments/single/step3']);
   }
 }

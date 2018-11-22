@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BillingServiceStep3 } from './billing-step3.service';
+import { StepperComponent } from '../stepper/stepper.component';
 
 @Component({
   selector: 'app-billing-step3',
@@ -11,7 +12,7 @@ export class BillingStep3Component implements OnInit {
   model: any = {};
   public selectOption: any;
   Placeholdername: string;
-  constructor(private router: Router, private service: BillingServiceStep3) {
+  constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
     this.selectOption = [
       {
         id: 1,
@@ -41,11 +42,17 @@ export class BillingStep3Component implements OnInit {
   ngOnInit() {}
   onSubmit(data) {
     if (data.value) {
+      this.stepTrack.onStep4();
       console.log('This Model-->', this.model);
       this.service.setValues(this.model);
-      this.router.navigate(['/billing/step4']);
+      this.router.navigate(['/pullpayments/single/step4']);
     }
     return this.model;
+  }
+
+  onBack() {
+    this.stepTrack.onBackStep2();
+    this.router.navigate(['pullpayments/step2']);
   }
   handleChangeCurrency(data) {
     if (data.value == 'USD') this.Placeholdername = '$0.00';

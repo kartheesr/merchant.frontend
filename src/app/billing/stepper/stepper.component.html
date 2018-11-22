@@ -1,0 +1,33 @@
+<div class="billingModelContainer">
+  <div class="row bm-header">
+    <div class="col-md-4">
+      <div *ngIf="title1"><b>Choose Billing Model</b></div>
+      <div *ngIf="title2">
+        <b>{{ this.data1 }} Billing Model</b>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="whoe-wizard">
+        <div class="wizard-inner">
+          <div class="connecting-line"></div>
+          <ul class="nav">
+            <li class="active">
+              <a><span class="Round-tab">1</span></a>
+            </li>
+            <li [ngClass]="{ active: step2 }">
+              <a><span class="Round-tab">2</span></a>
+            </li>
+            <li [ngClass]="{ active: step3 }">
+              <a><span class=" Round-tab">3</span></a>
+            </li>
+            <li [ngClass]="{ active: step4 }">
+              <a><span class=" Round-tab">4</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

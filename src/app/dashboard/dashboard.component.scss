@@ -147,3 +147,10 @@
   vertical-align: top !important;
   border-top: 1px solid #e3ebf3 !important;
 }
+
+tr .overflow-Address {
+  white-space: nowrap;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

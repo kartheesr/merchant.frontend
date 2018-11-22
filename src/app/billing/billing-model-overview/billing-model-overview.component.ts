@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { BillingService } from '../billing.service';
 import { CurrencyPipe } from '@angular/common';
 import { DashboardService } from '@app/dashboard/dashboard.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-billing-model-overview',
@@ -21,12 +22,18 @@ export class BillingModelOverviewComponent implements OnInit {
   public subscribers;
   public frequency;
   public pmaAmount;
+  public transactionHistorArray;
   value: string = '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a';
 
-  constructor(public service: BillingService, public dashboardService: DashboardService) {}
+  constructor(
+    public service: BillingService,
+    @Inject(DOCUMENT) private document: any,
+    public dashboardService: DashboardService
+  ) {}
   typeID;
 
   ngOnInit() {
+    this.transactionHistory();
     this.id = localStorage.getItem('publishId');
 
     this.service.getPullPayment().subscribe(result => {
@@ -85,5 +92,14 @@ export class BillingModelOverviewComponent implements OnInit {
     inputElement.select();
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);
+  }
+  transactionHistory() {
+    this.dashboardService.getTransactionHistory().subscribe(result => {
+      this.transactionHistorArray = result.data;
+    });
+  }
+  txhash(data) {
+    // var data = '0xd5bb7fe4284f34f33becb66f166d26f4bf8fcb97d0184c51b9b1d8604510bcba';
+    this.document.location.href = `https://etherscan.io/tx/${data}`;
   }
 }

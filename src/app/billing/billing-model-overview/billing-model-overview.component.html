@@ -266,30 +266,42 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>13 Jun</td>
-            <td>(2/6)</td>
-            <td class="txHash" (click)="txhash()">Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
+          <tr *ngFor="let val of transactionHistorArray">
+            <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
+            <td>{{ val.billingModel }}</td>
+            <td>{{ val.statusID }}/6</td>
+            <td (click)="txhash(val.hash)">{{ val.hash }}</td>
+            <td>{{ val.customerAddress }}</td>
+            <td>{{ val.pullPaymentAddress }}</td>
+            <td>{{ val.balance }}</td>
           </tr>
-          <tr>
-            <td>13 Jun</td>
-            <td>(2/6)</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
-          </tr>
-          <tr>
-            <td>13 Jun</td>
-            <td>(2/6)</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
-          </tr>
+
+          <!--
+            <tr>
+              <td>13 Jun</td>
+              <td>(2/6)</td>
+              <td class="txHash" (click)="txhash()">Oxdf4c18485dea496d6...</td>
+              <td>723487</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>230,023.76</td>
+            </tr>
+            <tr>
+              <td>13 Jun</td>
+              <td>(2/6)</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>723487</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>230,023.76</td>
+            </tr>
+            <tr>
+              <td>13 Jun</td>
+              <td>(2/6)</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>723487</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>230,023.76</td>
+            </tr>
+          -->
         </tbody>
       </table>
     </div>
@@ -474,30 +486,42 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>13 Jun</td>
-            <td>(2/6)</td>
-            <td class="txHash" (click)="txhash()">Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
+          <tr *ngFor="let val of transactionHistorArray">
+            <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
+            <td>{{ val.billingModel }}</td>
+            <td>{{ val.statusID }}/6</td>
+            <td (click)="txhash(val.hash)">{{ val.hash }}</td>
+            <td>{{ val.customerAddress }}</td>
+            <td>{{ val.pullPaymentAddress }}</td>
+            <td>{{ val.balance }}</td>
           </tr>
-          <tr>
-            <td>13 Jun</td>
-            <td>(2/6)</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
-          </tr>
-          <tr>
-            <td>13 Jun</td>
-            <td>(2/6)</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td class="txHash">Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
-          </tr>
+
+          <!--
+            <tr>
+              <td>13 Jun</td>
+              <td>(2/6)</td>
+              <td class="txHash" (click)="txhash()">Oxdf4c18485dea496d6...</td>
+              <td>723487</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>230,023.76</td>
+            </tr>
+            <tr>
+              <td>13 Jun</td>
+              <td>(2/6)</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>723487</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>230,023.76</td>
+            </tr>
+            <tr>
+              <td>13 Jun</td>
+              <td>(2/6)</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>723487</td>
+              <td class="txHash">Oxdf4c18485dea496d6...</td>
+              <td>230,023.76</td>
+            </tr>
+          -->
         </tbody>
       </table>
     </div>

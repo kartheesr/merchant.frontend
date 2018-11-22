@@ -5,7 +5,7 @@
       <div class="pma-box active">
         <div>
           <h3>{{ treasuryCurrency ? treasuryCurrency : 'PMA' }}</h3>
-          <p>{{ treasuryBalance }}</p>
+          <p>{{ treasuryBalance ? treasuryBalance : '0.0' }}</p>
         </div>
       </div>
     </div>
@@ -102,44 +102,45 @@
         </tr>
       </thead>
       <tbody>
+        <tr *ngFor="let val of transactionHistorArray">
+          <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
+          <td>{{ val.billingModel }}</td>
+          <td>{{ val.statusID }}/6</td>
+          <td (click)="txhash(val.hash)" class="overflow-Address">{{ val.hash }}</td>
+          <td class="overflow-Address">{{ val.customerAddress }}</td>
+          <td class="overflow-Address">{{ val.pullPaymentAddress }}</td>
+          <td>{{ val.balance }}</td>
+        </tr>
+
         <!--
-          <tr *ngFor= let val of transactionHistorArray >
-            <td>{{val.date}}</td>
-            <td>{{val.billingModel}}</td>
-            <td>{{val.status}}</td>
-            <td (click)="txhash(val.TxHash)">{{val.TxHash}}</td>
-            <td>{{val.customerID}}</td>
-            <td>{{val.pullPaymentsAccountAddress}}</td>
-            <td>{{val.balance}}</td>
+          <tr>
+            <td>13 Jun</td>
+            <td>Gold</td>
+            <td>(2/6)</td>
+            <td (click)="txhash()">Oxdf4c18485dea496d6...</td>
+            <td>723487</td>
+            <td>Oxdf4c18485dea496d6...</td>
+            <td>230,023.76</td>
+          </tr>
+          <tr>
+            <td>13 Jun</td>
+            <td>Gold</td>
+            <td>(2/6)</td>
+            <td>Oxdf4c18485dea496d6...</td>
+            <td>723487</td>
+            <td>Oxdf4c18485dea496d6...</td>
+            <td>230,023.76</td>
+          </tr>
+          <tr>
+            <td>13 Jun</td>
+            <td>Gold</td>
+            <td>(2/6)</td>
+            <td>Oxdf4c18485dea496d6...</td>
+            <td>723487</td>
+            <td>Oxdf4c18485dea496d6...</td>
+            <td>230,023.76</td>
           </tr>
         -->
-        <tr>
-          <td>13 Jun</td>
-          <td>Gold</td>
-          <td>(2/6)</td>
-          <td (click)="txhash()">Oxdf4c18485dea496d6...</td>
-          <td>723487</td>
-          <td>Oxdf4c18485dea496d6...</td>
-          <td>230,023.76</td>
-        </tr>
-        <tr>
-          <td>13 Jun</td>
-          <td>Gold</td>
-          <td>(2/6)</td>
-          <td>Oxdf4c18485dea496d6...</td>
-          <td>723487</td>
-          <td>Oxdf4c18485dea496d6...</td>
-          <td>230,023.76</td>
-        </tr>
-        <tr>
-          <td>13 Jun</td>
-          <td>Gold</td>
-          <td>(2/6)</td>
-          <td>Oxdf4c18485dea496d6...</td>
-          <td>723487</td>
-          <td>Oxdf4c18485dea496d6...</td>
-          <td>230,023.76</td>
-        </tr>
       </tbody>
     </table>
   </div>

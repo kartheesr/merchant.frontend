@@ -16,6 +16,18 @@ export class DashboardService {
   private treasuryAddressUrl;
   private transactionHistoryUrl;
   private treasuryBalUrl;
+  // private invocation = new XMLHttpRequest();
+  // private url = 'https://api.etherscan.io/api?module=account&action=balance&address=0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a&tag=latest&apikey=${
+  //   Constants.API_KEY
+  // }`';
+
+  // function callOtherDomain() {
+  //   if(invocation) {
+  //     invocation.open('GET', url, true);
+  //     invocation.onreadystatechange = handler;
+  //     invocation.send();
+  //   }
+  // }
 
   private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -26,7 +38,7 @@ export class DashboardService {
   constructor(private http: HttpClient) {
     this.actionUrl = `${Constants.apiHost}${Constants.apiPrefix}balance/all/`;
     this.treasuryAddressUrl = `${Constants.apiHost}${Constants.apiPrefix}address/treasury`;
-    this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}`;
+    this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}test/transact`;
     this.treasuryBalUrl = `https://api.etherscan.io/api?module=account&action=balance&address=0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a&tag=latest&apikey=${
       Constants.API_KEY
     }`;

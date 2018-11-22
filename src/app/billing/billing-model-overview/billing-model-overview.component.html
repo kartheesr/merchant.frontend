@@ -268,11 +268,18 @@
         <tbody>
           <tr *ngFor="let val of transactionHistorArray">
             <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
-            <td>{{ val.billingModel }}</td>
+            <!-- <td>{{ val.billingModel }}</td> -->
+            <td>Gold</td>
             <td>{{ val.statusID }}/6</td>
-            <td (click)="txhash(val.hash)">{{ val.hash }}</td>
-            <td>{{ val.customerAddress }}</td>
-            <td>{{ val.pullPaymentAddress }}</td>
+            <td (click)="txhash(val.hash)">
+              <span class="overflow-Address TxHash">{{ val.hash }}</span>
+            </td>
+            <td>
+              <span class="overflow-Address">{{ val.customerAddress }}</span>
+            </td>
+            <td>
+              <span class="overflow-Address">{{ val.pullPaymentAddress }}</span>
+            </td>
             <td>{{ val.balance }}</td>
           </tr>
 
@@ -488,11 +495,18 @@
         <tbody>
           <tr *ngFor="let val of transactionHistorArray">
             <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
-            <td>{{ val.billingModel }}</td>
+            <!-- <td>{{ val.billingModel }}</td> -->
+            <td>Gold</td>
             <td>{{ val.statusID }}/6</td>
-            <td (click)="txhash(val.hash)">{{ val.hash }}</td>
-            <td>{{ val.customerAddress }}</td>
-            <td>{{ val.pullPaymentAddress }}</td>
+            <td (click)="txhash(val.hash)">
+              <span class="overflow-Address TxHash">{{ val.hash }}</span>
+            </td>
+            <td>
+              <span class="overflow-Address">{{ val.customerAddress }}</span>
+            </td>
+            <td>
+              <span class="overflow-Address">{{ val.pullPaymentAddress }}</span>
+            </td>
             <td>{{ val.balance }}</td>
           </tr>
 

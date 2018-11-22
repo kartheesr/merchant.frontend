@@ -148,9 +148,13 @@
   border-top: 1px solid #e3ebf3 !important;
 }
 
-tr .overflow-Address {
+.table .overflow-Address {
   white-space: nowrap;
   width: 150px;
+  display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.TxHash {
+  color: #1c67f5;
 }

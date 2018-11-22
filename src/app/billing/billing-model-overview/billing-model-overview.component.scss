@@ -443,3 +443,14 @@ ul.pagination li:last-child {
 .text-left {
   text-align: left;
 }
+
+.table .overflow-Address {
+  white-space: nowrap;
+  width: 150px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.TxHash {
+  color: #1c67f5;
+}

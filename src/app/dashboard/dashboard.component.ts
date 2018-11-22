@@ -74,6 +74,7 @@ export class DashboardComponent implements OnInit {
     this.pullPaymentsBalance = 0;
     this.dashboardService.getTransactionHistory().subscribe(result => {
       console.log('result of txHist ', result.data);
+      console.log('Chech');
       this.transactionHistorArray = result.data;
       for (let val of result.data) {
         if (this.pmaAddressList.length > 0) {

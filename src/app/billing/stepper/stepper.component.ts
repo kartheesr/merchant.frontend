@@ -16,7 +16,7 @@ export class StepperComponent implements OnInit {
   step2: boolean = false;
   step3: boolean = false;
   step4: boolean = false;
-  constructor(private service1: BillingServiceStep1, private route: ActivatedRoute) {}
+  constructor(private service1: BillingServiceStep1, private route: ActivatedRoute, private router: Router) {}
   onBackStep1() {
     this.step2 = false;
     this.title1 = true;
@@ -46,5 +46,8 @@ export class StepperComponent implements OnInit {
     } else if (this.data1 != '') {
       this.title2 = true;
     }
+  }
+  handleclosebtn() {
+    this.router.navigate(['/billing']);
   }
 }

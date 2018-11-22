@@ -36,7 +36,7 @@ export class BillingStep2Component implements OnInit {
     this.service.setValues(this.model);
     if (this.datavalidation.billing == 'Single') this.router.navigate(['pullpayments/single/step3']);
     else if (this.datavalidation.billing == 'Recurring') this.router.navigate(['pullpayments/recurring/step3']);
-    else if (this.datavalidation.billing == 'Single and Recurring') this.router.navigate(['pullpayments/hybrid/step3']);
+    else if (this.datavalidation.billing == 'Single + Recurring') this.router.navigate(['pullpayments/hybrid/step3']);
   }
   Updateget() {
     this.service.Updateget(this.editId).subscribe(result => {

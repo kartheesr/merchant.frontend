@@ -47,7 +47,7 @@ export class BillingStep1Component implements OnInit {
           this.Typeid1 = result.data.typeID;
           if (this.Typeid1 == 1) this.model.billing = 'Single';
           else if (this.Typeid1 == 2) this.model.billing = 'Recurring';
-          else this.model.billing = 'Single and Recurring';
+          else this.model.billing = 'Single + Recurring';
         }
       }
     });

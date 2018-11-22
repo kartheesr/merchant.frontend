@@ -355,6 +355,18 @@ table {
   color: #fff !important;
   text-transform: lowercase !important;
 }
+.QR-link {
+  font-size: 12px;
+  color: #1c67f5;
+  text-decoration: none;
+  margin-left: 13px;
+  cursor: pointer;
+}
+.OR-CopyCont {
+  font-size: 12px;
+  color: #1c67f5;
+  cursor: pointer;
+}
 .QRContent {
   border: 1px solid #cccccc;
   border-radius: 4.75px;
@@ -372,6 +384,10 @@ table {
 .paymentBtn {
   padding-left: 20px;
   margin-bottom: 10px;
+}
+.Btn-copy {
+  font-size: 12px;
+  color: #1c67f5;
 }
 .transaction-table {
   margin-top: 50px;

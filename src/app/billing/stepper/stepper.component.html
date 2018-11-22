@@ -1,6 +1,6 @@
 <div class="billingModelContainer">
   <div class="row bm-header">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div *ngIf="title1"><b>Choose Billing Model</b></div>
       <div *ngIf="title2">
         <b>{{ titleOfPayment }} Billing Model</b>
@@ -26,6 +26,9 @@
           </ul>
         </div>
       </div>
+    </div>
+    <div class="col-md-1">
+      <div class="close-btn" (click)="handleclosebtn()"><img src="assets/images/Close-Btn.svg" /></div>
     </div>
   </div>
 

@@ -276,6 +276,14 @@ span.round-tab:hover {
   margin-top: 0;
 }
 
+.close-btn {
+  margin-left: 30px;
+  cursor: pointer;
+  img {
+    width: 13px;
+    height: 13px;
+  }
+}
 @media (max-width: 585px) {
   .wizard {
     width: 90%;

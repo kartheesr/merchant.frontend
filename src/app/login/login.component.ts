@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
   submitted = false;
+  errormsg: boolean = false;
+  passworderrormsg: boolean = false;
 
   constructor(
     private router: Router,
@@ -40,6 +42,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.errormsg = false;
+    this.passworderrormsg = false;
     this.isLoading = true;
     this.submitted = true;
     if (this.loginForm.invalid) {
@@ -63,8 +67,11 @@ export class LoginComponent implements OnInit {
           this.route.queryParams.subscribe(params => this.router.navigate(['/dashboard'], { replaceUrl: true }));
         },
         error => {
+          console.log('dataerror', error);
           log.debug(`Login error: ${error}`);
           if (error && error.error['message']) {
+            if (error.error['message'] == 'User does not exists.') this.errormsg = true;
+            else this.passworderrormsg = true;
             this.error = error.error['message'];
           } else {
             console.log(error);
@@ -95,5 +102,10 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
       remember: true
     });
+  }
+
+  falseMsg() {
+    this.passworderrormsg = false;
+    this.errormsg = false;
   }
 }

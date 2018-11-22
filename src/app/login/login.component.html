@@ -22,13 +22,18 @@
                 type="email"
                 formControlName="email"
                 placeholder="Email"
+                (input)="falseMsg()"
                 autofocus
-                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || errormsg }"
               />
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
                 <div *ngIf="f.email.errors.required">Email is required</div>
                 <div *ngIf="f.email.errors.email">Email is not valid</div>
+              </div>
+              <div *ngIf="errormsg" class="invalid-feedback">
+                <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
+                <div *ngIf="errormsg">{{ error }}</div>
               </div>
             </div>
 
@@ -39,12 +44,18 @@
                 type="password"
                 formControlName="password"
                 placeholder="Password"
-                [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                (input)="falseMsg()"
+                [ngClass]="{ 'is-invalid': (submitted && f.password.errors) || passworderrormsg }"
               />
+
               <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
                 <div *ngIf="f.password.errors.required">Password is required</div>
                 <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+              </div>
+              <div *ngIf="passworderrormsg" class="invalid-feedback">
+                <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
+                <div *ngIf="passworderrormsg">{{ error }}</div>
               </div>
             </div>
             <!--

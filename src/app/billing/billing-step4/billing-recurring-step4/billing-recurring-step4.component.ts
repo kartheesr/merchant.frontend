@@ -119,7 +119,7 @@ export class BillingRecurringStep4Component implements OnInit {
 
   onBack() {
     this.stepTrack.onBackStep3();
-    this.router.navigate(['pullpayments/single/step3']);
+    this.router.navigate(['pullpayments/recurring/step3']);
   }
   Updateput() {
     this.service4.Updateput(this.editId, this.getputdata).subscribe(result => {

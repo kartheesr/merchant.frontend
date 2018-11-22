@@ -10,7 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class StepperComponent implements OnInit {
   data1: string = '';
-  title1: boolean = false;
+  titleOfPayment: string = '';
+  title1: boolean = true;
   title2: boolean = false;
   step2: boolean = false;
   step3: boolean = false;
@@ -18,6 +19,8 @@ export class StepperComponent implements OnInit {
   constructor(private service1: BillingServiceStep1, private route: ActivatedRoute) {}
   onBackStep1() {
     this.step2 = false;
+    this.title1 = true;
+    this.title2 = false;
   }
   onBackStep2() {
     this.step3 = false;
@@ -25,7 +28,10 @@ export class StepperComponent implements OnInit {
   onBackStep3() {
     this.step4 = false;
   }
-  onStep2() {
+  onStep2(title: string) {
+    this.title1 = false;
+    this.title2 = true;
+    this.titleOfPayment = title;
     this.step2 = true;
   }
   onStep3() {
@@ -35,9 +41,6 @@ export class StepperComponent implements OnInit {
     this.step4 = true;
   }
   ngOnInit() {
-    console.log('Thisssd--->', this.data1);
-    console.log('Route path-->', this.route);
-    console.log('Route path-->', this.route.url);
     if (this.data1 == '') {
       this.title1 = true;
     } else if (this.data1 != '') {

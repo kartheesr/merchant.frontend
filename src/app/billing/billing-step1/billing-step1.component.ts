@@ -34,7 +34,7 @@ export class BillingStep1Component implements OnInit {
     if (!data.value.billing) {
       this.showerror = true;
     } else {
-      this.step1.onStep2();
+      this.step1.onStep2(this.model.billing);
       this.showerror = false;
       this.service.setValues(this.model);
       this.router.navigate(['/pullpayments/step2']);

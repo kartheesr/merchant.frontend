@@ -46,8 +46,9 @@ export class BillingStep2Component implements OnInit {
     this.service.Updateget(this.editId).subscribe(result => {
       if (result.success == true) {
         if (this.editId) {
-          this.model.billingModelName = result.data.title;
+          this.model.productName = result.data.title;
           this.model.billModelDes = result.data.description;
+          this.model.billingModelName = this.datavalidation.billing;
         }
       }
     });

@@ -29,7 +29,6 @@ export class BillingServiceCall {
     );
   }
   public Updateput(id, putdata): Observable<any> {
-    console.log('API Hit PUT', id);
     return this._http.put(this.actionUrl + id, putdata, { headers: this.headers });
   }
   public gasvalueCalcualtion(): Observable<any> {

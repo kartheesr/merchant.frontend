@@ -28,19 +28,15 @@ export class BillingService {
   }
 
   public Getpull(): Observable<any> {
-    console.log('API Hit GET');
     return this._http.get(this.actionUrl, { headers: this.headers });
   }
   public Deletepull(data): Observable<any> {
-    console.log('API Hit');
     return this._http.delete(this.actionUrl + data, { headers: this.headers });
   }
   public getPullPayment(): Observable<any> {
-    console.log('url', this.actionUrl);
     return this._http.get(this.actionUrl1, { headers: this.headers });
   }
   public getByIdBillingModel(id): Observable<any> {
-    console.log('url', this.billingModelUrl);
     return this._http.get(this.billingModelUrl + id, { headers: this.headers });
   }
 }

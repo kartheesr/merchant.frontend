@@ -15,14 +15,12 @@ export class BillingServiceStep2 {
   });
   setValues(values) {
     this.model = values;
-    console.log('data', values);
   }
 
   constructor(private _http: HttpClient) {
     this.actionUrl = `${Constants.apiPrefix}pull-payment-models/`;
   }
   public Updateget(data): Observable<any> {
-    console.log('API Hit GET', data);
     return this._http.get(this.actionUrl + data, { headers: this.headers });
   }
 }

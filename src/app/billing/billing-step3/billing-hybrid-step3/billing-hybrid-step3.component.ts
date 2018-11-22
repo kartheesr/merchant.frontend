@@ -10,6 +10,7 @@ import { StepperComponent } from '@app/billing/stepper/stepper.component';
 })
 export class BillingHybridStep3Component implements OnInit {
   public model: any;
+  editId;
   public amountCurrency: any;
   public calendarlist: any;
   public Placeholdername: any;
@@ -75,6 +76,10 @@ export class BillingHybridStep3Component implements OnInit {
     this.model.billingcalendar = this.calendarlist[0].label;
     this.Placeholdername = '$0.00';
     this.Priceplaceholdername = '$0.00';
+    this.editId = localStorage.getItem('editId');
+    if (this.editId) {
+      this.Updateget();
+    }
   }
   onSubmit(data) {
     if (data.value) {
@@ -87,8 +92,18 @@ export class BillingHybridStep3Component implements OnInit {
     this.stepTrack.onBackStep2();
     this.router.navigate(['pullpayments/step2']);
   }
+  Updateget() {
+    this.service.Updateget(this.editId).subscribe(result => {
+      if (result.success == true) {
+        if (this.editId) {
+          this.model.price = result.data.amount;
+          this.model.Currency = result.data.currency;
+          this.model.days = result.data.frequency;
+        }
+      }
+    });
+  }
   handlechangecurrency(data) {
-    alert(data.value);
     if (data.value == 'USD') this.Placeholdername = '$0.00';
     else if (data.value == 'EUR') this.Placeholdername = '€0.00';
     else if (data.value == 'GBP') this.Placeholdername = '£0.00';

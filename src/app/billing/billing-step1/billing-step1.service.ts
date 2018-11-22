@@ -22,7 +22,6 @@ export class BillingServiceStep1 {
   }
 
   public Updateget(data): Observable<any> {
-    console.log('API Hit GET', data);
     return this._http.get(this.actionUrl + data, { headers: this.headers });
   }
 }

@@ -3,6 +3,9 @@ import { BillingService } from '../billing.service';
 import { CurrencyPipe } from '@angular/common';
 import { DashboardService } from '@app/dashboard/dashboard.service';
 import { DOCUMENT } from '@angular/common';
+import { BillingServiceStep1 } from '../billing-step1/billing-step1.service';
+import { BillingServiceStep2 } from '../billing-step2/billing-step2.service';
+import { BillingServiceStep3 } from '../billing-step3/billing-step3.service';
 import { BillingServiceCall } from '../billing-step4/billing-step4.service';
 
 @Component({
@@ -25,17 +28,26 @@ export class BillingModelOverviewComponent implements OnInit {
   public pmaAmount;
   public transactionHistorArray;
   public data;
+  public date1;
+  public date2;
+  public date3;
   value: string = '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a';
 
   constructor(
     public service: BillingService,
     @Inject(DOCUMENT) private document: any,
     public dashboardService: DashboardService,
+    private service1: BillingServiceStep1,
+    private service2: BillingServiceStep2,
+    private service3: BillingServiceStep3,
     public overviewdata: BillingServiceCall
   ) {}
   typeID;
 
   ngOnInit() {
+    this.date1 = this.service1.model;
+    this.date2 = this.service2.model;
+    this.date3 = this.service3.model;
     this.transactionHistory();
     this.id = localStorage.getItem('publishId');
 
@@ -56,8 +68,8 @@ export class BillingModelOverviewComponent implements OnInit {
 
       if (result.data.typeID == 1) {
         this.data = this.overviewdata.model;
-        this.description = result.data.description;
-        this.title = result.data.title;
+        this.description = this.date2.billingModelName;
+        this.title = this.date2.productName;
         this.amount = result.data.amount;
         this.currency = result.data.currency;
 
@@ -66,8 +78,8 @@ export class BillingModelOverviewComponent implements OnInit {
         this.singleRecurring = false;
       } else if (result.data.typeID == 2) {
         this.data = this.overviewdata.model;
-        this.description = result.data.description;
-        this.title = result.data.title;
+        this.description = this.date2.billingModelName;
+        this.title = this.date2.productName;
         this.amount = result.data.amount;
         this.currency = result.data.currency;
         this.frequency = result.data.frequency;
@@ -77,8 +89,8 @@ export class BillingModelOverviewComponent implements OnInit {
         this.singleRecurring = false;
       } else {
         this.data = this.overviewdata.model;
-        this.description = result.data.description;
-        this.title = result.data.title;
+        this.description = this.date2.billingModelName;
+        this.title = this.date2.productName;
         this.amount = result.data.amount;
         this.currency = result.data.currency;
         this.frequency = result.data.frequency;

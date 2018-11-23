@@ -7,6 +7,8 @@ import { Logger } from '@app/core';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { DOCUMENT } from '@angular/common';
 import { BillingServiceCall } from '../billing/billing-step4/billing-step4.service';
+import Web3 from 'web3';
+var web3 = new Web3();
 
 const log = new Logger('Login');
 @Component({
@@ -34,11 +36,24 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.transactionHistory();
-    this.BillingServiceCall.gasvalueCalcualtion().subscribe(res => {});
+    this.pullPaymentsBalance = 0;
+    this.dashboardService.getTransactionHistory().subscribe(result => {
+      this.transactionHistorArray = result.data;
+      for (let val of result.data) {
+        if (this.pmaAddressList.length > 0) {
+          if (this.pmaAddressList.indexOf(val.merchantAddress) < 0) {
+            this.pullPaymentsBalance += val.balance;
+          }
+        } else {
+          this.pullPaymentsBalance += val.balance;
+        }
+      }
+    });
+    this.BillingServiceCall.gasvalueCalcualtion().subscribe(res => {
+      this.gasBalance = web3.fromWei(res.result, 'ether');
+    });
     this.dashboardService.getTreasuryBalance().subscribe(result => {
-      this.gasBalance = result.result * 132.2324;
-      this.treasuryBalance = result.result;
+      this.treasuryBalance = web3.fromWei(result.result, 'ether');
     });
   }
   getPullPayment() {
@@ -63,21 +78,7 @@ export class DashboardComponent implements OnInit {
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);
   }
-  transactionHistory() {
-    this.pullPaymentsBalance = 0;
-    this.dashboardService.getTransactionHistory().subscribe(result => {
-      this.transactionHistorArray = result.data;
-      for (let val of result.data) {
-        if (this.pmaAddressList.length > 0) {
-          if (this.pmaAddressList.indexOf(val.merchantAddress) < 0) {
-            this.pullPaymentsBalance += val.balance;
-          }
-        } else {
-          this.pullPaymentsBalance += val.balance;
-        }
-      }
-    });
-  }
+
   txhash(data) {
     this.document.location.href = `https://etherscan.io/tx/${data}`;
   }

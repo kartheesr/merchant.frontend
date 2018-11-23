@@ -20,7 +20,7 @@ export class DashboardService {
   constructor(private http: HttpClient) {
     this.actionUrl = `${Constants.apiHost}${Constants.apiPrefix}balance/all/`;
     this.treasuryAddressUrl = `${Constants.apiHost}${Constants.apiPrefix}address/treasury`;
-    this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}test/transact`;
+    this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}transactionHistory/all`;
     this.treasuryBalUrl = `https://api.etherscan.io/api?module=account&action=balance&address=0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a&tag=latest&apikey=${
       Constants.API_KEY
     }`;
@@ -35,6 +35,6 @@ export class DashboardService {
     return this.http.get(this.transactionHistoryUrl, { headers: this.headers });
   }
   public getTreasuryBalance(): Observable<any> {
-    return this.http.get(this.treasuryBalUrl, { headers: this.headers });
+    return this.http.get(this.treasuryBalUrl);
   }
 }

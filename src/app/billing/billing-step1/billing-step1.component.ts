@@ -18,6 +18,9 @@ export class BillingStep1Component implements OnInit {
   typeID;
   Typeid1: any = {};
   newForm;
+  button1: boolean = false;
+  button2: boolean = false;
+  button3: boolean = false;
   @Output() topic = new EventEmitter<string>();
   constructor(
     private router: Router,
@@ -55,5 +58,20 @@ export class BillingStep1Component implements OnInit {
         }
       }
     });
+  }
+  onChange(value) {
+    if (value == 'Single') {
+      this.button1 = true;
+      this.button2 = false;
+      this.button3 = false;
+    } else if (value == 'Recurring') {
+      this.button1 = false;
+      this.button2 = true;
+      this.button3 = false;
+    } else if (value == 'Single + Recurring') {
+      this.button1 = false;
+      this.button2 = false;
+      this.button3 = true;
+    }
   }
 }

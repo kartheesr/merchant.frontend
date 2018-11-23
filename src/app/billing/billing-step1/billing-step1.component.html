@@ -83,7 +83,7 @@
       <div class="billingBoxCont">
         <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div class="billingBox billingBox-active">
+            <div [ngClass]="{ 'billingBox-active': button1 }" class="billingBox">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6">
@@ -92,7 +92,14 @@
                       <p>
                         <b>Single<br /><span>PullPayment</span></b>
                       </p>
-                      <input type="radio" value="Single" name="billing" [(ngModel)]="model.billing" />
+                      <input
+                        #bmName
+                        type="radio"
+                        value="Single"
+                        name="billing"
+                        [(ngModel)]="model.billing"
+                        (click)="onChange(bmName.value)"
+                      />
                       <span class="checkmark"></span>
                     </label>
                   </div>
@@ -111,7 +118,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div class="billingBox">
+            <div [ngClass]="{ 'billingBox-active': button2 }" class="billingBox">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6">
@@ -120,7 +127,14 @@
                       <p>
                         <b>Recurring<br /><span>PullPayment</span></b>
                       </p>
-                      <input type="radio" value="Recurring" name="billing" [(ngModel)]="model.billing" />
+                      <input
+                        #bmName1
+                        type="radio"
+                        value="Recurring"
+                        name="billing"
+                        [(ngModel)]="model.billing"
+                        (click)="onChange(bmName1.value)"
+                      />
                       <span class="checkmark"></span>
                     </label>
                   </div>
@@ -144,7 +158,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div class="billingBox">
+            <div [ngClass]="{ 'billingBox-active': button3 }" class="billingBox">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-8 col-md-8">
@@ -155,7 +169,14 @@
                       <p>
                         <b>Single+Recurring<br /><span>PullPayment</span></b>
                       </p>
-                      <input type="radio" value="Single + Recurring" name="billing" [(ngModel)]="model.billing" />
+                      <input
+                        #bmName2
+                        type="radio"
+                        value="Single + Recurring"
+                        name="billing"
+                        [(ngModel)]="model.billing"
+                        (click)="onChange(bmName2.value)"
+                      />
                       <span class="checkmark"></span>
                     </label>
                   </div>

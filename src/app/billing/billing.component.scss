@@ -54,6 +54,24 @@
           color: #003aa7;
         }
       }
+      .billingBox.active1 {
+        border-color: #1c67f5;
+        .boxHead {
+          color: #1c67f5;
+        }
+        .LinkTag {
+          color: #003aa7;
+        }
+      }
+      .billingBox.active2 {
+        border-color: #2f00a2;
+        .boxHead {
+          color: #2f00a2;
+        }
+        .LinkTag {
+          color: #003aa7;
+        }
+      }
       .billingBox {
         height: 400px;
         overflow-y: auto;

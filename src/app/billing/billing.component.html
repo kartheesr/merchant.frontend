@@ -55,7 +55,8 @@
                         {{ array.title }} <br />
                         <span>{{ array.description }}</span>
                       </p>
-                      <a class="LinkTag">{{ array.frequency }} day</a>
+                      <a class="LinkTag" *ngIf="array.typeID == 2">{{ array.frequency }} days</a>
+                      <a class="LinkTag" *ngIf="array.typeID == 3">{{ array.frequency }} days</a>
                     </div>
                     <div class="large">
                       <div>

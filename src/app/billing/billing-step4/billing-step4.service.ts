@@ -14,16 +14,16 @@ export class BillingServiceCall {
   public actionUrl: string;
   public step4recuuringactionUrl: string;
   public gasValueURL: string;
-  private headers: HttpHeaders = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'api-request-source': 'portal'
-  });
+  private headers: HttpHeaders = new HttpHeaders();
   setValues(values) {
     this.model = values;
   }
   constructor(private _http: HttpClient) {
     this.actionUrl = `${Constants.apiPrefix}pull-payment-models/`;
     this.gasValueURL = `https://api.etherscan.io/api?module=proxy&action=eth_gasPrice&apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiO…TQzfQ.3imXDPiYRKPzWi9BQKhaFKeGVr-PtE5dgcjijQHZVHs`;
+    this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
+    this.headers.append('Access-Control-Allow-Origin', '*');
+    this.headers.append('Access-Control-Allow-Methods', 'OPTIONS, TRACE, GET, HEAD, POST');
   }
   public billingPost(data): Observable<any> {
     return this._http.post(this.actionUrl, data, { headers: this.headers }).pipe(

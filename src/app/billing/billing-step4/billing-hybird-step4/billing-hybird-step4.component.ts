@@ -126,7 +126,7 @@ export class BillingHybirdStep4Component implements OnInit {
   }
   onBack() {
     this.stepTrack.onBackStep3();
-    this.router.navigate(['pullpayments/single/step3']);
+    this.router.navigate(['pullpayments/hybrid/step3']);
   }
   Updateput() {
     this.service4.Updateput(this.editId, this.getputdata).subscribe(result => {

@@ -22,9 +22,9 @@ export class BillingService {
     // Authorization: localStorage.getItem('token')
   });
   constructor(private _http: HttpClient) {
-    this.actionUrl = `${Constants.apiPrefix}pull-payment-models/`;
-    this.actionUrl1 = `${Constants.apiPrefix}balance/all/`;
-    this.billingModelUrl = `${Constants.apiPrefix}pull-payment-models/`;
+    this.actionUrl = `${Constants.apiHost}${Constants.apiPrefix}pull-payment-models/`;
+    this.actionUrl1 = `${Constants.apiHost}${Constants.apiPrefix}balance/all/`;
+    this.billingModelUrl = `${Constants.apiHost}${Constants.apiPrefix}pull-payment-models/`;
   }
 
   public Getpull(): Observable<any> {

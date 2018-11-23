@@ -23,6 +23,7 @@ export class BillingStep2Component implements OnInit {
   ) {}
   ngOnInit() {
     this.datavalidation = this.billingdata.model;
+    this.model.billingModelName = this.datavalidation.billing;
     this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {

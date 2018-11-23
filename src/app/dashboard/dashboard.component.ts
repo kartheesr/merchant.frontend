@@ -22,12 +22,14 @@ export class DashboardComponent implements OnInit {
   treasuryBalance;
   treasuryCurrency;
   pullPaymentsBalance;
+  sumBal;
   pullPaymentsCurrency;
   gasBalance;
   gasCurrency;
   value: string = '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a';
   transactionHistorArray;
   pmaAddressList;
+  addressList;
 
   constructor(
     private dashboardService: DashboardService,
@@ -37,8 +39,25 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.pullPaymentsBalance = 0;
+    var pullpaymentAddress = [];
     this.dashboardService.getTransactionHistory().subscribe(result => {
       this.transactionHistorArray = result.data;
+      for (let val of result.data) {
+        {
+          pullpaymentAddress.push(val.merchantAddress);
+        }
+
+        // if (pullpaymentAddress.length > 0) {
+        //   if (pullpaymentAddress.indexOf(val.merchantAddress) < 0) {
+        //     pullpaymentAddress.push(val.merchantAddress)
+        //   }
+        // } else {
+        //   pullpaymentAddress.push(val.merchantAddress)
+        // }
+      }
+      this.addressList = pullpaymentAddress.join(',');
+      console.log('data', this.addressList);
+      this.pullpaymentdata(this.addressList);
       for (let val of result.data) {
         if (this.pmaAddressList.length > 0) {
           if (this.pmaAddressList.indexOf(val.merchantAddress) < 0) {
@@ -58,7 +77,6 @@ export class DashboardComponent implements OnInit {
   }
   getPullPayment() {
     this.isLoading = true;
-
     this.dashboardService.getPullPayment().subscribe(result => {
       this.treasuryBalance = result.data.treasury.balance;
       this.treasuryCurrency = result.data.treasury.currency;
@@ -81,5 +99,17 @@ export class DashboardComponent implements OnInit {
 
   txhash(data) {
     this.document.location.href = `https://etherscan.io/tx/${data}`;
+  }
+  pullpaymentdata(data) {
+    this.sumBal = 0;
+    let i = 0;
+    this.dashboardService.getPullpaymentBalance(data).subscribe(result => {
+      for (var val of result.result) {
+        this.sumBal += parseInt(val.balance);
+        this.transactionHistorArray[i].balance = web3.fromWei(val.balance, 'ether');
+        i++;
+      }
+      this.pullPaymentsBalance = web3.fromWei(this.sumBal, 'ether');
+    });
   }
 }

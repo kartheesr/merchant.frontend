@@ -70,7 +70,7 @@ export class BillingRecurringStep4Component implements OnInit {
       currency: this.data3.rupees,
       numberOfPayments: 1,
       typeID: 2,
-      frequency: 604800,
+      frequency: this.data3.No2,
       networkID: 1,
       automatedCashOut: true,
       cashOutFrequency: 1
@@ -86,7 +86,7 @@ export class BillingRecurringStep4Component implements OnInit {
       currency: this.data3.rupees,
       numberOfPayments: 1,
       typeID: 2,
-      frequency: 604800,
+      frequency: this.data3.No2,
       networkID: 1,
       automatedCashOut: true,
       cashOutFrequency: 1

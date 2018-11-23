@@ -87,6 +87,7 @@ export class BillingRecurringStep3Component implements OnInit {
         if (this.editId) {
           this.model.amount = result.data.amount;
           this.model.rupees = result.data.currency;
+          this.model.No2 = result.data.frequency;
         }
       }
     });

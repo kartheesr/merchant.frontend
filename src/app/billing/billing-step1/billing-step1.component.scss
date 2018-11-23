@@ -23,8 +23,8 @@
         height: 200px;
         border: 1px solid #fcfdff;
         //box-shadow: 0px 10px rgba(196, 200, 209, 0.25);
-        .billingBox ::after {
-          border: 1px solid #1c67f5;
+        .billingBox-active {
+          border: 1px solid #1c67f5 !important;
         }
         .boxHead {
           padding: 6px 15px;
@@ -421,4 +421,7 @@ span.Round-tab {
   height: 6px;
   border-radius: 50%;
   background: white;
+}
+.billingBox-active {
+  border: 1px solid #1c67f5 !important;
 }

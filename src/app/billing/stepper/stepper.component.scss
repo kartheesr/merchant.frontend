@@ -390,3 +390,44 @@ span.Round-tab {
 .whoe-wizard li.active span.Round-tab i {
   color: #5bc0de;
 }
+
+/*** Firefox CSS ***/
+
+@-moz-document url-prefix() {
+  .connecting-line {
+    top: 30% !important;
+  }
+  .lineHiglight1 {
+    top: 30% !important;
+  }
+  .lineHiglight2 {
+    top: 30% !important;
+  }
+  .lineHiglight3 {
+    top: 30% !important;
+  }
+}
+
+/*** Firefox CSS ***/
+
+/*** Responsive CSS ***/
+
+@media (min-width: 1920px) {
+  .connecting-line {
+    width: 58% !important;
+  }
+  .lineHiglight1 {
+    width: 22.3% !important;
+  }
+  .lineHiglight2 {
+    width: 40% !important;
+  }
+  .lineHiglight3 {
+    width: 58% !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/*** Responsive CSS ***/

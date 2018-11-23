@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '@app/app.constants';
 import { Observable } from 'rxjs';
-import { HttpGetRequest } from '@app/utils/web/HttpGetRequest';
-import { HttpDeleteRequest } from '@app/utils/web/HttpDeleteRequest';
-import { HttpPutRequest } from '@app/utils/web/HttpPutRequest';
-import { PullPayment } from '@app/models/dashboard';
-import { HttpPostRequest } from '@app/utils/web/HttpPostRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +11,6 @@ export class DashboardService {
   private treasuryAddressUrl;
   private transactionHistoryUrl;
   private treasuryBalUrl;
-  // private invocation = new XMLHttpRequest();
-  // private url = 'https://api.etherscan.io/api?module=account&action=balance&address=0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a&tag=latest&apikey=${
-  //   Constants.API_KEY
-  // }`';
-
-  // function callOtherDomain() {
-  //   if(invocation) {
-  //     invocation.open('GET', url, true);
-  //     invocation.onreadystatechange = handler;
-  //     invocation.send();
-  //   }
-  // }
-
   private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'api-request-source': 'portal',

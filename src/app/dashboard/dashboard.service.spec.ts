@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DashboardService } from '@app/dashboard/dashboard.service';
+import { DashboardService } from '../dashboard/dashboard.service';
 
 describe('DashboardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

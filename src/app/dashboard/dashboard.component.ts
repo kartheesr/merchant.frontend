@@ -34,18 +34,11 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.getPullPayment();
     this.transactionHistory();
-    this.BillingServiceCall.gasvalueCalcualtion().subscribe(res => {
-      console.log('gas value', res);
-      // var r = res.result/(1000000000000000000)
-      console.log('value:', res.result / 1000000000000000000);
-    });
-
+    this.BillingServiceCall.gasvalueCalcualtion().subscribe(res => {});
     this.dashboardService.getTreasuryBalance().subscribe(result => {
       this.gasBalance = result.result * 132.2324;
       this.treasuryBalance = result.result;
-      console.log('treasury balance', this.treasuryBalance);
     });
   }
   getPullPayment() {
@@ -73,13 +66,10 @@ export class DashboardComponent implements OnInit {
   transactionHistory() {
     this.pullPaymentsBalance = 0;
     this.dashboardService.getTransactionHistory().subscribe(result => {
-      console.log('result of txHist ', result.data);
-      console.log('Chech');
       this.transactionHistorArray = result.data;
       for (let val of result.data) {
         if (this.pmaAddressList.length > 0) {
           if (this.pmaAddressList.indexOf(val.merchantAddress) < 0) {
-            // this.pmaAddressList.push(val.clinic);
             this.pullPaymentsBalance += val.balance;
           }
         } else {
@@ -89,7 +79,6 @@ export class DashboardComponent implements OnInit {
     });
   }
   txhash(data) {
-    // var data = '0xd5bb7fe4284f34f33becb66f166d26f4bf8fcb97d0184c51b9b1d8604510bcba';
     this.document.location.href = `https://etherscan.io/tx/${data}`;
   }
 }

@@ -57,11 +57,6 @@
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label">{{
                         option.label
                       }}</option>
-                      <!--
-                        <option value="Days">Days</option>
-                        <option value="Weeks">Month</option>
-                        <option value="Months">Year</option>
-                      -->
                     </select>
                   </div>
                 </div>
@@ -83,13 +78,6 @@
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{ 'is-invalid': f.submitted && NoOfRecuurence2.errors?.required }"
                     />
-                    <!--
-                      <select name="No2" [(ngModel)]="model.No2">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                      </select>
-                    -->
                   </div>
                 </div>
               </div>
@@ -123,24 +111,12 @@
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{ 'is-invalid': f.submitted && NoOfRecuurence3.errors?.required }"
                     />
-                    <!--
-                      <select name="No3" [(ngModel)]="model.No3">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                      </select>
-                    -->
                   </div>
                   <div class="col-xs-12 col-sm-7 col-md-7">
                     <select name="Period2" [(ngModel)]="model.Period2">
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label">{{
                         option.label
                       }}</option>
-                      <!--
-                        <option [value]="Days" [selected]="model.Period2==Days">Days</option>
-                        <option [value]="Weeks">Weeks</option>
-                        <option [value]="Months">Months</option>
-                      -->
                     </select>
                   </div>
                 </div>

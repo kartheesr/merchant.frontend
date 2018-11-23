@@ -129,18 +129,20 @@
             <label>Recurrence</label><br />
             <label>Number of billing cycle</label>
             <div class="row">
-              <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
+              <div class="col-xs-12 col-sm-6 col-md-6 dayinput">
                 <input
                   class="input"
                   type="number"
                   placeholder="No."
                   name="Recurringdays"
-                  min="1"
+                  min="2"
                   [(ngModel)]="model.Recurringdays"
                   #Recurringdays="ngModel"
                   required
-                  [ngClass]="{ 'is-invalid': hybirdForm.submitted && Recurringdays.errors?.required }"
+                  (input)="handlevalidate(Recurringdays)"
+                  [ngClass]="{ 'is-invalid': (hybirdForm.submitted && Recurringdays.errors?.required) || hideerror }"
                 />
+                <div *ngIf="hideerror"><div class="notifyMsg">Recurrence must be larger than or equal to 2</div></div>
               </div>
             </div>
           </div>

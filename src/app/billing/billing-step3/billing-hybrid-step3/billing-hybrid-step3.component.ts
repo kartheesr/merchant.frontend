@@ -16,6 +16,7 @@ export class BillingHybridStep3Component implements OnInit {
   public calendarlist: any;
   public Placeholdername: any;
   public Priceplaceholdername: any;
+  public hideerror: boolean = false;
   constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
     this.amountCurrency = [
       {
@@ -86,7 +87,9 @@ export class BillingHybridStep3Component implements OnInit {
     }
   }
   onSubmit(data) {
-    if (data.value) {
+    if (data.value.Recurringdays == 1) {
+      this.hideerror == true;
+    } else if (data.value) {
       this.stepTrack.onStep4();
       this.service.setValues(this.model);
       this.router.navigate(['pullpayments/hybrid/step4']);
@@ -106,6 +109,10 @@ export class BillingHybridStep3Component implements OnInit {
         }
       }
     });
+  }
+  handlevalidate(data) {
+    if (data.value == 1) this.hideerror = true;
+    else this.hideerror = false;
   }
   handlechangecurrency(data) {
     if (data.value == 'USD') this.Placeholdername = '$0.00';

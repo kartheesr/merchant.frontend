@@ -48,8 +48,8 @@ export class BillingStep2Component implements OnInit {
       if (result.success == true) {
         if (this.editId) {
           this.model.productName = result.data.title;
-          this.model.billModelDes = result.data.description;
           this.model.billingModelName = this.datavalidation.billing;
+          this.model.billModelDes = result.data.description;
         }
       }
     });

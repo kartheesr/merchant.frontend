@@ -53,7 +53,8 @@
                     <div class="pad-l-20">
                       <p>
                         {{ array.title }} <br />
-                        <span>{{ array.description }}</span>
+                        <span *ngIf="array.typeID == 1">Single</span> <span *ngIf="array.typeID == 2">Recurring</span>
+                        <span *ngIf="array.typeID == 3">Single + Recurring</span>
                       </p>
                       <a class="LinkTag" *ngIf="array.typeID == 2">{{ array.frequency }} days</a>
                       <a class="LinkTag" *ngIf="array.typeID == 3">{{ array.frequency }} days</a>

@@ -62,7 +62,7 @@ export class BillingRecurringStep4Component implements OnInit {
     localStorage.removeItem('newForm');
     let putdata = {
       id: this.editId,
-      title: this.data2.billingModelName,
+      title: this.data2.productName,
       description: this.data2.billModelDes,
       amount: this.data3.amount,
       initialPaymentAmount: 0,
@@ -78,7 +78,7 @@ export class BillingRecurringStep4Component implements OnInit {
     this.getputdata = putdata;
     let data = {
       merchantID: '4a17335e-bf18-11e8-a355-000000fb1459',
-      title: this.data2.billingModelName,
+      title: this.data2.productName,
       description: this.data2.billModelDes,
       amount: this.data3.amount,
       initialPaymentAmount: 0,

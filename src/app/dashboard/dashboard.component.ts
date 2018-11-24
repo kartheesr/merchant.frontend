@@ -46,17 +46,8 @@ export class DashboardComponent implements OnInit {
         {
           pullpaymentAddress.push(val.merchantAddress);
         }
-
-        // if (pullpaymentAddress.length > 0) {
-        //   if (pullpaymentAddress.indexOf(val.merchantAddress) < 0) {
-        //     pullpaymentAddress.push(val.merchantAddress)
-        //   }
-        // } else {
-        //   pullpaymentAddress.push(val.merchantAddress)
-        // }
       }
       this.addressList = pullpaymentAddress.join(',');
-      console.log('data', this.addressList);
       this.pullpaymentdata(this.addressList);
       for (let val of result.data) {
         if (this.pmaAddressList.length > 0) {

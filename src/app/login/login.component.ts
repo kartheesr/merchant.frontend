@@ -67,11 +67,14 @@ export class LoginComponent implements OnInit {
           this.route.queryParams.subscribe(params => this.router.navigate(['/dashboard'], { replaceUrl: true }));
         },
         error => {
-          console.log('dataerror', error);
           log.debug(`Login error: ${error}`);
           if (error && error.error['message']) {
-            if (error.error['message'] == 'User does not exists.') this.errormsg = true;
-            else this.passworderrormsg = true;
+            if (error.error['message'] == 'User does not exists.') {
+              this.errormsg = true;
+            }
+            if (error.error['message'] == 'Password is incorrect.') {
+              this.passworderrormsg = true;
+            }
             this.error = error.error['message'];
           } else {
             console.log(error);

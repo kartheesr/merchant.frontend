@@ -89,7 +89,8 @@ export class DashboardComponent implements OnInit {
   }
 
   txhash(data) {
-    this.document.location.href = `https://etherscan.io/tx/${data}`;
+    //this.document.location.href = `https://etherscan.io/tx/${data}`;
+    window.open('https://etherscan.io/tx/${data}', '_blank');
   }
   pullpaymentdata(data) {
     this.sumBal = 0;

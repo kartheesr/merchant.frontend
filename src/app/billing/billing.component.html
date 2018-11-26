@@ -24,7 +24,7 @@
     </div>
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
-        <div *ngFor="let array of sample" class="col-xs-12 col-sm-3 col-md-4 single-class" (click)="onClick(array.id)">
+        <div *ngFor="let array of sample" class="col-xs-12 col-sm-3 col-md-4 single-class">
           <div [ngClass]="{ 'billingBox active': array.typeID == 1 }">
             <div [ngClass]="{ 'billingBox active1': array.typeID == 2 }">
               <div [ngClass]="{ 'billingBox active2': array.typeID == 3 }">
@@ -49,7 +49,7 @@
                       (click)="open(content)"
                     />
                   </div>
-                  <div class="boxCont">
+                  <div class="boxCont" (click)="onClick(array.id)">
                     <div class="pad-l-20">
                       <p>
                         {{ array.title }} <br />
@@ -79,7 +79,13 @@
                 <ng-template #content let-c="close" let-d="dismiss">
                   <div class="modelpop">
                     <div class="modal-header">
-                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <button
+                        type="button"
+                        class="close"
+                        aria-label="Close"
+                        (click)="d('Cross click')"
+                        routerLink="/billing"
+                      >
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -109,7 +115,13 @@
                 <ng-template #delete let-c="close" let-d="dismiss">
                   <div class="modelpop">
                     <div class="modal-header">
-                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <button
+                        type="button"
+                        class="close"
+                        aria-label="Close"
+                        (click)="d('Cross click')"
+                        routerLink="/billing"
+                      >
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>

@@ -24,12 +24,16 @@
                 placeholder="Email"
                 (input)="falseMsg()"
                 autofocus
-                [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || errormsg }"
+                [ngClass]="{ 'invalid\': ': (submitted && f.email.errors) || errormsg }"
               />
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
-                <div *ngIf="f.email.errors.required">Email is required</div>
-                <div *ngIf="f.email.errors.email">Email is not valid</div>
+                <div *ngIf="f.email.errors.required">
+                  No existing user under this email address. Please set up your login details in your database.
+                </div>
+                <div *ngIf="f.email.errors.email">
+                  No existing user under this email address. Please set up your login details in your database.
+                </div>
               </div>
               <div *ngIf="errormsg" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
@@ -45,13 +49,17 @@
                 formControlName="password"
                 placeholder="Password"
                 (input)="falseMsg()"
-                [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || passworderrormsg }"
+                [ngClass]="{ 'invalid\': ': (submitted && f.email.errors) || passworderrormsg }"
               />
 
               <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
-                <div *ngIf="f.password.errors.required">Password is required</div>
-                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                <div *ngIf="f.password.errors.required">
+                  Your Password is invalid. Please check it in your database.
+                </div>
+                <div *ngIf="f.password.errors.minlength">
+                  Your Password is invalid. Please check it in your database.
+                </div>
               </div>
               <div *ngIf="passworderrormsg" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>

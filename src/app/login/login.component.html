@@ -48,7 +48,7 @@
                 formControlName="password"
                 placeholder="Password"
                 (input)="falseMsg()"
-                [ngClass]="{ 'nvalid\':  ': (submitted && f.password.errors) || passworderrormsg }"
+                [ngClass]="{ 'invalid\': ': (submitted && f.password.errors) || passworderrormsg }"
                 required
               />
 

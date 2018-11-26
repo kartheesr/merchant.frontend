@@ -114,4 +114,9 @@ export class BillingComponent implements OnInit {
       this.pullPaymentsCurrency = result.data.pullPayment.currency;
     });
   }
+
+  onClick(data) {
+    console.log('Onclick function-->', data);
+    this.router.navigate(['./billing/billingmodeloverview'], { queryParams: { pullPayId: data } });
+  }
 }

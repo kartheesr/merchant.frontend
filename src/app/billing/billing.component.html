@@ -24,7 +24,7 @@
     </div>
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
-        <div *ngFor="let array of sample" class="col-xs-12 col-sm-3 col-md-4 single-class">
+        <div *ngFor="let array of sample" class="col-xs-12 col-sm-3 col-md-4 single-class" (click)="onClick(array.id)">
           <div [ngClass]="{ 'billingBox active': array.typeID == 1 }">
             <div [ngClass]="{ 'billingBox active1': array.typeID == 2 }">
               <div [ngClass]="{ 'billingBox active2': array.typeID == 3 }">

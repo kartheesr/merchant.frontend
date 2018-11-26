@@ -19,20 +19,23 @@
                   }}</option>
                 </select>
               </div>
-              <div class="col-xs-12 col-sm-7 col-md-7 amountinput">
+              <div class="col-xs-12 col-sm-6 col-md-6 amountinput">
                 <input
                   class="input"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   id="amount"
                   placeholder="$ 0.00"
                   name="amount"
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'is-invalid': f.submitted && amountentry.errors?.required }"
+                  [ngClass]="{ 'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [gt]="0"
                 />
                 <div *ngIf="f.submitted">
                   <div class="notifyMsg" [hidden]="!amountentry.errors?.required">Amount is required!</div>
                 </div>
+                <div class="notifyMsg" *ngIf="amountentry.errors?.gt">Needs to be more than 0</div>
               </div>
             </div>
             <div class="row ">
@@ -49,15 +52,23 @@
                       [(ngModel)]="model.No1"
                       required
                       #NoOfRecuurence1="ngModel"
-                      [ngClass]="{ 'is-invalid': f.submitted && NoOfRecuurence1.errors?.required }"
+                      [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                      }"
+                      [min]="1"
                     />
                   </div>
-                  <div class="col-xs-12 col-sm-7 col-md-7">
-                    <select name="Period1" [(ngModel)]="model.Period1">
+                  <div class="col-xs-12 col-sm-6 col-md-6 dayselect">
+                    <select
+                      name="Period1"
+                      [(ngModel)]="model.Period1"
+                      [ngClass]="{ 'is-invalid': NoOfRecuurence1.errors?.min }"
+                    >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label">{{
                         option.label
                       }}</option>
                     </select>
+                    <div class="notifyMsg" *ngIf="NoOfRecuurence1.errors?.min">Needs to last at least 1 day</div>
                   </div>
                 </div>
               </div>
@@ -76,8 +87,12 @@
                       [(ngModel)]="model.No2"
                       required
                       #NoOfRecuurence2="ngModel"
-                      [ngClass]="{ 'is-invalid': f.submitted && NoOfRecuurence2.errors?.required }"
+                      [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                      }"
+                      [min]="1"
                     />
+                    <div class="notifyMsg" *ngIf="NoOfRecuurence2.errors?.min">Need to be more than 0</div>
                   </div>
                 </div>
               </div>
@@ -89,14 +104,14 @@
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
                     <label class="switch">
-                      <input type="checkbox" name="Toggle" [(ngModel)]="model.Toggle" />
+                      <input type="checkbox" name="Toggle" [(ngModel)]="model.Toggle" #Toggle="ngModel" />
                       <span class="slider round"></span>
                     </label>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row ">
+            <div class="row " *ngIf="model.Toggle">
               <div class="col-xs-12 col-sm-12 col-md-12">
                 <label>Start recurring billing after</label>
                 <div class="row SingleRecurringClass">
@@ -109,15 +124,23 @@
                       [(ngModel)]="model.No3"
                       required
                       #NoOfRecuurence3="ngModel"
-                      [ngClass]="{ 'is-invalid': f.submitted && NoOfRecuurence3.errors?.required }"
+                      [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                      }"
+                      [min]="1"
                     />
                   </div>
-                  <div class="col-xs-12 col-sm-7 col-md-7">
-                    <select name="Period2" [(ngModel)]="model.Period2">
+                  <div class="col-xs-12 col-sm-6 col-md-6 dayselect">
+                    <select
+                      name="Period2"
+                      [(ngModel)]="model.Period2"
+                      [ngClass]="{ 'is-invalid': NoOfRecuurence3.errors?.min }"
+                    >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label">{{
                         option.label
                       }}</option>
                     </select>
+                    <div class="notifyMsg" *ngIf="NoOfRecuurence3.errors?.min">Needs to last at least 1 day</div>
                   </div>
                 </div>
               </div>
@@ -128,7 +151,7 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
             <button class="backbtn" (click)="onBack()">Back</button>
-            <button type="submit" class="continuebtn">Continue</button>
+            <button type="submit" [disabled]="!f.valid" class="continuebtn">Continue</button>
           </div>
         </div>
       </div>

@@ -90,6 +90,7 @@ export class BillingHybridStep3Component implements OnInit {
     if (data.value.Recurringdays == 1) {
       this.hideerror == true;
     } else if (data.value) {
+      this.model.price = this.model.price * 100;
       this.stepTrack.onStep4();
       this.service.setValues(this.model);
       this.router.navigate(['pullpayments/hybrid/step4']);
@@ -115,16 +116,19 @@ export class BillingHybridStep3Component implements OnInit {
     else this.hideerror = false;
   }
   handlechangecurrency(data) {
-    if (data.value == 'USD') this.Placeholdername = '$0.00';
-    else if (data.value == 'EUR') this.Placeholdername = '€0.00';
-    else if (data.value == 'GBP') this.Placeholdername = '£0.00';
-    else this.Placeholdername = '¥0.00';
-  }
-  handlechangeperiodcurrency(data) {
-    if (data.value == 'USD') this.Priceplaceholdername = '$0.00';
-    else if (data.value == 'EUR') this.Priceplaceholdername = '€0.00';
-    else if (data.value == 'GBP') this.Priceplaceholdername = '£0.00';
-    else this.Priceplaceholdername = '¥0.00';
+    if (data.value == 'USD') {
+      this.Placeholdername = '$0.00';
+      this.model.PeriodCurrency = this.model.Currency;
+    } else if (data.value == 'EUR') {
+      this.Placeholdername = '€0.00';
+      this.model.PeriodCurrency = this.model.Currency;
+    } else if (data.value == 'GBP') {
+      this.Placeholdername = '£0.00';
+      this.model.PeriodCurrency = this.model.Currency;
+    } else {
+      this.Placeholdername = '¥0.00';
+      this.model.PeriodCurrency = this.model.Currency;
+    }
   }
   handlechangecalculate(data) {
     if (data.value == 'Day') this.model.daycount = this.model.days;

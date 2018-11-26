@@ -46,6 +46,24 @@
         color: #bdbdbd;
       }
     }
+    .dayselect select {
+      width: 300px;
+      height: 38px;
+      border-color: #ccd1d9 solid;
+      background-color: #fcfdff;
+      font-size: 14px;
+      line-height: 21px;
+      border-radius: 3px;
+      padding: 0px 20px;
+    }
+    .dayselect {
+      margin: 0px 10px;
+      select.is-invalid {
+        border-color: #eb3232 !important;
+        box-shadow: none;
+        border-width: 1px;
+      }
+    }
     .amountinput {
       margin: 0px 10px;
     }
@@ -148,7 +166,7 @@ input:checked + .slider:before {
 .notifyMsg {
   color: #eb3232;
   font-size: 12px;
-  text-align: left;
+  text-align: right;
 }
 
 .SingleRecurringClass {
@@ -157,4 +175,9 @@ input:checked + .slider:before {
 .BillingCycleClass {
   font-size: 13px;
   color: #000;
+}
+input.is-invalid {
+  border-color: #eb3232 !important;
+  box-shadow: none;
+  border-width: 1px;
 }

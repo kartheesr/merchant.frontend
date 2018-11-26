@@ -28,13 +28,15 @@
                   placeholder="{{Placeholdername}}"
                   name="amount"
                   [(ngModel)]="model.amount"
-                  #amount1="ngModel"
+                  #amount="ngModel"
                   required
-                  [ngClass]="{ 'is-invalid': f.submitted && amount1.errors?.required }"
+                  [ngClass]="{ 'invalid\': ': (f.submitted && amount.errors?.required) || amount.errors?.min }"
+                  [gt]="0"
                 />
                 <div *ngIf="f.submitted">
-                  <div class="notifyMsg" [hidden]="!amount1.errors?.required">Amount is required!</div>
+                  <div class="notifyMsg" [hidden]="!amount.errors?.required">Amount is required!</div>
                 </div>
+                <div class="notifyMsg" *ngIf="amount.errors?.gt">Amount needs to be more than 0</div>
               </div>
             </div>
           </div>
@@ -43,7 +45,7 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
             <button type="reset" (click)="onBack()" class="backbtn">Back</button>
-            <button type="submit" class="continuebtn">Continue</button>
+            <button type="submit" [disabled]="!f.valid" class="continuebtn">Continue</button>
           </div>
         </div>
       </div>

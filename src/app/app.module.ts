@@ -32,6 +32,9 @@ import { MainPipe } from '@app/main-pipe.module';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BillingHybirdStep4Component } from './billing/billing-step4/billing-hybird-step4/billing-hybird-step4.component';
 import { BillingRecurringStep4Component } from './billing/billing-step4/billing-recurring-step4/billing-recurring-step4.component';
+import { CustomFormsModule } from 'ng2-validation';
+import { BillingHybridStep3Component } from './billing/billing-step3/billing-hybrid-step3/billing-hybrid-step3.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { BillingRecurringStep4Component } from './billing/billing-step4/billing-
     LoginModule,
     MainPipe,
     NgxQRCodeModule,
+    CustomFormsModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [
@@ -59,6 +63,7 @@ import { BillingRecurringStep4Component } from './billing/billing-step4/billing-
     BillingStep3Component,
     BillingRecurringStep3Component,
     BillingRecurringStep4Component,
+    BillingHybridStep3Component,
     BillingHybirdStep4Component
   ],
   providers: [

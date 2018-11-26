@@ -50,7 +50,8 @@ export class BillingStep3Component implements OnInit {
     }
   }
   onSubmit(data) {
-    if (data.value) {
+    if (data.value.amount != '0') {
+      this.model.amount = this.model.amount * 100;
       this.stepTrack.onStep4();
       this.service.setValues(this.model);
       this.router.navigate(['pullpayments/single/step4']);

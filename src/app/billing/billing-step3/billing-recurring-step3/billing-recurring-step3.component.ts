@@ -64,11 +64,13 @@ export class BillingRecurringStep3Component implements OnInit {
       No2: '',
       No3: '',
       Period1: '',
-      Period2: ''
+      Period2: '',
+      Toggle: ''
     };
     this.model.Period2 = this.recurrenceOption[0].label;
     this.model.Period1 = this.recurrenceOption[0].label;
     this.model.rupees = this.selectOption[0].label;
+    this.model.Toggle = true;
     this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {
@@ -94,6 +96,7 @@ export class BillingRecurringStep3Component implements OnInit {
   }
   onSubmit(data) {
     if (data.value) {
+      this.model.amount = this.model.amount * 100;
       this.stepTrack.onStep4();
       this.service.setValues(this.model);
       this.router.navigate(['pullpayments/recurring/step4']);

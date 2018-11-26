@@ -10,6 +10,7 @@ import { currencyPipe } from '@app/billing/currency.pipe';
 import { CurrencyPipe } from '@angular/common';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { restElement } from 'babel-types';
 
 @Component({
   selector: 'app-billing',
@@ -34,7 +35,8 @@ export class BillingComponent implements OnInit {
   RecurringPullValue: number;
   SingleWithRecurringValue: number;
   RecurringWithTrialValue: number;
-
+  YearValue: any = {};
+  YearValue1: any = {};
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -86,6 +88,21 @@ export class BillingComponent implements OnInit {
             } else {
               this.RecurringWithTrialValue++;
             }
+          }
+        }
+        for (let days of result.data[0]) {
+          // console.log("this.YearValue5", days.frequency);
+          if (days.frequency > 365) {
+            console.log('this.YearValue7', days.frequency);
+
+            console.log('this.YearValue8');
+            this.YearValue = days.frequency / 365;
+            console.log('this.YearValue', this.YearValue);
+            //this.YearValue1 = this.YearValue;
+            // console.log("this.YearValue1", this.YearValue1);
+          } else if (days.frequency > 30) {
+            this.YearValue1 = days.frequency / 30;
+            console.log('this.YearValue1', this.YearValue1);
           }
         }
       } else {

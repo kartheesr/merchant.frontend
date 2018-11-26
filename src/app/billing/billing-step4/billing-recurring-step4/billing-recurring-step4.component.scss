@@ -32,14 +32,15 @@ mainContent {
     select {
       width: 420px;
       height: 38px;
-      border-color: #ccd1d9 solid;
-      background-color: #fcfdff;
+      // border-color: #ccd1d9 solid;
+      background-color: #ffffff;
       font-size: 14px;
       line-height: 21px;
-      border-radius: 1px;
+      border-radius: 3px;
       padding: 0px 20px;
       border: none;
       margin-left: 10px;
+      box-shadow: 1px 1px #ccd1d9;
     }
     input {
       width: 300px;
@@ -101,7 +102,7 @@ mainContent {
   color: #0064ff;
 }
 .TableData {
-  margin-left: 50px;
+  margin-left: 30px;
   margin-top: 20px;
   margin-bottom: 40px;
 }

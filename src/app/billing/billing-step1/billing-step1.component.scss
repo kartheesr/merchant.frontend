@@ -32,14 +32,14 @@
             float: right;
           }
           p {
-            font-size: 15px;
+            font-size: 13.62px;
             font-family: "Lato";
             line-height: 18px;
-            font-style: "bold";
+            font-weight: bold;
             color: #000000;
             margin-top: 5px;
             float: left;
-            margin: 5px 0px 0px -15px;
+            margin: 5px 0px 0px -5px;
           }
           input[type="radio"] {
             background-color: #000 !important;
@@ -52,10 +52,11 @@
           background-color: #f4f6fb;
           p {
             font-family: "notoSansRegular";
-            font-size: 14px;
+            font-size: 13px;
             line-height: 21px;
             font-style: normal;
             color: #556486;
+            padding: 0px 11px;
           }
           .fontstyle {
             font-style: italic !important;
@@ -416,9 +417,9 @@ span.Round-tab {
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
   top: 4px;
-  left: 5px;
-  width: 6px;
-  height: 6px;
+  left: 4px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: white;
 }

@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
       }
     });
     this.BillingServiceCall.gasvalueCalcualtion().subscribe(res => {
-      this.gasBalance = res.res.gasprice;
+      this.gasBalance = res.balance;
     });
     this.dashboardService.getTreasuryBalance().subscribe(result => {
       this.treasuryBalance = web3.fromWei(result.result, 'ether');

@@ -95,7 +95,7 @@ export class BillingHybirdStep4Component implements OnInit {
     };
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
-      let double = result.res.gasprice * 2;
+      let double = result.balance * 2;
       //let data = web3.fromWei(double, 'ether');
       this.model.initialETH = double.toFixed(20).replace(/0+$/, '');
       this.model.initialcost = this.model.initialETH;

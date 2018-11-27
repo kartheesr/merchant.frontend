@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ ': \': \': ': (f.submitted && amount.errors?.required) || amount.errors?.min }"
+                  [ngClass]="{ '-invalid\':': (f.submitted && amount.errors?.required) || amount.errors?.min }"
                   [gt]="0"
                 />
                 <div *ngIf="f.submitted">

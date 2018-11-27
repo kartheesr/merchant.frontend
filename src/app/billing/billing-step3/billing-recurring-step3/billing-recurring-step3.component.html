@@ -4,7 +4,7 @@
       <div class="billingBoxCont">
         <div class="row">
           <div class="col-xs-12 col-sm-8 col-md-8">
-            <label>Amount charged at the begining of the period</label>
+            <label>Amount charged at the beginning of each period</label>
             <div class="row SingleRecurringClass">
               <div class="col-xs-12 col-sm-3 col-md-3">
                 <select
@@ -29,7 +29,7 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'lid\': \': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [ngClass]="{ 'invalid\': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                 />
                 <div *ngIf="f.submitted">
@@ -53,7 +53,7 @@
                       required
                       #NoOfRecuurence1="ngModel"
                       [ngClass]="{
-                        'lid\': \': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                     />
@@ -88,11 +88,11 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'lid\': \': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
-                      [min]="1"
+                      [min]="2"
                     />
-                    <div class="notifyMsg" *ngIf="NoOfRecuurence2.errors?.min">Need to be more than 0</div>
+                    <div class="notifyMsg" *ngIf="NoOfRecuurence2.errors?.min">Need to be more than 1</div>
                   </div>
                 </div>
               </div>
@@ -128,7 +128,7 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        'lid\': \': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                     />

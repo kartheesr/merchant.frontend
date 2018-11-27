@@ -94,7 +94,7 @@ export class BillingRecurringStep4Component implements OnInit {
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
       //let data = web3.fromWei(result.result, 'ether');
-      this.model.EtherValue = result.res.gasprice;
+      this.model.EtherValue = result.balance;
       let sample = this.model.EtherValue * this.data3.No2;
       this.model.TotalCost = sample.toFixed(20).replace(/0+$/, '');
       let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.EtherValue);

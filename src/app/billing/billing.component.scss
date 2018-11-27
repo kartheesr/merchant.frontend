@@ -79,7 +79,7 @@
         border: 1px solid #1c67f5;
         border-radius: 6px 6px 0px 0px;
         .boxHead {
-          padding: 12px 15px;
+          padding: 10px 15px;
           color: #003aa7;
           font-size: 12px;
           .ImgCont {
@@ -121,7 +121,7 @@
             }
           }
           .large {
-            margin: 15px 0px;
+            margin: 30px 0px;
             font-size: 30px;
             font-weight: 600;
             height: 60px;
@@ -198,6 +198,26 @@
 }
 .SingleRecurringClass p {
   color: #2f00a2 !important;
+}
+fieldset.scheduler-border {
+  border: 1px groove #000 !important;
+  border-radius: 6px;
+  padding: 0 1.4em 0em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
+  label {
+    font-size: 22px;
+  }
+}
+
+legend.scheduler-border {
+  font-size: 9px !important;
+  font-weight: bold !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
 }
 
 /*** Scroll Bar Style ***/

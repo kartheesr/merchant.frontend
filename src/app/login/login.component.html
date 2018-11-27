@@ -24,7 +24,7 @@
                 placeholder="Email"
                 (input)="falseMsg()"
                 autofocus
-                [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || errormsg }"
+                [ngClass]="{ 'lid\': \': ': (submitted && f.email.errors) || errormsg }"
               />
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
@@ -48,7 +48,7 @@
                 formControlName="password"
                 placeholder="Password"
                 (input)="falseMsg()"
-                [ngClass]="{ 'is-invalid': (submitted && f.password.errors) || passworderrormsg }"
+                [ngClass]="{ 'lid\': \': ': (submitted && f.password.errors) || passworderrormsg }"
                 required
               />
 
@@ -67,7 +67,9 @@
                   <a routerLink="/password-reset" class="color-white">Forgot Password</a>
               </div>
             -->
-            <div class="form-button float-right"><button id="submit" type="submit" class="ibtn">Continue</button></div>
+            <div class="form-button float-right">
+              <button id="submit" type="submit" [disabled]="!loginForm.valid" class="ibtn">Continue</button>
+            </div>
           </form>
         </div>
       </div>

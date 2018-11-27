@@ -95,9 +95,9 @@ export class BillingHybirdStep4Component implements OnInit {
     };
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
-      let double = result.result * 2;
-      let data = web3.fromWei(double, 'ether');
-      this.model.initialETH = data;
+      let double = result.res.gasprice * 2;
+      //let data = web3.fromWei(double, 'ether');
+      this.model.initialETH = double.toFixed(20).replace(/0+$/, '');
       this.model.initialcost = this.model.initialETH;
       let sample = this.model.initialETH * this.Step3data.Recurringdays;
       this.model.RecurrenceETH = sample.toFixed(20).replace(/0+$/, '');

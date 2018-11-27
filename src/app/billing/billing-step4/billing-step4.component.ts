@@ -72,9 +72,8 @@ export class BillingStep4Component implements OnInit {
     };
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
-      let cal = result.result * 2;
-      let data = web3.fromWei(cal, 'ether');
-      this.model.EtherValue = data;
+      let cal = result.res.gasprice * 2;
+      this.model.EtherValue = cal.toFixed(20).replace(/0+$/, '');
       this.service4.setValues(this.model);
     });
   }

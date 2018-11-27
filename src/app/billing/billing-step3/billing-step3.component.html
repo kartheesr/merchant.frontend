@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ 'invalid\': ': (f.submitted && amount.errors?.required) || amount.errors?.min }"
+                  [ngClass]="{ ': \': \': ': (f.submitted && amount.errors?.required) || amount.errors?.min }"
                   [gt]="0"
                 />
                 <div *ngIf="f.submitted">
@@ -45,7 +45,7 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
             <button type="reset" (click)="onBack()" class="backbtn">Back</button>
-            <button type="submit" [disabled]="!f.valid" class="continuebtn">Continue</button>
+            <button type="submit" class="continuebtn">Continue</button>
           </div>
         </div>
       </div>

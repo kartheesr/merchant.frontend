@@ -54,10 +54,10 @@
                       <a class="LinkTag" *ngIf="array.typeID == 3">{{ array.frequency }} days</a>
                     </div>
                     <div class="large">
-                      <div>
-                        <div class="ImgCont"><img src="assets/images/single+recurring_Group.png" /></div>
-                        {{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}
-                      </div>
+                      <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">RECURRING CHARGE</legend>
+                        <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                      </fieldset>
                     </div>
                     <div class="footerText">
                       <p>

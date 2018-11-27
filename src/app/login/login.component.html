@@ -24,7 +24,7 @@
                 placeholder="Email"
                 (input)="falseMsg()"
                 autofocus
-                [ngClass]="{ 'lid\': \': ': (submitted && f.email.errors) || errormsg }"
+                [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || errormsg }"
               />
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
@@ -34,7 +34,7 @@
               <div *ngIf="errormsg" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
                 <div *ngIf="errormsg">
-                  No existing user under this email address.<br />
+                  No existing user under this email address. <br />
                   Please set up your login details in your database.
                 </div>
               </div>
@@ -48,7 +48,7 @@
                 formControlName="password"
                 placeholder="Password"
                 (input)="falseMsg()"
-                [ngClass]="{ 'lid\': \': ': (submitted && f.password.errors) || passworderrormsg }"
+                [ngClass]="{ 'is-invalid': (submitted && f.password.errors) || passworderrormsg }"
                 required
               />
 

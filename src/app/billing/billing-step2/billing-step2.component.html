@@ -17,8 +17,8 @@
         />
         <br />
         <div *ngIf="f.submitted">
-          <div class="ntfyMsg" [hidden]="!productName.errors?.required">Product name is required</div>
-          <div class="ntfyMsg" [hidden]="!productName.errors?.minlength">
+          <div class="ntfyMsgproduct" [hidden]="!productName.errors?.required">Product name is required!</div>
+          <div class="ntfyMsgmin" [hidden]="!productName.errors?.minlength">
             Product name must be atleast 2 characters!
           </div>
         </div>
@@ -40,7 +40,7 @@
         <br />
         <div *ngIf="f.submitted">
           <div class="ntfyMsg" [hidden]="!billingModelName.errors?.required">Billing model name is required!</div>
-          <div class="ntfyMsg" [hidden]="!billingModelName.errors?.minlength">
+          <div class="ntfyMsg1" [hidden]="!billingModelName.errors?.minlength">
             Billing model name must be atleast 2 characters!
           </div>
         </div>
@@ -60,17 +60,11 @@
           maxlength="140"
         ></textarea
         ><br />
-        <div><label class="char-msg">140 characters</label></div>
-        <div class="col-md-12">
-          <div class="col-md-8">
-            <div *ngIf="f.submitted">
-              <div class="notifyMsg" [hidden]="!billModelDes.errors?.required">
-                Billing model description is required!
-              </div>
-              <div class="notifyMsg" [hidden]="!billModelDes.errors?.minlength">
-                Billing model description must be atleast 2 characters!
-              </div>
-            </div>
+        <div><label class="char-msg" [hidden]="billModelDes.errors">140 characters</label></div>
+        <div *ngIf="f.submitted">
+          <div class="notifyMsg" [hidden]="!billModelDes.errors?.required">Billing model description is required!</div>
+          <div class="notifyMsg" [hidden]="!billModelDes.errors?.minlength">
+            Billing model description must be atleast 2 characters!
           </div>
         </div>
       </div>

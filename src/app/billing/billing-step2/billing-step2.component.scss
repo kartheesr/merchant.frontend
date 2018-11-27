@@ -6,12 +6,10 @@
   padding-left: 20px;
   padding-top: 20px;
   line-height: 0.5px;
-  color: #000000;
 }
 .subTitle {
   font-size: 12px;
   padding-left: 20px;
-  color: #304053;
 }
 .productInput {
   width: 550px;
@@ -79,11 +77,28 @@ textarea.is-invalid {
   color: red;
   font-size: 12px;
   padding-left: 0px;
+  margin-right: 97px;
+  float: right;
 }
 .ntfyMsg {
   color: red;
   font-size: 12px;
-  padding-left: 20px;
+  padding-left: 60%;
+}
+.ntfyMsgproduct {
+  color: red;
+  font-size: 12px;
+  padding-left: 65%;
+}
+.ntfyMsg1 {
+  color: red;
+  font-size: 12px;
+  padding-left: 45%;
+}
+.ntfyMsgmin {
+  color: red;
+  font-size: 12px;
+  padding-left: 49%;
 }
 .btCtrl {
   padding-left: 30px;

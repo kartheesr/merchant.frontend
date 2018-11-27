@@ -199,3 +199,25 @@
 .SingleRecurringClass p {
   color: #2f00a2 !important;
 }
+
+/*** Scroll Bar Style ***/
+
+.billingBox::-webkit-scrollbar-track {
+  //	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #f4f6fb;
+  border: 0.5px solid #c5ccce;
+  margin: 0px 5px;
+}
+
+.billingBox::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f4f6fb;
+  margin: 0px 5px;
+}
+
+.billingBox::-webkit-scrollbar-thumb {
+  background-color: #c5ccce;
+  margin: 0px 5px;
+}
+
+/*** Scroll Bar Style ***/

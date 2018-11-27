@@ -128,7 +128,7 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                     />

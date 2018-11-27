@@ -152,7 +152,7 @@
                   required
                   (input)="handlevalidate(Recurringdays)"
                   [ngClass]="{
-                    '':
+                    'is-invalid':
                       (hybirdForm.submitted && Recurringdays.errors?.required) || hideerror || Recurringdays.errors?.min
                   }"
                   [min]="1"

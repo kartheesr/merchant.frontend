@@ -15,9 +15,9 @@
                   [ngClass]="{ 'is-invalid': f.submitted && rupees.errors?.required }"
                   (change)="handleChangeCurrency(rupees)"
                 >
-                  <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label">{{
-                    item.label
-                  }}</option>
+                  <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label"
+                    >{{ item.label }}
+                  </option>
                 </select>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 amountinput">
@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ 'invalid\': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
+                  [ngClass]="{ 'is-invalid': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
                   [gt]="0"
                 />
                 <div *ngIf="f.submitted">

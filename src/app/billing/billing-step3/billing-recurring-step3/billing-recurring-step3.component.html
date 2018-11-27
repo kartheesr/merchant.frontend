@@ -14,9 +14,9 @@
                   required
                   [ngClass]="{ 'is-invalid': f.submitted && rupees.errors?.required }"
                 >
-                  <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label">{{
-                    item.label
-                  }}</option>
+                  <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label"
+                    >{{ item.label }}
+                  </option>
                 </select>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 amountinput">
@@ -29,7 +29,7 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'invalid\': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [ngClass]="{ 'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                 />
                 <div *ngIf="f.submitted">
@@ -40,7 +40,7 @@
             </div>
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <span class="BillingCycleClass">Billing Cycle</span><br />
+                <span class="BillingCycleClass">Billing Cycle</span> <br />
                 <label>Customers will be billed everyday</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
@@ -53,7 +53,7 @@
                       required
                       #NoOfRecuurence1="ngModel"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                     />
@@ -64,9 +64,9 @@
                       [(ngModel)]="model.Period1"
                       [ngClass]="{ 'is-invalid': NoOfRecuurence1.errors?.min }"
                     >
-                      <option *ngFor="let option of recurrenceOption" [ngValue]="option.label">{{
-                        option.label
-                      }}</option>
+                      <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
+                        >{{ option.label }}
+                      </option>
                     </select>
                     <div class="notifyMsg" *ngIf="NoOfRecuurence1.errors?.min">Needs to last at least 1 day</div>
                   </div>
@@ -75,7 +75,7 @@
             </div>
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <span class="BillingCycleClass">Recurrences</span><br />
+                <span class="BillingCycleClass">Recurrences</span> <br />
                 <label>Number of billing cycles</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
@@ -88,7 +88,7 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
                       [min]="2"
                     />
@@ -99,7 +99,7 @@
             </div>
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <span class="BillingCycleClass">Trial period</span><br />
+                <span class="BillingCycleClass">Trial period</span> <br />
                 <label>Offer your customers a trail before they start paying you</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
@@ -139,9 +139,9 @@
                       [(ngModel)]="model.Period2"
                       [ngClass]="{ 'is-invalid': NoOfRecuurence3.errors?.min }"
                     >
-                      <option *ngFor="let option of recurrenceOption" [ngValue]="option.label">{{
-                        option.label
-                      }}</option>
+                      <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
+                        >{{ option.label }}
+                      </option>
                     </select>
                     <div class="notifyMsg" *ngIf="NoOfRecuurence3.errors?.min">Needs to last at least 1 day</div>
                   </div>

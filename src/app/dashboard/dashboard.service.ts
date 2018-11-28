@@ -22,7 +22,7 @@ export class DashboardService {
 
   constructor(private http: HttpClient) {
     this.actionUrl = `${Constants.apiHost}${Constants.apiPrefix}balance/all/`;
-    this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}transactionHistory/all`;
+    this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/getAll`;
     this.treasuryBalUrl = `https://api.etherscan.io/api?module=account&action=balance&address=0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a&tag=latest&apikey=${
       Constants.API_KEY
     }`;

@@ -44,17 +44,6 @@ export class DashboardComponent implements OnInit {
       this.transactionHistorArray = result.data;
       for (let val of result.data) {
         {
-          pullpaymentAddress.push(val.merchantAddress);
-        }
-      }
-      this.addressList = pullpaymentAddress.join(',');
-      this.pullpaymentdata(this.addressList);
-      for (let val of result.data) {
-        if (this.pmaAddressList.length > 0) {
-          if (this.pmaAddressList.indexOf(val.merchantAddress) < 0) {
-            this.pullPaymentsBalance += val.balance;
-          }
-        } else {
           this.pullPaymentsBalance += val.balance;
         }
       }
@@ -89,17 +78,5 @@ export class DashboardComponent implements OnInit {
   txhash(data) {
     //this.document.location.href = `https://etherscan.io/tx/${data}`;
     window.open('https://etherscan.io/tx/${data}', '_blank');
-  }
-  pullpaymentdata(data) {
-    this.sumBal = 0;
-    let i = 0;
-    this.dashboardService.getPullpaymentBalance(data).subscribe(result => {
-      for (var val of result.result) {
-        this.sumBal += parseInt(val.balance);
-        this.transactionHistorArray[i].balance = web3.fromWei(val.balance, 'ether');
-        i++;
-      }
-      this.pullPaymentsBalance = web3.fromWei(this.sumBal, 'ether');
-    });
   }
 }

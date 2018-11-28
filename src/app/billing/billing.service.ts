@@ -16,6 +16,7 @@ export class BillingService {
   public token: string;
   public user: any;
   public userID: string;
+  public OverViewQrcodeUrl;
   private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'api-request-source': 'portal'
@@ -25,6 +26,7 @@ export class BillingService {
     this.actionUrl = `${Constants.apiHost}${Constants.apiPrefix}pull-payment-models/`;
     this.actionUrl1 = `${Constants.apiHost}${Constants.apiPrefix}balance/all/`;
     this.billingModelUrl = `${Constants.apiHost}${Constants.apiPrefix}pull-payment-models/`;
+    this.OverViewQrcodeUrl = `${Constants.apiHost}${Constants.apiPrefix}qr/`;
   }
 
   public Getpull(): Observable<any> {
@@ -38,5 +40,8 @@ export class BillingService {
   }
   public getByIdBillingModel(id): Observable<any> {
     return this._http.get(this.billingModelUrl + id, { headers: this.headers });
+  }
+  public getByIdBillingModelqr(id): Observable<any> {
+    return this._http.get(this.OverViewQrcodeUrl + id, { headers: this.headers });
   }
 }

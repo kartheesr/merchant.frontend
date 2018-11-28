@@ -5,6 +5,7 @@ import { DashboardService } from '@app/dashboard/dashboard.service';
 import { DOCUMENT } from '@angular/common';
 import { BillingServiceCall } from '../billing-step4/billing-step4.service';
 import { ActivatedRoute } from '@angular/router';
+import { Constants } from '@app/app.constants';
 
 @Component({
   selector: 'app-billing-model-overview',
@@ -26,7 +27,8 @@ export class BillingModelOverviewComponent implements OnInit {
   public pmaAmount;
   public transactionHistorArray;
   public data;
-  value: string = '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a';
+  value;
+  model;
 
   constructor(
     public service: BillingService,
@@ -38,6 +40,9 @@ export class BillingModelOverviewComponent implements OnInit {
   typeID;
 
   ngOnInit() {
+    this.model = {
+      data: ''
+    };
     this.transactionHistory();
     if (this.route.snapshot.queryParamMap.get('pullPayId')) {
       this.id = this.route.snapshot.queryParamMap.get('pullPayId');
@@ -55,6 +60,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.subscribers = result.data.length;
       }
     });
+    this.value = `${Constants.apiHost}${Constants.apiPrefix}pull-payment-models/${this.id}`;
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
       localStorage.removeItem('publishId');
@@ -100,7 +106,18 @@ export class BillingModelOverviewComponent implements OnInit {
       this.value = result.data.address;
     });
   }
-
+  base64() {
+    debugger;
+    var str = document.getElementById('qr-value').innerHTML;
+    console.log('str', str);
+    var res = str.split(' ');
+    var res1 = res[1];
+    var final = res1.split('>');
+    var tocpytxt = final[0];
+    var yyy = tocpytxt.split(',');
+    var newyear = yyy[1].split('"');
+    this.model.data = newyear[0];
+  }
   copyInputMessage(inputElement) {
     inputElement.select();
     document.execCommand('copy');
@@ -114,7 +131,6 @@ export class BillingModelOverviewComponent implements OnInit {
   }
 
   txhash(data) {
-    // var data = '0xd5bb7fe4284f34f33becb66f166d26f4bf8fcb97d0184c51b9b1d8604510bcba';
-    this.document.location.href = `https://etherscan.io/tx/${data}`;
+    window.open('https://etherscan.io/tx/${data}', '_blank');
   }
 }

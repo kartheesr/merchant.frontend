@@ -37,7 +37,7 @@
         <div class="col-xs-12 col-sm-9 cols-md-9">
           <div class="product-div">
             <label class="title"
-              >{{ title }}<br /><span>{{ description }}e</span></label
+              >{{ title }}<br /><span>{{ description }}</span></label
             ><br />
             <label class="subTitle"
               >Get full access to all new and past digital magazine issues! Enjoy the ultimate digital reading
@@ -76,12 +76,20 @@
               <div class="col-xs-12 col-sm-3 cols-md-3">
                 <div class="QRCode">
                   <!-- <img src="assets/images/QrCode.png" width="150" /> -->
-                  <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+                  <ngx-qrcode
+                    class="qr-value"
+                    qrc-element-type="canvas"
+                    id="qr-value"
+                    qrc-element-type="“img”"
+                    [(qrc-value)]="value"
+                  ></ngx-qrcode>
                   <label class="QR-link">Enlarge<img src="assets/images/enlarge.svg"/></label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent"><input type="text" value="{{value}}" #userinput /></div>
+                <div class="QRContent">
+                  <input type="text" (click)="base64()" #userinput [(ngModel)]="model.data" />
+                </div>
                 <label class="OR-CopyCont">Copy Snippet</label>
               </div>
             </div>
@@ -200,12 +208,20 @@
               <div class="col-xs-12 col-sm-3 cols-md-3">
                 <div class="QRCode">
                   <!-- <img src="assets/images/QrCode.png" width="150" /> -->
-                  <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+                  <ngx-qrcode
+                    class="qr-value"
+                    qrc-element-type="canvas"
+                    id="qr-value"
+                    qrc-element-type="“img”"
+                    [(qrc-value)]="value"
+                  ></ngx-qrcode>
                   <label class="QR-link">Enlarge<img src="assets/images/enlarge.svg"/></label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent"><input type="text" value="{{value}}" #userinput /></div>
+                <div class="QRContent">
+                  <input type="text" (click)="base64()" [(ngModel)]="model.data" #userinput />
+                </div>
                 <label class="OR-CopyCont">Copy Snippet</label>
               </div>
             </div>
@@ -366,7 +382,7 @@
         <div class="col-xs-12 col-sm-9 cols-md-9">
           <div class="product-div">
             <label class="title"
-              >{{ title }}e<br /><span>{{ description }}</span></label
+              >{{ title }}<br /><span>{{ description }}</span></label
             ><br />
             <label class="subTitle"
               >Description of your pricing plan. Make sure you describe what this billing model offers</label
@@ -427,12 +443,20 @@
               <div class="col-xs-12 col-sm-3 cols-md-3">
                 <div class="QRCode">
                   <!-- <img src="assets/images/QrCode.png" width="150" /> -->
-                  <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+                  <ngx-qrcode
+                    class="qr-value"
+                    qrc-element-type="canvas"
+                    id="qr-value"
+                    qrc-element-type="“img”"
+                    [(qrc-value)]="value"
+                  ></ngx-qrcode>
                   <label class="QR-link">Enlarge<img src="assets/images/enlarge.svg"/></label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent"><input type="text" value="{{value}}" #userinput /></div>
+                <div class="QRContent">
+                  <input type="text" (click)="base64()" [(ngModel)]="model.data" #userinput />
+                </div>
                 <label class="OR-CopyCont">Copy Snippet</label>
               </div>
             </div>
@@ -557,11 +581,18 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="c('Saveclick')">No</button>
+    <div class="modal-body">
+      <ngx-qrcode
+        class="qr-value"
+        qrc-element-type="canvas"
+        id="qr-value"
+        qrc-element-type="“img”"
+        [(qrc-value)]="value"
+      ></ngx-qrcode>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Saveclick')">No</button>
+      </div>
     </div>
-  </div>
-</ng-template>
 
-<!-- POPUP -->
+    <!-- POPUP --></div
+></ng-template>

@@ -56,6 +56,8 @@ export class DashboardService {
       })
     );
   }
+
+  // service call
   public getTreasurybalance(): Observable<any> {
     return this.http.get(this.treasuryUrl).pipe(
       map((response: HttpResponse) => {

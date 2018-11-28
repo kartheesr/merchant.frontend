@@ -60,7 +60,7 @@
                   <tbody>
                     <tr>
                       <td class="userId text-left">Single Pull Transaction</td>
-                      <td class="total-td">{{ data.EtherValue }}</td>
+                      <td class="total-td">{{ '0.0' }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -83,7 +83,7 @@
                     qrc-element-type="“img”"
                     [(qrc-value)]="value"
                   ></ngx-qrcode>
-                  <label class="QR-link">Enlarge<img src="assets/images/enlarge.svg"/></label>
+                  <label class="QR-link" (click)="open()">Enlarge<img src="assets/images/enlarge.svg"/></label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
@@ -179,21 +179,21 @@
                 <tbody>
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
-                    <td class="value-td">{{ data.Recurrence }}</td>
-                    <td class="value-td">{{ data.EtherValue }}</td>
-                    <td class="value-td">{{ data.TotalCost }}</td>
+                    <td class="value-td">{{ data.Recurrence ? data.Recurrence : '0.0' }}</td>
+                    <td class="value-td">{{ data.EtherValue ? data.EtherValue : '0.0' }}</td>
+                    <td class="value-td">{{ data.TotalCost ? data.TotalCost : '0.0' }}</td>
                   </tr>
                   <tr>
                     <td class="userId">Transfers from PullPayment Account to Treasury</td>
-                    <td class="value-td">{{ data.TransRecurrence }}</td>
-                    <td class="value-td">{{ data.EtherValue }}</td>
-                    <td class="value-td">{{ data.TotalcostRecuurence }}</td>
+                    <td class="value-td">{{ data.TransRecurrence ? data.TransRecurrence : '0.0' }}</td>
+                    <td class="value-td">{{ data.EtherValue ? data.EtherValue : '0.0' }}</td>
+                    <td class="value-td">{{ data.TotalcostRecuurence ? data.TotalcostRecuurence : '0.0' }}</td>
                   </tr>
                   <tr>
                     <td class="userId">Total</td>
                     <td class="value-td"></td>
                     <td class="value-td"></td>
-                    <td class="total-td">{{ data.TotalETH }}</td>
+                    <td class="total-td">{{ data.TotalETH ? data.TotalETH : '0.0' }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -405,30 +405,30 @@
                 <tbody>
                   <tr>
                     <td class="userId">Initial Charge</td>
-                    <td class="value-td">{{ data.initialRecurrence }}</td>
-                    <td class="value-td">{{ data.initialETH }}</td>
-                    <td class="value-td">{{ data.initialETH }}</td>
+                    <td class="value-td">{{ data.initialRecurrence ? data.initialRecurrence : '0.0' }}</td>
+                    <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
+                    <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
-                    <td class="value-td">{{ data.Recurrence }}</td>
-                    <td class="value-td">{{ data.initialETH }}</td>
-                    <td class="value-td">{{ data.RecurrenceETH }}</td>
+                    <td class="value-td">{{ data.Recurrence ? data.Recurrence : '0.0' }}</td>
+                    <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
+                    <td class="value-td">{{ data.RecurrenceETH ? data.RecurrenceETH : '0.0' }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Transfers PullPayment Account to Treasury</td>
-                    <td class="value-td">{{ data.PullRecurrence }}</td>
-                    <td class="value-td">{{ data.initialETH }}</td>
-                    <td class="value-td">{{ data.PullRecurrencecost }}</td>
+                    <td class="value-td">{{ data.PullRecurrence ? data.PullRecurrence : '0.0' }}</td>
+                    <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
+                    <td class="value-td">{{ data.PullRecurrencecost ? data.PullRecurrencecost : '0.0' }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Total</td>
                     <td class="value-td"></td>
                     <td class="value-td"></td>
-                    <td class="total-td">{{ data.TotalETH }}</td>
+                    <td class="total-td">{{ data.TotalETH ? data.TotalETH : '0.0' }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -450,7 +450,7 @@
                     qrc-element-type="“img”"
                     [(qrc-value)]="value"
                   ></ngx-qrcode>
-                  <label class="QR-link">Enlarge<img src="assets/images/enlarge.svg"/></label>
+                  <label class="QR-link" (click)="open()">Enlarge<img src="assets/images/enlarge.svg"/></label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
@@ -571,28 +571,3 @@
 </div>
 
 <!-- - SINGLE + RECURRING -->
-
-<!-- POPUP -->
-
-<ng-template #Enlarge let-c="close" let-d="dismiss">
-  <div class="modelpop">
-    <div class="modal-header">
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <ngx-qrcode
-        class="qr-value"
-        qrc-element-type="canvas"
-        id="qr-value"
-        qrc-element-type="“img”"
-        [(qrc-value)]="value"
-      ></ngx-qrcode>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="c('Saveclick')">No</button>
-      </div>
-    </div>
-
-    <!-- POPUP --></div
-></ng-template>

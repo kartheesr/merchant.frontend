@@ -6,12 +6,13 @@ import { DOCUMENT } from '@angular/common';
 import { BillingServiceCall } from '../billing-step4/billing-step4.service';
 import { ActivatedRoute } from '@angular/router';
 import { Constants } from '@app/app.constants';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-billing-model-overview',
   templateUrl: './billing-model-overview.component.html',
   styleUrls: ['./billing-model-overview.component.scss'],
-  providers: [BillingService, CurrencyPipe, DashboardService]
+  providers: [BillingService, CurrencyPipe, DashboardService, NgbActiveModal]
 })
 export class BillingModelOverviewComponent implements OnInit {
   public id;
@@ -35,7 +36,9 @@ export class BillingModelOverviewComponent implements OnInit {
     @Inject(DOCUMENT) private document: any,
     public dashboardService: DashboardService,
     public overviewdata: BillingServiceCall,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private modalService: NgbModal,
+    public activeModal: NgbActiveModal
   ) {}
   typeID;
 
@@ -43,7 +46,10 @@ export class BillingModelOverviewComponent implements OnInit {
     this.model = {
       data: ''
     };
-    this.transactionHistory();
+    this.id = localStorage.getItem('publishId');
+    this.dashboardService.getTransactionHistory().subscribe(result => {
+      this.transactionHistorArray = result.data;
+    });
     if (this.route.snapshot.queryParamMap.get('pullPayId')) {
       this.id = this.route.snapshot.queryParamMap.get('pullPayId');
     } else {
@@ -60,7 +66,10 @@ export class BillingModelOverviewComponent implements OnInit {
         this.subscribers = result.data.length;
       }
     });
-    this.value = `${Constants.apiHost}${Constants.apiPrefix}pull-payment-models/${this.id}`;
+    this.service.getByIdBillingModelqr(this.id).subscribe(result => {
+      this.value = result.data.pullPaymentModelURL;
+      console.log('get qr', this.value);
+    });
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
       localStorage.removeItem('publishId');
@@ -101,15 +110,8 @@ export class BillingModelOverviewComponent implements OnInit {
     });
   }
 
-  getTreasureAddress() {
-    this.dashboardService.getTreasuryAddress().subscribe(result => {
-      this.value = result.data.address;
-    });
-  }
   base64() {
-    debugger;
     var str = document.getElementById('qr-value').innerHTML;
-    console.log('str', str);
     var res = str.split(' ');
     var res1 = res[1];
     var final = res1.split('>');
@@ -124,13 +126,25 @@ export class BillingModelOverviewComponent implements OnInit {
     inputElement.setSelectionRange(0, 0);
   }
 
-  transactionHistory() {
-    this.dashboardService.getTransactionHistory().subscribe(result => {
-      this.transactionHistorArray = result.data;
-    });
-  }
-
   txhash(data) {
     window.open('https://etherscan.io/tx/${data}', '_blank');
+  }
+  open() {
+    console.log('--------open');
+    this.modalService.open(enlargeQrCode, {
+      size: 'sm'
+    });
+  }
+}
+
+@Component({
+  selector: 'enlarge.component',
+  templateUrl: 'enlarge.component.html'
+})
+export class enlargeQrCode {
+  constructor(private modalService: NgbModal) {}
+
+  ngOnInit() {
+    console.log('pop up ngOnInit');
   }
 }

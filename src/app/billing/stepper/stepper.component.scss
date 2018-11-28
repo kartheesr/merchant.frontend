@@ -429,5 +429,19 @@ span.Round-tab {
 
 @media (min-width: 1025px) and (max-width: 1280px) {
 }
+@media (min-width: 1990px) {
+  .connecting-line {
+    width: 55% !important;
+  }
+  .lineHiglight1 {
+    width: 22.3% !important;
+  }
+  .lineHiglight2 {
+    width: 40% !important;
+  }
+  .lineHiglight3 {
+    width: 58% !important;
+  }
+}
 
 /*** Responsive CSS ***/

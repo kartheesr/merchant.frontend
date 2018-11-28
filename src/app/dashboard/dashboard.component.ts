@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
   pullPaymentsCurrency;
   gasBalance;
   gasCurrency;
-  value: string = '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a';
+  value: string = '';
   transactionHistorArray;
   pmaAddressList;
   addressList;
@@ -60,10 +60,13 @@ export class DashboardComponent implements OnInit {
       }
     });
     this.BillingServiceCall.gasvalueCalcualtion().subscribe(res => {
-      this.gasBalance = res.balance;
+      this.gasBalance = res.balance; // GAS VALUE
     });
-    this.dashboardService.getTreasuryBalance().subscribe(result => {
-      this.treasuryBalance = web3.fromWei(result.result, 'ether');
+    this.dashboardService.getQRCodeaddress().subscribe(result => {
+      this.value = result.address; // TREASURY ADDRESS
+    });
+    this.dashboardService.getTreasurybalance().subscribe(result => {
+      this.treasuryBalance = result.result; // TREASURY BALANCE
     });
   }
   getPullPayment() {
@@ -75,11 +78,6 @@ export class DashboardComponent implements OnInit {
       this.pullPaymentsCurrency = result.data.pullPayment.currency;
       this.gasBalance = result.data.gas.balance;
       this.gasCurrency = result.data.gas.currency;
-    });
-  }
-  getTreasureAddress() {
-    this.dashboardService.getTreasuryAddress().subscribe(result => {
-      this.value = result.data.address;
     });
   }
   copyInputMessage(inputElement) {

@@ -25,7 +25,7 @@ export class BillingServiceCall {
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', '*');
     this.headers.append('Access-Control-Allow-Methods', 'OPTIONS, TRACE, GET, HEAD, POST');
-    this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}GasPriceCalculation/etherBalance`;
+    this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/etherBalance`;
   }
   public billingPost(data): Observable<any> {
     return this._http.post(this.actionUrl, data, { headers: this.headers }).pipe(

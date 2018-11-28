@@ -135,7 +135,7 @@
   margin: 0px 0px 0px -13px !important;
 }
 .qrCodeField {
-  margin-top: 50px !important;
+  margin-top: 10px !important;
 }
 .QRCodeClass {
   padding-left: 0px !important;
@@ -166,4 +166,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.qrCodeField img {
+  cursor: pointer;
 }

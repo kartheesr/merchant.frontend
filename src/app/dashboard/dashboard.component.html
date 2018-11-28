@@ -57,7 +57,11 @@
     </div>
     <div class="col-xs-12 col-sm-10 cols-md-10">
       <div class="qrContents">
-        <p>Scan the QR Code to send funds to your Wallet and <br />refill your Transfer Gas tank</p>
+        <p>
+          <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span><br />
+          <span>Gas fees are used to execute any transaction over the Ethereum network.</span><br />
+          <span>You will be unable to accept new subscriptions or execute any transfers <br />without enough ETH.</span>
+        </p>
         <div class="qrCodeField">
           <input type="text" value="{{value}}" #userinput />
           <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />

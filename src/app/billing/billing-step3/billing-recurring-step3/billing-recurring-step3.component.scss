@@ -181,3 +181,9 @@ input.is-invalid {
   box-shadow: none;
   border-width: 1px;
 }
+@media (min-width: 1920px) {
+  .notifyMsg {
+    margin-right: 24%;
+    text-align: right;
+  }
+}

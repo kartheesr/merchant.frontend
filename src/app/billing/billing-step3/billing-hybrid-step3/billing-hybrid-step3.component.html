@@ -42,6 +42,7 @@
               <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
                 <input
                   class="input"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   type="number"
                   placeholder="No."
                   name="days"
@@ -108,6 +109,7 @@
               <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
                 <input
                   class="input"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   type="number"
                   placeholder="No."
                   name="billingdays"
@@ -158,7 +160,7 @@
                   [min]="1"
                 />
                 <div *ngIf="hideerror">
-                  <div class="notifyMsg aligntxt">Recurrence must be larger than or equal to 2</div>
+                  <div class="notifyMsg1 aligntxt">Recurrence must be larger than or equal to 2</div>
                 </div>
                 <div class="notifyMsg" *ngIf="Recurringdays.errors?.min">Needs to be more than 0</div>
               </div>

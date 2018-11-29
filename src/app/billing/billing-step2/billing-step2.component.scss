@@ -121,3 +121,32 @@ textarea.is-invalid {
   margin-right: 0px !important;
   margin-left: 0px !important;
 }
+@media (min-width: 1920px) {
+  .notifyMsg {
+    color: red;
+    font-size: 12px;
+    padding-left: 0px;
+    margin-right: 260px;
+    float: right;
+  }
+  .ntfyMsg {
+    color: red;
+    font-size: 12px;
+    padding-left: 47%;
+  }
+  .ntfyMsg1 {
+    color: red;
+    font-size: 12px;
+    padding-left: 35%;
+  }
+  .ntfyMsgproduct {
+    color: red;
+    font-size: 12px;
+    padding-left: 51%;
+  }
+  .ntfyMsgmin {
+    color: red;
+    font-size: 12px;
+    padding-left: 40%;
+  }
+}

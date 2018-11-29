@@ -137,8 +137,10 @@
   font-size: 12px;
   text-align: right;
 }
-.notifyMsg,
+.notifyMsg1,
 .aligntxt {
+  color: #eb3232;
+  font-size: 12px;
   text-align: left !important;
 }
 
@@ -148,4 +150,13 @@
 .BillingCycleClass {
   font-size: 13px;
   color: #000;
+}
+@media (min-width: 1920px) {
+  .notifyMsg {
+    float: left;
+  }
+  .notifyMsg,
+  .aligntxt {
+    text-align: right !important;
+  }
 }

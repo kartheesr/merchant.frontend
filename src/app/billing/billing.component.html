@@ -53,10 +53,28 @@
                       <a class="LinkTag" *ngIf="array.typeID == 2">{{ array.frequency }} days</a>
                       <a class="LinkTag" *ngIf="array.typeID == 3">{{ array.frequency }} days</a>
                     </div>
-                    <div class="large">
+                    <div class="large" *ngIf="array.typeID == 1">
                       <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">RECURRING CHARGE</legend>
+                        <legend class="scheduler-border">Single Charge</legend>
                         <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                      </fieldset>
+                    </div>
+                    <div class="large" *ngIf="array.typeID == 2">
+                      <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Recurring Charge</legend>
+                        <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                      </fieldset>
+                    </div>
+                    <div class="large" *ngIf="array.typeID == 3">
+                      <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Recurring Charge</legend>
+                        <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                      </fieldset>
+                    </div>
+                    <div class="large" *ngIf="array.typeID == 3">
+                      <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Initial Charge</legend>
+                        <label>{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label>
                       </fieldset>
                     </div>
                     <div class="footerText">

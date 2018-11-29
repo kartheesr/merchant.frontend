@@ -83,7 +83,7 @@
                     qrc-element-type="“img”"
                     [(qrc-value)]="value"
                   ></ngx-qrcode>
-                  <label class="QR-link" (click)="open()">Enlarge<img src="assets/images/enlarge.svg"/></label>
+                  <label class="QR-link" (click)="open(content)">Enlarge<img src="assets/images/enlarge.svg"/></label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
@@ -215,7 +215,7 @@
                     qrc-element-type="“img”"
                     [(qrc-value)]="value"
                   ></ngx-qrcode>
-                  <label class="QR-link">Enlarge<img src="assets/images/enlarge.svg"/></label>
+                  <label class="QR-link" (click)="open(content)">Enlarge<img src="assets/images/enlarge.svg"/></label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
@@ -450,7 +450,7 @@
                     qrc-element-type="“img”"
                     [(qrc-value)]="value"
                   ></ngx-qrcode>
-                  <label class="QR-link" (click)="open()">Enlarge<img src="assets/images/enlarge.svg"/></label>
+                  <label class="QR-link" (click)="open(content)">Enlarge<img src="assets/images/enlarge.svg"/></label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
@@ -569,5 +569,13 @@
     </div>
   </div>
 </div>
-
 <!-- - SINGLE + RECURRING -->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <label>Contract QR code <img src="assets/images/info-billing.svg"/></label><br />
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body"><img src="assets/images/qr-code.png" /></div>
+</ng-template>

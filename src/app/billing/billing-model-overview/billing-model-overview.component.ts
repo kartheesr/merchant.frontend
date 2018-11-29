@@ -6,7 +6,7 @@ import { DOCUMENT } from '@angular/common';
 import { BillingServiceCall } from '../billing-step4/billing-step4.service';
 import { ActivatedRoute } from '@angular/router';
 import { Constants } from '@app/app.constants';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-billing-model-overview',
@@ -30,6 +30,7 @@ export class BillingModelOverviewComponent implements OnInit {
   public data;
   value;
   model;
+  typeID;
 
   constructor(
     public service: BillingService,
@@ -37,11 +38,13 @@ export class BillingModelOverviewComponent implements OnInit {
     public dashboardService: DashboardService,
     public overviewdata: BillingServiceCall,
     public route: ActivatedRoute,
+    config: NgbModalConfig,
     private modalService: NgbModal,
     public activeModal: NgbActiveModal
-  ) {}
-  typeID;
-
+  ) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
   ngOnInit() {
     this.model = {
       data: ''
@@ -129,22 +132,9 @@ export class BillingModelOverviewComponent implements OnInit {
   txhash(data) {
     window.open('https://etherscan.io/tx/${data}', '_blank');
   }
-  open() {
-    console.log('--------open');
-    this.modalService.open(enlargeQrCode, {
-      size: 'sm'
-    });
-  }
-}
 
-@Component({
-  selector: 'enlarge.component',
-  templateUrl: 'enlarge.component.html'
-})
-export class enlargeQrCode {
-  constructor(private modalService: NgbModal) {}
-
-  ngOnInit() {
-    console.log('pop up ngOnInit');
+  open(content) {
+    console.log('--------> open');
+    this.modalService.open(content);
   }
 }

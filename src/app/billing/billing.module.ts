@@ -6,10 +6,7 @@ import { BillingStep4Component } from './billing-step4/billing-step4.component';
 import { currencyPipe } from '@app/billing/currency.pipe';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import {
-  BillingModelOverviewComponent,
-  enlargeQrCode
-} from '@app/billing/billing-model-overview/billing-model-overview.component';
+import { BillingModelOverviewComponent } from '@app/billing/billing-model-overview/billing-model-overview.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { StepperComponent } from './stepper/stepper.component';
 
@@ -20,12 +17,11 @@ import { StepperComponent } from './stepper/stepper.component';
     BillingStep4Component,
     currencyPipe,
     BillingModelOverviewComponent,
-    StepperComponent,
-    enlargeQrCode
+    StepperComponent
     // BillingHybirdStep4Component
   ],
   imports: [CommonModule, BillingRoutingModule, FormsModule, NgxQRCodeModule],
   providers: [currencyPipe],
-  entryComponents: [enlargeQrCode]
+  entryComponents: []
 })
 export class BillingModule {}

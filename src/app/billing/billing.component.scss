@@ -271,3 +271,9 @@ legend.scheduler-border {
 }
 
 /*** Scroll Bar Style ***/
+
+@media (min-width: 1920px) {
+  .billingBox {
+    height: 430px !important;
+  }
+}

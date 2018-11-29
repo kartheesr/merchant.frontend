@@ -25,10 +25,23 @@
         font-size: 12px;
         color: #333333;
       }
+      .titlediv {
+        margin-top: 10px !important;
+        margin-bottom: 5px;
+        span {
+          font-size: 12px;
+          color: #333333;
+        }
+      }
+      .titlealign {
+        font-size: 12px;
+        font-weight: 600;
+        color: #333333;
+      }
       .firstblock {
         border-bottom: 1px solid #959faf;
         // padding: 0px 0px 34px 0px;
-        margin: 35px 0px;
+        margin: 30px 0px;
       }
       select {
         width: 130px;
@@ -167,6 +180,9 @@
 .BillingCycleClass {
   font-size: 13px;
   color: #000;
+}
+.divalign {
+  margin-bottom: 10px;
 }
 @media (min-width: 1920px) {
   .notifyMsg {

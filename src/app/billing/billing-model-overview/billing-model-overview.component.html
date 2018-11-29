@@ -60,7 +60,7 @@
                   <tbody>
                     <tr>
                       <td class="userId text-left">Single Pull Transaction</td>
-                      <td class="total-td">{{ data.EtherValue }}</td>
+                      <td class="total-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -139,7 +139,7 @@
                   {{ title }}<br />
                   <span>{{ description }}</span>
                 </p>
-                <a href="">{{ frequency }} days</a>
+                <a>{{ frequency }} days</a>
               </div>
               <div class="large">
                 <div>
@@ -180,13 +180,13 @@
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
                     <td class="value-td">{{ data.Recurrence ? data.Recurrence : '0.0' }}</td>
-                    <td class="value-td">{{ data.EtherValue ? data.EtherValue : '0.0' }}</td>
+                    <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.TotalCost ? data.TotalCost : '0.0' }}</td>
                   </tr>
                   <tr>
                     <td class="userId">Transfers from PullPayment Account to Treasury</td>
                     <td class="value-td">{{ data.TransRecurrence ? data.TransRecurrence : '0.0' }}</td>
-                    <td class="value-td">{{ data.EtherValue ? data.EtherValue : '0.0' }}</td>
+                    <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.TotalcostRecuurence ? data.TotalcostRecuurence : '0.0' }}</td>
                   </tr>
                   <tr>
@@ -257,17 +257,19 @@
           <div class="text-right">
             <ul class="pagination pagination-sm">
               <li class="page-item">
-                <a class="page-link" href="#"><img src="assets/images/arrow-r.png"/></a>
+                <a class="page-link"><img src="assets/images/arrow-r.png"/></a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item"><a class="page-link" href="#">...</a></li>
-              <li class="page-item"><a class="page-link active" href="#">8</a></li>
-              <li class="page-item"><a class="page-link" href="#">9</a></li>
+              <li class="page-item"><a class="page-link active" href="#">1</a></li>
+              <!--
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item"><a class="page-link active" href="#">8</a></li>
+                <li class="page-item"><a class="page-link" href="#">9</a></li>
+              -->
               <li class="page-item">
-                <a class="page-link" href="#"><img src="assets/images/arrow-l.png"/></a>
+                <a class="page-link"><img src="assets/images/arrow-l.png"/></a>
               </li>
             </ul>
           </div>
@@ -357,7 +359,7 @@
                   {{ title }}<br />
                   <span>{{ description }}</span>
                 </p>
-                <a href="">{{ frequency }} days</a>
+                <a>{{ frequency }} days</a>
               </div>
               <div class="large">
                 <div>
@@ -406,21 +408,21 @@
                   <tr>
                     <td class="userId">Initial Charge</td>
                     <td class="value-td">{{ data.initialRecurrence ? data.initialRecurrence : '0.0' }}</td>
-                    <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
+                    <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Recurring pull transaction</td>
                     <td class="value-td">{{ data.Recurrence ? data.Recurrence : '0.0' }}</td>
-                    <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
+                    <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.RecurrenceETH ? data.RecurrenceETH : '0.0' }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Transfers PullPayment Account to Treasury</td>
                     <td class="value-td">{{ data.PullRecurrence ? data.PullRecurrence : '0.0' }}</td>
-                    <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
+                    <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.PullRecurrencecost ? data.PullRecurrencecost : '0.0' }}</td>
                   </tr>
 
@@ -493,17 +495,19 @@
           <div class="text-right">
             <ul class="pagination pagination-sm">
               <li class="page-item">
-                <a class="page-link" href="#"><img src="assets/images/arrow-r.png"/></a>
+                <a class="page-link"><img src="assets/images/arrow-r.png"/></a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item"><a class="page-link" href="#">...</a></li>
-              <li class="page-item"><a class="page-link active" href="#">8</a></li>
-              <li class="page-item"><a class="page-link" href="#">9</a></li>
+              <li class="page-item"><a class="page-link active" href="#">1</a></li>
+              <!--
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item"><a class="page-link active" href="#">8</a></li>
+                <li class="page-item"><a class="page-link" href="#">9</a></li>
+              -->
               <li class="page-item">
-                <a class="page-link" href="#"><img src="assets/images/arrow-l.png"/></a>
+                <a class="page-link"><img src="assets/images/arrow-l.png"/></a>
               </li>
             </ul>
           </div>

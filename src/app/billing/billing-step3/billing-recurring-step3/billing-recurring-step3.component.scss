@@ -168,6 +168,11 @@ input:checked + .slider:before {
   font-size: 12px;
   text-align: right;
 }
+.errorMSg {
+  color: #eb3232;
+  font-size: 12px;
+  text-align: right;
+}
 
 .SingleRecurringClass {
   margin-bottom: 25px;
@@ -184,6 +189,10 @@ input.is-invalid {
 @media (min-width: 1920px) {
   .notifyMsg {
     margin-right: 24%;
+    text-align: right;
+  }
+  .errorMSg {
+    margin-right: 10px;
     text-align: right;
   }
 }

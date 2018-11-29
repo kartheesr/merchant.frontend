@@ -48,13 +48,18 @@ export class BillingHybridStep3Component implements OnInit {
       },
       {
         id: 2,
-        label: 'Month',
+        label: 'Week',
         value: 1
       },
       {
         id: 3,
-        label: 'Year',
+        label: 'Month',
         value: 2
+      },
+      {
+        id: 4,
+        label: 'Year',
+        value: 1
       }
     ];
   }

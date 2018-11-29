@@ -50,8 +50,13 @@ export class BillingRecurringStep3Component implements OnInit {
       },
       {
         id: 3,
-        label: 'Years',
+        label: 'Month',
         value: 2
+      },
+      {
+        id: 4,
+        label: 'Year',
+        value: 3
       }
     ];
   }

@@ -86,6 +86,23 @@
           line-height: 21px;
         }
       }
+      .Dayselect {
+        margin: 0px 0px 0px 10px;
+        select {
+          width: 179px;
+          height: 38px;
+          border-color: #cccccc;
+          background-color: #fcfdff;
+          border-radius: 1px;
+          padding: 0px 20px;
+          font-size: 14px;
+          line-height: 21px;
+        }
+      }
+      .textalign {
+        margin-top: 5px;
+        left: -20px;
+      }
 
       .singleimg {
         width: 222px;
@@ -140,7 +157,7 @@
 .notifyMsg1,
 .aligntxt {
   color: #eb3232;
-  font-size: 12px;
+  font-size: 11px;
   text-align: left !important;
 }
 
@@ -153,10 +170,14 @@
 }
 @media (min-width: 1920px) {
   .notifyMsg {
-    float: left;
+    margin-right: 24%;
   }
   .notifyMsg,
   .aligntxt {
     text-align: right !important;
+    margin-right: 25%;
+  }
+  .textalign {
+    left: -5em !important;
   }
 }

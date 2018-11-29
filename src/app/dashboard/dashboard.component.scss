@@ -125,17 +125,19 @@
 
 .qrContents {
   margin-top: 10px !important;
+  margin-left: 6%;
 }
 
 .qrContents p {
   font-size: 13px !important;
   color: #9b9b9b !important;
+  line-height: 2em;
 }
 .qrCont img {
   margin: 0px 0px 0px -13px !important;
 }
 .qrCodeField {
-  margin-top: 10px !important;
+  margin-top: 20px !important;
 }
 .QRCodeClass {
   padding-left: 0px !important;
@@ -169,4 +171,9 @@
 }
 .qrCodeField img {
   cursor: pointer;
+}
+@media (min-width: 1920px) {
+  .qrContents {
+    margin-left: 0% !important;
+  }
 }

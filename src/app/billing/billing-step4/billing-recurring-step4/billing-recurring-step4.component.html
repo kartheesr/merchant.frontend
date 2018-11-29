@@ -11,7 +11,9 @@
             #transactions="ngModel"
             (change)="handleChangetransactions(transactions)"
           >
-            <option *ngFor="let item of transcationoption" [ngValue]="item.label">{{ item.label }}</option>
+            <option *ngFor="let item of transcationoption" [selected]="item.value === 0" [ngValue]="item.label">{{
+              item.label
+            }}</option>
           </select>
         </div>
       </div>
@@ -42,7 +44,7 @@
         </div>
       </div>
       <div class="txtContent">
-        <img src="assets/images/info.png" class="info" />
+        <img class="info" src="assets/images/info.png" class="info" />
         <label class="titleFun">Funding the PullPayment Accounts with Gas</label>
         <label class="titleContent">
           Every time a new customer subscribes to a billing model, the system creates a new PullPayment account. The

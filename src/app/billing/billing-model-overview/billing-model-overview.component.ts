@@ -27,7 +27,8 @@ export class BillingModelOverviewComponent implements OnInit {
   public frequency;
   public pmaAmount;
   public transactionHistorArray;
-  public data;
+  public data = '';
+  public EtherValue;
   value;
   model;
   typeID;
@@ -78,6 +79,10 @@ export class BillingModelOverviewComponent implements OnInit {
       localStorage.removeItem('publishId');
 
       if (result.data.typeID == 1) {
+        this.overviewdata.gasvalueCalcualtion().subscribe(result => {
+          let cal = result.balance * 2;
+          this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+        });
         this.data = this.overviewdata.model;
         this.description = 'Single';
         this.title = result.data.title;
@@ -88,7 +93,10 @@ export class BillingModelOverviewComponent implements OnInit {
         this.recurring = false;
         this.singleRecurring = false;
       } else if (result.data.typeID == 2) {
-        this.data = this.overviewdata.model;
+        this.overviewdata.gasvalueCalcualtion().subscribe(result => {
+          this.EtherValue = result.balance;
+        });
+        this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Recurring';
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
@@ -99,7 +107,11 @@ export class BillingModelOverviewComponent implements OnInit {
         this.single = false;
         this.singleRecurring = false;
       } else {
-        this.data = this.overviewdata.model;
+        this.overviewdata.gasvalueCalcualtion().subscribe(result => {
+          let cal = result.balance * 2;
+          this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+        });
+        this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Single + Recurring';
         this.title = result.data.title;
         this.amount = result.data.amount / 100;

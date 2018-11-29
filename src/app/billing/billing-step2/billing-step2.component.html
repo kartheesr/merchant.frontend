@@ -14,12 +14,13 @@
           [ngClass]="{ 'is-invalid': f.submitted && productName.errors?.required }"
           required
           minlength="2"
+          maxlength="50"
         />
         <br />
         <div *ngIf="f.submitted">
-          <div class="ntfyMsgproduct" [hidden]="!productName.errors?.required">Product name is required!</div>
+          <div class="ntfyMsgproduct" [hidden]="!productName.errors?.required">Product name is required</div>
           <div class="ntfyMsgmin" [hidden]="!productName.errors?.minlength">
-            Product name must be atleast 2 characters!
+            Product name must be atleast 2 characters
           </div>
         </div>
       </div>
@@ -39,9 +40,9 @@
         />
         <br />
         <div *ngIf="f.submitted">
-          <div class="ntfyMsg" [hidden]="!billingModelName.errors?.required">Billing model name is required!</div>
+          <div class="ntfyMsg" [hidden]="!billingModelName.errors?.required">Billing model name is required</div>
           <div class="ntfyMsg1" [hidden]="!billingModelName.errors?.minlength">
-            Billing model name must be atleast 2 characters!
+            Billing model name must be atleast 2 characters
           </div>
         </div>
       </div>

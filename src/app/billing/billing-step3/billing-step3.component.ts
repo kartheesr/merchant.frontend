@@ -46,7 +46,6 @@ export class BillingStep3Component implements OnInit {
     this.Placeholdername = '$0.00';
   }
   ngOnInit() {
-    console.log(this.model.rupees);
     this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {

@@ -8,6 +8,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { DOCUMENT } from '@angular/common';
 import { BillingServiceCall } from '../billing/billing-step4/billing-step4.service';
 import Web3 from 'web3';
+import { Constants } from '@app/app.constants';
 var web3 = new Web3();
 
 const log = new Logger('Login');
@@ -30,6 +31,7 @@ export class DashboardComponent implements OnInit {
   transactionHistorArray;
   pmaAddressList;
   addressList;
+  treasuryAddress;
 
   constructor(
     private dashboardService: DashboardService,
@@ -50,10 +52,12 @@ export class DashboardComponent implements OnInit {
     });
     this.BillingServiceCall.gasvalueCalcualtion().subscribe(res => {
       this.gasBalance = res.balance; // GAS VALUE
+      this.qrcode(this.treasuryAddress, this.gasBalance);
     });
     this.dashboardService.getQRCodeaddress().subscribe(result => {
-      this.value = result.address; // TREASURY ADDRESS
+      this.treasuryAddress = result.address; // TREASURY ADDRESS
     });
+
     this.dashboardService.getTreasurybalance().subscribe(result => {
       this.treasuryBalance = result.result; // TREASURY BALANCE
     });
@@ -77,5 +81,8 @@ export class DashboardComponent implements OnInit {
 
   txhash(data) {
     window.open('https://etherscan.io/tx/${data}', '_blank');
+  }
+  qrcode(treasuryAddress, gasBalance) {
+    this.value = `${Constants.apiHost}${Constants.apiPrefix}qr/${treasuryAddress}/1000000000000000000/${gasBalance}`;
   }
 }

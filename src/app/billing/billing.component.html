@@ -45,47 +45,49 @@
                   </div>
                   <div class="boxCont">
                     <div class="pad-l-20">
-                      <p>
-                        {{ array.title }} <br />
-                        <span *ngIf="array.typeID == 1">Single</span> <span *ngIf="array.typeID == 2">Recurring</span>
-                        <span *ngIf="array.typeID == 3">Single + Recurring</span>
-                      </p>
-                      <a class="LinkTag" *ngIf="array.typeID == 1"> </a>
-                      <a class="LinkTag" *ngIf="array.typeID == 2">{{ array.frequency }} days</a>
-                      <a class="LinkTag" *ngIf="array.typeID == 3">{{ array.frequency }} days</a>
+                      <div class="number">{{ array.title }}</div>
+                      <p *ngIf="array.typeID == 1">Single</p>
+                      <p *ngIf="array.typeID == 2">Recurring</p>
+                      <p *ngIf="array.typeID == 3">Single + Recurring</p>
+                      <div class="LinkTag">
+                        <a *ngIf="array.typeID == 1"> </a> <a *ngIf="array.typeID == 2">{{ array.frequency }} days</a>
+                        <a *ngIf="array.typeID == 3">{{ array.frequency }} days</a>
+                      </div>
                     </div>
-                    <div class="large" *ngIf="array.typeID == 1">
-                      <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Single Charge</legend>
-                        <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
-                      </fieldset>
-                    </div>
-                    <div class="large" *ngIf="array.typeID == 2">
-                      <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Recurring Charge</legend>
-                        <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
-                      </fieldset>
-                    </div>
-                    <div class="large" *ngIf="array.typeID == 3">
-                      <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Recurring Charge</legend>
-                        <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
-                      </fieldset>
-                    </div>
-                    <div class="large" *ngIf="array.typeID == 3">
-                      <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Initial Charge</legend>
-                        <label>{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label>
-                      </fieldset>
+                    <div class="large">
+                      <div *ngIf="array.typeID == 1">
+                        <fieldset class="scheduler-border">
+                          <legend class="scheduler-border">SINGLE CHARGE</legend>
+                          <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                        </fieldset>
+                      </div>
+                      <div *ngIf="array.typeID == 2">
+                        <fieldset class="scheduler-border">
+                          <legend class="scheduler-border">RECURRING CHARGE</legend>
+                          <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                        </fieldset>
+                      </div>
+                      <div *ngIf="array.typeID == 3">
+                        <fieldset class="scheduler-border">
+                          <legend class="scheduler-border">RECURRING CHARGE</legend>
+                          <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                        </fieldset>
+                      </div>
+                      <div *ngIf="array.typeID == 3">
+                        <fieldset class="scheduler-border">
+                          <legend class="scheduler-border">INITIAL CHARGE</legend>
+                          <label>{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label>
+                        </fieldset>
+                      </div>
                     </div>
                     <div class="footerText">
-                      <p>
+                      <div class="footerTextPma">
                         {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA'
-                        }}{{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
-                      </p>
-                      <span *ngIf="array.typeID == 1">Subscribers {{ SinglePullValue }}</span>
-                      <span *ngIf="array.typeID == 2">Subscribers {{ RecurringPullValue }}</span>
-                      <span *ngIf="array.typeID == 3">Subscribers {{ SingleWithRecurringValue }}</span>
+                        }}{{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }} <br />
+                        <span *ngIf="array.typeID == 1">Subscribers {{ SinglePullValue }}</span>
+                        <span *ngIf="array.typeID == 2">Subscribers {{ RecurringPullValue }}</span>
+                        <span *ngIf="array.typeID == 3">Subscribers {{ SingleWithRecurringValue }}</span>
+                      </div>
                     </div>
                   </div>
                 </div>

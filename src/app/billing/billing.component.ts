@@ -37,6 +37,7 @@ export class BillingComponent implements OnInit {
   RecurringWithTrialValue: number;
   YearValue: any = {};
   YearValue1: any = {};
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -90,21 +91,6 @@ export class BillingComponent implements OnInit {
             }
           }
         }
-        for (let days of result.data[0]) {
-          // console.log("this.YearValue5", days.frequency);
-          if (days.frequency > 365) {
-            console.log('this.YearValue7', days.frequency);
-
-            console.log('this.YearValue8');
-            this.YearValue = days.frequency / 365;
-            console.log('this.YearValue', this.YearValue);
-            //this.YearValue1 = this.YearValue;
-            // console.log("this.YearValue1", this.YearValue1);
-          } else if (days.frequency > 30) {
-            this.YearValue1 = days.frequency / 30;
-            console.log('this.YearValue1', this.YearValue1);
-          }
-        }
       } else {
         this.show1 = true;
         this.show2 = false;
@@ -133,7 +119,6 @@ export class BillingComponent implements OnInit {
   }
 
   onClick(data) {
-    console.log('Onclick function-->', data);
     this.router.navigate(['./billing/billingmodeloverview'], { queryParams: { pullPayId: data } });
   }
 }

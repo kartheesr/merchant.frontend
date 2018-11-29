@@ -22,22 +22,26 @@ export class BillingHybridStep3Component implements OnInit {
       {
         id: 1,
         label: 'USD',
-        value: 0
+        value: 0,
+        name: '$'
       },
       {
         id: 2,
         label: 'EUR',
-        value: 1
+        value: 1,
+        name: '€'
       },
       {
         id: 3,
         label: 'GBP',
-        value: 2
+        value: 2,
+        name: '£'
       },
       {
         id: 4,
         label: 'JPY',
-        value: 3
+        value: 4,
+        name: '¥'
       }
     ];
     this.calendarlist = [

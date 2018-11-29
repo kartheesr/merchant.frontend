@@ -14,33 +14,39 @@ export class BillingStep3Component implements OnInit {
   newForm;
   public selectOption: any;
   Placeholdername: string;
+
   constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
     this.selectOption = [
       {
         id: 1,
         label: 'USD',
-        value: 0
+        value: 0,
+        name: '$'
       },
       {
         id: 2,
         label: 'EUR',
-        value: 1
+        value: 1,
+        name: '€'
       },
       {
         id: 3,
         label: 'GBP',
-        value: 2
+        value: 2,
+        name: '£'
       },
       {
         id: 4,
         label: 'JPY',
-        value: 4
+        value: 4,
+        name: '¥'
       }
     ];
     this.model.rupees = this.selectOption[0].label;
     this.Placeholdername = '$0.00';
   }
   ngOnInit() {
+    console.log(this.model.rupees);
     this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {

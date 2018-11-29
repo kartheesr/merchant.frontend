@@ -27,7 +27,7 @@
                   [(ngModel)]="model.price"
                   #price="ngModel"
                   required
-                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
+                  [ngClass]="{ 'is-invalid': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
                   [gt]="0"
                 />
                 <div *ngIf="hybirdForm.submitted">
@@ -52,7 +52,7 @@
                   [(ngModel)]="model.days"
                   #days="ngModel"
                   required
-                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
+                  [ngClass]="{ 'is-invalid': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
                 />
                 <div class="notifyMsg1 aligntxt" *ngIf="days.errors?.min">Needs to last at least 1 day</div>
               </div>
@@ -91,7 +91,7 @@
                   #Periodprice="ngModel"
                   required
                   [ngClass]="{
-                    'invalid\': ': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
+                    'is-invalid': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
                   }"
                   [gt]="0"
                 />
@@ -99,10 +99,10 @@
               </div>
             </div>
 
-            <label
-              ><span>Billing Cycle</span><br />
-              <span>Customer will be billed every</span></label
-            >
+            <label>
+              <span>Billing Cycle</span> <br />
+              <span>Customer will be billed every</span>
+            </label>
             <div class="row">
               <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
                 <input
@@ -118,7 +118,7 @@
                   #billingdays="ngModel"
                   required
                   [ngClass]="{
-                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
                 />
               </div>
@@ -129,7 +129,7 @@
                   #billingcalendar="ngModel"
                   required
                   [ngClass]="{
-                    'invalid\': ': (hybirdForm.submitted && billingcalendar.errors?.required) || billingdays.errors?.min
+                    'is-invalid': (hybirdForm.submitted && billingcalendar.errors?.required) || billingdays.errors?.min
                   }"
                 >
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
@@ -138,10 +138,10 @@
               </div>
             </div>
 
-            <label
-              ><span>Recurrence</span> <br />
-              <span>Number of billing cycle</span></label
-            >
+            <label>
+              <span>Recurrence</span> <br />
+              <span>Number of billing cycle</span>
+            </label>
             <div class="row">
               <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
                 <input
@@ -155,7 +155,7 @@
                   required
                   (input)="handlevalidate(Recurringdays)"
                   [ngClass]="{
-                    '':
+                    'is-invalid':
                       (hybirdForm.submitted && Recurringdays.errors?.required) || hideerror || Recurringdays.errors?.min
                   }"
                   [min]="1"

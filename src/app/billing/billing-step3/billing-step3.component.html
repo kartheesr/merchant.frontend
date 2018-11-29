@@ -16,7 +16,7 @@
                   (change)="handleChangeCurrency(rupees)"
                 >
                   <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label"
-                    >{{ item.label }}
+                    >{{ item.name }} {{ item.label }}
                   </option>
                 </select>
               </div>

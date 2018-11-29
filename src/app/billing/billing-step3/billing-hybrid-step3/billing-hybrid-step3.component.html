@@ -15,7 +15,9 @@
                   [ngClass]="{ 'is-invalid': hybirdForm.submitted && Currency.errors?.required }"
                   (change)="handlechangecurrency(Currency)"
                 >
-                  <option *ngFor="let item of amountCurrency" [ngValue]="item.label">{{ item.label }}</option>
+                  <option *ngFor="let item of amountCurrency" [ngValue]="item.label"
+                    >{{ item.name }} {{ item.label }}</option
+                  >
                 </select>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 amountinput">
@@ -58,7 +60,9 @@
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 Dayselect">
                 <select name="calendar" [(ngModel)]="model.calendar" #calendar="ngModel" required>
-                  <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
+                  <option *ngFor="let item of calendarlist" [ngValue]="item.label"
+                    >{{ item.name }} {{ item.label }}}</option
+                  >
                 </select>
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 textalign"><label>after initial charge</label></div>

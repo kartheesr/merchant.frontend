@@ -54,20 +54,7 @@
       <div class="col"><label>TRANSACTION HISTORY</label></div>
       <div class="col ">
         <div class="text-right">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
-          <!--
-            <ul class="pagination pagination-sm">
-            <li class="page-item">
-              <a class="page-link"><img src="assets/images/arrow-r.png"/></a>
-            </li>
-            <li class="page-item"><a class="page-link active">1</a></li>
-          -->
-          <!--
-            <li class="page-item">
-                <a class="page-link"><img src="assets/images/arrow-l.png"/></a>
-              </li>
-            </ul>
-          -->
+          <pagination-controls (pageChange)="p = $event" previousLabel="<" nextLabel=">"></pagination-controls>
         </div>
       </div>
     </div>

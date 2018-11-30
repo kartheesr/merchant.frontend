@@ -8,7 +8,6 @@ import { Logger } from '@app/core';
 import { DOCUMENT } from '@angular/common';
 import { BillingServiceCall } from '../billing/billing-step4/billing-step4.service';
 import { Constants } from '@app/app.constants';
-import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 
 const log = new Logger('Login');
 @Component({

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { BillingModelOverviewComponent } from '@app/billing/billing-model-overview/billing-model-overview.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { StepperComponent } from './stepper/stepper.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // import { BillingHybirdStep4Component } from '@app/billing/billing-step4/billing-hybird-step4/billing-hybird-step4.component';
 @NgModule({
@@ -20,7 +21,7 @@ import { StepperComponent } from './stepper/stepper.component';
     StepperComponent
     // BillingHybirdStep4Component
   ],
-  imports: [CommonModule, BillingRoutingModule, FormsModule, NgxQRCodeModule],
+  imports: [CommonModule, BillingRoutingModule, FormsModule, NgxQRCodeModule, NgxPaginationModule],
   providers: [currencyPipe],
   entryComponents: []
 })

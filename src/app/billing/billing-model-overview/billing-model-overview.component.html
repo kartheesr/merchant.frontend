@@ -255,23 +255,7 @@
         <div class="col"><label>TRANSACTION HISTORY</label></div>
         <div class="col ">
           <div class="text-right">
-            <ul class="pagination pagination-sm">
-              <li class="page-item">
-                <a class="page-link"><img src="assets/images/arrow-r.png"/></a>
-              </li>
-              <li class="page-item"><a class="page-link active" href="#">1</a></li>
-              <!--
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item"><a class="page-link active" href="#">8</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-              -->
-              <li class="page-item">
-                <a class="page-link"><img src="assets/images/arrow-l.png"/></a>
-              </li>
-            </ul>
+            <pagination-controls (pageChange)="p = $event" previousLabel="<" nextLabel=">"></pagination-controls>
           </div>
         </div>
       </div>
@@ -287,7 +271,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let val of transactionHistorArray">
+          <tr *ngFor="let val of (transactionHistorArray | paginate: { itemsPerPage: 10, currentPage: p })">
             <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
             <!-- <td>{{ val.billingModel }}</td> -->
             <td>Gold</td>
@@ -493,23 +477,7 @@
         <div class="col"><label>TRANSACTION HISTORY</label></div>
         <div class="col ">
           <div class="text-right">
-            <ul class="pagination pagination-sm">
-              <li class="page-item">
-                <a class="page-link"><img src="assets/images/arrow-r.png"/></a>
-              </li>
-              <li class="page-item"><a class="page-link active" href="#">1</a></li>
-              <!--
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item"><a class="page-link active" href="#">8</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-              -->
-              <li class="page-item">
-                <a class="page-link"><img src="assets/images/arrow-l.png"/></a>
-              </li>
-            </ul>
+            <pagination-controls (pageChange)="p = $event" previousLabel="<" nextLabel=">"></pagination-controls>
           </div>
         </div>
       </div>
@@ -525,7 +493,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let val of transactionHistorArray">
+          <tr *ngFor="let val of (transactionHistorArray | paginate: { itemsPerPage: 10, currentPage: p })">
             <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
             <!-- <td>{{ val.billingModel }}</td> -->
             <td>Gold</td>

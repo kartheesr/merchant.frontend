@@ -47,22 +47,22 @@ export class BillingHybridStep3Component implements OnInit {
     this.calendarlist = [
       {
         id: 1,
-        label: 'Day',
+        label: 'Days',
         value: 0
       },
       {
         id: 2,
-        label: 'Week',
+        label: 'Weeks',
         value: 1
       },
       {
         id: 3,
-        label: 'Month',
+        label: 'Months',
         value: 2
       },
       {
         id: 4,
-        label: 'Year',
+        label: 'Years',
         value: 1
       }
     ];

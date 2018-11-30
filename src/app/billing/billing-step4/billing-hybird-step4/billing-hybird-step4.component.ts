@@ -66,7 +66,7 @@ export class BillingHybirdStep4Component implements OnInit {
       id: this.editId,
       title: this.Step2data.productName,
       description: this.Step2data.billModelDes,
-      amount: this.Step3data.price,
+      amount: this.Step3data.Periodprice,
       initialPaymentAmount: 0,
       trialPeriod: 0,
       currency: this.Step3data.Currency,

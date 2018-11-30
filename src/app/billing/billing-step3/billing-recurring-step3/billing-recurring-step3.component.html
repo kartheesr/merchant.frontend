@@ -29,7 +29,7 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [ngClass]="{ ': \': \': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
@@ -57,7 +57,7 @@
                       required
                       #NoOfRecuurence1="ngModel"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        ': \': \': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                     />
@@ -93,7 +93,7 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                        ': \': \': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
                       [min]="2"
                       onkeypress="return event.charCode >= 48 && event.charCode <= 57"
@@ -107,7 +107,7 @@
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
                 <span class="BillingCycleClass">Trial period</span> <br />
-                <label>Offer your customers a trail before they start paying you</label>
+                <label>Offer your customers a trial before they start paying you</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
                     <label class="switch">
@@ -138,7 +138,7 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        ': \': \': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                     />

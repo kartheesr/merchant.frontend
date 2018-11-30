@@ -79,7 +79,7 @@ export class BillingModelOverviewComponent implements OnInit {
 
       if (result.data.typeID == 1) {
         this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-          let cal = result.balance * 2;
+          let cal = result.res.gasprice * 2;
           this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
         });
         this.data = this.overviewdata.model;
@@ -93,7 +93,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.singleRecurring = false;
       } else if (result.data.typeID == 2) {
         this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-          this.EtherValue = result.balance;
+          this.EtherValue = result.res.gasprice;
         });
         this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Recurring';
@@ -107,7 +107,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.singleRecurring = false;
       } else {
         this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-          let cal = result.balance * 2;
+          let cal = result.res.gasprice * 2;
           this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
         });
         this.data = this.overviewdata.model ? this.overviewdata.model : '';

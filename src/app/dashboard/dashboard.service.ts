@@ -18,6 +18,7 @@ export class DashboardService {
   private address1;
   private QRCodeURL;
   private treasuryUrl;
+  private gasactionUrl;
 
   constructor(private http: HttpClient) {
     this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/getAll`;
@@ -30,6 +31,7 @@ export class DashboardService {
     this.headers.append('Access-Control-Allow-Methods', 'OPTIONS, TRACE, GET, HEAD, POST');
     this.QRCodeURL = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/address`;
     this.treasuryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pmabalance`;
+    this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/etherBalance`;
   }
 
   public getTransactionHistory(): Observable<any> {
@@ -56,6 +58,14 @@ export class DashboardService {
   // service call
   public getTreasurybalance(): Observable<any> {
     return this.http.get(this.treasuryUrl).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+
+  public gasvalueCalcualtion(): Observable<any> {
+    return this.http.get(this.gasactionUrl).pipe(
       map((response: HttpResponse) => {
         return response;
       })

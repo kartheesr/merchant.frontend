@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
         }
       }
     });
-    this.BillingServiceCall.gasvalueCalcualtion().subscribe(res => {
+    this.dashboardService.gasvalueCalcualtion().subscribe(res => {
       this.gasBalance = res.balance; // GAS VALUE
       this.qrcode(this.treasuryAddress, this.gasBalance);
     });

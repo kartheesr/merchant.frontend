@@ -75,7 +75,7 @@
     </div>
     <div class="btCtrl col-xs-12 col-sm-10 col-md-11">
       <button class="backbtn" (click)="onBack()">Back</button>
-      <button class="continuebtn btn btn-default">Continue</button>
+      <button type="submit" class="continuebtn" [disabled]="!f.valid">Continue</button>
     </div>
   </div>
 </form>

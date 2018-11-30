@@ -138,7 +138,7 @@
                   #billingcalendar="ngModel"
                   required
                   [ngClass]="{
-                    'invalid\': ': (hybirdForm.submitted && billingcalendar.errors?.required) || billingdays.errors?.min
+                    '-invalid\':': (hybirdForm.submitted && billingcalendar.errors?.required) || billingdays.errors?.min
                   }"
                 >
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
@@ -174,7 +174,7 @@
                 <div *ngIf="hideerror">
                   <div class="notifyMsg1 aligntxt">Recurrence must be larger than or equal to 2</div>
                 </div>
-                <div class="notifyMsg" *ngIf="Recurringdays.errors?.min">Needs to be more than 0</div>
+                <div class="notifyMsg1" *ngIf="Recurringdays.errors?.min">Needs to be more than 0</div>
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@
           <div class="col-xs-12 col-sm-4 col-md-4"><img src="assets/images/step3-hybird.png" class="singleimg" /></div>
           <div class="col-xs-12 col-sm-12 col-md-12">
             <button class="backbtn" type="reset" (click)="onBack()">back</button>
-            <button type="submit" class="continuebtn">Continue</button>
+            <button type="submit" class="continuebtn" [disabled]="!hybirdForm.valid">Continue</button>
           </div>
         </div>
       </div>

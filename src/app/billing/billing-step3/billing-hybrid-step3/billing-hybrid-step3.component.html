@@ -31,6 +31,7 @@
                   required
                   [ngClass]="{ 'is-invalid': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
                   [gt]="0"
+                  maxlength="17"
                 />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" [hidden]="!price.errors?.required">Price is required!</div>
@@ -55,6 +56,8 @@
                   #days="ngModel"
                   required
                   [ngClass]="{ 'is-invalid': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  appBlockCopyPaste
                 />
                 <div class="notifyMsg1 aligntxt" *ngIf="days.errors?.min">Needs to last at least 1 day</div>
               </div>
@@ -124,6 +127,8 @@
                   [ngClass]="{
                     'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  appBlockCopyPaste
                 />
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 calendarselect">
@@ -163,6 +168,8 @@
                       (hybirdForm.submitted && Recurringdays.errors?.required) || hideerror || Recurringdays.errors?.min
                   }"
                   [min]="1"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  appBlockCopyPaste
                 />
                 <div *ngIf="hideerror">
                   <div class="notifyMsg1 aligntxt">Recurrence must be larger than or equal to 2</div>

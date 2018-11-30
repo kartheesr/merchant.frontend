@@ -34,6 +34,7 @@ import { BillingHybirdStep4Component } from './billing/billing-step4/billing-hyb
 import { BillingRecurringStep4Component } from './billing/billing-step4/billing-recurring-step4/billing-recurring-step4.component';
 import { CustomFormsModule } from 'ng2-validation';
 import { BillingHybridStep3Component } from './billing/billing-step3/billing-hybrid-step3/billing-hybrid-step3.component';
+import { BlockCopyPasteDirective } from '@app/block-copy-paste.directive';
 
 @NgModule({
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
@@ -65,7 +66,8 @@ import { BillingHybridStep3Component } from './billing/billing-step3/billing-hyb
     BillingRecurringStep3Component,
     BillingRecurringStep4Component,
     BillingHybridStep3Component,
-    BillingHybirdStep4Component
+    BillingHybirdStep4Component,
+    BlockCopyPasteDirective
   ],
   providers: [
     AuthenticationService,

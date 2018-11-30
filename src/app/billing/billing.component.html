@@ -9,7 +9,14 @@
     </div>
   </div>
 </div>
-
+<!--
+  <div class="row" *ngIf="loadimg">
+    <div class="col-md-12 lds-spinner">
+      <div class="lds-ring">
+      </div>
+    </div>
+  </div>
+-->
 <div *ngIf="show2">
   <div class="billingModelContainer">
     <div class="bm-header">
@@ -55,25 +62,25 @@
                       </div>
                     </div>
                     <div class="large">
-                      <div *ngIf="array.typeID == 1">
+                      <div class="new2" *ngIf="array.typeID == 1">
                         <fieldset class="scheduler-border">
                           <legend class="scheduler-border">SINGLE CHARGE</legend>
                           <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
                         </fieldset>
                       </div>
-                      <div *ngIf="array.typeID == 2">
-                        <fieldset class="scheduler-border">
-                          <legend class="scheduler-border">RECURRING CHARGE</legend>
-                          <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
-                        </fieldset>
-                      </div>
-                      <div class="new1" *ngIf="array.typeID == 3">
+                      <div class="new2" *ngIf="array.typeID == 2">
                         <fieldset class="scheduler-border">
                           <legend class="scheduler-border">RECURRING CHARGE</legend>
                           <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
                         </fieldset>
                       </div>
                       <div class="new" *ngIf="array.typeID == 3">
+                        <fieldset class="scheduler-border">
+                          <legend class="scheduler-border">RECURRING CHARGE</legend>
+                          <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                        </fieldset>
+                      </div>
+                      <div class="new1" *ngIf="array.typeID == 3">
                         <fieldset class="scheduler-border">
                           <legend class="scheduler-border">INITIAL CHARGE</legend>
                           <label>{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label>
@@ -82,8 +89,19 @@
                     </div>
                     <div class="footerText">
                       <div class="footerTextPma">
-                        {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA'
-                        }}{{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }} <br />
+                        <span *ngIf="array.typeID == 1">
+                          {{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
+                          {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}
+                        </span>
+                        <span *ngIf="array.typeID == 2">
+                          {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA'
+                          }}{{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
+                        </span>
+                        <span *ngIf="array.typeID == 3">
+                          {{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
+                          {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}
+                        </span>
+                        <br />
                         <span *ngIf="array.typeID == 1">Subscribers {{ SinglePullValue }}</span>
                         <span *ngIf="array.typeID == 2">Subscribers {{ RecurringPullValue }}</span>
                         <span *ngIf="array.typeID == 3">Subscribers {{ SingleWithRecurringValue }}</span>

@@ -30,6 +30,7 @@ export class BillingComponent implements OnInit {
   show1: boolean;
   show2: boolean;
   newForm = 'newForm';
+  // loadimg;
 
   SinglePullValue: number;
   RecurringPullValue: number;
@@ -52,6 +53,7 @@ export class BillingComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.loadimg = true;
     this.show1 = true;
     this.Getpull();
     this.getPullPayment();
@@ -74,6 +76,7 @@ export class BillingComponent implements OnInit {
     this.SingleWithRecurringValue = 0;
     this.RecurringWithTrialValue = 0;
     this.billingService.Getpull().subscribe(result => {
+      // this.loadimg = false;
       if (result.success == true) {
         if (result.data.length != 0) {
           this.show1 = false;

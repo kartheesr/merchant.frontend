@@ -9,7 +9,6 @@ import { HttpResponse } from '@app/utils/web/models/HttpResponse';
   providedIn: 'root'
 })
 export class DashboardService {
-  private actionUrl: string;
   private treasuryAddressUrl;
   private transactionHistoryUrl;
   private treasuryBalUrl;
@@ -21,7 +20,6 @@ export class DashboardService {
   private treasuryUrl;
 
   constructor(private http: HttpClient) {
-    this.actionUrl = `${Constants.apiHost}${Constants.apiPrefix}balance/all/`;
     this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/getAll`;
     this.treasuryBalUrl = `https://api.etherscan.io/api?module=account&action=balance&address=0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a&tag=latest&apikey=${
       Constants.API_KEY
@@ -33,9 +31,7 @@ export class DashboardService {
     this.QRCodeURL = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/address`;
     this.treasuryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pmabalance`;
   }
-  public getPullPayment(): Observable<any> {
-    return this.http.get(this.actionUrl, { headers: this.headers });
-  }
+
   public getTransactionHistory(): Observable<any> {
     return this.http.get(this.transactionHistoryUrl, { headers: this.headers });
   }

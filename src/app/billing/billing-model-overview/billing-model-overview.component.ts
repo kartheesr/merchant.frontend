@@ -72,7 +72,6 @@ export class BillingModelOverviewComponent implements OnInit {
     });
     this.service.getByIdBillingModelqr(this.id).subscribe(result => {
       this.value = result.data.pullPaymentModelURL;
-      console.log('get qr', this.value);
     });
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
@@ -128,13 +127,12 @@ export class BillingModelOverviewComponent implements OnInit {
   base64() {
     var str = document.getElementById('qr-value').innerHTML;
     var res = str.split(' ');
-    var res1 = res[1];
+    var res1 = res[2];
     var final = res1.split('>');
     var tocpytxt = final[0];
     var yyy = tocpytxt.split(',');
     var newyear = yyy[1].split('"');
     this.model.data = newyear[0];
-    console.log('base64 ', str);
   }
   copyInputMessage(inputElement) {
     inputElement.select();

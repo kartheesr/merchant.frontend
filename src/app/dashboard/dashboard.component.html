@@ -28,27 +28,6 @@
       </div>
     </div>
   </div>
-  <!--
-    <div class="row">
-      <div class="qrCodeContainer">
-        <label>EXTERNAL WALLET FUNDING</label>
-        <div class="col">
-          <div class="qrCont">
-            <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
-          </div>
-        </div>
-        <div class="col">
-          <div class="qrContents">
-            <p>Scan the QR Code to send funds to your Wallet and <br />refill your Transfer Gas tank</p>
-            <div class="qrCodeField">
-              <input type="text" value="{{value}}" #userinput />
-              <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  -->
 
   <div class="row">
     <div class="col-xs-12 col-sm-12 cols-md-12"><label>SCAN THE QR CODE TO SEND ETH TO YOUR GAS WALLET</label></div>
@@ -75,23 +54,20 @@
       <div class="col"><label>TRANSACTION HISTORY</label></div>
       <div class="col ">
         <div class="text-right">
-          <ul class="pagination pagination-sm">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          <!--
+            <ul class="pagination pagination-sm">
             <li class="page-item">
               <a class="page-link"><img src="assets/images/arrow-r.png"/></a>
             </li>
             <li class="page-item"><a class="page-link active">1</a></li>
-            <!--
-              <li class="page-item"><a class="page-link">2</a></li>
-              <li class="page-item"><a class="page-link">3</a></li>
-              <li class="page-item"><a class="page-link">4</a></li>
-              <li class="page-item"><a class="page-link">...</a></li>
-              <li class="page-item"><a class="page-link ">8</a></li>
-              <li class="page-item"><a class="page-link">9</a></li>
-            -->
+          -->
+          <!--
             <li class="page-item">
-              <a class="page-link"><img src="assets/images/arrow-l.png"/></a>
-            </li>
-          </ul>
+                <a class="page-link"><img src="assets/images/arrow-l.png"/></a>
+              </li>
+            </ul>
+          -->
         </div>
       </div>
     </div>
@@ -108,7 +84,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let val of transactionHistorArray">
+        <tr *ngFor="let val of (transactionHistorArray | paginate: { itemsPerPage: 10, currentPage: p })">
           <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
           <!-- <td>{{ val.billingModel }}</td> -->
           <td>Gold</td>
@@ -124,36 +100,6 @@
           </td>
           <td>{{ val.balance }}</td>
         </tr>
-
-        <!--
-          <tr>
-            <td>13 Jun</td>
-            <td>Gold</td>
-            <td>(2/6)</td>
-            <td (click)="txhash()">Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td>Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
-          </tr>
-          <tr>
-            <td>13 Jun</td>
-            <td>Gold</td>
-            <td>(2/6)</td>
-            <td>Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td>Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
-          </tr>
-          <tr>
-            <td>13 Jun</td>
-            <td>Gold</td>
-            <td>(2/6)</td>
-            <td>Oxdf4c18485dea496d6...</td>
-            <td>723487</td>
-            <td>Oxdf4c18485dea496d6...</td>
-            <td>230,023.76</td>
-          </tr>
-        -->
       </tbody>
     </table>
   </div>

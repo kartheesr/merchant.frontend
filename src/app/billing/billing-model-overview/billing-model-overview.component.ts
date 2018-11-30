@@ -72,6 +72,9 @@ export class BillingModelOverviewComponent implements OnInit {
     });
     this.service.getByIdBillingModelqr(this.id).subscribe(result => {
       this.value = result.data.pullPaymentModelURL;
+      setTimeout(() => {
+        this.base64();
+      }, 200);
     });
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {

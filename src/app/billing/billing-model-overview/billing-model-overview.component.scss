@@ -454,6 +454,17 @@ ul.pagination li:last-child {
 .TxHash {
   color: #1c67f5;
 }
+.modelSize {
+  height: 300px;
+  width: 300px;
+}
+.qrcode img {
+  width: 275px !important;
+  display: block !important;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}
 .modal-content {
-  margin-top: 30% !important;
+  margin-top: 150px !important;
 }

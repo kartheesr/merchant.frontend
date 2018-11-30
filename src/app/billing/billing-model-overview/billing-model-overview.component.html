@@ -537,33 +537,6 @@
             </td>
             <td>{{ val.balance }}</td>
           </tr>
-
-          <!--
-            <tr>
-              <td>13 Jun</td>
-              <td>(2/6)</td>
-              <td class="txHash" (click)="txhash()">Oxdf4c18485dea496d6...</td>
-              <td>723487</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>230,023.76</td>
-            </tr>
-            <tr>
-              <td>13 Jun</td>
-              <td>(2/6)</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>723487</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>230,023.76</td>
-            </tr>
-            <tr>
-              <td>13 Jun</td>
-              <td>(2/6)</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>723487</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>230,023.76</td>
-            </tr>
-          -->
         </tbody>
       </table>
     </div>
@@ -577,5 +550,13 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body"><img src="assets/images/qr-code.png" /></div>
+  <div class="modelSize">
+    <ngx-qrcode
+      class="qr-value"
+      qrc-element-type="canvas"
+      id="qr-value"
+      qrc-element-type="“img”"
+      [(qrc-value)]="value"
+    ></ngx-qrcode>
+  </div>
 </ng-template>

@@ -135,7 +135,6 @@ export class BillingModelOverviewComponent implements OnInit {
   }
 
   open(content) {
-    console.log('--------> open');
     this.modalService.open(content);
   }
 }

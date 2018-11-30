@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   error: string;
   treasuryBalance;
   treasuryCurrency;
-  pullPaymentsBalance;
+  pullPaymentsBalance = 0;
   sumBal;
   pullPaymentsCurrency;
   gasBalance;
@@ -41,7 +41,6 @@ export class DashboardComponent implements OnInit {
     var pullpaymentAddress = [];
     this.dashboardService.getTransactionHistory().subscribe(result => {
       this.transactionHistorArray = result.data;
-      console.log('this.table', this.transactionHistorArray);
       for (let val of result.data) {
         {
           this.pullPaymentsBalance += val.balance;

@@ -87,24 +87,24 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent"><input class="int-qrbox" type="text" #userinput [(ngModel)]="model.data" /></div>
-                <label class="OR-CopyCont">Copy Snippet</label>
+                <div class="QRContent"><textarea class="int-qrbox" #userinput [(ngModel)]="model.data"></textarea></div>
+                <label class="OR-CopyCont" (click)="copyInputMessage(userinput)">Copy Snippet</label>
               </div>
             </div>
 
             <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg"/></label><br />
             <div class="paymentBtn row">
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopySingle)" value="click to copy">
-                <img src="assets/images/logo3.png" /><br />
-                <label class="Btn-copy">Copy Button</label>
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo3.png" (click)="openCopyButton(pumacopySingle)" /><br />
+                <label class="Btn-copy" (click)="copycontent()">Copy Button</label>
               </div>
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopySingle)" value="click to copy">
-                <img src="assets/images/logo2.png" /><br />
-                <label class="Btn-copy">Copy Button</label>
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo2.png" (click)="openCopyButton(pumacopySingle)" /><br />
+                <label class="Btn-copy" (click)="copycontent()">Copy Button</label>
               </div>
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopySingle)" value="click to copy">
-                <img src="assets/images/logo1.png" /><br />
-                <label class="Btn-copy">Copy Button</label>
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo1.png" (click)="openCopyButton(pumacopySingle)" /><br />
+                <label class="Btn-copy" (click)="copycontent()">Copy Button</label>
               </div>
             </div>
           </div>
@@ -217,23 +217,23 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent"><input class="int-qrbox" type="text" [(ngModel)]="model.data" #userinput /></div>
-                <label class="OR-CopyCont">Copy Snippet</label>
+                <div class="QRContent"><textarea class="int-qrbox" #userinput [(ngModel)]="model.data"></textarea></div>
+                <label class="OR-CopyCont" (click)="copyInputMessage(userinput)">Copy Snippet</label>
               </div>
             </div>
 
             <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg"/></label><br />
             <div class="paymentBtn row">
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopyRecurring)" value="click to copy">
-                <img src="assets/images/logo3.png" /><br />
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo3.png" (click)="openCopyButton(pumacopyRecurring)" /><br />
                 <label class="Btn-copy">Copy Button</label>
               </div>
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopyRecurring)" value="click to copy">
-                <img src="assets/images/logo2.png" /><br />
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo2.png" (click)="openCopyButton(pumacopyRecurring)" /><br />
                 <label class="Btn-copy">Copy Button</label>
               </div>
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopyRecurring)" value="click to copy">
-                <img src="assets/images/logo1.png" /><br />
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo1.png" (click)="openCopyButton(pumacopyRecurring)" /><br />
                 <label class="Btn-copy">Copy Button</label>
               </div>
             </div>
@@ -436,24 +436,24 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
-                <div class="QRContent"><input class="int-qrbox" type="text" [(ngModel)]="model.data" #userinput /></div>
-                <label class="OR-CopyCont">Copy Snippet</label>
+                <div class="QRContent"><textarea class="int-qrbox" #userinput [(ngModel)]="model.data"></textarea></div>
+                <label class="OR-CopyCont" (click)="copyInputMessage(userinput)">Copy Snippet</label>
               </div>
             </div>
 
             <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg"/></label><br />
             <div class="paymentBtn row">
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopyHybrid)" value="click to copy">
-                <img src="assets/images/logo3.png" /><br />
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo3.png" (click)="openCopyButton(pumacopyHybrid)" /><br />
                 <label class="Btn-copy">Copy Button</label>
               </div>
 
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopyHybrid)" value="click to copy">
-                <img src="assets/images/logo2.png" /><br />
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo2.png" (click)="openCopyButton(pumacopyHybrid)" /><br />
                 <label class="Btn-copy">Copy Button</label>
               </div>
-              <div class="col-md-3 logo3" (click)="openCopyButton(pumacopyHybrid)" value="click to copy">
-                <img src="assets/images/logo1.png" /><br />
+              <div class="col-md-3 logo3" value="click to copy">
+                <img src="assets/images/logo1.png" (click)="openCopyButton(pumacopyHybrid)" /><br />
                 <label class="Btn-copy">Copy Button</label>
               </div>
             </div>

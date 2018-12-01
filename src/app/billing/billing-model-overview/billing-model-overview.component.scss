@@ -368,15 +368,15 @@ table {
   cursor: pointer;
 }
 .QRContent {
-  border: 1px solid #cccccc;
-  border-radius: 4.75px;
+  // border: 1px solid #cccccc;
+  // border-radius: 4.75px;
   margin-top: 15px;
 }
 .QRContent p {
   padding: 8px;
   font-size: 13px;
 }
-.QRContent input[type="text"] {
+.QRContent textarea {
   width: 100%;
   padding: 8px;
   font-size: 13px;

@@ -135,7 +135,7 @@ export class BillingModelOverviewComponent implements OnInit {
     var tocpytxt = final[0];
     var yyy = tocpytxt.split(',');
     var newyear = yyy[1].split('"');
-    this.model.data = newyear[0];
+    this.model.data = str;
   }
   copyInputMessage(inputElement) {
     inputElement.select();

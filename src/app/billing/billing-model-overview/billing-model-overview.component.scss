@@ -520,16 +520,21 @@ li {
 .md-title {
   font-weight: 600;
 }
-th,
-td {
-  text-align: left;
-  background-color: white;
-  font-size: 12px;
-  padding: 7px;
-  border-bottom: 1px solid #ddd;
-}
-tr {
-  padding: 10px;
+.data-info {
+  th,
+  td {
+    text-align: left;
+    background-color: white;
+    font-size: 12px;
+    padding: 7px;
+    border-bottom: 1px solid #ddd;
+  }
+  tr {
+    padding: 10px;
+  }
+  label {
+    margin: 0px;
+  }
 }
 .bm-text {
   color: #1c67f5;
@@ -543,7 +548,4 @@ tr {
 }
 .img-size {
   height: 20px;
-}
-label {
-  margin: 0px;
 }

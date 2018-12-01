@@ -140,8 +140,9 @@ export class BillingHybridStep3Component implements OnInit {
     }
   }
   handlechangecalculate(data) {
-    if (data.value == 'Day') this.model.daycount = this.model.days;
-    else if (data.value == 'Month') this.model.daycount = this.model.days * 30;
+    if (data.value == 'Days') this.model.daycount = this.model.days;
+    else if (data.value == 'Weeks') this.model.daycount = this.model.days * 7;
+    else if (data.value == 'Months') this.model.daycount = this.model.days * 30;
     else this.model.daycount = this.model.days * 365;
   }
 }

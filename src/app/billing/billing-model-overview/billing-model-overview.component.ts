@@ -147,4 +147,7 @@ export class BillingModelOverviewComponent implements OnInit {
   open(content) {
     this.modalService.open(content);
   }
+  openCopyButton(pumacopySingle) {
+    this.modalService.open(pumacopySingle);
+  }
 }

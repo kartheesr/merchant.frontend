@@ -455,8 +455,11 @@ ul.pagination li:last-child {
   color: #1c67f5;
 }
 .modelSize {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 350px;
+  margin-left: auto;
+  display: block;
+  margin-right: auto;
 }
 .qrcode img {
   width: 275px !important;
@@ -486,4 +489,55 @@ li {
 }
 .ngx-pagination .current {
   border-radius: 100% !important;
+}
+.modelSize2 {
+  height: 500px;
+  width: 500px;
+  background-color: #f8fafe;
+}
+
+.qr-image {
+  margin-left: 140px;
+  align-content: center;
+}
+.int-box {
+  margin-left: 40px;
+}
+.data-info {
+  margin-left: 20px;
+  border: black;
+  border-width: 2px;
+  box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1);
+}
+.bill-info {
+  font-size: 9px;
+}
+
+.txt-box {
+  width: 80%;
+  height: 33px;
+}
+.md-title {
+  font-weight: 600;
+}
+th,
+td {
+  text-align: left;
+  background-color: white;
+  font-size: 12px;
+  padding: 7px;
+  border-bottom: 1px solid #ddd;
+}
+tr {
+  padding: 10px;
+}
+.bm-text {
+  color: #1c67f5;
+  font-size: 12px;
+}
+.modal-header {
+  background-color: #f8fafe;
+}
+.box-main {
+  margin: 20px 3px 0px 5px;
 }

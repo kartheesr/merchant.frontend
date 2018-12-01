@@ -90,7 +90,10 @@
                     <!-- <input type="radio" value="Single" name="billing" [(ngModel)]="model.billing" /> -->
                     <label class="container">
                       <p>
-                        <b>Single<br /><span>PullPayment</span></b>
+                        <b
+                          >Single <br />
+                          <span>PullPayment</span>
+                        </b>
                       </p>
                       <input
                         #bmName
@@ -125,7 +128,10 @@
                     <!-- <input type="radio" value="Recurring" name="billing" [(ngModel)]="model.billing" /> -->
                     <label class="container">
                       <p>
-                        <b>Recurring<br /><span>PullPayment</span></b>
+                        <b
+                          >Recurring <br />
+                          <span>PullPayment</span>
+                        </b>
                       </p>
                       <input
                         #bmName1
@@ -150,7 +156,7 @@
               </div>
               <div class="boxCont">
                 <p>
-                  Create a recurring billing model to charge customer a fixed amount at a predefined interval.<br />
+                  Create a recurring billing model to charge customer a fixed amount at a predefined interval. <br />
                   <span class="fontstyle">Example,monthly subscription</span>
                 </p>
               </div>
@@ -167,7 +173,10 @@
                     -->
                     <label class="container">
                       <p>
-                        <b>Single+Recurring<br /><span>PullPayment</span></b>
+                        <b
+                          >Single+Recurring <br />
+                          <span>PullPayment</span>
+                        </b>
                       </p>
                       <input
                         #bmName2
@@ -192,7 +201,7 @@
               </div>
               <div class="boxCont">
                 <p>
-                  You can accept a single payment followed by a recurring payment.<br />
+                  You can accept a single payment followed by a recurring payment. <br />
                   <span class="fontstyle"
                     >For example, this can be a registration fee followed by monthly membership.</span
                   >
@@ -203,7 +212,7 @@
         </div>
       </div>
     </div>
-    <div class="bs-footer"><button type="submit" class="button" [disabled]="f.valid">Continue</button></div>
+    <div class="bs-footer"><button type="submit" class="button" [disabled]="disabled">Continue</button></div>
   </form>
 </div>
 

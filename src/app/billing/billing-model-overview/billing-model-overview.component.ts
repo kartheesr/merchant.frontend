@@ -128,14 +128,13 @@ export class BillingModelOverviewComponent implements OnInit {
   }
 
   base64() {
-    var str = document.getElementById('qr-value').innerHTML;
-    var res = str.split(' ');
-    var res1 = res[2];
-    var final = res1.split('>');
-    var tocpytxt = final[0];
-    var yyy = tocpytxt.split(',');
-    var newyear = yyy[1].split('"');
-    this.model.data = str;
+    var str = document.querySelectorAll('#qr-value div img');
+    this.model.data = document.getElementById('qr-value').innerHTML;
+    var imgSrc = '';
+    for (var i = 0; i < str.length; i++) {
+      imgSrc = str[i].getAttribute('src');
+    }
+    this.model.qrSrc = imgSrc;
   }
   copyInputMessage(inputElement) {
     inputElement.select();

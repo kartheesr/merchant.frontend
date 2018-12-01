@@ -547,7 +547,7 @@
         ></ngx-qrcode>
       </div>
       <div class="int-box">
-        <input class="txt-box" type="text" #userinput />
+        <input class="txt-box" type="text" #userinput [(ngModel)]="model.data" />
         <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
       </div>
     </div>
@@ -558,18 +558,18 @@
             <tbody>
               <tr>
                 <td><img class="img-size" src="assets/images/amount.svg" /></td>
-                <td>Amount: $X,XX - X,XXXX PMA</td>
+                <td>Amount: {{ currency | CustomeCurrency }}{{ amount }} PMA</td>
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/cycle.svg" /></td>
-                <td>Transfer: $X,XX - X,XXXX PMA</td>
+                <td>Transfer: Instantly</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
       <div class="col-xs-12 col-sm-5 col-md-5">
-        <label>Product Name</label> <label class="bm-text">Billing Model name</label>
+        <label class="tit-text">{{ title }}</label> <label class="bm-text">{{ description }}</label> <br />
         <label class="bill-info">Billing Model description.</label>
         <label class="bill-info">
           Explain briefly what your Billing Model offers Billing Model description. Explain briefly what your Billing

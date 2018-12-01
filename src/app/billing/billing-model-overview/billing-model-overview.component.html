@@ -517,15 +517,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modelSize">
-    <ngx-qrcode
-      class="qr-value"
-      qrc-element-type="canvas"
-      id="qr-value"
-      qrc-element-type="“img”"
-      [(qrc-value)]="value"
-    ></ngx-qrcode>
-  </div>
+  <div class="modelSize"><img class="qr-enlarge" src="data:image/png;base64,{{model.data}}" /> <img /></div>
 </ng-template>
 
 <ng-template #pumacopySingle let-c="close" let-d="dismiss">

@@ -455,15 +455,17 @@ ul.pagination li:last-child {
   color: #1c67f5;
 }
 .modelSize {
-  height: 400px;
+  height: 350px;
   width: 350px;
   margin-left: auto;
   display: block;
   margin-right: auto;
 }
-.qrcode img {
-  width: 275px !important;
-  display: block !important;
+.qrcode {
+  img {
+    width: 350px !important;
+    display: block !important;
+  }
 }
 .light-blue-backdrop {
   background-color: #5cb3fd;
@@ -556,5 +558,9 @@ li {
 }
 .int-qrbox {
   word-wrap: break-word;
+  word-break: break-all;
   height: 160px;
+}
+.qr-enlarge {
+  height: 350px;
 }

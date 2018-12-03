@@ -15,3 +15,23 @@
 
 // Theme customization
 @import "scss/styles.scss";
+
+//Pagination style
+.ngx-pagination .pagination-previous a::before,
+.ngx-pagination .pagination-previous.disabled::before {
+  display: none !important;
+  color: #fff !important;
+}
+.ngx-pagination .pagination-next a::after,
+.ngx-pagination .pagination-next.disabled::after {
+  display: none !important;
+  color: #fff !important;
+}
+.ngx-pagination .current {
+  border-radius: 20px !important;
+  background: #1c67f5 !important;
+}
+.ngx-pagination a,
+.ngx-pagination button {
+  color: #1c67f5 !important;
+}

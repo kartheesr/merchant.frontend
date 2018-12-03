@@ -412,10 +412,15 @@ table {
       tr {
         td {
           font-size: 14px;
+          color: #9b9b9b;
         }
         background-color: #f4f6fb;
       }
     }
+  }
+  table td {
+    padding: 0.75em 0.6em 0.75em 0.1em !important;
+    text-align: center !important;
   }
 }
 

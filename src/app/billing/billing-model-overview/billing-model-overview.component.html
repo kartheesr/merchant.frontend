@@ -95,7 +95,7 @@
             <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg"/></label><br />
             <div class="paymentBtn row">
               <div class="col-md-3 logo3" value="click to copy">
-                <img src="assets/images/logo3.png" (click)="openCopyButton(pumacopySingle)" /><br />
+                <img id="btBlue" src="assets/images/logo3.png" (click)="openCopyButton(pumacopySingle)" /><br />
                 <label class="Btn-copy" (click)="copycontent()">Copy Button</label>
               </div>
               <div class="col-md-3 logo3" value="click to copy">
@@ -510,7 +510,7 @@
 </div>
 <!-- - SINGLE + RECURRING -->
 
-<ng-template #content let-c="close" let-d="dismiss">
+<ng-template id="firstModel" #firstModel let-c="close" let-d="dismiss">
   <div class="modal-header">
     <label>Contract QR code <img src="assets/images/info-billing.svg"/></label><br />
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -521,7 +521,7 @@
 </ng-template>
 
 <ng-template #pumacopySingle let-c="close" let-d="dismiss">
-  <div class="modal-header">
+  <div id="pops" class="modal-header">
     <label class="md-title">Contract details</label><br />
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>

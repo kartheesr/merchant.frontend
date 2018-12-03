@@ -22,6 +22,7 @@ export class BillingModelOverviewComponent implements OnInit {
   public amount;
   public currency;
   public description;
+  public billingdescription;
   public title;
   public subscribers;
   public frequency;
@@ -81,6 +82,7 @@ export class BillingModelOverviewComponent implements OnInit {
     });
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
+      console.log(result);
       localStorage.removeItem('publishId');
       if (result.data.typeID == 1) {
         this.overviewdata.gasvalueCalcualtion().subscribe(result => {
@@ -92,6 +94,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
         this.currency = result.data.currency;
+        this.billingdescription = result.data.description;
 
         this.single = true;
         this.recurring = false;
@@ -106,6 +109,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.amount = result.data.amount / 100;
         this.currency = result.data.currency;
         this.frequency = result.data.frequency;
+        this.billingdescription = result.data.description;
 
         this.recurring = true;
         this.single = false;
@@ -121,6 +125,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.amount = result.data.amount / 100;
         this.currency = result.data.currency;
         this.frequency = result.data.frequency;
+        this.billingdescription = result.data.description;
 
         this.singleRecurring = true;
         this.single = false;

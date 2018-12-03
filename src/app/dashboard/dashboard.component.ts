@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   error: string;
   treasuryBalance;
   treasuryCurrency;
-  pullPaymentsBalance = 0;
+  pullPaymentsBalance: number = 0;
   sumBal;
   pullPaymentsCurrency;
   gasBalance;
@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
       this.transactionHistorArray = result.data;
       for (let val of result.data) {
         {
-          this.pullPaymentsBalance += val.balance;
+          this.pullPaymentsBalance += parseFloat(val.balance);
         }
       }
     });

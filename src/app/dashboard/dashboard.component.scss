@@ -23,7 +23,7 @@
           th {
             font-size: 15px;
             font-weight: normal;
-            text-align: center;
+            text-align: left;
           }
         }
       }
@@ -185,7 +185,7 @@
   }
   .dashboardContainer .transaction-table table thead tr th {
     width: 330px !important;
-    text-align: center;
+    text-align: left;
   }
 }
 :host {

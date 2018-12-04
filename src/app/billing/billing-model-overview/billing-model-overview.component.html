@@ -166,20 +166,23 @@
                   <tr>
                     <th>Purpose</th>
                     <th>Number of recurrences</th>
-                    <th>Estimated Gas Cost/transaction (ETH)</th>
+                    <th>
+                      Estimated Gas<br />
+                      Cost/transaction (ETH)
+                    </th>
                     <th>Total Estimated Gas cost (ETH)</th>
                   </tr>
                 </thead>
 
                 <tbody>
                   <tr>
-                    <td class="userId">Recurring pull transaction</td>
+                    <td class="userId">Recurring Pull Transaction</td>
                     <td class="value-td">{{ data.Recurrence ? data.Recurrence : '0.0' }}</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.TotalCost ? data.TotalCost : '0.0' }}</td>
                   </tr>
                   <tr>
-                    <td class="userId">Transfers from PullPayment Account to Treasury</td>
+                    <td class="userId">Transfers from <br />PullPayment Account to Treasury</td>
                     <td class="value-td">{{ data.TransRecurrence ? data.TransRecurrence : '0.0' }}</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.TotalcostRecuurence ? data.TotalcostRecuurence : '0.0' }}</td>
@@ -195,7 +198,7 @@
             </div>
           </div>
 
-          <div class="product-div-1">
+          <div class="product-div-2">
             <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg"/></label><br />
             <label class="subTitle">Customers can scan the QR Code and approve it in their PumaPay Wallet app.</label>
 
@@ -365,15 +368,18 @@
             <label class="subTitle">{{ billingdescription }}</label>
           </div>
 
-          <div class="product-div">
+          <div class="product-div-1">
             <label class="title new_title left">Gas funding for EACH subscribed customer</label><br />
             <div class="table-responsive">
               <table class="BillingModelTable ZeroMargin">
                 <thead>
                   <tr>
-                    <th>Purpose</th>
+                    <th>Transaction</th>
                     <th>Number of recurrences</th>
-                    <th>Estimated Gas Cost/transaction (ETH)</th>
+                    <th>
+                      Estimated Gas <br />
+                      Cost/transaction (ETH)
+                    </th>
                     <th>Total Estimated Gas cost (ETH)</th>
                   </tr>
                 </thead>
@@ -387,14 +393,17 @@
                   </tr>
 
                   <tr>
-                    <td class="userId">Recurring pull transaction</td>
+                    <td class="userId">Recurring Pull Transaction</td>
                     <td class="value-td">{{ data.Recurrence ? data.Recurrence : '0.0' }}</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.RecurrenceETH ? data.RecurrenceETH : '0.0' }}</td>
                   </tr>
 
                   <tr>
-                    <td class="userId">Transfers PullPayment Account to Treasury</td>
+                    <td class="userId">
+                      Transfers from <br />
+                      PullPayment Account to Treasury
+                    </td>
                     <td class="value-td">{{ data.PullRecurrence ? data.PullRecurrence : '0.0' }}</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.PullRecurrencecost ? data.PullRecurrencecost : '0.0' }}</td>
@@ -411,7 +420,7 @@
             </div>
           </div>
 
-          <div class="product-div-1">
+          <div class="product-div-2">
             <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg"/></label><br />
             <label class="subTitle">Customers can scan the QR Code and approve it in their PumaPay Wallet app.</label>
 

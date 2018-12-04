@@ -273,6 +273,7 @@
 .subTitle {
   font-size: 12px;
   padding-left: 0px;
+  margin-bottom: 20px;
 }
 .new_title {
   text-transform: uppercase;
@@ -440,6 +441,8 @@ table {
         th {
           font-size: 15px;
           font-weight: normal;
+          text-align: left;
+          color: #9b9b9b;
         }
       }
     }
@@ -456,7 +459,7 @@ table {
   }
   table td {
     padding: 0.75em 0.6em 0.75em 1.1em !important;
-    text-align: center !important;
+    text-align: left !important;
   }
 }
 

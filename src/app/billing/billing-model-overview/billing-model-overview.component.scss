@@ -478,6 +478,7 @@ ul.pagination li:last-child {
 }
 .modal-content {
   margin-top: 150px !important;
+  left: 4% !important;
 }
 :host {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
@@ -505,11 +506,11 @@ li {
 }
 
 .qr-image {
-  margin-left: 140px;
+  margin-left: 147px;
   align-content: center;
 }
 .int-box {
-  margin-left: 40px;
+  margin-left: 51px;
 }
 .data-info {
   margin-left: 20px;
@@ -519,10 +520,12 @@ li {
 }
 .bill-info {
   font-size: 9px;
+  margin-right: 32px;
+  margin-top: -7px;
 }
 
 .txt-box {
-  width: 80%;
+  width: 79%;
   height: 33px;
 }
 .md-title {
@@ -552,7 +555,7 @@ li {
   background-color: #f8fafe;
 }
 .box-main {
-  margin: 20px 3px 0px 5px;
+  margin: 20px 3px 0px 21px;
 }
 .img-size {
   height: 20px;
@@ -561,6 +564,7 @@ li {
   word-wrap: break-word;
   width: 100%;
   font-size: 14px;
+  margin-bottom: 0px;
 }
 .int-qrbox {
   word-wrap: break-word;

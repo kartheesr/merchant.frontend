@@ -78,6 +78,6 @@ export class DashboardComponent implements OnInit {
     window.open(`https://etherscan.io/tx/${data}`, '_blank');
   }
   pullpaymentaddress(data) {
-    window.open(`http://api.etherscan.io/api?module=account&action=txlist&address=${data}&sort=asc`, '_blank');
+    window.open(`https://etherscan.io/address/${data}`, '_blank');
   }
 }

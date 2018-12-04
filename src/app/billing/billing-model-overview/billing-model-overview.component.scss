@@ -276,6 +276,7 @@
 }
 .new_title {
   text-transform: uppercase;
+  margin-top: 15px;
 }
 table {
   width: 100%;
@@ -358,7 +359,7 @@ table {
   margin: 20px 0px;
 }
 .ZeroMargin {
-  margin: 5px 0px 10px !important;
+  margin: 5px 0px 20px !important;
   width: 99.8% !important;
 }
 .BillingModelTable tr,
@@ -454,7 +455,7 @@ table {
     }
   }
   table td {
-    padding: 0.75em 0.6em 0.75em 0.1em !important;
+    padding: 0.75em 0.6em 0.75em 1.1em !important;
     text-align: center !important;
   }
 }

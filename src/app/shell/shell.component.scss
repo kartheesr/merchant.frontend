@@ -7,7 +7,7 @@
     width: 100%;
     padding: 30px 0px;
     .sidebar {
-      width: 220px;
+      width: 177px;
       display: inline-block;
       min-height: calc(100vh - 80px);
       vertical-align: top;
@@ -114,7 +114,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #a7a9ac;
 }
-
+.wrapper {
+  width: 86% !important;
+}
 // very Small devices ( phones, 576px)
 @media (max-width: 576px) {
 }
@@ -130,7 +132,7 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) and (max-width: 1400px) {
   .container {
-    max-width: 94%;
+    max-width: 96%;
   }
 }
 @media (min-width: 1400px) and (max-width: 1600px) {

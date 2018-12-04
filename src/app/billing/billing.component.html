@@ -31,80 +31,93 @@
     </div>
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
-        <div *ngFor="let array of sample" class="col-xs-12 col-sm-3 col-md-4 single-class" (click)="onClick(array.id)">
-          <div [ngClass]="{ 'billingBox active': array.typeID == 1 }">
-            <div [ngClass]="{ 'billingBox active1': array.typeID == 2 }">
-              <div [ngClass]="{ 'billingBox active2': array.typeID == 3 }">
-                <div class="boxHead">
-                  <div class="boxHead">
-                    <div class="ImgCont" *ngIf="array.typeID == 1">
-                      <img src="assets/images/single.png" />
-                      <p>Single</p>
-                    </div>
-                    <div class="ImgCont RecurringClass" *ngIf="array.typeID == 2">
-                      <img src="assets/images/recurring.png" />
-                      <p>Recurring</p>
-                    </div>
-                    <div class="ImgCont SingleRecurringClass" *ngIf="array.typeID == 3">
-                      <img src="assets/images/single + recurring.png" />
-                      <p>Single + Recurring</p>
-                    </div>
-                  </div>
-                  <div class="boxCont">
-                    <div class="pad-l-20">
-                      <div class="number">{{ array.title }}</div>
-                      <p *ngIf="array.typeID == 1">Single</p>
-                      <p *ngIf="array.typeID == 2">Recurring</p>
-                      <p *ngIf="array.typeID == 3">Single + Recurring</p>
-                      <div class="LinkTag">
-                        <a *ngIf="array.typeID == 1"> </a> <a *ngIf="array.typeID == 2">{{ array.frequency }} days</a>
-                        <a *ngIf="array.typeID == 3">{{ array.frequency }} days</a>
+        <div class="row">
+          <div
+            *ngFor="let array of sample"
+            class="col-xs-12 col-sm-3 col-md-3 single-class"
+            (click)="onClick(array.id)"
+          >
+            <div [ngClass]="{ 'billingBox active col-md-12': array.typeID == 1 }">
+              <div [ngClass]="{ 'billingBox active1 col-md-12': array.typeID == 2 }">
+                <div [ngClass]="{ 'billingBox active2 col-md-12': array.typeID == 3 }">
+                  <div class="boxHead col-md-12">
+                    <div class="boxHead col-md-12">
+                      <div class="ImgCont" *ngIf="array.typeID == 1">
+                        <img src="assets/images/single.png" />
+                        <p>Single</p>
+                      </div>
+                      <div class="ImgCont RecurringClass" *ngIf="array.typeID == 2">
+                        <img src="assets/images/recurring.png" />
+                        <p>Recurring</p>
+                      </div>
+                      <div class="ImgCont SingleRecurringClass" *ngIf="array.typeID == 3">
+                        <img src="assets/images/single + recurring.png" />
+                        <p class="logo">Single + Recurring</p>
                       </div>
                     </div>
-                    <div class="large">
-                      <div class="new2" *ngIf="array.typeID == 1">
-                        <fieldset class="scheduler-border">
-                          <legend class="scheduler-border">SINGLE CHARGE</legend>
-                          <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
-                        </fieldset>
+                    <div class="boxCont row">
+                      <div class="pad-l-20 col-md-12">
+                        <div class="number">{{ array.title }}</div>
+                        <p *ngIf="array.typeID == 1">Single</p>
+                        <p *ngIf="array.typeID == 2">Recurring</p>
+                        <p *ngIf="array.typeID == 3">Single + Recurring</p>
+                        <div class="LinkTag">
+                          <a *ngIf="array.typeID == 1"> </a>
+                          <a *ngIf="array.typeID == 2">{{ array.frequency }} days</a>
+                          <a *ngIf="array.typeID == 3">{{ array.frequency }} days</a>
+                        </div>
                       </div>
-                      <div class="new2" *ngIf="array.typeID == 2">
-                        <fieldset class="scheduler-border">
-                          <legend class="scheduler-border">RECURRING CHARGE</legend>
-                          <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
-                        </fieldset>
+                      <div class="large col-md-12">
+                        <div class="new2" *ngIf="array.typeID == 1">
+                          <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">SINGLE CHARGE</legend>
+                            <label class="labelcolor"
+                              >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
+                            >
+                          </fieldset>
+                        </div>
+                        <div class="new2" *ngIf="array.typeID == 2">
+                          <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">RECURRING CHARGE</legend>
+                            <label class="labelcolor"
+                              >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
+                            >
+                          </fieldset>
+                        </div>
+                        <div class="new" *ngIf="array.typeID == 3">
+                          <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">RECURRING CHARGE</legend>
+                            <label class="labelcolor"
+                              >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
+                            >
+                          </fieldset>
+                        </div>
+                        <div class="new1" *ngIf="array.typeID == 3">
+                          <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">INITIAL CHARGE</legend>
+                            <label>{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label>
+                          </fieldset>
+                        </div>
                       </div>
-                      <div class="new" *ngIf="array.typeID == 3">
-                        <fieldset class="scheduler-border">
-                          <legend class="scheduler-border">RECURRING CHARGE</legend>
-                          <label>{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
-                        </fieldset>
-                      </div>
-                      <div class="new1" *ngIf="array.typeID == 3">
-                        <fieldset class="scheduler-border">
-                          <legend class="scheduler-border">INITIAL CHARGE</legend>
-                          <label>{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label>
-                        </fieldset>
-                      </div>
-                    </div>
-                    <div class="footerText">
-                      <div class="footerTextPma">
-                        <span *ngIf="array.typeID == 1">
-                          {{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
-                          {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}
-                        </span>
-                        <span *ngIf="array.typeID == 2">
-                          {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA'
-                          }}{{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
-                        </span>
-                        <span *ngIf="array.typeID == 3">
-                          {{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
-                          {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}
-                        </span>
-                        <br />
-                        <span *ngIf="array.typeID == 1">Subscribers {{ SinglePullValue }}</span>
-                        <span *ngIf="array.typeID == 2">Subscribers {{ RecurringPullValue }}</span>
-                        <span *ngIf="array.typeID == 3">Subscribers {{ SingleWithRecurringValue }}</span>
+                      <div class="footerText col-md-12">
+                        <div class="footerTextPma">
+                          <span class="footertype" *ngIf="array.typeID == 1">
+                            {{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
+                            {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}
+                          </span>
+                          <span *ngIf="array.typeID == 2">
+                            {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA'
+                            }}{{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
+                          </span>
+                          <span *ngIf="array.typeID == 3">
+                            {{ pullPaymentsBalance ? pullPaymentsBalance : ('0.0' | number: '1.2') }}
+                            {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}
+                          </span>
+                          <br />
+                          <span *ngIf="array.typeID == 1">Subscribers {{ SinglePullValue }}</span>
+                          <span *ngIf="array.typeID == 2">Subscribers {{ RecurringPullValue }}</span>
+                          <span *ngIf="array.typeID == 3">Subscribers {{ SingleWithRecurringValue }}</span>
+                        </div>
                       </div>
                     </div>
                   </div>

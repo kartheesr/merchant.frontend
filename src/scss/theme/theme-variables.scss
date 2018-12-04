@@ -38,73 +38,62 @@ $info: $blue;
 $warning: $orange;
 $danger: $red;
 $light: $gray-100; // $gray-100
-$dark: $gray-800; // $gray-dakr
-
+$dark: $gray-800;
+// $gray-dakr
 $grid-columns: 12;
 $grid-gutter-width: 20px;
-
 $line-height-lg: 1.25;
 $line-height-sm: 1;
-
 $border-width: 1px;
 $border-color: $gray-300;
-
 $font-family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
   sans-serif;
 $font-family-monospace: "Lato", Georgia, "Times New Roman", Times, serif;
-
 $font-family-base: $font-family-sans-serif;
 // stylelint-enable value-keyword-case
-
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`
 $font-size-lg: ($font-size-base * 1.25);
 $font-size-sm: ($font-size-base * 0.875);
-
 $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
-
 $font-weight-base: $font-weight-normal;
 $line-height-base: 1.45;
-
 $input-btn-padding-y-sm: 0.5rem;
 $input-btn-padding-x-sm: 0.75rem;
 $input-btn-line-height-sm: $line-height-sm;
-
 $input-btn-padding-y-lg: 1rem;
 $input-btn-padding-x-lg: 1.25rem;
 $input-btn-line-height-lg: $line-height-lg;
-
 $input-btn-border-width: $border-width;
-
 $body-direction: ltr; // Default ltr, change it to rtl for Right To Left support.
-//	------------------------------
-//	  Colors
-//	------------------------------
-$content-bg: #f1f3f8; //#F2F5F8 //#F1F4F4
+// ------------------------------
+// Colors
+// ------------------------------
+$content-bg: #f1f3f8; // #F2F5F8 //#F1F4F4
 $white: #ffffff;
 $black: #000000;
 $border-color: #e4e5ec;
 $transparent: transparent;
-//	------------------------------
-//	  Buttons
-//	------------------------------
+// ------------------------------
+// Buttons
+// ------------------------------
 $btn-border-radius-square: 0;
 $btn-border-radius-round: 2rem;
-//	------------------------------
-//	  Navbar
-//	------------------------------
+// ------------------------------
+// Navbar
+// ------------------------------
 $navbar-height: 5rem;
 $navbar-light-bg: $white;
 $navbar-dark-bg: #2c303b;
 $navbar-header-width: 210px;
+// ------------------------------
+// Main Menu
 //	------------------------------
-//	  Main Menu
-//	------------------------------
-//main menu light
+// main menu light
 $menu-light-bg: $white;
 $menu-light-color: $gray-600;
-//main menu dark
+// main menu dark
 $menu-dark-bg: #2c303b;
 $menu-dark-color: #dcdcdc;
 $menu-padding: 12px 30px 12px 18px;
@@ -126,22 +115,22 @@ $content-menu-expanded-width: 210px;
 $content-menu-collapsed-width: 65px;
 // menu search
 $menu-search-height: 70px;
-//Main menu footer
+// Main menu footer
 $menu-footer-height: 15px;
 $menu-footer-color: $white;
 $menu-footer-color-bg: #2c303b;
 $menu-footer-link-bg: rgb(33, 41, 46);
 $menu-footer-link-hover-bg: rgb(30, 36, 39);
-//Footer color
+// Footer color
 $footer-color-light-bg: $white;
 $footer-color-dark-bg: #2c303b;
-//	------------------------------
-//	  Sideber
-//	-------------------------------
+// ------------------------------
+// Sideber
+// -------------------------------
 $sidebar-width: 300px;
-//	-------------------------------
-//	  Avatar
-//	-------------------------------
+// -------------------------------
+// Avatar
+// -------------------------------
 $avatar-size: 30px;
 $avatar-status-size: 8px;
 $avatar-size-lg: 144px;
@@ -160,17 +149,17 @@ $avatar-online-color: $success;
 $avatar-off-color: $gray-100;
 $avatar-busy-color: $danger;
 $avatar-away-color: $warning;
-//	-------------------------------
-//	Progress
-//	-------------------------------
+// -------------------------------
+// Progress
+// -------------------------------
 $progress-size-xl: 2rem;
 $progress-size-lg: 1.5rem;
 $progress-size-md: 1rem;
 $progress-size-sm: 0.5rem;
 $progress-size-xs: 0.25rem;
-//	-------------------------------
-//	Form
-//	-------------------------------
+// -------------------------------
+// Form
+// -------------------------------
 // $input-height, $input-height-lg, $input-height-sm are in variables
 $font-size-xs: 0.75rem;
 $font-size-xl: ($font-size-base + 0.5);
@@ -188,6 +177,5 @@ $input-border-radius-xs: $border-radius-xs;
 // $input-height-xs: (($font-size-xs * $line-height-xs) + ($input-padding-y-xs * 2)) !default;
 // $input-height-sm: (($font-size-sm * $line-height-sm) + ($input-padding-y-sm * 2)) !default;
 $table_border_color: #e3ebf3;
-
 @import "~bootstrap/scss/_functions";
 @import "~bootstrap/scss/_variables";

@@ -8,6 +8,7 @@ import { Logger } from '@app/core';
 import { DOCUMENT } from '@angular/common';
 import { BillingServiceCall } from '../billing/billing-step4/billing-step4.service';
 import { Constants } from '@app/app.constants';
+import { $ } from 'protractor';
 
 const log = new Logger('Login');
 @Component({
@@ -67,7 +68,10 @@ export class DashboardComponent implements OnInit {
   }
 
   txhash(data) {
-    window.open('https://etherscan.io/tx/${data}', '_blank');
+    window.open(`https://etherscan.io/tx/${data}`, '_blank');
+  }
+  pullpaymentaddress(data) {
+    window.open(`http://api.etherscan.io/api?module=account&action=txlist&address=${data}&sort=asc`, '_blank');
   }
   qrcode(treasuryAddress, gasBalance) {
     this.value = `${Constants.apiHost}${Constants.apiPrefix}qr/${treasuryAddress}/1000000000000000000/${gasBalance}`;

@@ -82,7 +82,7 @@
           <td>
             <span class="overflow-Address">{{ val.customerAddress }}</span>
           </td>
-          <td>
+          <td (click)="pullpaymentaddress(val.pullPaymentAddress)">
             <span class="overflow-Address TxHash">{{ val.pullPaymentAddress }}</span>
           </td>
           <td>{{ val.balance }}</td>

@@ -23,7 +23,7 @@
               <div class="large">
                 <div>
                   <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
-                  {{ currency | CustomeCurrency }}{{ amount }}
+                  <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
                 </div>
               </div>
               <div class="footerText">
@@ -39,16 +39,13 @@
             <label class="title"
               >{{ title }}<br /><span>{{ description }}</span></label
             ><br />
-            <label class="subTitle"
-              >Get full access to all new and past digital magazine issues! Enjoy the ultimate digital reading
-              experience online or offline, on all your iOS and Android devices.</label
-            >
+            <label class="subTitle">{{ billingdescription }}</label>
           </div>
 
           <div class="product-div">
-            <label class="title new_title leftsingle">Gas funding for EACH subscribed customer</label><br />
+            <label class="title new_title">Gas funding for EACH subscribed customer</label><br />
             <div class="col-md-8">
-              <div class="table-responsive">
+              <div class="table-responsive tblMargin">
                 <table class="BillingModelTable ZeroMargin">
                   <thead>
                     <tr>
@@ -142,7 +139,7 @@
               <div class="large">
                 <div>
                   <div class="ImgCont"><img src="assets/images/refresh-b.svg" width="18" /></div>
-                  {{ currency | CustomeCurrency }}{{ amount }}
+                  <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
                 </div>
               </div>
               <div class="footerText">
@@ -278,7 +275,7 @@
             <td>
               <span class="overflow-Address">{{ val.customerAddress }}</span>
             </td>
-            <td>
+            <td (click)="pullpaymentaddress(val.pullPaymentAddress)">
               <span class="overflow-Address TxHash">{{ val.pullPaymentAddress }}</span>
             </td>
             <td>{{ val.balance }}</td>
@@ -344,7 +341,7 @@
               <div class="large">
                 <div>
                   <div class="ImgCont"><img src="assets/images/single+recurring_Group.png" /></div>
-                  {{ currency | CustomeCurrency }}{{ amount }}
+                  <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
                 </div>
                 <div class="largeSmall">
                   <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
@@ -495,7 +492,7 @@
             <td>
               <span class="overflow-Address">{{ val.customerAddress }}</span>
             </td>
-            <td>
+            <td (click)="pullpaymentaddress(val.pullPaymentAddress)">
               <span class="overflow-Address TxHash">{{ val.pullPaymentAddress }}</span>
             </td>
             <td>{{ val.balance }}</td>

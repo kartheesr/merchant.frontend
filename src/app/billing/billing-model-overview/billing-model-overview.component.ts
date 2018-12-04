@@ -150,7 +150,7 @@ export class BillingModelOverviewComponent implements OnInit {
   }
 
   txhash(data) {
-    window.open('https://etherscan.io/tx/${data}', '_blank');
+    window.open(`https://etherscan.io/tx/${data}`, '_blank');
   }
 
   open(content) {
@@ -158,6 +158,10 @@ export class BillingModelOverviewComponent implements OnInit {
   }
   openCopyButton(pumacopySingle) {
     this.modalService.open(pumacopySingle);
+  }
+
+  pullpaymentaddress(data) {
+    window.open(`https://etherscan.io/address/${data}`, '_blank');
   }
 
   copycontent(color) {

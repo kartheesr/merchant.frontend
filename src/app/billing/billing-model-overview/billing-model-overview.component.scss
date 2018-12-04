@@ -604,3 +604,12 @@ li {
   width: 179px !important;
   margin-top: 6px !important;
 }
+.largeSmall {
+  margin: 0px 0px !important;
+  font-size: 20px;
+  font-weight: 400;
+  height: 40px;
+  span {
+    padding-left: 10px;
+  }
+}

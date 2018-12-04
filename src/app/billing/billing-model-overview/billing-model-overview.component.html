@@ -346,13 +346,12 @@
                   <div class="ImgCont"><img src="assets/images/single+recurring_Group.png" /></div>
                   {{ currency | CustomeCurrency }}{{ amount }}
                 </div>
-                <!--
-                  <div>
-                    <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
-                    $29.99
-                  </div>
-                -->
+                <div class="largeSmall">
+                  <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
+                  <span>$0.00</span>
+                </div>
               </div>
+              <br />
               <div class="footerText">
                 <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
                 <span>Subscribers {{ subscribers }}</span>

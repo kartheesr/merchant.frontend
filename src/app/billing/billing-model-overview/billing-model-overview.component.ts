@@ -224,7 +224,9 @@ export class BillingModelOverviewComponent implements OnInit {
       this.title +
       '</label> <br /><label class="bm-text">' +
       this.description +
-      '</label> <br /><label class="bill-info">Billing Model description.</label><label class="bill-info">Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing Model offers</label></div></div></div></div></div></div>' +
+      '</label> <br /><label class="bill-info">' +
+      this.billingdescription +
+      '</label></div></div></div></div></div></div>' +
       '<script>function copyValue() {var userinput = document.getElementById("userinput");userinput.select();document.execCommand("copy");}</script></body></html>';
     let input = document.createElement('input');
     input.setAttribute('type', 'text');
@@ -313,7 +315,9 @@ export class BillingModelOverviewComponent implements OnInit {
       this.title +
       '</label> <br /><label class="bm-text">' +
       this.description +
-      '</label> <br /><label class="bill-info">Billing Model description.</label><label class="bill-info">Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing Model offers</label></div></div></div></div></div></div>' +
+      '</label> <br /><label class="bill-info">' +
+      this.billingdescription +
+      '</label></div></div></div></div></div></div>' +
       '<script>function copyValue() {var userinput = document.getElementById("userinput");userinput.select();document.execCommand("copy");}</script>' +
       '</body></html>';
     let input = document.createElement('input');
@@ -413,7 +417,9 @@ export class BillingModelOverviewComponent implements OnInit {
       this.title +
       '</label> <br /><label class="bm-text">' +
       this.description +
-      '</label> <br /><label class="bill-info">Billing Model description.</label><label class="bill-info">Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing Model offers</label></div></div></div></div></div></div>' +
+      '</label> <br /><label class="bill-info">' +
+      this.billingdescription +
+      '</label></div></div></div></div></div></div>' +
       '<script>function copyValue() {var userinput = document.getElementById("userinput");userinput.select();document.execCommand("copy");}</script>' +
       '</body></html>';
     let input = document.createElement('input');

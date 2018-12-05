@@ -54,7 +54,11 @@
       <div class="col"><label>TRANSACTION HISTORY</label></div>
       <div class="col ">
         <div class="text-right">
-          <pagination-controls (pageChange)="p = $event" previousLabel="<" nextLabel=">"></pagination-controls>
+          <pagination-controls
+            (pageChange)="p = $event"
+            previousLabel="{{previouslist}}"
+            nextLabel="{{nextlist}}"
+          ></pagination-controls>
         </div>
       </div>
     </div>

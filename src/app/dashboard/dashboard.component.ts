@@ -31,6 +31,8 @@ export class DashboardComponent implements OnInit {
   addressList;
   treasuryAddress;
   collection;
+  previouslist = '';
+  nextlist = '';
 
   constructor(
     private dashboardService: DashboardService,
@@ -41,6 +43,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     var pullpaymentAddress = [];
     this.dashboardService.getTransactionHistory().subscribe(result => {
+      this.previouslist = '<';
+      this.nextlist = '>';
       this.transactionHistorArray = result.data;
       for (let val of result.data) {
         {

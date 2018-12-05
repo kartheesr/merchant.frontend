@@ -76,7 +76,8 @@ export class BillingRecurringStep3Component implements OnInit {
       Period2: '',
       Toggle: '',
       typeid: 5,
-      trialperiod: 1
+      trialperiod: 1,
+      daycount: ''
     };
     this.model.Period2 = this.recurrenceOption[0].label;
     this.model.Period1 = this.recurrenceOption[0].label;
@@ -120,6 +121,27 @@ export class BillingRecurringStep3Component implements OnInit {
     } else {
       this.model.typeid = 5;
       this.model.trialperiod = 1;
+    }
+  }
+  handlechangecalculate(data) {
+    if (data.value == 'Days') {
+      let val = this.model.No1;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else if (data.value == 'Weeks') {
+      let val = this.model.No1 * 7;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else if (data.value == 'Months') {
+      let val = this.model.No1 * 30;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else {
+      let val = this.model.No1 * 365;
+      this.model.daycount = val * 24 * 60 * 60;
+    }
+  }
+  handlechangedays() {
+    if (this.model.Period1 == 'Days') {
+      let val = this.model.No1;
+      this.model.daycount = val * 24 * 60 * 60;
     }
   }
 }

@@ -72,15 +72,13 @@ export class BillingHybirdStep4Component implements OnInit {
       currency: this.Step3data.Currency,
       numberOfPayments: parseInt(this.Step3data.Recurringdays),
       typeID: 6,
-      frequency: parseInt(this.Step3data.calendar == 'Days' ? this.Step3data.days : this.Step3data.daycount),
+      frequency: this.Step3data.daycount,
       networkID: 3,
       automatedCashOut: true,
       cashOutFrequency: 1
     };
-    console.log(data);
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
-      console.log(result);
       let double = result.res.gasprice * 2;
       //let data = web3.fromWei(double, 'ether');
       this.model.initialETH = double.toFixed(20).replace(/0+$/, '');

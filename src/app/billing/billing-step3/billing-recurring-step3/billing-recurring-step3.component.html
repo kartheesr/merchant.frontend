@@ -56,6 +56,7 @@
                       appBlockCopyPaste
                       required
                       #NoOfRecuurence1="ngModel"
+                      (input)="handlechangedays()"
                       [ngClass]="{
                         'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
@@ -67,6 +68,8 @@
                     <select
                       name="Period1"
                       [(ngModel)]="model.Period1"
+                      #Period1="ngModel"
+                      (change)="handlechangecalculate(Period1)"
                       [ngClass]="{ 'is-invalid': NoOfRecuurence1.errors?.min }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"

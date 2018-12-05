@@ -83,6 +83,7 @@ export class BillingHybridStep3Component implements OnInit {
     };
     this.model.Currency = this.amountCurrency[0].label;
     this.model.calendar = this.calendarlist[0].label;
+
     this.model.PeriodCurrency = this.amountCurrency[0].label;
     this.model.billingcalendar = this.calendarlist[0].label;
     this.Placeholdername = '$0.00';
@@ -140,9 +141,45 @@ export class BillingHybridStep3Component implements OnInit {
     }
   }
   handlechangecalculate(data) {
-    if (data.value == 'Days') this.model.daycount = this.model.days;
-    else if (data.value == 'Weeks') this.model.daycount = this.model.days * 7;
-    else if (data.value == 'Months') this.model.daycount = this.model.days * 30;
-    else this.model.daycount = this.model.days * 365;
+    if (data.value == 'Days') {
+      let val = this.model.days;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else if (data.value == 'Weeks') {
+      let val = this.model.days * 7;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else if (data.value == 'Months') {
+      let val = this.model.days * 30;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else {
+      let val = this.model.days * 365;
+      this.model.daycount = val * 24 * 60 * 60;
+    }
+  }
+  handlechangedays() {
+    if (this.model.calendar == 'Days') {
+      let val = this.model.days;
+      this.model.daycount = val * 24 * 60 * 60;
+    }
+  }
+  handlechangecalculatecycle(data) {
+    if (data.value == 'Days') {
+      let val = this.model.days;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else if (data.value == 'Weeks') {
+      let val = this.model.days * 7;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else if (data.value == 'Months') {
+      let val = this.model.days * 30;
+      this.model.daycount = val * 24 * 60 * 60;
+    } else {
+      let val = this.model.days * 365;
+      this.model.daycount = val * 24 * 60 * 60;
+    }
+  }
+  handlechangedayscycle() {
+    if (this.model.calendar == 'Days') {
+      let val = this.model.days;
+      this.model.daycount = val * 24 * 60 * 60;
+    }
   }
 }

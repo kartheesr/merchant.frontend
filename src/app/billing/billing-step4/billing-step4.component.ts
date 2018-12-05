@@ -54,8 +54,6 @@ export class BillingStep4Component implements OnInit {
       automatedCashOut: true,
       cashOutFrequency: 1
     };
-    console.log(data);
-    console.log('amount', data.amount);
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
       let cal = result.res.gasprice * 2;

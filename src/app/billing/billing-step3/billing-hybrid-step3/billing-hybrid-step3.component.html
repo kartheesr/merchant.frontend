@@ -122,6 +122,7 @@
                   [(ngModel)]="model.billingdays"
                   #billingdays="ngModel"
                   required
+                  (input)="handlechangedayscycle()"
                   [ngClass]="{
                     'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
@@ -135,6 +136,7 @@
                   [(ngModel)]="model.billingcalendar"
                   #billingcalendar="ngModel"
                   required
+                  (change)="handlechangecalculatecycle(billingcalendar)"
                   [ngClass]="{
                     'is-invalid': (hybirdForm.submitted && billingcalendar.errors?.required) || billingdays.errors?.min
                   }"

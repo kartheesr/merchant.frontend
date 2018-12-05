@@ -37,6 +37,8 @@ export class BillingModelOverviewComponent implements OnInit {
   public trialPeriod;
   public BillingPeriod;
   public Recurrences;
+  previouslist = '';
+  nextlist = '';
 
   constructor(
     public service: BillingService,
@@ -59,6 +61,8 @@ export class BillingModelOverviewComponent implements OnInit {
     this.BillingPeriod = moment(dt).format('D MMM YYYY');
     this.id = localStorage.getItem('publishId');
     this.dashboardService.getTransactionHistory().subscribe(result => {
+      this.previouslist = '<';
+      this.nextlist = '>';
       this.transactionHistorArray = result.data;
     });
     if (this.route.snapshot.queryParamMap.get('pullPayId')) {
@@ -85,7 +89,6 @@ export class BillingModelOverviewComponent implements OnInit {
     });
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
-      console.log(result);
       localStorage.removeItem('publishId');
       if (result.data.typeID == 2) {
         this.overviewdata.gasvalueCalcualtion().subscribe(result => {

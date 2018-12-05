@@ -1,5 +1,5 @@
 .billingModelContainer {
-  width: 100%;
+  width: 98.7%;
   // margin-bottom: 20px;
   .bm-header {
     background-color: #fcfdff;
@@ -51,6 +51,8 @@
 
     .billingBoxCont {
       padding: 20px 20px;
+      height: 460px;
+      overflow-y: scroll;
       .billingBox.active {
         border-color: #f9b741;
         background: #ffffff;
@@ -353,6 +355,15 @@ legend.scheduler-border {
     left: inherit !important;
     width: 67.4% !important;
   }
+  .billingBoxCont {
+    height: 910px !important;
+  }
+  .billingModelContainer {
+    width: 100% !important;
+  }
+  .billingModelContainer .bm-main {
+    width: 66.3% !important;
+  }
 }
 
 /** Loader**/
@@ -418,6 +429,20 @@ label.labelcolor {
 fieldset label {
   margin-bottom: 0px !important;
 }
-.billingBoxCont {
-  padding-bottom: 60px !important;
+
+/*** Scroll Bar Style ***/
+
+.billingBoxCont::-webkit-scrollbar-track {
+  background-color: #f4f6fb;
 }
+
+.billingBoxCont::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f4f6fb;
+}
+
+.billingBoxCont::-webkit-scrollbar-thumb {
+  background-color: #c5ccce;
+}
+
+/*** Scroll Bar Style ***/

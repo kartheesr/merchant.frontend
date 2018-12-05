@@ -1,1 +1,56 @@
-<p>product works!</p>
+<div class="billingModelContainer">
+  <div class="bm-header"><b>New Product</b></div>
+  <form>
+    <div class="bm-main flex-center-center">
+      <div class="billingBoxCont">
+        <div class="row">
+          <div class="col-xs-12 col-sm-7 col-md-7">
+            <div class="form-group">
+              <label class="title">Product Name</label> <br />
+              <input
+                type="text"
+                class="productInput"
+                name="productName"
+                placeholder="Product Name"
+                minlength="2"
+                maxlength="50"
+                required
+              />
+              <div><label class="char-msg">50</label></div>
+            </div>
+
+            <div class="form-group">
+              <label class="title">Product Description</label> <br />
+              <textarea class="inputDes" placeholder="Product Description"></textarea>
+              <!--
+                <textarea
+                class="inputDes"
+                name="billModelDes"
+                placeholder="Product Description"
+                minlength="2"
+                maxlength="140" required>
+                </textarea><br />
+              -->
+              <div><label class="char-msg">140</label></div>
+            </div>
+
+            <div class="form-group">
+              <label class="title">Product Tags</label> <br />
+              <input
+                type="text"
+                class="productInput"
+                name="productName"
+                placeholder="Enter tags"
+                required
+                minlength="2"
+                maxlength="50"
+              />
+              <div><label class="char-msg">10 tags</label></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bs-footer"><button type="submit" class="button" [disabled]="disabled">Continue</button></div>
+  </form>
+</div>

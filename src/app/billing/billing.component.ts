@@ -38,8 +38,6 @@ export class BillingComponent implements OnInit {
   RecurringWithTrialValue: number;
   YearValue: any = {};
   YearValue1: any = {};
-  RecurringDayvalue: any;
-  HybirdDayvalue: any;
 
   constructor(
     private router: Router,
@@ -89,12 +87,8 @@ export class BillingComponent implements OnInit {
               this.SinglePullValue++;
             } else if (val.typeID == 3 || val.typeID == 5) {
               this.RecurringPullValue++;
-              let value = val.frequency / (24 * 60 * 60);
-              this.RecurringDayvalue = value;
             } else if (val.typeID == 6) {
               this.SingleWithRecurringValue++;
-              let value = val.frequency / (24 * 60 * 60);
-              this.HybirdDayvalue = value;
             } else {
               this.RecurringWithTrialValue++;
             }

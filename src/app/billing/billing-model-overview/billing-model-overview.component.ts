@@ -87,7 +87,7 @@ export class BillingModelOverviewComponent implements OnInit {
     this.service.getByIdBillingModel(this.id).subscribe(result => {
       console.log(result);
       localStorage.removeItem('publishId');
-      if (result.data.typeID == 1) {
+      if (result.data.typeID == 2) {
         this.overviewdata.gasvalueCalcualtion().subscribe(result => {
           let cal = result.res.gasprice * 2;
           this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
@@ -102,7 +102,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.single = true;
         this.recurring = false;
         this.singleRecurring = false;
-      } else if (result.data.typeID == 2) {
+      } else if (result.data.typeID == 3 || result.data.typeID == 5) {
         this.overviewdata.gasvalueCalcualtion().subscribe(result => {
           this.EtherValue = result.res.gasprice;
         });

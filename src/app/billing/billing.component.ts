@@ -83,11 +83,11 @@ export class BillingComponent implements OnInit {
           this.show2 = true;
           this.sample = result.data;
           for (let val of result.data) {
-            if (val.typeID == 1) {
+            if (val.typeID == 2) {
               this.SinglePullValue++;
-            } else if (val.typeID == 2) {
+            } else if (val.typeID == 3 || val.typeID == 5) {
               this.RecurringPullValue++;
-            } else if (val.typeID == 3) {
+            } else if (val.typeID == 6) {
               this.SingleWithRecurringValue++;
             } else {
               this.RecurringWithTrialValue++;

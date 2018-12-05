@@ -39,22 +39,6 @@ export class BillingStep4Component implements OnInit {
     this.data2 = this.service2.model;
     this.data3 = this.service3.model;
     this.editId = localStorage.getItem('editId');
-    let putdata = {
-      id: this.editId,
-      title: this.data2.productName,
-      description: this.data2.billModelDes,
-      amount: this.data3.amount,
-      initialPaymentAmount: 0,
-      trialPeriod: 0,
-      currency: this.data3.rupees,
-      numberOfPayments: 1,
-      typeID: 1,
-      frequency: 1,
-      networkID: 1,
-      automatedCashOut: true,
-      cashOutFrequency: 1
-    };
-    this.getputdata = putdata;
     let data = {
       merchantID: '4a17335e-bf18-11e8-a355-000000fb1459',
       title: this.data2.productName,
@@ -64,12 +48,14 @@ export class BillingStep4Component implements OnInit {
       trialPeriod: 0,
       currency: this.data3.rupees,
       numberOfPayments: 1,
-      typeID: 1,
+      typeID: 2,
       frequency: 1,
       networkID: 1,
       automatedCashOut: true,
       cashOutFrequency: 1
     };
+    console.log(data);
+    console.log('amount', data.amount);
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
       let cal = result.res.gasprice * 2;

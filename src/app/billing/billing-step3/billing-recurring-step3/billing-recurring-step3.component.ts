@@ -74,7 +74,9 @@ export class BillingRecurringStep3Component implements OnInit {
       No3: '',
       Period1: '',
       Period2: '',
-      Toggle: ''
+      Toggle: '',
+      typeid: 5,
+      trialperiod: 1
     };
     this.model.Period2 = this.recurrenceOption[0].label;
     this.model.Period1 = this.recurrenceOption[0].label;
@@ -109,6 +111,15 @@ export class BillingRecurringStep3Component implements OnInit {
       this.stepTrack.onStep4();
       this.service.setValues(this.model);
       this.router.navigate(['pullpayments/recurring/step4']);
+    }
+  }
+  handlechangetrial(data) {
+    if (data.value == false) {
+      this.model.typeid = 3;
+      this.model.trialperiod = 0;
+    } else {
+      this.model.typeid = 5;
+      this.model.trialperiod = 1;
     }
   }
 }

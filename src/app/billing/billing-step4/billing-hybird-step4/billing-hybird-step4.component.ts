@@ -62,37 +62,22 @@ export class BillingHybirdStep4Component implements OnInit {
     this.Step2data = this.service2.model;
     this.Step3data = this.service3.model;
     this.editId = localStorage.getItem('editId');
-    let putdata = {
-      id: this.editId,
-      title: this.Step2data.productName,
-      description: this.Step2data.billModelDes,
-      amount: this.Step3data.Periodprice,
-      initialPaymentAmount: 0,
-      trialPeriod: 0,
-      currency: this.Step3data.Currency,
-      numberOfPayments: this.Step3data.Recurringdays,
-      typeID: 3,
-      frequency: this.Step3data.calendar == 'Day' ? this.Step3data.days : this.Step3data.daycount,
-      networkID: 1,
-      automatedCashOut: true,
-      cashOutFrequency: 1
-    };
-    this.getputdata = putdata;
     let data = {
       merchantID: '4a17335e-bf18-11e8-a355-000000fb1459',
       title: this.Step2data.productName,
       description: this.Step2data.billModelDes,
       amount: parseInt(this.Step3data.price),
-      initialPaymentAmount: 0,
-      trialPeriod: 0,
+      initialPaymentAmount: 1,
+      trialPeriod: 1,
       currency: this.Step3data.Currency,
       numberOfPayments: parseInt(this.Step3data.Recurringdays),
-      typeID: 3,
+      typeID: 6,
       frequency: parseInt(this.Step3data.calendar == 'Days' ? this.Step3data.days : this.Step3data.daycount),
       networkID: 3,
       automatedCashOut: true,
       cashOutFrequency: 1
     };
+    console.log(data);
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
       console.log(result);

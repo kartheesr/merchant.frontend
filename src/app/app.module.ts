@@ -36,6 +36,7 @@ import { CustomFormsModule } from 'ng2-validation';
 import { BillingHybridStep3Component } from './billing/billing-step3/billing-hybrid-step3/billing-hybrid-step3.component';
 import { BlockCopyPasteDirective } from '@app/block-copy-paste.directive';
 import { ProductComponent } from './product/product.component';
+import { ProductRoutingModule } from './product/product-routing.module';
 
 @NgModule({
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
@@ -57,6 +58,7 @@ import { ProductComponent } from './product/product.component';
     MainPipe,
     NgxQRCodeModule,
     CustomFormsModule,
+    ProductRoutingModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [

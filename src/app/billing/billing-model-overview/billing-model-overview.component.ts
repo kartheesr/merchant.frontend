@@ -165,11 +165,10 @@ export class BillingModelOverviewComponent implements OnInit {
   openCopyButton(pumacopySingle) {
     this.modalService.open(pumacopySingle);
   }
-
+  //pull
   pullpaymentaddress(data) {
     window.open(`https://etherscan.io/address/${data}`, '_blank');
   }
-
   copycontent(color) {
     var src;
     var html;

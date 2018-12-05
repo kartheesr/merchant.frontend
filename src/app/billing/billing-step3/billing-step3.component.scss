@@ -89,6 +89,12 @@
         box-shadow: none;
         border-width: 1px;
       }
+      .continuebtn[disabled] {
+        border: 1px solid rgb(95, 151, 255);
+        background-color: rgb(95, 151, 255);
+        color: #ffffff;
+        cursor: no-drop;
+      }
     }
   }
 }

@@ -416,8 +416,8 @@ export class BillingModelOverviewComponent implements OnInit {
       this.title +
       '</label> <br /><label class="bm-text">' +
       this.description +
-      '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">';
-    this.billingdescription +
+      '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">' +
+      this.billingdescription +
       '</label></div></div></div></div></div></div>' +
       '<script>function copyValue() {var userinput = document.getElementById("userinput");userinput.select();document.execCommand("copy");}</script>' +
       '</body></html>';

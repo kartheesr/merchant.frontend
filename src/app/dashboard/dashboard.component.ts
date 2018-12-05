@@ -58,6 +58,9 @@ export class DashboardComponent implements OnInit {
 
     this.dashboardService.getTreasurybalance().subscribe(result => {
       this.treasuryBalance = result.result; // TREASURY BALANCE
+      setTimeout(() => {
+        this.qr();
+      }, 3000);
     });
   }
 
@@ -67,6 +70,11 @@ export class DashboardComponent implements OnInit {
     inputElement.setSelectionRange(0, 0);
   }
 
+  qr() {
+    this.dashboardService.getQRValue(this.gasBalance, this.treasuryAddress).subscribe(result => {
+      this.value = JSON.stringify(result.data);
+    });
+  }
   txhash(data) {
     window.open(`https://etherscan.io/tx/${data}`, '_blank');
   }

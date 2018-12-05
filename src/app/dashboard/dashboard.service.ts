@@ -64,6 +64,16 @@ export class DashboardService {
     );
   }
 
+  public getQRValue(gas, address): Observable<any> {
+    console.log('Valuesss-->', gas, address);
+    var url = `${Constants.apiHost}${Constants.apiPrefix}qr/${address}/1000000000000000000/${gas}`;
+    return this.http.get(url).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+
   public gasvalueCalcualtion(): Observable<any> {
     return this.http.get(this.gasactionUrl).pipe(
       map((response: HttpResponse) => {

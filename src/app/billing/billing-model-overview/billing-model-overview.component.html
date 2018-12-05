@@ -620,15 +620,15 @@
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/period.svg" /></td>
-                <td>Trial Period: {{ frequency }} days</td>
+                <td>Trial Period: {{ trialPeriod }} days</td>
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
-                <td>Billing Cycle: 0 Days</td>
+                <td>Billing Cycle: {{ frequency }} Days</td>
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/cycle.svg" /></td>
-                <td>Recurrences: 0</td>
+                <td>Recurrences: {{ Recurrences }}</td>
               </tr>
             </tbody>
           </table>
@@ -684,7 +684,7 @@
             <tbody>
               <tr>
                 <td><img class="img-size" src="assets/images/initial.svg" /></td>
-                <td>Initial: $X,XX - X,XXXX PMA</td>
+                <td>Initial: {{ initalamount }} PMA</td>
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/amount.svg" /></td>
@@ -692,7 +692,7 @@
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/period.svg" /></td>
-                <td>Billing Starts: DD/MM/YY</td>
+                <td>Billing Starts: {{ BillingPeriod }}</td>
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
@@ -700,7 +700,7 @@
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/cycle.svg" /></td>
-                <td>Recurrences: 0</td>
+                <td>Recurrences: {{ Recurrences }}</td>
               </tr>
             </tbody>
           </table>

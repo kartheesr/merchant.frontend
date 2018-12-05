@@ -7,7 +7,7 @@ import { BillingServiceCall } from '../billing-step4/billing-step4.service';
 import { ActivatedRoute } from '@angular/router';
 import { Constants } from '@app/app.constants';
 import { NgbActiveModal, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-billing-model-overview',
   templateUrl: './billing-model-overview.component.html',
@@ -33,9 +33,10 @@ export class BillingModelOverviewComponent implements OnInit {
   value;
   model;
   typeID;
-  public initalamount = '$X,XX - X,XXXX';
-  public BillingPeriod: string = 'DD/MM/YY';
-  public Recurrences: number = 0;
+  public initalamount;
+  public trialPeriod;
+  public BillingPeriod;
+  public Recurrences;
 
   constructor(
     public service: BillingService,
@@ -54,6 +55,8 @@ export class BillingModelOverviewComponent implements OnInit {
     this.model = {
       data: ''
     };
+    var dt = new Date();
+    this.BillingPeriod = moment(dt).format('D MMM YYYY');
     this.id = localStorage.getItem('publishId');
     this.dashboardService.getTransactionHistory().subscribe(result => {
       this.transactionHistorArray = result.data;
@@ -108,9 +111,10 @@ export class BillingModelOverviewComponent implements OnInit {
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
         this.currency = result.data.currency;
+        this.trialPeriod = result.data.trialPeriod;
         this.frequency = result.data.frequency;
         this.billingdescription = result.data.description;
-
+        this.Recurrences = result.data.numberOfPayments;
         this.recurring = true;
         this.single = false;
         this.singleRecurring = false;
@@ -125,8 +129,10 @@ export class BillingModelOverviewComponent implements OnInit {
         this.amount = result.data.amount / 100;
         this.currency = result.data.currency;
         this.frequency = result.data.frequency;
+        this.trialPeriod = result.data.trialPeriod;
+        this.initalamount = result.data.initialPaymentAmount;
         this.billingdescription = result.data.description;
-
+        this.Recurrences = result.data.numberOfPayments;
         this.singleRecurring = true;
         this.single = false;
         this.recurring = false;

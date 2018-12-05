@@ -113,7 +113,13 @@
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
                     <label class="switch">
-                      <input type="checkbox" name="Toggle" [(ngModel)]="model.Toggle" #Toggle="ngModel" />
+                      <input
+                        type="checkbox"
+                        name="Toggle"
+                        [(ngModel)]="model.Toggle"
+                        (change)="handlechangetrial(Toggle)"
+                        #Toggle="ngModel"
+                      />
                       <span class="slider round"></span>
                     </label>
                     <!--

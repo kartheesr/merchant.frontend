@@ -50,7 +50,6 @@ export class DashboardComponent implements OnInit {
     });
     this.dashboardService.gasvalueCalcualtion().subscribe(res => {
       this.gasBalance = res.balance; // GAS VALUE
-      this.qrcode(this.treasuryAddress, this.gasBalance);
     });
     this.dashboardService.getQRCodeaddress().subscribe(result => {
       this.treasuryAddress = result.address; // TREASURY ADDRESS
@@ -80,8 +79,5 @@ export class DashboardComponent implements OnInit {
   }
   pullpaymentaddress(data) {
     window.open(`http://api.etherscan.io/api?module=account&action=txlist&address=${data}&sort=asc`, '_blank');
-  }
-  qrcode(treasuryAddress, gasBalance) {
-    this.value = `${Constants.apiHost}${Constants.apiPrefix}qr/${treasuryAddress}/1000000000000000000/${gasBalance}`;
   }
 }

@@ -253,7 +253,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '</head>' +
       '<body><div class="container"><img src="' +
       src +
-      '" data-toggle="modal" data-target="#myModal" onClick/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract details</label> </div><div class="modelSize2"><div> ' +
+      '" data-toggle="modal" data-target="#myModal" onClick/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract Details</label> </div><div class="modelSize2"><div> ' +
       '<div class="qr-image"> <img src="' +
       this.model.qrSrc +
       '"/> </div></div><div class="row box-main "><div class="col-xs-12 col-sm-7 col-md-7 aligndiv"><div class="data-info"><table class="ttbody"><tbody><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
@@ -318,7 +318,7 @@ export class BillingModelOverviewComponent implements OnInit {
       src +
       '" data-toggle="modal" data-target="#myModal" onclick="copyValue(' +
       this.trialPeriod +
-      ')"/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract details</label> </div><div class="modelSize2"><div> ' +
+      ')"/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract Details</label> </div><div class="modelSize2"><div> ' +
       '<div class="qr-image"> <img src="' +
       this.model.qrSrc +
       '"/> </div></div><div class="row box-main "><div class="col-xs-12 col-sm-7 col-md-7 aligndiv"><div class="data-info"><table class="ttbody"><tbody><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
@@ -415,7 +415,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '</head>' +
       '<body><div class="container"><img src="' +
       src +
-      '" data-toggle="modal" data-target="#myModal"/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract details</label> </div><div class="modelSize2"><div> ' +
+      '" data-toggle="modal" data-target="#myModal"/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract Details</label> </div><div class="modelSize2"><div> ' +
       '<div class="qr-image"> <img src="' +
       this.model.qrSrc +
       '"/> </div></div><div class="row box-main "><div class="col-xs-12 col-sm-7 col-md-7 aligndiv"><div class="data-info"><table><tbody><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +

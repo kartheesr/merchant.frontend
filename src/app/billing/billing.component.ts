@@ -88,7 +88,6 @@ export class BillingComponent implements OnInit {
     this.SingleWithRecurringValue = 0;
     this.RecurringWithTrialValue = 0;
     this.billingService.Getpull().subscribe(result => {
-      console.log('result.data', result.data);
       if (result.success == true) {
         if (result.data.length != 0) {
           this.show1 = false;
@@ -139,7 +138,6 @@ export class BillingComponent implements OnInit {
               this.sample[i].data = temp;
             }
             i++;
-            console.log('sample', this.sample);
           }
           // for (var i = 0; i <= this.sample.length; i++) {
           //   this.sample[i].days = this.billcycledays[i].days;

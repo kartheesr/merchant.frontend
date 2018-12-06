@@ -307,6 +307,12 @@ fieldset.scheduler-border {
   float: left;
   margin-left: 16px;
   label {
+    font-size: 28px;
+    align-items: center;
+    float: left;
+    word-wrap: break-word;
+  }
+  .intialvalue {
     font-size: 20px;
     align-items: center;
     float: left;
@@ -351,6 +357,7 @@ legend.scheduler-border {
 @media (min-width: 1920px) {
   .billingBox {
     height: 275px !important;
+    width: 245px !important;
   }
   .bm-main.flex-center-center {
     left: inherit !important;

@@ -78,20 +78,23 @@ export class BillingHybirdStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
-    this.service4.gasvalueCalcualtion().subscribe(result => {
-      let double = result.res.gasprice * 2;
-      //let data = web3.fromWei(double, 'ether');
-      this.model.initialETH = double.toFixed(20).replace(/0+$/, '');
-      this.model.initialcost = this.model.initialETH;
-      let sample = this.model.initialETH * this.Step3data.Recurringdays;
-      this.model.RecurrenceETH = sample.toFixed(20).replace(/0+$/, '');
-      let cost = this.model.PullRecurrence * this.model.initialETH;
-      this.model.PullRecurrencecost = cost.toFixed(20).replace(/0+$/, '');
-      let Total =
-        parseFloat(this.model.RecurrenceETH) +
-        parseFloat(this.model.initialcost) +
-        parseFloat(this.model.PullRecurrencecost);
-      this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+    this.service4.gasuseddata().subscribe(result => {
+      let gasused = result.data;
+      this.service4.gasvalueCalcualtion().subscribe(result => {
+        let double = result.res.gasprice * gasused * 2;
+        //let data = web3.fromWei(double, 'ether');
+        this.model.initialETH = double.toFixed(20).replace(/0+$/, '');
+        this.model.initialcost = this.model.initialETH;
+        let sample = this.model.initialETH * this.Step3data.Recurringdays;
+        this.model.RecurrenceETH = sample.toFixed(20).replace(/0+$/, '');
+        let cost = this.model.PullRecurrence * this.model.initialETH;
+        this.model.PullRecurrencecost = cost.toFixed(20).replace(/0+$/, '');
+        let Total =
+          parseFloat(this.model.RecurrenceETH) +
+          parseFloat(this.model.initialcost) +
+          parseFloat(this.model.PullRecurrencecost);
+        this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+      });
     });
     this.model.Recurrence = this.Step3data.Recurringdays;
     this.service4.setValues(this.model);

@@ -92,9 +92,12 @@ export class BillingModelOverviewComponent implements OnInit {
     this.service.getByIdBillingModel(this.id).subscribe(result => {
       localStorage.removeItem('publishId');
       if (result.data.typeID == 2) {
-        this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-          let cal = result.res.gasprice * 2;
-          this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+        this.overviewdata.gasuseddata().subscribe(result => {
+          let gasused = result.data;
+          this.overviewdata.gasvalueCalcualtion().subscribe(result => {
+            let cal = result.res.gasprice * gasused * 2;
+            this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+          });
         });
         this.data = this.overviewdata.model;
         this.description = 'Single';
@@ -111,8 +114,11 @@ export class BillingModelOverviewComponent implements OnInit {
         this.recurring = false;
         this.singleRecurring = false;
       } else if (result.data.typeID == 3 || result.data.typeID == 5) {
-        this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-          this.EtherValue = result.res.gasprice;
+        this.overviewdata.gasuseddata().subscribe(result => {
+          let gasused = result.data;
+          this.overviewdata.gasvalueCalcualtion().subscribe(result => {
+            this.EtherValue = result.res.gasprice * gasused;
+          });
         });
         this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Recurring';
@@ -131,9 +137,12 @@ export class BillingModelOverviewComponent implements OnInit {
         this.single = false;
         this.singleRecurring = false;
       } else {
-        this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-          let cal = result.res.gasprice * 2;
-          this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+        this.overviewdata.gasuseddata().subscribe(result => {
+          let gasused = result.data;
+          this.overviewdata.gasvalueCalcualtion().subscribe(result => {
+            let cal = result.res.gasprice * gasused * 2;
+            this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+          });
         });
         this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Single + Recurring';

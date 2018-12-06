@@ -77,14 +77,17 @@ export class BillingRecurringStep4Component implements OnInit {
     };
     console.log(data);
     this.data = data;
-    this.service4.gasvalueCalcualtion().subscribe(result => {
-      //let data = web3.fromWei(result.result, 'ether');
-      this.model.EtherValue = result.res.gasprice;
-      let sample = this.model.EtherValue * this.data3.No2;
-      this.model.TotalCost = sample.toFixed(20).replace(/0+$/, '');
-      let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.EtherValue);
-      this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
-      this.model.TotalcostRecuurence = this.model.EtherValue;
+    this.service4.gasuseddata().subscribe(result => {
+      let gasused = result.data;
+      this.service4.gasvalueCalcualtion().subscribe(result => {
+        //let data = web3.fromWei(result.result, 'ether');
+        this.model.EtherValue = result.res.gasprice * gasused;
+        let sample = this.model.EtherValue * this.data3.No2;
+        this.model.TotalCost = sample.toFixed(20).replace(/0+$/, '');
+        let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.EtherValue);
+        this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+        this.model.TotalcostRecuurence = this.model.EtherValue;
+      });
     });
     this.model.Recurrence = this.data3.No2;
     this.service4.setValues(this.model);

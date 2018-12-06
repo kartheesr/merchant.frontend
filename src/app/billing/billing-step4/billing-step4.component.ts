@@ -55,10 +55,13 @@ export class BillingStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
-    this.service4.gasvalueCalcualtion().subscribe(result => {
-      let cal = result.res.gasprice * 2;
-      this.model.EtherValue = cal.toFixed(20).replace(/0+$/, '');
-      this.service4.setValues(this.model);
+    this.service4.gasuseddata().subscribe(result => {
+      let gasused = result.data;
+      this.service4.gasvalueCalcualtion().subscribe(result => {
+        let cal = result.res.gasprice * gasused * 2;
+        this.model.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+        this.service4.setValues(this.model);
+      });
     });
   }
 

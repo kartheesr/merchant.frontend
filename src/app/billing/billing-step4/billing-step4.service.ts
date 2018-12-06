@@ -16,6 +16,7 @@ export class BillingServiceCall {
   public gasValueURL: string;
   private headers: HttpHeaders = new HttpHeaders();
   public gasactionUrl: string;
+  public gasusedurl: string;
   setValues(values) {
     this.model = values;
   }
@@ -26,6 +27,7 @@ export class BillingServiceCall {
     this.headers.append('Access-Control-Allow-Origin', '*');
     this.headers.append('Access-Control-Allow-Methods', 'OPTIONS, TRACE, GET, HEAD, POST');
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/gas`;
+    this.gasusedurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/gasused`;
   }
   public billingPost(data): Observable<any> {
     return this._http.post(this.actionUrl, data, { headers: this.headers }).pipe(
@@ -39,6 +41,13 @@ export class BillingServiceCall {
   }
   public gasvalueCalcualtion(): Observable<any> {
     return this._http.get(this.gasactionUrl).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+  public gasuseddata(): Observable<any> {
+    return this._http.get(this.gasusedurl).pipe(
       map((response: HttpResponse) => {
         return response;
       })

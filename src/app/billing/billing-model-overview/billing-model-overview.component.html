@@ -354,7 +354,7 @@
                 </div>
                 <div class="largeSmall">
                   <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
-                  <span>$0.00</span>
+                  <span>{{ currency | CustomeCurrency }}{{ initalamount }}</span>
                 </div>
               </div>
               <br />
@@ -707,7 +707,7 @@
             <tbody>
               <tr>
                 <td><img class="img-size" src="assets/images/initial.svg" /></td>
-                <td>Initial: {{ initalamount }} PMA</td>
+                <td>Initial: {{ currency | CustomeCurrency }}{{ initalamount }} PMA</td>
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/amount.svg" /></td>

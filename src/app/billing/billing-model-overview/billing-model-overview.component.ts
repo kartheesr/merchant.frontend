@@ -114,7 +114,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
         this.currency = result.data.currency;
-        this.trialPeriod = result.data.trialPeriod;
+        this.trialPeriod = result.data.trialPeriod / (24 * 3600);
         this.frequency = result.data.frequency / (24 * 3600);
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
@@ -129,11 +129,11 @@ export class BillingModelOverviewComponent implements OnInit {
         this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Single + Recurring';
         this.title = result.data.title;
-        this.amount = result.data.amount / 100;
+        this.amount = result.data.amount;
         this.currency = result.data.currency;
         this.frequency = result.data.frequency / (24 * 3600);
         this.trialPeriod = result.data.trialPeriod;
-        this.initalamount = result.data.initialPaymentAmount;
+        this.initalamount = result.data.initialPaymentAmount / 100;
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
         this.singleRecurring = true;

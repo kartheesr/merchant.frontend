@@ -66,7 +66,7 @@ export class BillingRecurringStep4Component implements OnInit {
       description: this.data2.billModelDes,
       amount: this.data3.amount,
       initialPaymentAmount: 0,
-      trialPeriod: this.data3.trialperiod,
+      trialPeriod: parseInt(this.data3.trialdaycount),
       currency: this.data3.rupees,
       numberOfPayments: this.data3.No2,
       typeID: this.data3.typeid,
@@ -75,6 +75,7 @@ export class BillingRecurringStep4Component implements OnInit {
       automatedCashOut: true,
       cashOutFrequency: 1
     };
+    console.log(data);
     this.data = data;
     this.service4.gasvalueCalcualtion().subscribe(result => {
       //let data = web3.fromWei(result.result, 'ether');

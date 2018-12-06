@@ -140,45 +140,24 @@ export class BillingHybridStep3Component implements OnInit {
       this.model.PeriodCurrency = this.model.Currency;
     }
   }
-  handlechangecalculate(data) {
-    if (data.value == 'Days') {
-      let val = this.model.days;
-      this.model.daycount = val * 24 * 60 * 60;
-    } else if (data.value == 'Weeks') {
-      let val = this.model.days * 7;
-      this.model.daycount = val * 24 * 60 * 60;
-    } else if (data.value == 'Months') {
-      let val = this.model.days * 30;
-      this.model.daycount = val * 24 * 60 * 60;
-    } else {
-      let val = this.model.days * 365;
-      this.model.daycount = val * 24 * 60 * 60;
-    }
-  }
-  handlechangedays() {
-    if (this.model.calendar == 'Days') {
-      let val = this.model.days;
-      this.model.daycount = val * 24 * 60 * 60;
-    }
-  }
   handlechangecalculatecycle(data) {
     if (data.value == 'Days') {
-      let val = this.model.days;
+      let val = this.model.billingdays;
       this.model.daycount = val * 24 * 60 * 60;
     } else if (data.value == 'Weeks') {
-      let val = this.model.days * 7;
+      let val = this.model.billingdays * 7;
       this.model.daycount = val * 24 * 60 * 60;
     } else if (data.value == 'Months') {
-      let val = this.model.days * 30;
+      let val = this.model.billingdays * 30;
       this.model.daycount = val * 24 * 60 * 60;
     } else {
-      let val = this.model.days * 365;
+      let val = this.model.billingdays * 365;
       this.model.daycount = val * 24 * 60 * 60;
     }
   }
   handlechangedayscycle() {
-    if (this.model.calendar == 'Days') {
-      let val = this.model.days;
+    if (this.model.billingcalendar == 'Days') {
+      let val = this.model.billingdays;
       this.model.daycount = val * 24 * 60 * 60;
     }
   }

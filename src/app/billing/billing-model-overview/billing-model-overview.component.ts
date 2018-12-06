@@ -40,7 +40,17 @@ export class BillingModelOverviewComponent implements OnInit {
   previouslist = '';
   nextlist = '';
   public currencySymbol: string;
-
+  //hybird
+  public initialRecurrence;
+  public PullRecurrence;
+  public intialETH;
+  public RecurrencesETH;
+  public PullRecurrenceETH;
+  public TotalETH;
+  //Recurring
+  public TransRecurrence;
+  public TotalCost;
+  public TotalcostRecuurence;
   constructor(
     public service: BillingService,
     @Inject(DOCUMENT) private document: any,
@@ -114,12 +124,6 @@ export class BillingModelOverviewComponent implements OnInit {
         this.recurring = false;
         this.singleRecurring = false;
       } else if (result.data.typeID == 3 || result.data.typeID == 5) {
-        this.overviewdata.gasuseddata().subscribe(result => {
-          let gasused = result.data;
-          this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-            this.EtherValue = result.res.gasprice * gasused;
-          });
-        });
         this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Recurring';
         this.title = result.data.title;
@@ -136,14 +140,23 @@ export class BillingModelOverviewComponent implements OnInit {
         this.recurring = true;
         this.single = false;
         this.singleRecurring = false;
-      } else {
+        this.TransRecurrence = 1;
+        this.TotalCost = 0;
+        this.TotalcostRecuurence = 0;
+        this.TotalETH = 0;
         this.overviewdata.gasuseddata().subscribe(result => {
           let gasused = result.data;
           this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-            let cal = result.res.gasprice * gasused * 2;
-            this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+            this.EtherValue = result.res.gasprice * gasused;
+            let Recurrence = this.EtherValue * this.Recurrences;
+            this.TotalCost = Recurrence.toFixed(20).replace(/0+$/, '');
+            let trans = this.EtherValue * this.TransRecurrence;
+            this.TotalcostRecuurence = trans.toFixed(20).replace(/0+$/, '');
+            let total = parseFloat(this.TotalCost) + parseFloat(this.TotalcostRecuurence);
+            this.TotalETH = total.toFixed(20).replace(/0+$/, '');
           });
         });
+      } else {
         this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Single + Recurring';
         this.title = result.data.title;
@@ -161,6 +174,28 @@ export class BillingModelOverviewComponent implements OnInit {
         this.singleRecurring = true;
         this.single = false;
         this.recurring = false;
+        this.initialRecurrence = 1;
+        this.PullRecurrence = 1;
+        this.intialETH = 0;
+        this.RecurrencesETH = 0;
+        this.PullRecurrenceETH = 0;
+        this.TotalETH = 0;
+        this.overviewdata.gasuseddata().subscribe(result => {
+          let gasused = result.data;
+          this.overviewdata.gasvalueCalcualtion().subscribe(result => {
+            let cal = result.res.gasprice * gasused * 2;
+            this.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+            let intial = this.EtherValue * this.initialRecurrence;
+            this.intialETH = intial.toFixed(20).replace(/0+$/, '');
+            let recurrence = this.EtherValue * this.Recurrences;
+            this.RecurrencesETH = recurrence.toFixed(20).replace(/0+$/, '');
+            let pull = this.EtherValue * this.PullRecurrence;
+            this.PullRecurrenceETH = pull.toFixed(20).replace(/0+$/, '');
+            let total =
+              parseFloat(this.intialETH) + parseFloat(this.RecurrencesETH) + parseFloat(this.PullRecurrenceETH);
+            this.TotalETH = total.toFixed(20).replace(/0+$/, '');
+          });
+        });
       }
     });
   }

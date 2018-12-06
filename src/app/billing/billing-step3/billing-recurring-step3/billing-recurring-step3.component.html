@@ -146,6 +146,7 @@
                       type="number"
                       name="No3"
                       [(ngModel)]="model.No3"
+                      (input)="handlechangetraildays()"
                       onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                       appBlockCopyPaste
                       required
@@ -161,6 +162,8 @@
                     <select
                       name="Period2"
                       [(ngModel)]="model.Period2"
+                      #Period2="ngModel"
+                      (change)="handlechangetrailperiods(data)"
                       [ngClass]="{ 'is-invalid': NoOfRecuurence3.errors?.min }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"

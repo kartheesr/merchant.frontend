@@ -104,6 +104,12 @@ div.is-invalid {
   border-color: #eb3232 !important;
   box-shadow: none;
 }
+.notifyMsg {
+  color: #eb3232;
+  font-size: 12px;
+  text-align: right;
+  margin-right: 5px;
+}
 
 .billingBoxCont {
   .billingBox.active {
@@ -465,8 +471,8 @@ textarea.is-invalid {
   box-shadow: none !important;
   border-width: 1px;
 }
-.ntfyMsg {
-  color: red;
-  font-size: 12px;
-  padding-left: 60%;
+@media (min-width: 1920px) {
+  .notifyMsg {
+    margin-right: 17.5%;
+  }
 }

@@ -26,14 +26,15 @@
       color: #333333;
     }
     select {
-      width: 130px;
+      width: 153px;
       height: 38px;
       border-color: #ccd1d9 solid;
       background-color: #fcfdff;
       font-size: 14px;
       line-height: 21px;
-      border-radius: 3px;
+      border-radius: 0px;
       padding: 0px 20px;
+      box-shadow: 1px 1px 3px #ccd1d9;
     }
     input {
       width: 300px;
@@ -53,7 +54,7 @@
       background-color: #fcfdff;
       font-size: 14px;
       line-height: 21px;
-      border-radius: 3px;
+      border-radius: 0px;
       padding: 0px 20px;
     }
     .dayselect {
@@ -204,4 +205,7 @@ input.is-invalid {
     margin-right: 10px;
     text-align: right;
   }
+}
+.SingleRecurringClass input.col-md-11 {
+  max-width: 100% !important;
 }

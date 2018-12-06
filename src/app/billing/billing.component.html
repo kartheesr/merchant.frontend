@@ -63,10 +63,18 @@
                         <p *ngIf="array.typeID == 6">Single + Recurring</p>
                         <div class="LinkTag">
                           <a *ngIf="array.typeID == 2"> </a>
-                          <a *ngIf="array.typeID == 3 || array.typeID == 5"
-                            >{{ array.frequency / (24 * 60 * 60) }} days</a
-                          >
-                          <a *ngIf="array.typeID == 6">{{ array.frequency / (24 * 60 * 60) }} days</a>
+                          <a *ngIf="array.typeID == 3 || array.typeID == 5">
+                            <span *ngIf="array.years != ''"> {{ array.years }} year</span>
+                            <span *ngIf="array.weeks != ''">{{ array.weeks }} weeks</span>
+                            <span *ngIf="array.months != ''">{{ array.months }} months</span>
+                            <span *ngIf="array.months != ''">{{ array.days }} days</span>
+                          </a>
+                          <a *ngIf="array.typeID == 6">
+                            <span *ngIf="array.years != ''"> {{ array.years }} year</span>
+                            <span *ngIf="array.weeks != ''">{{ array.weeks }} weeks</span>
+                            <span *ngIf="array.months != ''">{{ array.months }} months</span>
+                            <span *ngIf="array.months != ''">{{ array.days }} days</span>
+                          </a>
                         </div>
                       </div>
                       <div class="large col-md-12">

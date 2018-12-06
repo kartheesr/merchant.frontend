@@ -20,6 +20,7 @@ import { restElement } from 'babel-types';
 })
 export class BillingComponent implements OnInit {
   public sample = [];
+  public billcycledays = [];
   version: string = environment.version;
   pullPaymentsBalance;
   pullPaymentsCurrency;
@@ -30,7 +31,7 @@ export class BillingComponent implements OnInit {
   show1: boolean;
   show2: boolean;
   newForm = 'newForm';
-  // loadimg;
+  temp;
 
   SinglePullValue: number;
   RecurringPullValue: number;
@@ -39,6 +40,17 @@ export class BillingComponent implements OnInit {
   YearValue: any = {};
   YearValue1: any = {};
 
+  days: any;
+  weeks: any;
+  months: any;
+  years: any;
+  week;
+  week1;
+  week2;
+  week3;
+  week4;
+  week5;
+  day1;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -53,7 +65,7 @@ export class BillingComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.loadimg = true;
+    this.sample = [];
     this.show1 = true;
     this.Getpull();
     this.getPullPayment();
@@ -69,14 +81,13 @@ export class BillingComponent implements OnInit {
     localStorage.setItem('editId', data);
     this.router.navigate(['/pullpayments/step1']);
   }
-
   Getpull() {
     this.SinglePullValue = 0;
     this.RecurringPullValue = 0;
     this.SingleWithRecurringValue = 0;
     this.RecurringWithTrialValue = 0;
     this.billingService.Getpull().subscribe(result => {
-      // this.loadimg = false;
+      console.log('result.data', result.data);
       if (result.success == true) {
         if (result.data.length != 0) {
           this.show1 = false;
@@ -93,6 +104,46 @@ export class BillingComponent implements OnInit {
               this.RecurringWithTrialValue++;
             }
           }
+
+          for (let cal of result.data) {
+            let temp = { days: '', weeks: '', months: '', years: '' };
+            this.days = cal.frequency / (24 * 60 * 60);
+            if (this.days <= 7) {
+              temp.days = this.days;
+              this.billcycledays.push(temp);
+            } else if (this.days >= 7 && this.days <= 29) {
+              this.week = this.days % 7;
+              temp.weeks = this.week;
+              this.week1 = this.days / 7;
+              this.week2 = parseInt(this.week1);
+              temp.days = this.week2;
+              this.billcycledays.push(temp);
+            } else if (this.days > 30 && this.days <= 360) {
+              this.week1 = this.days / 30;
+              this.week2 = parseInt(this.week1);
+              temp.months = this.week2;
+              this.week = this.days % 30;
+              temp.days = this.week2;
+              this.billcycledays.push(temp);
+            } else if (this.days > 360) {
+              this.week1 = this.days / 360;
+              this.week2 = parseInt(this.week1);
+              temp.years = this.week2;
+              this.week = this.days % 360;
+              this.week3 = this.week / 30;
+              this.week4 = parseInt(this.week3);
+              temp.months = this.week4;
+              this.week5 = this.week % 30;
+              temp.days = this.week5;
+              this.billcycledays.push(temp);
+            }
+          }
+          for (var i = 0; i <= this.sample.length; i++) {
+            this.sample[i].days = this.billcycledays[i].days;
+            this.sample[i].weeks = this.billcycledays[i].weeks;
+            this.sample[i].months = this.billcycledays[i].months;
+            this.sample[i].years = this.billcycledays[i].years;
+          }
         }
       } else {
         this.show1 = true;
@@ -100,7 +151,6 @@ export class BillingComponent implements OnInit {
       }
     });
   }
-
   new() {
     localStorage.setItem('newForm', this.newForm);
     localStorage.removeItem('editId');

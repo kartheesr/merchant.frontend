@@ -36,7 +36,7 @@ export class BillingStep2Component implements OnInit {
     this.stepTrack.onBackStep1();
     this.router.navigate(['pullpayments/step1']);
   }
-  onSubmit() {
+  onSubmit(f) {
     this.stepTrack.onStep3();
     this.service.setValues(this.model);
     if (this.datavalidation.billing == 'Single') this.router.navigate(['pullpayments/single/step3']);

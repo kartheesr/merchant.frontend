@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
   collection;
   previouslist = '';
   nextlist = '';
+  p: number = 1;
 
   constructor(
     private dashboardService: DashboardService,

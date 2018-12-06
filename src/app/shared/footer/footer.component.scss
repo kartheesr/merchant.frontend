@@ -25,6 +25,9 @@ p {
   font-size: 12px;
   a {
     padding: 0 12px;
+    text-decoration: none !important;
+    color: #556486;
+    cursor: pointer;
   }
 }
 .social-icons-container {

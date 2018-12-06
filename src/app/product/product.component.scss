@@ -459,3 +459,14 @@ span.Round-tab {
   font-size: 12px;
   float: right;
 }
+input.is-invalid,
+textarea.is-invalid {
+  border-color: #eb3232 !important;
+  box-shadow: none !important;
+  border-width: 1px;
+}
+.ntfyMsg {
+  color: red;
+  font-size: 12px;
+  padding-left: 60%;
+}

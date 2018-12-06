@@ -7,7 +7,26 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  model: any = {};
+
   constructor(private route: ActivatedRoute, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.model = {
+      productName: '',
+      Description: '',
+      tags: ''
+    };
+  }
+  cancel() {
+    this.model = {
+      productName: '',
+      Description: '',
+      tags: ''
+    };
+  }
+  postProduct(model) {
+    console.log('post product: ', model);
+    this.cancel();
+  }
 }

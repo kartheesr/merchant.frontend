@@ -1,6 +1,6 @@
 <div class="billingModelContainer">
   <div class="bm-header"><b>New Product</b></div>
-  <form>
+  <form name="form" #f="ngForm" (ngSubmit)="postProduct(model)">
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
         <div class="row">
@@ -15,22 +15,24 @@
                 minlength="2"
                 maxlength="50"
                 required
+                [(ngModel)]="model.productName"
+                #productName="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && productName.errors?.required }"
               />
               <div><label class="char-msg">50</label></div>
             </div>
 
             <div class="form-group">
               <label class="title">Product Description</label> <br />
-              <textarea class="inputDes" placeholder="Product Description"></textarea>
-              <!--
-                <textarea
+              <textarea
                 class="inputDes"
-                name="billModelDes"
+                [(ngModel)]="model.Description"
+                name="Description"
+                #Description="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && Description.errors?.required }"
                 placeholder="Product Description"
-                minlength="2"
-                maxlength="140" required>
-                </textarea><br />
-              -->
+                maxlength="140"
+              ></textarea>
               <div><label class="char-msg">140</label></div>
             </div>
 
@@ -39,11 +41,14 @@
               <input
                 type="text"
                 class="productInput"
-                name="productName"
+                name="tags"
                 placeholder="Enter tags"
                 required
                 minlength="2"
                 maxlength="50"
+                [(ngModel)]="model.tags"
+                #tags="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && tags.errors?.required }"
               />
               <div><label class="char-msg">10 tags</label></div>
             </div>
@@ -51,6 +56,8 @@
         </div>
       </div>
     </div>
-    <div class="bs-footer"><button type="submit" class="button" [disabled]="disabled">Continue</button></div>
+    <div class="bs-footer">
+      <button type="submit" class="button" [disabled]="!f.valid">{{ f.valid ? 'Creat Product' : 'Continue' }}</button>
+    </div>
   </form>
 </div>

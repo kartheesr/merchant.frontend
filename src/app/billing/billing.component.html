@@ -32,15 +32,11 @@
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
         <div class="row">
-          <div
-            *ngFor="let array of sample"
-            class="col-xs-12 col-sm-3 col-md-3 single-class"
-            (click)="onClick(array.id)"
-          >
-            <div [ngClass]="{ 'billingBox active col-md-12': array.typeID == 2 }">
-              <div [ngClass]="{ 'billingBox active1 col-md-12': array.typeID == 3 }">
-                <div [ngClass]="{ 'billingBox active1 col-md-12': array.typeID == 5 }">
-                  <div [ngClass]="{ 'billingBox active2 col-md-12': array.typeID == 6 }">
+          <div *ngFor="let array of sample" class="col-xs-12 col-sm-3 col-md-3 single-class">
+            <div (click)="onClick(array.id)" [ngClass]="{ 'billingBox active col-md-12': array.typeID == 2 }">
+              <div (click)="onClick(array.id)" [ngClass]="{ 'billingBox active1 col-md-12': array.typeID == 3 }">
+                <div (click)="onClick(array.id)" [ngClass]="{ 'billingBox active1 col-md-12': array.typeID == 5 }">
+                  <div (click)="onClick(array.id)" [ngClass]="{ 'billingBox active2 col-md-12': array.typeID == 6 }">
                     <div class="boxHead col-md-12">
                       <div class="boxHead col-md-12">
                         <div class="ImgCont" *ngIf="array.typeID == 2">

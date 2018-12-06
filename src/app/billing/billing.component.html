@@ -124,11 +124,9 @@
                             {{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}
                           </span>
                           <br />
-                          <span *ngIf="array.typeID == 2">Subscribers {{ SinglePullValue }}</span>
-                          <span *ngIf="array.typeID == 3 || array.typeID == 5"
-                            >Subscribers {{ RecurringPullValue }}</span
-                          >
-                          <span *ngIf="array.typeID == 6">Subscribers {{ SingleWithRecurringValue }}</span>
+                          <span *ngIf="array.typeID == 2">Subscribers {{ 0 }}</span>
+                          <span *ngIf="array.typeID == 3 || array.typeID == 5">Subscribers {{ 0 }}</span>
+                          <span *ngIf="array.typeID == 6">Subscribers {{ 0 }}</span>
                         </div>
                       </div>
                     </div>
@@ -142,3 +140,5 @@
     </div>
   </div>
 </div>
+<br />
+<br />

@@ -82,6 +82,7 @@ export class BillingComponent implements OnInit {
     this.router.navigate(['/pullpayments/step1']);
   }
   Getpull() {
+    var i = 0;
     this.SinglePullValue = 0;
     this.RecurringPullValue = 0;
     this.SingleWithRecurringValue = 0;
@@ -110,21 +111,21 @@ export class BillingComponent implements OnInit {
             this.days = cal.frequency / (24 * 60 * 60);
             if (this.days <= 7) {
               temp.days = this.days;
-              this.billcycledays.push(temp);
+              this.sample[i].data = temp;
             } else if (this.days >= 7 && this.days <= 29) {
               this.week = this.days % 7;
               temp.weeks = this.week;
               this.week1 = this.days / 7;
               this.week2 = parseInt(this.week1);
               temp.days = this.week2;
-              this.billcycledays.push(temp);
+              this.sample[i].data = temp;
             } else if (this.days > 30 && this.days <= 360) {
               this.week1 = this.days / 30;
               this.week2 = parseInt(this.week1);
               temp.months = this.week2;
               this.week = this.days % 30;
               temp.days = this.week2;
-              this.billcycledays.push(temp);
+              this.sample[i].data = temp;
             } else if (this.days > 360) {
               this.week1 = this.days / 360;
               this.week2 = parseInt(this.week1);
@@ -135,15 +136,17 @@ export class BillingComponent implements OnInit {
               temp.months = this.week4;
               this.week5 = this.week % 30;
               temp.days = this.week5;
-              this.billcycledays.push(temp);
+              this.sample[i].data = temp;
             }
+            i++;
+            console.log('sample', this.sample);
           }
-          for (var i = 0; i <= this.sample.length; i++) {
-            this.sample[i].days = this.billcycledays[i].days;
-            this.sample[i].weeks = this.billcycledays[i].weeks;
-            this.sample[i].months = this.billcycledays[i].months;
-            this.sample[i].years = this.billcycledays[i].years;
-          }
+          // for (var i = 0; i <= this.sample.length; i++) {
+          //   this.sample[i].days = this.billcycledays[i].days;
+          //   this.sample[i].weeks = this.billcycledays[i].weeks;
+          //   this.sample[i].months = this.billcycledays[i].months;
+          //   this.sample[i].years = this.billcycledays[i].years;
+          // }
         }
       } else {
         this.show1 = true;

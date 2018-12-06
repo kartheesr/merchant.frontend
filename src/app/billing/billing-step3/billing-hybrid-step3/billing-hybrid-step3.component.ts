@@ -101,6 +101,7 @@ export class BillingHybridStep3Component implements OnInit {
       this.hideerror == true;
     } else if (data.value) {
       this.model.price = this.model.price * 100;
+      this.model.Periodprice = this.model.Periodprice * 100;
       this.stepTrack.onStep4();
       this.service.setValues(this.model);
       this.router.navigate(['pullpayments/hybrid/step4']);

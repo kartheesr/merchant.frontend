@@ -174,13 +174,13 @@ input:checked + .slider:before {
   color: #eb3232;
   font-size: 12px;
   text-align: right;
-  margin-right: 5px;
+  margin-right: 24px;
 }
 .errorMSg {
   color: #eb3232;
   font-size: 12px;
   text-align: right;
-  margin-right: 5px;
+  //margin-right: 5px;
 }
 
 .SingleRecurringClass {
@@ -202,8 +202,13 @@ input.is-invalid {
     text-align: right;
   }
   .errorMSg {
-    margin-right: 10px;
+    margin-right: 5px;
     text-align: right;
+  }
+  .amountselect {
+    select {
+      width: 185px !important;
+    }
   }
 }
 .SingleRecurringClass input.col-md-11 {

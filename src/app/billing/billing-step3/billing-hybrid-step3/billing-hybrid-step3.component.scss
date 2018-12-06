@@ -50,7 +50,7 @@
         background-color: #fcfdff;
         font-size: 14px;
         line-height: 21px;
-        border-radius: 3px;
+        //border-radius: 3px;
         padding: 0px 20px;
         box-shadow: 1px 1px 3px #ccd1d9;
       }
@@ -173,13 +173,18 @@
   color: #eb3232;
   font-size: 12px;
   text-align: right;
-  margin-right: 5px;
+  margin-right: 25px;
 }
-.notifyMsg1,
 .aligntxt {
   color: #eb3232;
   font-size: 11px;
   text-align: left !important;
+}
+.notifyMsg1 {
+  color: #eb3232;
+  font-size: 11px;
+  text-align: right !important;
+  margin-right: 22px !important;
 }
 
 .SingleRecurringClass {
@@ -196,7 +201,9 @@
   .notifyMsg {
     margin-right: 24%;
   }
-  .notifyMsg,
+  .notifyMsg1 {
+    margin-right: 30% !important;
+  }
   .aligntxt {
     text-align: right !important;
     margin-right: 25%;

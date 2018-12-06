@@ -31,7 +31,7 @@
         background-color: #fcfdff;
         font-size: 14px;
         line-height: 21px;
-        border-radius: 3px;
+        //border-radius: 3px;
         padding: 0px 20px;
         box-shadow: 1px 1px 3px #ccd1d9;
       }
@@ -109,6 +109,7 @@
   color: #eb3232;
   font-size: 12px;
   text-align: right;
+  margin-right: 24px;
 }
 
 /*** Responsive CSS ***/
@@ -118,7 +119,7 @@
     width: 393px !important;
   }
   .notifyMsg {
-    text-align: right;
+    margin-right: 0px !important;
   }
 }
 

@@ -56,8 +56,8 @@
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   appBlockCopyPaste
                 />
-                <div class="notifyMsg1" *ngIf="days.errors?.min">Needs to be at least 1 day</div>
-                <div class="notifyMsg1 aligntxt" *ngIf="days.errors?.required">Days is required</div>
+                <div class="aligntxt" *ngIf="days.errors?.min">Needs to be at least 1 day</div>
+                <div class="notifyMsg1" *ngIf="days.errors?.required">Days is required</div>
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 Dayselect">
                 <select name="calendar" [(ngModel)]="model.calendar" #calendar="ngModel" required>
@@ -172,9 +172,7 @@
                   appBlockCopyPaste
                 />
                 <div class="notifyMsg1" *ngIf="Recurringdays.errors?.required">Recurrences is required</div>
-                <div *ngIf="hideerror">
-                  <div class="notifyMsg1 aligntxt">Recurrence must be larger than or equal to 2</div>
-                </div>
+                <div *ngIf="hideerror"><div class="aligntxt">Recurrence must be larger than or equal to 2</div></div>
                 <div class="notifyMsg1" *ngIf="Recurringdays.errors?.min">Needs to be more than 0</div>
               </div>
             </div>

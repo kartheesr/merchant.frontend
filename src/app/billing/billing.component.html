@@ -67,22 +67,46 @@
                           <div class="LinkTag">
                             <a *ngIf="array.typeID == 2"> </a>
                             <a *ngIf="array.typeID == 3">
-                              <span *ngIf="array.data.years != ''"> {{ array.data.years }} year</span>
-                              <span *ngIf="array.data.weeks != ''">{{ array.data.weeks }} weeks</span>
-                              <span *ngIf="array.data.months != ''">{{ array.data.months }} months</span>
-                              <span *ngIf="array.data.days != ''">{{ array.data.days }} days</span>
+                              <span *ngIf="array.data.years != ''">
+                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span
+                              >
+                              <span *ngIf="array.data.months != ''"
+                                >{{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
+                              </span>
+                              <span *ngIf="array.data.weeks != ''"
+                                >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
+                              </span>
+                              <span *ngIf="array.data.days != ''"
+                                >{{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
+                              </span>
                             </a>
                             <a *ngIf="array.typeID == 5">
-                              <span *ngIf="array.data.years != ''"> {{ array.data.years }} year</span>
-                              <span *ngIf="array.data.weeks != ''">{{ array.data.weeks }} weeks</span>
-                              <span *ngIf="array.data.months != ''">{{ array.data.months }} months</span>
-                              <span *ngIf="array.data.days != ''">{{ array.data.days }} days</span>
+                              <span *ngIf="array.data.years != ''">
+                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span
+                              >
+                              <span *ngIf="array.data.months != ''"
+                                >{{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
+                              </span>
+                              <span *ngIf="array.data.weeks != ''"
+                                >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
+                              </span>
+                              <span *ngIf="array.data.days != ''"
+                                >{{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
+                              </span>
                             </a>
                             <a *ngIf="array.typeID == 6">
-                              <span *ngIf="array.data.years != ''"> {{ array.data.years }} year</span>
-                              <span *ngIf="array.data.weeks != ''">{{ array.data.weeks }} weeks</span>
-                              <span *ngIf="array.data.months != ''">{{ array.data.months }} months</span>
-                              <span *ngIf="array.data.days != ''">{{ array.data.days }} days</span>
+                              <span *ngIf="array.data.years != ''">
+                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span
+                              >
+                              <span *ngIf="array.data.months != ''"
+                                >{{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
+                              </span>
+                              <span *ngIf="array.data.weeks != ''"
+                                >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
+                              </span>
+                              <span *ngIf="array.data.days != ''"
+                                >{{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
+                              </span>
                             </a>
                           </div>
                         </div>

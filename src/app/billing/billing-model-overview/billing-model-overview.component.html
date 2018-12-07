@@ -16,7 +16,7 @@
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  {{ title }}<br />
+                  {{ title }} <br />
                   <span>{{ description }}</span>
                 </p>
               </div>
@@ -28,7 +28,7 @@
               </div>
               <div class="footerText">
                 <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-                <span>Subscribers {{ subscribers }}</span>
+                <span>Subscribers {{ 0 }}</span>
               </div>
             </div>
           </div>
@@ -37,14 +37,16 @@
         <div class="col-xs-12 col-sm-9 cols-md-9">
           <div class="product-div">
             <label class="title"
-              >{{ title }}<br /><span>{{ description }}</span></label
-            ><br />
+              >{{ title }} <br />
+              <span>{{ description }}</span>
+            </label>
+            <br />
             <label class="bill-info">Billing Model description.</label> <br />
             <label class="subTitle">{{ billingdescription }}</label>
           </div>
 
           <div class="product-div">
-            <label class="title new_title">Gas funding for EACH subscribed customer</label><br />
+            <label class="title new_title">Gas funding for EACH subscribed customer</label> <br />
             <div class="col-md-8">
               <div class="table-responsive tblMargin">
                 <table class="BillingModelTable ZeroMargin">
@@ -67,7 +69,7 @@
           </div>
 
           <div class="product-div-1">
-            <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg"/></label><br />
+            <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg" /> </label> <br />
             <label class="subTitle">Customers can scan the QR Code and approve it in their PumaPay Wallet app.</label>
 
             <div class="row">
@@ -81,7 +83,9 @@
                     qrc-element-type="“img”"
                     [(qrc-value)]="value"
                   ></ngx-qrcode>
-                  <label class="QR-link" (click)="open(content)">Enlarge<img src="assets/images/enlarge.svg"/></label>
+                  <label class="QR-link" (click)="open(content)"
+                    >Enlarge <img src="assets/images/enlarge.svg" />
+                  </label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
@@ -90,7 +94,7 @@
               </div>
             </div>
 
-            <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg"/></label><br />
+            <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg" /> </label> <br />
             <div class="paymentBtn row">
               <div class="col-md-3 logo3" value="click to copy">
                 <img
@@ -98,15 +102,16 @@
                   id="btBlue"
                   src="assets/images/logo3.png"
                   (click)="openCopyButton(pumacopySingle)"
-                /><br />
+                />
+                <br />
                 <label class="Btn-copy" (click)="copycontent(1)">Copy Button</label>
               </div>
               <div class="col-md-3 logo3" value="click to copy">
-                <img class="pumaButton" src="assets/images/logo2.png" (click)="openCopyButton(pumacopySingle)" /><br />
+                <img class="pumaButton" src="assets/images/logo2.png" (click)="openCopyButton(pumacopySingle)" /> <br />
                 <label class="Btn-copy" (click)="copycontent(2)">Copy Button</label>
               </div>
               <div class="col-md-3 logo3" value="click to copy">
-                <img class="pumaButton" src="assets/images/logo1.png" (click)="openCopyButton(pumacopySingle)" /><br />
+                <img class="pumaButton" src="assets/images/logo1.png" (click)="openCopyButton(pumacopySingle)" /> <br />
                 <label class="Btn-copy" (click)="copycontent(3)">Copy Button</label>
               </div>
             </div>
@@ -137,10 +142,17 @@
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  {{ title }}<br />
+                  {{ title }} <br />
                   <span>{{ description }}</span>
                 </p>
-                <a>{{ frequency }} days</a>
+                <a>
+                  <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
+                  <span *ngIf="temp.months != ''"
+                    >{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
+                  </span>
+                  <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
+                  <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span>
+                </a>
               </div>
               <div class="large">
                 <div>
@@ -150,7 +162,7 @@
               </div>
               <div class="footerText">
                 <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-                <span>Subscribers {{ subscribers }}</span>
+                <span>Subscribers {{ 0 }}</span>
               </div>
             </div>
           </div>
@@ -159,14 +171,16 @@
         <div class="col-xs-12 col-sm-9 cols-md-9">
           <div class="product-div">
             <label class="title"
-              >{{ title }}<br /><span>{{ description }}</span></label
-            ><br />
+              >{{ title }} <br />
+              <span>{{ description }}</span>
+            </label>
+            <br />
             <label class="bill-info">Billing Model description.</label> <br />
             <label class="subTitle">{{ billingdescription }}</label>
           </div>
 
           <div class="product-div">
-            <label class="title new_title left">Gas funding for EACH subscribed customer</label><br />
+            <label class="title new_title left">Gas funding for EACH subscribed customer</label> <br />
             <div class="table-responsive">
               <table class="BillingModelTable ZeroMargin">
                 <thead>
@@ -174,7 +188,7 @@
                     <th>Purpose</th>
                     <th>Number of recurrences</th>
                     <th>
-                      Estimated Gas<br />
+                      Estimated Gas <br />
                       Cost/transaction (ETH)
                     </th>
                     <th>Total Estimated Gas cost (ETH)</th>
@@ -208,7 +222,7 @@
           </div>
 
           <div class="product-div-2">
-            <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg"/></label><br />
+            <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg" /> </label> <br />
             <label class="subTitle">Customers can scan the QR Code and approve it in their PumaPay Wallet app.</label>
 
             <div class="row">
@@ -222,7 +236,9 @@
                     qrc-element-type="“img”"
                     [(qrc-value)]="value"
                   ></ngx-qrcode>
-                  <label class="QR-link" (click)="open(content)">Enlarge<img src="assets/images/enlarge.svg"/></label>
+                  <label class="QR-link" (click)="open(content)"
+                    >Enlarge <img src="assets/images/enlarge.svg" />
+                  </label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
@@ -231,30 +247,21 @@
               </div>
             </div>
 
-            <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg"/></label><br />
+            <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg" /> </label> <br />
             <div class="paymentBtn row">
               <div class="col-md-3 logo3" value="click to copy">
-                <img
-                  class="pumaButton"
-                  src="assets/images/logo3.png"
-                  (click)="openCopyButton(pumacopyRecurring)"
-                /><br />
+                <img class="pumaButton" src="assets/images/logo3.png" (click)="openCopyButton(pumacopyRecurring)" />
+                <br />
                 <label class="Btn-copy" (click)="copycontentRcurrence(1)">Copy Button</label>
               </div>
               <div class="col-md-3 logo3" value="click to copy">
-                <img
-                  class="pumaButton"
-                  src="assets/images/logo2.png"
-                  (click)="openCopyButton(pumacopyRecurring)"
-                /><br />
+                <img class="pumaButton" src="assets/images/logo2.png" (click)="openCopyButton(pumacopyRecurring)" />
+                <br />
                 <label class="Btn-copy" (click)="copycontentRcurrence(2)">Copy Button</label>
               </div>
               <div class="col-md-3 logo3" value="click to copy">
-                <img
-                  class="pumaButton"
-                  src="assets/images/logo1.png"
-                  (click)="openCopyButton(pumacopyRecurring)"
-                /><br />
+                <img class="pumaButton" src="assets/images/logo1.png" (click)="openCopyButton(pumacopyRecurring)" />
+                <br />
                 <label class="Btn-copy" (click)="copycontentRcurrence(3)">Copy Button</label>
               </div>
             </div>
@@ -361,10 +368,17 @@
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  {{ title }}<br />
+                  {{ title }} <br />
                   <span>{{ description }}</span>
                 </p>
-                <a>{{ frequency }} days</a>
+                <a>
+                  <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
+                  <span *ngIf="temp.months != ''"
+                    >{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
+                  </span>
+                  <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
+                  <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span>
+                </a>
               </div>
               <div class="large">
                 <div>
@@ -379,7 +393,7 @@
               <br />
               <div class="footerText">
                 <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-                <span>Subscribers {{ subscribers }}</span>
+                <span>Subscribers {{ 0 }}</span>
               </div>
             </div>
           </div>
@@ -388,14 +402,16 @@
         <div class="col-xs-12 col-sm-9 cols-md-9">
           <div class="product-div">
             <label class="title"
-              >{{ title }}<br /><span>{{ description }}</span></label
-            ><br />
+              >{{ title }} <br />
+              <span>{{ description }}</span>
+            </label>
+            <br />
             <label class="bill-info">Billing Model description.</label> <br />
             <label class="subTitle">{{ billingdescription }}</label>
           </div>
 
           <div class="product-div-1">
-            <label class="title new_title left">Gas funding for EACH subscribed customer</label><br />
+            <label class="title new_title left">Gas funding for EACH subscribed customer</label> <br />
             <div class="table-responsive">
               <table class="BillingModelTable ZeroMargin">
                 <thead>
@@ -449,7 +465,7 @@
           </div>
 
           <div class="product-div-2">
-            <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg"/></label><br />
+            <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg" /> </label> <br />
             <label class="subTitle">Customers can scan the QR Code and approve it in their PumaPay Wallet app.</label>
 
             <div class="row">
@@ -463,7 +479,9 @@
                     qrc-element-type="“img”"
                     [(qrc-value)]="value"
                   ></ngx-qrcode>
-                  <label class="QR-link" (click)="open(content)">Enlarge<img src="assets/images/enlarge.svg"/></label>
+                  <label class="QR-link" (click)="open(content)"
+                    >Enlarge <img src="assets/images/enlarge.svg" />
+                  </label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9 cols-md-9">
@@ -472,19 +490,19 @@
               </div>
             </div>
 
-            <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg"/></label><br />
+            <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg" /> </label> <br />
             <div class="paymentBtn row">
               <div class="col-md-3 logo3" value="click to copy">
-                <img class="pumaButton" src="assets/images/logo3.png" (click)="openCopyButton(pumacopyHybrid)" /><br />
+                <img class="pumaButton" src="assets/images/logo3.png" (click)="openCopyButton(pumacopyHybrid)" /> <br />
                 <label class="Btn-copy" (click)="hybridCopyButton(1)">Copy Button</label>
               </div>
 
               <div class="col-md-3 logo3" value="click to copy">
-                <img class="pumaButton" src="assets/images/logo2.png" (click)="openCopyButton(pumacopyHybrid)" /><br />
+                <img class="pumaButton" src="assets/images/logo2.png" (click)="openCopyButton(pumacopyHybrid)" /> <br />
                 <label class="Btn-copy" (click)="hybridCopyButton(2)">Copy Button</label>
               </div>
               <div class="col-md-3 logo3" value="click to copy">
-                <img class="pumaButton" src="assets/images/logo1.png" (click)="openCopyButton(pumacopyHybrid)" /><br />
+                <img class="pumaButton" src="assets/images/logo1.png" (click)="openCopyButton(pumacopyHybrid)" /> <br />
                 <label class="Btn-copy" (click)="hybridCopyButton(3)">Copy Button</label>
               </div>
             </div>
@@ -547,7 +565,7 @@
 
 <ng-template id="content" #content let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <label>Contract QR code <img src="assets/images/info-billing.svg"/></label><br />
+    <label>Contract QR code <img src="assets/images/info-billing.svg" /> </label> <br />
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -557,7 +575,7 @@
 
 <ng-template #pumacopySingle let-c="close" let-d="dismiss">
   <div id="pops" class="modal-header">
-    <label class="md-title">Contract Details</label><br />
+    <label class="md-title">Contract Details</label> <br />
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -609,7 +627,7 @@
 
 <ng-template #pumacopyRecurring let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <label class="md-title">Contract Details</label><br />
+    <label class="md-title">Contract Details</label> <br />
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -641,7 +659,17 @@
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
-                <td>Billing Cycle: {{ frequency }} Days</td>
+                <td>
+                  Billing Cycle:
+                  <a>
+                    <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
+                    <span *ngIf="temp.months != ''"
+                      >{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
+                    </span>
+                    <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
+                    <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span>
+                  </a>
+                </td>
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/cycle.svg" /></td>
@@ -652,10 +680,8 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-5 col-md-5">
-        <label class="tit-text">{{ title }}</label
-        ><br />
-        <label class="bm-text">{{ description }}</label
-        ><br />
+        <label class="tit-text">{{ title }}</label> <br />
+        <label class="bm-text">{{ description }}</label> <br />
         <label class="bill-info">Billing Model description.</label> <br />
         <label class="bill-info1">{{ billingdescription }}</label>
         <!--
@@ -671,7 +697,7 @@
 
 <ng-template #pumacopyHybrid let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <label class="md-title">Contract Details</label><br />
+    <label class="md-title">Contract Details</label> <br />
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -707,7 +733,17 @@
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
-                <td>Payment Cycle: {{ frequency }} days</td>
+                <td>
+                  Payment Cycle:
+                  <a>
+                    <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
+                    <span *ngIf="temp.months != ''"
+                      >{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
+                    </span>
+                    <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
+                    <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span>
+                  </a>
+                </td>
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/cycle.svg" /></td>
@@ -719,8 +755,7 @@
       </div>
       <div class="col-xs-12 col-sm-5 col-md-5">
         <label class="tit-text">{{ title }}</label> <br />
-        <label class="bm-text">{{ description }}</label
-        ><br />
+        <label class="bm-text">{{ description }}</label> <br />
         <label class="bill-info">Billing Model description.</label> <br />
         <label class="bill-info1">{{ billingdescription }}</label>
         <!--

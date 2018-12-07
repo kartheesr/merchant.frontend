@@ -332,15 +332,10 @@ table {
 
   .table-responsive td:before {
     content: attr(data-title);
-
     position: absolute;
-
     top: 1px;
-
     left: 1px;
-
     width: calc(50% - 20px);
-
     padding: 5px 10px;
 
     white-space: nowrap;

@@ -11,6 +11,7 @@ import { CurrencyPipe } from '@angular/common';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { restElement } from 'babel-types';
+import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic/src/platform_providers';
 
 @Component({
   selector: 'app-billing',
@@ -44,12 +45,21 @@ export class BillingComponent implements OnInit {
   weeks: any;
   months: any;
   years: any;
+  month;
+  year;
+  day;
+  month1;
+  year1;
+  month2;
+  month3;
+  month4;
   week;
   week1;
   week2;
   week3;
   week4;
   week5;
+
   day1;
   constructor(
     private router: Router,
@@ -108,35 +118,133 @@ export class BillingComponent implements OnInit {
           for (let cal of result.data) {
             let temp = { days: '', weeks: '', months: '', years: '' };
             this.days = cal.frequency / (24 * 60 * 60);
-            if (this.days <= 7) {
+            console.log('this.days', this.days);
+            if (this.days > 360) {
+              console.log('no years', this.days);
+              this.year = this.days / 360;
+              this.year1 = parseInt(this.year);
+              temp.years = this.year1;
+              console.log('year360', this.year1);
+              this.month = this.days - this.year1 * 360;
+              // console.log("month360", this.month);
+              this.sample[i].data = temp;
+              if (this.month > 30) {
+                this.month1 = this.month / 30;
+                this.month2 = parseInt(this.month1);
+                temp.months = this.month2;
+                console.log('month36031', this.month2);
+                this.week = this.month - this.month2 * 30;
+                console.log('day3608', this.week);
+                this.sample[i].data = temp;
+                if (this.month2 == 30) {
+                  this.month3 = this.month2 / 30;
+                  temp.months = this.month3;
+                  console.log('month36030', this.month3);
+                  this.sample[i].data = temp;
+                } else if (this.month2 > 7) {
+                  this.week2 = this.week / 7;
+                  this.week1 = parseInt(this.week2);
+                  temp.weeks = this.week1;
+                  console.log('week3608', this.week1);
+                  this.day = this.week - this.week1 * 7;
+                  temp.days = this.day;
+                  console.log('day3608', this.day);
+                  this.sample[i].data = temp;
+                } else if (this.month2 == 7) {
+                  this.week3 = this.month2 / 7;
+                  temp.weeks = this.week3;
+                  console.log('week3607', this.week4);
+                  this.sample[i].data = temp;
+                } else if (this.month2 < 7) {
+                  temp.days = this.month2;
+                  console.log('day3607', this.month2);
+                  this.sample[i].data = temp;
+                }
+              } else if (this.month < 30 && this.month > 7) {
+                this.week2 = this.month / 7;
+                this.week5 = parseInt(this.week2);
+                console.log('week360307', this.week5);
+                temp.weeks = this.week5;
+                this.day = this.month - this.week5 * 7;
+                console.log('day360307', this.day);
+                temp.days = this.day;
+                this.sample[i].data = temp;
+              } else if (this.month < 7) {
+                temp.days = this.month;
+                this.sample[i].data = temp;
+              }
+            } else if (this.days > 30 && this.days < 360) {
+              console.log('no month', this.days);
+              if (this.days > 30) {
+                this.month1 = this.days / 30;
+                this.month2 = parseInt(this.month1);
+                temp.months = this.month2;
+                console.log('month30360', this.month2);
+                this.week = this.days - this.month2 * 30;
+                // temp.weeks = this.week;
+                console.log('week30360', this.week);
+                this.sample[i].data = temp;
+
+                if (this.week == 30) {
+                  this.month3 = this.week / 30;
+                  // this.month4 = parseInt(this.month3);
+                  temp.months = this.month3;
+                  console.log('month36030', this.month4);
+                  this.sample[i].data = temp;
+                } else if (this.week > 7) {
+                  this.week2 = this.week / 7;
+                  this.week1 = parseInt(this.week2);
+                  temp.weeks = this.week1;
+                  console.log('week3608', this.week1);
+                  this.day = this.week - this.week1 * 7;
+                  temp.days = this.day;
+                  console.log('day3608', this.day);
+                  this.sample[i].data = temp;
+                } else if (this.week == 7) {
+                  this.week3 = this.week / 7;
+                  // this.week4 = parseInt(this.week3);
+                  temp.weeks = this.week3;
+                  console.log('week3607', this.week4);
+                  this.sample[i].data = temp;
+                } else if (this.week < 7) {
+                  temp.days = this.week;
+                  console.log('day3607', this.week);
+                  this.sample[i].data = temp;
+                }
+              }
+            } else if (this.days == 30) {
+              console.log('1month', this.days);
+              console.log('1month');
+              this.month3 = this.days / 30;
+              temp.months = this.month3;
+              console.log('month30', this.month3);
+              this.sample[i].data = temp;
+            } else if (this.days > 7 && this.days < 30) {
+              console.log('7month30');
+              this.week2 = this.days / 7;
+              this.week1 = parseInt(this.week2);
+              temp.weeks = this.week1;
+              console.log('week730', this.week1);
+              this.day = this.days - this.week1 * 7;
+              temp.days = this.day;
+              console.log('day730', this.day);
+              this.sample[i].data = temp;
+            } else if (this.days == 7) {
+              console.log('1week');
+              console.log('this.days', this.days);
+              this.week3 = this.days / 7;
+              // this.week4 = parseInt(this.week3);
+              temp.weeks = this.week3;
+              console.log('week3607', this.week4);
+              this.sample[i].data = temp;
+            } else if (this.days < 7) {
+              console.log('days');
               temp.days = this.days;
-              this.sample[i].data = temp;
-            } else if (this.days >= 7 && this.days <= 29) {
-              this.week = this.days % 7;
-              temp.weeks = this.week;
-              this.week1 = this.days / 7;
-              this.week2 = parseInt(this.week1);
-              temp.days = this.week2;
-              this.sample[i].data = temp;
-            } else if (this.days > 30 && this.days <= 360) {
-              this.week1 = this.days / 30;
-              this.week2 = parseInt(this.week1);
-              temp.months = this.week2;
-              this.week = this.days % 30;
-              temp.days = this.week2;
-              this.sample[i].data = temp;
-            } else if (this.days > 360) {
-              this.week1 = this.days / 360;
-              this.week2 = parseInt(this.week1);
-              temp.years = this.week2;
-              this.week = this.days % 360;
-              this.week3 = this.week / 30;
-              this.week4 = parseInt(this.week3);
-              temp.months = this.week4;
-              this.week5 = this.week % 30;
-              temp.days = this.week5;
+              console.log('day3607', temp.days);
               this.sample[i].data = temp;
             }
+
+            console.log('sample', this.sample);
             i++;
           }
           // for (var i = 0; i <= this.sample.length; i++) {

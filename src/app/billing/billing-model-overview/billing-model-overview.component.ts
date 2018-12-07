@@ -33,6 +33,26 @@ export class BillingModelOverviewComponent implements OnInit {
   value;
   model;
   typeID;
+  days: any;
+  weeks: any;
+  months: any;
+  years: any;
+  month;
+  year;
+  day;
+  month1;
+  year1;
+  month2;
+  month3;
+  month4;
+  week;
+  week1;
+  week2;
+  week3;
+  week4;
+  week5;
+  temp;
+  day1;
   public initalamount;
   public trialPeriod;
   public BillingPeriod;
@@ -65,6 +85,7 @@ export class BillingModelOverviewComponent implements OnInit {
     config.keyboard = false;
   }
   ngOnInit() {
+    this.temp = { days: '', weeks: '', months: '', years: '' };
     this.model = {
       data: ''
     };
@@ -101,6 +122,118 @@ export class BillingModelOverviewComponent implements OnInit {
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
       localStorage.removeItem('publishId');
+
+      this.temp = { days: '', weeks: '', months: '', years: '' };
+      this.days = result.data.frequency / (24 * 60 * 60);
+      console.log('this.days', this.days);
+      if (this.days > 360) {
+        console.log('no years', this.days);
+        this.year = this.days / 360;
+        this.year1 = parseInt(this.year);
+        this.temp.years = this.year1;
+        console.log('year360', this.year1);
+        this.month = this.days - this.year1 * 360;
+        // console.log("month360", this.month);
+        if (this.month > 30) {
+          this.month1 = this.month / 30;
+          this.month2 = parseInt(this.month1);
+          this.temp.months = this.month2;
+          console.log('month36031', this.month2);
+          this.week = this.month - this.month2 * 30;
+          console.log('day3608', this.week);
+          if (this.month2 == 30) {
+            this.month3 = this.month2 / 30;
+            this.temp.months = this.month3;
+            console.log('month36030', this.month3);
+          } else if (this.month2 > 7) {
+            this.week2 = this.week / 7;
+            this.week1 = parseInt(this.week2);
+            this.temp.weeks = this.week1;
+            console.log('week3608', this.week1);
+            this.day = this.week - this.week1 * 7;
+            this.temp.days = this.day;
+            console.log('day3608', this.day);
+          } else if (this.month2 == 7) {
+            this.week3 = this.month2 / 7;
+            this.temp.weeks = this.week3;
+            console.log('week3607', this.week4);
+          } else if (this.month2 < 7) {
+            this.temp.days = this.month2;
+            console.log('day3607', this.month2);
+          }
+        } else if (this.month < 30 && this.month > 7) {
+          this.week2 = this.month / 7;
+          this.week5 = parseInt(this.week2);
+          console.log('week360307', this.week5);
+          this.temp.weeks = this.week5;
+          this.day = this.month - this.week5 * 7;
+          console.log('day360307', this.day);
+          this.temp.days = this.day;
+        } else if (this.month < 7) {
+          this.temp.days = this.month;
+        }
+      } else if (this.days > 30 && this.days < 360) {
+        console.log('no month', this.days);
+        if (this.days > 30) {
+          this.month1 = this.days / 30;
+          this.month2 = parseInt(this.month1);
+          this.temp.months = this.month2;
+          console.log('month30360', this.month2);
+          this.week = this.days - this.month2 * 30;
+          // temp.weeks = this.week;
+          console.log('week30360', this.week);
+
+          if (this.week == 30) {
+            this.month3 = this.week / 30;
+            // this.month4 = parseInt(this.month3);
+            this.temp.months = this.month3;
+            console.log('month36030', this.month4);
+          } else if (this.week > 7) {
+            this.week2 = this.week / 7;
+            this.week1 = parseInt(this.week2);
+            this.temp.weeks = this.week1;
+            console.log('week3608', this.week1);
+            this.day = this.week - this.week1 * 7;
+            this.temp.days = this.day;
+            console.log('day3608', this.day);
+          } else if (this.week == 7) {
+            this.week3 = this.week / 7;
+            // this.week4 = parseInt(this.week3);
+            this.temp.weeks = this.week3;
+            console.log('week3607', this.week4);
+          } else if (this.week < 7) {
+            this.temp.days = this.week;
+            console.log('day3607', this.week);
+          }
+        }
+      } else if (this.days == 30) {
+        console.log('1month', this.days);
+        console.log('1month');
+        this.month3 = this.days / 30;
+        this.temp.months = this.month3;
+        console.log('month30', this.month3);
+      } else if (this.days > 7 && this.days < 30) {
+        console.log('7month30');
+        this.week2 = this.days / 7;
+        this.week1 = parseInt(this.week2);
+        this.temp.weeks = this.week1;
+        console.log('week730', this.week1);
+        this.day = this.days - this.week1 * 7;
+        this.temp.days = this.day;
+        console.log('day730', this.day);
+      } else if (this.days == 7) {
+        console.log('1week');
+        console.log('this.days', this.days);
+        this.week3 = this.days / 7;
+        // this.week4 = parseInt(this.week3);
+        this.temp.weeks = this.week3;
+        console.log('week3607', this.week4);
+      } else if (this.days < 7) {
+        console.log('days');
+        this.temp.days = this.days;
+        console.log('day3607', this.temp.days);
+      }
+
       if (result.data.typeID == 2) {
         this.overviewdata.gasuseddata().subscribe(result => {
           let gasused = result.data;
@@ -134,7 +267,7 @@ export class BillingModelOverviewComponent implements OnInit {
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
         this.trialPeriod = result.data.trialPeriod / (24 * 3600);
-        this.frequency = result.data.frequency / (24 * 3600);
+        this.frequency = this.temp;
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
         this.recurring = true;
@@ -166,7 +299,7 @@ export class BillingModelOverviewComponent implements OnInit {
         else if (this.currency == 'EUR') this.currencySymbol = '€';
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
-        this.frequency = result.data.frequency / (24 * 3600);
+        this.frequency = this.temp;
         this.trialPeriod = result.data.trialPeriod;
         this.initalamount = result.data.initialPaymentAmount / 100;
         this.billingdescription = result.data.description;

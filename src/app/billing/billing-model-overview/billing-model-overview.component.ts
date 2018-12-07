@@ -24,7 +24,7 @@ export class BillingModelOverviewComponent implements OnInit {
   public description;
   public billingdescription;
   public title;
-  public subscribers;
+  public subscribers = 0;
   public frequency;
   public pmaAmount;
   public transactionHistorArray;
@@ -87,11 +87,11 @@ export class BillingModelOverviewComponent implements OnInit {
       }
     });
 
-    this.service.Getpull().subscribe(result => {
-      if (result.success == true) {
-        this.subscribers = result.data.length;
-      }
-    });
+    // this.service.Getpull().subscribe(result => {
+    //   if (result.success == true) {
+    //     this.subscribers = result.data.length;
+    //   }
+    // });
     this.service.getByIdBillingModelqr(this.id).subscribe(result => {
       this.value = JSON.stringify(result.data);
       setTimeout(() => {

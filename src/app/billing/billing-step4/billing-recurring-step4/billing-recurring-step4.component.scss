@@ -27,7 +27,7 @@ mainContent {
     label {
       font-style: 11px;
       color: #333333;
-      margin-left: 20px;
+      // margin-left: 20px;
     }
     select {
       width: 420px;
@@ -39,7 +39,7 @@ mainContent {
       border-radius: 3px;
       padding: 0px 20px;
       border: none;
-      margin-left: 10px;
+      // margin-left: 10px;
       box-shadow: 1px 1px #ccd1d9;
     }
     input {
@@ -105,20 +105,20 @@ mainContent {
   color: #0064ff;
 }
 .TableData {
-  margin-left: 30px;
+  margin-left: 0px;
   margin-top: 20px;
   margin-bottom: 40px;
 }
 .Columndata {
   background-color: #f7f8fb;
-  padding: 8px;
-  font-size: 14px;
+  padding: 12px;
+  font-size: 12px;
 }
 .Columndata2 {
   background-color: #669bff;
   color: white;
   align-content: center;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   padding-top: 8px;
 }
@@ -150,7 +150,17 @@ mainContent {
   float: left;
 }
 
-.Columndata {
-  border: 1px #ffffff solid;
+.bor_line {
+  border: 0.5px #ffffff solid;
   text-align: center;
+}
+.txt-ctr {
+  text-align: center !important;
+  border-bottom: 0.5px #ffffff solid;
+}
+.right-bor {
+  border-right: 0.5px #ffffff solid;
+}
+.padd_left {
+  padding-left: 0px !important;
 }

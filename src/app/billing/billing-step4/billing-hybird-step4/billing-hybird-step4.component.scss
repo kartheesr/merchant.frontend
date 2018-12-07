@@ -44,7 +44,7 @@
       }
       table {
         border: 5px #ffffff solid;
-        border-collapse: unset;
+        // border-collapse: unset;
         font-size: 14px;
         td {
           background-color: #f7f8fb;
@@ -55,16 +55,22 @@
         .row1 {
           width: 250px;
           padding-left: 10px;
+          border: none !important;
+          text-align: center;
         }
         .row2,
         .row3,
         .row4 {
           width: 180px;
           text-align: center;
+          border: 1px #ffffff solid;
         }
         .rowcolor {
           background-color: #669bff;
           color: #ffffff;
+        }
+        tr td:first-child {
+          text-align: left !important;
         }
       }
     }

@@ -11,17 +11,15 @@
           placeholder="Enter your Product Name"
           [(ngModel)]="model.productName"
           #productName="ngModel"
-          [ngClass]="{ 'is-invalid': productName.errors?.required }"
+          [ngClass]="{ 'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength }"
           required
           minlength="2"
           maxlength="50"
         />
         <br />
-        <!-- <div *ngIf="f.submitted"> -->
-        <div class="ntfyMsgproduct" *ngIf="productName.errors?.required">Product name is required</div>
-        <div class="ntfyMsgmin" *ngIf="productName.errors?.minlength">
-          Product name must be atleast 2 characters
-          <!-- </div> -->
+        <div *ngIf="f.submitted">
+          <div class="ntfyMsgproduct" *ngIf="productName.errors?.required">Product name is required</div>
+          <div class="ntfyMsgmin" *ngIf="productName.errors?.minlength">Product name must be atleast 2 characters</div>
         </div>
       </div>
       <div class="form-group">
@@ -34,17 +32,19 @@
           placeholder="Choose a Billing Model Name"
           [(ngModel)]="model.billingModelName"
           #billingModelName="ngModel"
-          [ngClass]="{ 'is-invalid': billingModelName.errors?.required }"
+          [ngClass]="{
+            'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+          }"
           required
           minlength="2"
         />
         <br />
-        <!-- <div *ngIf="f.submitted"> -->
-        <div class="ntfyMsg" *ngIf="billingModelName.errors?.required">Billing model name is required</div>
-        <div class="ntfyMsg1" *ngIf="billingModelName.errors?.minlength">
-          Billing model name must be atleast 2 characters
+        <div *ngIf="f.submitted">
+          <div class="ntfyMsg" *ngIf="billingModelName.errors?.required">Billing model name is required</div>
+          <div class="ntfyMsg1" *ngIf="billingModelName.errors?.minlength">
+            Billing model name must be atleast 2 characters
+          </div>
         </div>
-        <!-- </div> -->
       </div>
       <div class="form-group">
         <label class="title">Billing Model Description</label> <br />
@@ -55,19 +55,19 @@
           placeholder="What does your billing model offers?"
           [(ngModel)]="model.billModelDes"
           #billModelDes="ngModel"
-          [ngClass]="{ 'is-invalid': billModelDes.errors?.required }"
+          [ngClass]="{ 'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength }"
           required
           minlength="2"
           maxlength="140"
         ></textarea
         ><br />
         <div><label class="char-msg" [hidden]="billModelDes.errors">140 characters</label></div>
-        <!-- <div *ngIf="f.submitted"> -->
-        <div class="notifyMsg" *ngIf="billModelDes.errors?.required">Billing model description is required</div>
-        <div class="notifyMsg" *ngIf="billModelDes.errors?.minlength">
-          Billing model description must be atleast 2 characters
+        <div *ngIf="f.submitted">
+          <div class="notifyMsg" *ngIf="billModelDes.errors?.required">Billing model description is required</div>
+          <div class="notifyMsg" *ngIf="billModelDes.errors?.minlength">
+            Billing model description must be atleast 2 characters
+          </div>
         </div>
-        <!-- </div> -->
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4">
@@ -75,7 +75,7 @@
     </div>
     <div class="btCtrl col-xs-12 col-sm-10 col-md-11">
       <button class="backbtn" (click)="onBack()">Back</button>
-      <button type="submit" class="continuebtn" [disabled]="!f.valid">Continue</button>
+      <button type="submit" class="continuebtn">Continue</button>
     </div>
   </div>
 </form>

@@ -29,11 +29,13 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'is-invalid': amountentry.errors?.required || amountentry.errors?.gt }"
+                  [ngClass]="{ 'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
-                <div class="notifyMsg" [hidden]="!amountentry.errors?.required">Amount is required</div>
+                <div *ngIf="f.submitted">
+                  <div class="notifyMsg" [hidden]="!amountentry.errors?.required">Amount is required</div>
+                </div>
                 <div class="notifyMsg" *ngIf="amountentry.errors?.gt">Needs to be more than 0</div>
               </div>
             </div>
@@ -56,7 +58,7 @@
                       #NoOfRecuurence1="ngModel"
                       (input)="handlechangedays()"
                       [ngClass]="{
-                        'is-invalid': NoOfRecuurence1.errors?.required || NoOfRecuurence1.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -68,13 +70,17 @@
                       [(ngModel)]="model.Period1"
                       #Period1="ngModel"
                       (change)="handlechangecalculate(Period1)"
-                      [ngClass]="{ 'is-invalid': NoOfRecuurence1.errors?.required || NoOfRecuurence1.errors?.min }"
+                      [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                      }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
                         >{{ option.label }}
                       </option>
                     </select>
-                    <div class="notifyMsg" [hidden]="!NoOfRecuurence1.errors?.required">Days is required</div>
+                    <div *ngIf="f.submitted">
+                      <div class="notifyMsg" [hidden]="!NoOfRecuurence1.errors?.required">Days is required</div>
+                    </div>
                     <div class="notifyMsg" *ngIf="NoOfRecuurence1.errors?.min">Needs to last at least 1 day</div>
                   </div>
                 </div>
@@ -96,14 +102,16 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'is-invalid': NoOfRecuurence2.errors?.required || NoOfRecuurence2.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
                       [min]="2"
                       min="2"
                       onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                       appBlockCopyPaste
                     />
-                    <div class="errorMSg" [hidden]="!NoOfRecuurence2.errors?.required">Recurrences is required</div>
+                    <div *ngIf="f.submitted">
+                      <div class="errorMSg" [hidden]="!NoOfRecuurence2.errors?.required">Recurrences is required</div>
+                    </div>
                     <div class="errorMSg" *ngIf="NoOfRecuurence2.errors?.min">Need to be more than 1</div>
                   </div>
                 </div>
@@ -152,7 +160,7 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        'is-invalid': NoOfRecuurence3.errors?.required || NoOfRecuurence3.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -164,13 +172,17 @@
                       [(ngModel)]="model.Period2"
                       #Period2="ngModel"
                       (change)="handlechangetrailperiods(data)"
-                      [ngClass]="{ 'is-invalid': NoOfRecuurence3.errors?.required || NoOfRecuurence3.errors?.min }"
+                      [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                      }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
                         >{{ option.label }}
                       </option>
                     </select>
-                    <div class="notifyMsg" [hidden]="!NoOfRecuurence3.errors?.required">Trial days required</div>
+                    <div *ngIf="f.submitted">
+                      <div class="notifyMsg" [hidden]="!NoOfRecuurence3.errors?.required">Trial days required</div>
+                    </div>
                     <div class="notifyMsg" *ngIf="NoOfRecuurence3.errors?.min">Needs to last at least 1 day</div>
                   </div>
                 </div>
@@ -182,7 +194,7 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
             <button class="backbtn" (click)="onBack()">Back</button>
-            <button type="submit" class="continuebtn" [disabled]="!f.valid">Continue</button>
+            <button type="submit" class="continuebtn">Continue</button>
           </div>
         </div>
       </div>

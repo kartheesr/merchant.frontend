@@ -119,13 +119,13 @@ export class BillingComponent implements OnInit {
             let temp = { days: '', weeks: '', months: '', years: '' };
             this.days = cal.frequency / (24 * 60 * 60);
             console.log('this.days', this.days);
-            if (this.days > 360) {
+            if (this.days > 365) {
               console.log('no years', this.days);
-              this.year = this.days / 360;
+              this.year = this.days / 365;
               this.year1 = parseInt(this.year);
               temp.years = this.year1;
               console.log('year360', this.year1);
-              this.month = this.days - this.year1 * 360;
+              this.month = this.days - this.year1 * 365;
               // console.log("month360", this.month);
               this.sample[i].data = temp;
               if (this.month > 30) {
@@ -173,7 +173,7 @@ export class BillingComponent implements OnInit {
                 temp.days = this.month;
                 this.sample[i].data = temp;
               }
-            } else if (this.days > 30 && this.days < 360) {
+            } else if (this.days > 30 && this.days < 365) {
               console.log('no month', this.days);
               if (this.days > 30) {
                 this.month1 = this.days / 30;

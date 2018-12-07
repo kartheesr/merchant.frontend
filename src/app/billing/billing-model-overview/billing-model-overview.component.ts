@@ -126,13 +126,13 @@ export class BillingModelOverviewComponent implements OnInit {
       this.temp = { days: '', weeks: '', months: '', years: '' };
       this.days = result.data.frequency / (24 * 60 * 60);
       console.log('this.days', this.days);
-      if (this.days > 360) {
+      if (this.days > 365) {
         console.log('no years', this.days);
-        this.year = this.days / 360;
+        this.year = this.days / 365;
         this.year1 = parseInt(this.year);
         this.temp.years = this.year1;
         console.log('year360', this.year1);
-        this.month = this.days - this.year1 * 360;
+        this.month = this.days - this.year1 * 365;
         // console.log("month360", this.month);
         if (this.month > 30) {
           this.month1 = this.month / 30;
@@ -172,7 +172,7 @@ export class BillingModelOverviewComponent implements OnInit {
         } else if (this.month < 7) {
           this.temp.days = this.month;
         }
-      } else if (this.days > 30 && this.days < 360) {
+      } else if (this.days > 30 && this.days < 365) {
         console.log('no month', this.days);
         if (this.days > 30) {
           this.month1 = this.days / 30;
@@ -451,6 +451,8 @@ export class BillingModelOverviewComponent implements OnInit {
       src +
       '" data-toggle="modal" data-target="#myModal" onclick="copyValue(' +
       this.trialPeriod +
+      ',' +
+      this.temp +
       ')"/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract Details</label> </div><div class="modelSize2"><div> ' +
       '<div class="qr-image"> <img src="' +
       this.model.qrSrc +
@@ -486,8 +488,20 @@ export class BillingModelOverviewComponent implements OnInit {
       '</g>' +
       '</svg>' +
       '</td><td>Billing Cycle: ' +
-      this.frequency +
-      'Days' +
+      '<a>' +
+      '<span id="years" style="display:contents;" >' +
+      this.temp.years +
+      'years</span>' +
+      '<span id="months" style="display:contents;" >' +
+      this.temp.month +
+      'months</span>' +
+      '<span id="weeks" style="display:contents;" >' +
+      this.temp.weeks +
+      'weeks</span>' +
+      '<span id="days" style="display:contents;" >' +
+      this.temp.days +
+      'days</span>' +
+      '</a>' +
       '</td>' +
       '</tr>' +
       '<tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
@@ -509,10 +523,19 @@ export class BillingModelOverviewComponent implements OnInit {
       '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">' +
       this.billingdescription +
       '</label></div></div></div></div></div></div>' +
-      '<script>function copyValue(data) {' +
+      '<script>function copyValue(data,temp) {' +
       'console.log(data);' +
+      'console.log(temp);' +
       'var userinput = document.getElementById("trial");' +
       'if(data!=0){ userinput.style.display = "contents"; } else { userinput.style.display = "none"; }' +
+      'var y = document.getElementById("years");' +
+      'if(temp.years!=" "){ y.style.display = "contents"; } else { y.style.display = "none"; }' +
+      'var m = document.getElementById("months");' +
+      'if(temp.month!=" "){ m.style.display = "contents"; } else { m.style.display = "none"; }' +
+      'var w = document.getElementById("weeks");' +
+      'if(temp.weeks!=" "){ w.style.display = "contents"; } else { w.style.display = "none"; }' +
+      'var d = document.getElementById("days");' +
+      'if(temp.days!=" "){ d.style.display = "contents"; } else { d.style.display = "none"; }' +
       '}' +
       '</script>' +
       '</body></html>';
@@ -595,8 +618,21 @@ export class BillingModelOverviewComponent implements OnInit {
       '</g>' +
       '</svg>' +
       '</td><td>Payment Cycle: ' +
-      this.frequency +
-      'days</td></tr><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<a>' +
+      '<span id="years" style="display:contents;" >' +
+      this.temp.years +
+      'years</span>' +
+      '<span id="months" style="display:contents;" >' +
+      this.temp.month +
+      'months</span>' +
+      '<span id="weeks" style="display:contents;" >' +
+      this.temp.weeks +
+      'weeks</span>' +
+      '<span id="days" style="display:contents;" >' +
+      this.temp.days +
+      'days</span>' +
+      '</a>' +
+      '</td></tr><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<mask id="mask4" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="12">' +
       '<path d="M11.0638 8.44003L9.70911 7.13098C10.7621 5.304 10.4188 3.02198 8.87095 1.56035C7.32315 0.0987304 4.95421 -0.180531 3.08814 0.87865C1.22207 1.93783 0.320996 4.07315 0.888532 6.09117C1.45607 8.10919 3.35167 9.51016 5.51587 9.51106C5.96241 9.5116 6.40674 9.45054 6.83542 9.32972L6.03782 10.1004C5.90281 10.2302 5.82689 10.4066 5.82689 10.5906C5.82689 10.7746 5.90281 10.951 6.03782 11.0808C6.31817 11.3457 6.7662 11.3457 7.04655 11.0808L8.76489 9.41473C8.89956 9.28594 8.97533 9.11046 8.97533 8.92738C8.97533 8.74429 8.89956 8.56882 8.76489 8.44003L8.67692 8.35502L8.8294 8.23035L9.55076 8.92738L8.34264 10.1004C8.06775 10.3732 8.06775 10.808 8.34264 11.0808C8.62498 11.3464 9.07488 11.3464 9.35722 11.0808L11.0756 9.41473C11.2087 9.28443 11.2824 9.1081 11.2802 8.92501C11.278 8.74193 11.2001 8.5673 11.0638 8.44003ZM10.753 9.11438L9.03467 10.7804C8.92306 10.8778 8.75335 10.8778 8.64174 10.7804C8.53521 10.6748 8.53521 10.5064 8.64174 10.4008L10.0141 9.08038C10.056 9.04091 10.0796 8.98676 10.0796 8.93021C10.0796 8.87366 10.056 8.8195 10.0141 8.78004L9.1285 7.92434L8.97602 7.77134L8.81768 7.60133L8.57722 7.36899C8.52491 7.3199 8.49539 7.25244 8.49539 7.18198C8.49539 7.11152 8.52491 7.04406 8.57722 6.99498C8.68578 6.89567 8.85574 6.89567 8.96429 6.99498L9.15196 7.17632L9.31617 7.33499L9.46865 7.48233L10.753 8.7347C10.8057 8.78477 10.8353 8.85316 10.8353 8.92454C10.8353 8.99592 10.8057 9.06432 10.753 9.11438ZM8.34264 8.05468L6.95858 6.71163C6.67624 6.44602 6.22633 6.44602 5.94399 6.71163C5.80932 6.84042 5.73355 7.0159 5.73355 7.19898C5.73355 7.38207 5.80932 7.55755 5.94399 7.68633L7.08173 8.7857C6.57785 8.98679 6.03757 9.0889 5.49241 9.08605C3.08262 9.08605 1.1291 7.19842 1.1291 4.86991C1.1291 2.54139 3.08262 0.653764 5.49241 0.653764C7.9022 0.653764 9.85572 2.54139 9.85572 4.86991C9.85562 5.54735 9.6845 6.21454 9.35722 6.81364L9.25166 6.71163C8.96659 6.45814 8.52801 6.45814 8.24294 6.71163C8.10827 6.84042 8.0325 7.0159 8.0325 7.19898C8.0325 7.38207 8.10827 7.55755 8.24294 7.68633L8.48925 7.92434C8.44477 7.97218 8.39568 8.01582 8.34264 8.05468ZM8.45407 8.7347C8.50593 8.78411 8.53545 8.85134 8.53617 8.92171C8.53679 8.99234 8.50706 9.06006 8.45407 9.10872L6.73572 10.7748C6.62604 10.8713 6.45833 10.8713 6.34865 10.7748C6.296 10.7247 6.26635 10.6563 6.26635 10.5849C6.26635 10.5136 6.296 10.4452 6.34865 10.3951L7.71512 9.07471C7.74697 9.04415 7.76757 9.00434 7.77376 8.96138C7.79081 8.89338 7.76836 8.82179 7.71512 8.77437L7.55091 8.6157L6.27828 7.38599C6.22596 7.3369 6.19644 7.26944 6.19644 7.19898C6.19644 7.12852 6.22596 7.06107 6.27828 7.01198C6.38683 6.91267 6.55679 6.91267 6.66534 7.01198L8.02008 8.32102L8.17843 8.47403L8.33677 8.62703L8.45407 8.7347ZM6.14953 2.5824V2.5642C7.05355 2.62062 7.76021 3.43908 7.76021 4.4297C7.76021 5.42032 7.05355 6.23878 6.14953 6.29521H3.84267L3.46559 7.64201C3.43579 7.73161 3.35864 7.79189 3.2715 7.79367H3.21051C3.15801 7.77561 3.11435 7.73524 3.08933 7.68163C3.0643 7.62801 3.06001 7.56565 3.07742 7.50854L3.49886 5.93121C3.50847 5.90684 3.52157 5.88431 3.53768 5.86447C3.57095 5.86447 3.57095 5.86447 3.57095 5.86447C3.5851 5.85772 3.60117 5.85772 3.61531 5.86447C3.63901 5.85828 3.66371 5.85828 3.6874 5.86447H6.14953C6.82882 5.81571 7.35699 5.19871 7.35699 4.45397C7.35699 3.70923 6.82882 3.09223 6.14953 3.04347H4.75211L4.52475 3.86854L4.28076 4.66327C4.2557 4.76095 4.17386 4.8281 4.08112 4.82707C4.06112 4.83272 4.04013 4.83272 4.02012 4.82707C3.97007 4.80784 3.92907 4.7676 3.90618 4.71524C3.88329 4.66288 3.88039 4.60271 3.89813 4.548L4.12549 3.729L4.38612 2.64913C4.39572 2.62477 4.40882 2.60224 4.42493 2.5824C4.45821 2.5824 4.45821 2.5824 4.45821 2.5824C4.47235 2.57565 4.48843 2.57565 4.50257 2.5824C4.52627 2.57621 4.55096 2.57621 4.57466 2.5824H6.14953Z" fill="white"/>' +
       '</mask>' +

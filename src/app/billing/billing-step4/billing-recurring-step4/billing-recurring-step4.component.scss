@@ -112,7 +112,8 @@ mainContent {
 .Columndata {
   background-color: #f7f8fb;
   padding: 12px;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 300;
 }
 .Columndata2 {
   background-color: #669bff;
@@ -151,15 +152,15 @@ mainContent {
 }
 
 .bor_line {
-  border: 0.5px #ffffff solid;
+  border: 2px #ffffff solid;
   text-align: center;
 }
 .txt-ctr {
   text-align: center !important;
-  border-bottom: 0.5px #ffffff solid;
+  border-bottom: 1px #ffffff solid;
 }
 .right-bor {
-  border-right: 0.5px #ffffff solid;
+  border-right: 1px #ffffff solid;
 }
 .padd_left {
   padding-left: 0px !important;

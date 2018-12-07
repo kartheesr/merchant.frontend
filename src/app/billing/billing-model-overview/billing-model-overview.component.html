@@ -184,13 +184,13 @@
                 <tbody>
                   <tr>
                     <td class="userId">Recurring Pull Transaction</td>
-                    <td class="value-td">{{ data.Recurrence ? data.Recurrence : '0.0' }}</td>
+                    <td class="value-td">{{ Recurrences }}</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.TotalCost ? data.TotalCost : '0.0' }}</td>
                   </tr>
                   <tr>
                     <td class="userId">Transfers from <br />PullPayment Account to Treasury</td>
-                    <td class="value-td">{{ data.TransRecurrence ? data.TransRecurrence : '0.0' }}</td>
+                    <td class="value-td">1</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.TotalcostRecuurence ? data.TotalcostRecuurence : '0.0' }}</td>
                   </tr>
@@ -411,14 +411,14 @@
                 <tbody>
                   <tr>
                     <td class="userId">Initial Charge</td>
-                    <td class="value-td">{{ data.initialRecurrence ? data.initialRecurrence : '0.0' }}</td>
+                    <td class="value-td">1</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.initialETH ? data.initialETH : '0.0' }}</td>
                   </tr>
 
                   <tr>
                     <td class="userId">Recurring Pull Transaction</td>
-                    <td class="value-td">{{ data.Recurrence ? data.Recurrence : '0.0' }}</td>
+                    <td class="value-td">{{ Recurrences }}</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.RecurrenceETH ? data.RecurrenceETH : '0.0' }}</td>
                   </tr>
@@ -428,7 +428,7 @@
                       Transfers from <br />
                       PullPayment Account to Treasury
                     </td>
-                    <td class="value-td">{{ data.PullRecurrence ? data.PullRecurrence : '0.0' }}</td>
+                    <td class="value-td">1</td>
                     <td class="value-td">{{ EtherValue ? EtherValue : '0.0' }}</td>
                     <td class="value-td">{{ data.PullRecurrencecost ? data.PullRecurrencecost : '0.0' }}</td>
                   </tr>

@@ -11,7 +11,7 @@
           placeholder="Enter your Product Name"
           [(ngModel)]="model.productName"
           #productName="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && productName.errors?.required }"
+          [ngClass]="{ 'is-invalid': productName.errors?.required }"
           required
           minlength="2"
           maxlength="50"
@@ -34,7 +34,7 @@
           placeholder="Choose a Billing Model Name"
           [(ngModel)]="model.billingModelName"
           #billingModelName="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && billingModelName.errors?.required }"
+          [ngClass]="{ 'is-invalid': billingModelName.errors?.required }"
           required
           minlength="2"
         />
@@ -55,7 +55,7 @@
           placeholder="What does your billing model offers?"
           [(ngModel)]="model.billModelDes"
           #billModelDes="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && billModelDes.errors?.required }"
+          [ngClass]="{ 'is-invalid': billModelDes.errors?.required }"
           required
           minlength="2"
           maxlength="140"

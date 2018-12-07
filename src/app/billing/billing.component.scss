@@ -427,13 +427,13 @@ legend.scheduler-border {
     transform: rotate(360deg);
   }
 }
-.active1 .footerTextPma {
-  margin-top: 57px !important;
+.billingBoxCont .single-class .active1 .footerTextPma {
+  margin-top: 80px !important;
 }
-.active .footerTextPma {
-  margin-top: 57px !important;
+.billingBoxCont .single-class .active .footerTextPma {
+  margin-top: 80px !important;
 }
-.single-class {
+.billingBoxCont .single-class {
   padding-right: 20px !important;
   padding-left: 20px !important;
 }
@@ -449,7 +449,7 @@ label.labelcolor {
 }
 /** Loader**/
 fieldset label {
-  margin-bottom: 10px !important;
+  margin-bottom: 5px !important;
 }
 
 /*** Scroll Bar Style ***/

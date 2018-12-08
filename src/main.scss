@@ -63,6 +63,7 @@ select {
   -webkit-appearance: none !important;
   -webkit-border-radious: none !important;
   background: url(./assets/images/Vector.png) no-repeat 92% 50%;
+  border: 0.5px solid #cccccc !important;
 }
 
 .amountselect select {
@@ -70,4 +71,10 @@ select {
 }
 .dayselect select {
   background: url(./assets/images/Vector.png) no-repeat 96% 50% !important;
+}
+input {
+  background: #ffffff;
+  border: 0.7px solid #cccccc;
+  box-sizing: border-box;
+  box-shadow: inset 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.15);
 }

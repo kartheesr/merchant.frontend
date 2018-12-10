@@ -6,13 +6,16 @@
   padding: 24px 46px;
   background-color: #ffffff;
   label {
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 5px;
+    font-weight: bold;
   }
   .transaction-table {
     margin-top: 50px;
     label {
       margin-bottom: 0px;
+      font-weight: 600;
+      font-size: 15px;
     }
     table {
       border: 1px solid #c4c8d1;

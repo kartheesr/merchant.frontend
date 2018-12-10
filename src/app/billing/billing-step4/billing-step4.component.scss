@@ -1,25 +1,183 @@
+// .mainContent {
+//   background-color: white;
+// }
+// .titleOne {
+//   font-size: 15px;
+//   padding-left: 50px;
+//   padding-top: 40px;
+// }
+// .subTable {
+//   background-color: #f7f8fb;
+// }
+// .tabInfo {
+//   width: 50%;
+// }
+// .colSpace {
+//   margin-left: 10px;
+// }
+// .back {
+//   margin-left: 50px;
+//   margin-right: 550px;
+//   margin-bottom: 20px;
+//   background-color: #ffffff;
+// }
+// .backbtn {
+//   display: block;
+//   background-color: #ffffff;
+//   color: #1c67f5;
+//   width: 180px;
+//   height: 38px;
+//   border-radius: 3px;
+//   border-color: #1c67f5;
+//   border-width: 1px;
+//   margin-top: 25px;
+//   cursor: pointer;
+//   // box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+//   float: left;
+// }
+// .continuebtn {
+//   display: block;
+//   background-color: #1c67f5;
+//   color: #ffffff;
+//   width: 180px;
+//   height: 38px;
+//   border-radius: 3px;
+//   border: none;
+//   margin-top: 25px;
+//   cursor: pointer;
+//   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+//   float: right;
+// }
+// .sTable {
+//   margin-left: 50px;
+//   margin-top: 20px;
+//   margin-bottom: 40px;
+// }
+// .txtContent {
+//   padding: 20px;
+//   background-color: #f7f8fb;
+// }
+// .titleFun {
+//   font-size: 15px;
+//   font-weight: 600;
+// }
+// .bgSet {
+//   background-color: #f7f8fb;
+//   padding: 8px;
+//   font-size: 14px;
+// }
+// .bgSet2 {
+//   background-color: #669bff;
+//   color: white;
+//   font-size: 14px;
+//   padding: 10px 0px;
+//   text-align: center;
+// }
+// .bgBottom {
+//   background-color: white;
+// }
+// .titleContent {
+//   font-size: 12px;
+//   padding-top: 10px;
+// }
+// .tContent {
+//   font-size: 12px;
+//   padding-top: 10px;
+//   color: #0064ff;
+// }
+// .info {
+//   padding-right: 10px;
+// }
+// .row {
+//   margin-right: 0px !important;
+//   margin-left: 0px !important;
+// }
+// .FooterDiv {
+//   background-color: #ffffff;
+//   float: left;
+//   height: 90px;
+// }
+// .txt-align {
+//   text-align: center !important;
+// }
+
 .mainContent {
   background-color: white;
 }
 .titleOne {
   font-size: 15px;
-  padding-left: 50px;
-  padding-top: 40px;
+  padding-top: 10px;
+  padding-left: 3.4%;
+  font-weight: bold;
 }
-.subTable {
-  background-color: #f7f8fb;
+.subtitle {
+  font-size: 11px;
+  padding-left: 3.4%;
 }
-.tabInfo {
-  width: 50%;
+.tabletitle {
+  font-size: 15px;
+  padding-top: 20px;
+  padding-left: 3.4%;
+  font-weight: bold;
 }
-.colSpace {
-  margin-left: 10px;
+.tablecontent {
+  padding-bottom: 35px;
 }
-.back {
-  margin-left: 50px;
-  margin-right: 550px;
-  margin-bottom: 20px;
+table {
+  margin-left: 25px;
+  background-color: #f4f6fb;
+  tr :first-child {
+    text-align: left !important;
+  }
+  tr {
+    text-align: center !important;
+  }
+  td {
+    font-size: 11px;
+    font-weight: bold;
+    width: 250px;
+    border: 2px #ffffff solid;
+    padding: 10px 12px;
+  }
+  .tablevalue {
+    text-align: center;
+    color: #556486;
+    font-size: 12px;
+  }
+  .tableresult {
+    text-align: center;
+    background-color: #669bff;
+    color: #ffffff;
+    font-size: 12px;
+  }
+}
+.textcontent {
+  background-color: #f5f7fc !important;
+  padding: 25px 10px;
+  img {
+    width: 17px;
+    height: 17px;
+  }
+}
+.contenttitle {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0px 12px;
+}
+.sublabel {
+  padding-left: 28px;
+}
+.subcontent {
+  font-size: 12px;
+}
+.tContent {
+  font-size: 12px;
+  padding-left: 28px;
+  color: #0064ff;
+}
+.FooterDiv {
   background-color: #ffffff;
+  height: 90px;
 }
 .backbtn {
   display: block;
@@ -31,8 +189,8 @@
   border-color: #1c67f5;
   border-width: 1px;
   margin-top: 25px;
+  margin-left: 25px;
   cursor: pointer;
-  // box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   float: left;
 }
 .continuebtn {
@@ -44,59 +202,28 @@
   border-radius: 3px;
   border: none;
   margin-top: 25px;
+  margin-right: 25px;
   cursor: pointer;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   float: right;
 }
-.sTable {
-  margin-left: 50px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+.Pricedecription {
+  font-size: 10px;
+  color: #669bff;
+  margin-top: 150px;
 }
-.txtContent {
-  padding: 20px;
-  background-color: #f7f8fb;
+.noMargin {
+  margin: 0px !important;
 }
-.titleFun {
-  font-size: 15px;
-  font-weight: 600;
+.col-md-10 {
+  padding-right: 0px !important;
 }
-.bgSet {
-  background-color: #f7f8fb;
-  padding: 8px;
-  font-size: 14px;
+.col-md-2 {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
-.bgSet2 {
-  background-color: #669bff;
-  color: white;
-  font-size: 14px;
-  padding: 10px 0px;
-  text-align: center;
-}
-.bgBottom {
-  background-color: white;
-}
-.titleContent {
-  font-size: 12px;
-  padding-top: 10px;
-}
-.tContent {
-  font-size: 12px;
-  padding-top: 10px;
-  color: #0064ff;
-}
-.info {
-  padding-right: 10px;
-}
-.row {
-  margin-right: 0px !important;
-  margin-left: 0px !important;
-}
-.FooterDiv {
-  background-color: #ffffff;
-  float: left;
-  height: 90px;
-}
-.txt-align {
-  text-align: center !important;
+@media (min-width: 1920px) {
+  table {
+    margin-right: 32px !important;
+  }
 }

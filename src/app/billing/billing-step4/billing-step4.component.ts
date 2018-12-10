@@ -23,6 +23,8 @@ export class BillingStep4Component implements OnInit {
   getputdata: any = {};
   editId;
   public model: any = {};
+  public SingleRecurrence = 1;
+  public TransferRecurrence = 1;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -33,7 +35,9 @@ export class BillingStep4Component implements OnInit {
   ) {}
   ngOnInit() {
     this.model = {
-      EtherValue: ''
+      EtherValue: '',
+      SingleETH: '',
+      TransferETH: ''
     };
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
@@ -60,6 +64,12 @@ export class BillingStep4Component implements OnInit {
       this.service4.gasvalueCalcualtion().subscribe(result => {
         let cal = result.res.gasprice * gasused * 2;
         this.model.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+        let sample = this.model.EtherValue * this.SingleRecurrence;
+        let data = this.model.EtherValue * this.TransferRecurrence;
+        this.model.SingleETH = sample.toFixed(20).replace(/0+$/, '');
+        this.model.TransferETH = data.toFixed(20).replace(/0+$/, '');
+        let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
+        this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
         this.service4.setValues(this.model);
       });
     });

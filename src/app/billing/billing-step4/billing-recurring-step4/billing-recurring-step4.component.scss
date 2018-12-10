@@ -1,129 +1,275 @@
-mainContent {
+// .mainContent {
+//   background-color: white;
+// }
+// .billingModelContainer {
+//   width: 100%;
+//   margin-bottom: 20px;
+//   .bmr-header {
+//     background-color: #fcfdff;
+//     height: 50px;
+//     margin-bottom: 2px;
+//     padding: 18px 30px;
+//     font-size: 18px;
+//     font-style: "bold";
+//     .text-right {
+//       text-align: right;
+//     }
+//   }
+// }
+
+// .bmr-main {
+//   background-color: #ffffff;
+//   padding: 50px 30px;
+//   min-height: 120px;
+
+//   .billingBoxCont {
+//     width: 100%;
+//     label {
+//       font-style: 11px;
+//       color: #333333;
+//       // margin-left: 20px;
+//     }
+//     select {
+//       width: 420px;
+//       height: 38px;
+//       // border-color: #ccd1d9 solid;
+//       background-color: #ffffff;
+//       font-size: 14px;
+//       line-height: 21px;
+//       border-radius: 3px;
+//       padding: 0px 20px;
+//       border: none;
+//       // margin-left: 10px;
+//       box-shadow: 1px 1px #ccd1d9;
+//     }
+//     input {
+//       width: 300px;
+//       height: 38px;
+//       border-radius: 1px;
+//       padding: 0px 20px;
+//       font-size: 14px;
+//       line-height: 21px;
+//       ::placeholder {
+//         color: #bdbdbd;
+//       }
+//     }
+//     .amountinput {
+//       margin: 0px 10px;
+//     }
+//     .singleimg {
+//       width: 222px;
+//       height: 442px;
+//     }
+
+//     .continuebtn {
+//       display: block;
+//       background-color: #1c67f5;
+//       color: #ffffff;
+//       width: 180px;
+//       height: 38px;
+//       border-radius: 3px;
+//       border: none;
+//       margin-top: 25px;
+//       cursor: pointer;
+//       box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+//       float: right;
+//     }
+//   }
+// }
+
+// .flex-center-center {
+//   display: flex;
+//   align-items: left;
+//   justify-content: left;
+// }
+
+// .txtContent {
+//   padding: 20px;
+//   background-color: #f7f8fb;
+// }
+
+// .titleFun {
+//   font-size: 15px;
+//   font-weight: 600;
+// }
+// .info {
+//   padding-right: 10px;
+// }
+// .titleContent {
+//   font-size: 12px;
+//   padding-top: 10px;
+// }
+// .tContent {
+//   font-size: 12px;
+//   padding-top: 10px;
+//   color: #0064ff;
+// }
+// .TableData {
+//   margin-left: 0px;
+//   margin-top: 20px;
+//   margin-bottom: 40px;
+// }
+// .Columndata {
+//   background-color: #f7f8fb;
+//   padding: 12px;
+//   font-size: 13px;
+//   font-weight: 300;
+// }
+// .Columndata2 {
+//   background-color: #669bff;
+//   align-content: center;
+//   font-size: 12px;
+//   text-align: center;
+//   padding-top: 8px;
+// }
+// .Columndata2.bor_line {
+//   color: #ffffff !important;
+// }
+// .continuebtn {
+//   display: block;
+//   background-color: #1c67f5;
+//   color: #ffffff;
+//   width: 180px;
+//   height: 38px;
+//   border-radius: 3px;
+//   border: none;
+//   margin-top: 25px;
+//   cursor: pointer;
+//   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+//   float: right;
+// }
+// .backbtn {
+//   display: block;
+//   background-color: #ffffff;
+//   color: #1c67f5;
+//   width: 180px;
+//   height: 38px;
+//   border-radius: 3px;
+//   border-color: #1c67f5;
+//   margin-top: 25px;
+//   cursor: pointer;
+//   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+//   float: left;
+// }
+
+// .bor_line {
+//   border: 2px #ffffff solid;
+//   text-align: center;
+//   color: #556486 !important;
+// }
+// .txt-ctr {
+//   text-align: center !important;
+//   border-bottom: 1px #ffffff solid;
+// }
+// .right-bor {
+//   border-right: 1px #ffffff solid;
+// }
+// .padd_left {
+//   padding-left: 0px !important;
+// }
+.mainContent {
   background-color: white;
 }
-.billingModelContainer {
-  width: 100%;
-  margin-bottom: 20px;
-  .bmr-header {
-    background-color: #fcfdff;
-    height: 50px;
-    margin-bottom: 2px;
-    padding: 18px 30px;
-    font-size: 18px;
-    font-style: "bold";
-    .text-right {
-      text-align: right;
-    }
-  }
-}
-
-.bmr-main {
-  background-color: #ffffff;
-  padding: 50px 30px;
-  min-height: 120px;
-
-  .billingBoxCont {
-    width: 100%;
-    label {
-      font-style: 11px;
-      color: #333333;
-      // margin-left: 20px;
-    }
-    select {
-      width: 420px;
-      height: 38px;
-      // border-color: #ccd1d9 solid;
-      background-color: #ffffff;
-      font-size: 14px;
-      line-height: 21px;
-      border-radius: 3px;
-      padding: 0px 20px;
-      border: none;
-      // margin-left: 10px;
-      box-shadow: 1px 1px #ccd1d9;
-    }
-    input {
-      width: 300px;
-      height: 38px;
-      border-radius: 1px;
-      padding: 0px 20px;
-      font-size: 14px;
-      line-height: 21px;
-      ::placeholder {
-        color: #bdbdbd;
-      }
-    }
-    .amountinput {
-      margin: 0px 10px;
-    }
-    .singleimg {
-      width: 222px;
-      height: 442px;
-    }
-
-    .continuebtn {
-      display: block;
-      background-color: #1c67f5;
-      color: #ffffff;
-      width: 180px;
-      height: 38px;
-      border-radius: 3px;
-      border: none;
-      margin-top: 25px;
-      cursor: pointer;
-      box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-      float: right;
-    }
-  }
-}
-
-.flex-center-center {
-  display: flex;
-  align-items: left;
-  justify-content: left;
-}
-
-.txtContent {
-  padding: 20px;
-  background-color: #f7f8fb;
-}
-
-.titleFun {
+.titleOne {
   font-size: 15px;
-  font-weight: 600;
-}
-.info {
-  padding-right: 10px;
-}
-.titleContent {
-  font-size: 12px;
   padding-top: 10px;
+  padding-left: 3.4%;
+  font-weight: bold;
+}
+.subtitle {
+  font-size: 11px;
+  padding-left: 3.4%;
+}
+.tabletitle {
+  font-size: 15px;
+  padding-top: 20px;
+  padding-left: 3.4%;
+  font-weight: bold;
+}
+select {
+  width: 420px;
+  height: 38px;
+  background-color: #ffffff;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 3px;
+  padding: 0px 20px;
+  border: none;
+  box-shadow: 1px 1px #ccd1d9;
+  margin-left: 29px;
+}
+.tablecontent {
+  padding-bottom: 35px;
+}
+table {
+  margin-left: 25px;
+  background-color: #f4f6fb;
+  tr :first-child {
+    text-align: left !important;
+  }
+  tr {
+    text-align: center !important;
+  }
+  td {
+    font-size: 11px;
+    font-weight: bold;
+    width: 250px;
+    border: 2px #ffffff solid;
+    padding: 10px 12px;
+  }
+  .tablevalue {
+    text-align: center;
+    color: #556486;
+    font-size: 12px;
+  }
+  .tableresult {
+    text-align: center;
+    background-color: #669bff;
+    color: #ffffff;
+    font-size: 12px;
+  }
+}
+.textcontent {
+  background-color: #f5f7fc !important;
+  padding: 25px 10px;
+  img {
+    width: 17px;
+    height: 17px;
+  }
+}
+.contenttitle {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0px 12px;
+}
+.decripitionContent {
+  font-size: 12px;
+  text-align: justify;
+  margin-left: 28px;
 }
 .tContent {
   font-size: 12px;
-  padding-top: 10px;
+  padding-left: 28px;
+  padding-top: 15px;
   color: #0064ff;
 }
-.TableData {
-  margin-left: 0px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+.FooterDiv {
+  background-color: #ffffff;
+  height: 90px;
 }
-.Columndata {
-  background-color: #f7f8fb;
-  padding: 12px;
-  font-size: 13px;
-  font-weight: 300;
-}
-.Columndata2 {
-  background-color: #669bff;
-  align-content: center;
-  font-size: 12px;
-  text-align: center;
-  padding-top: 8px;
-}
-.Columndata2.bor_line {
-  color: #ffffff !important;
+.backbtn {
+  display: block;
+  background-color: #ffffff;
+  color: #1c67f5;
+  width: 180px;
+  height: 38px;
+  border-radius: 3px;
+  border-color: #1c67f5;
+  border-width: 1px;
+  margin-top: 25px;
+  margin-left: 25px;
+  cursor: pointer;
+  float: left;
 }
 .continuebtn {
   display: block;
@@ -134,36 +280,28 @@ mainContent {
   border-radius: 3px;
   border: none;
   margin-top: 25px;
+  margin-right: 25px;
   cursor: pointer;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   float: right;
 }
-.backbtn {
-  display: block;
-  background-color: #ffffff;
-  color: #1c67f5;
-  width: 180px;
-  height: 38px;
-  border-radius: 3px;
-  border-color: #1c67f5;
-  margin-top: 25px;
-  cursor: pointer;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-  float: left;
+.Pricedecription {
+  font-size: 10px;
+  color: #669bff;
+  margin-top: 150px;
 }
-
-.bor_line {
-  border: 2px #ffffff solid;
-  text-align: center;
-  color: #556486 !important;
+.noMargin {
+  margin: 0px !important;
 }
-.txt-ctr {
-  text-align: center !important;
-  border-bottom: 1px #ffffff solid;
+.col-md-10 {
+  padding-right: 0px !important;
 }
-.right-bor {
-  border-right: 1px #ffffff solid;
-}
-.padd_left {
+.col-md-2 {
   padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+@media (min-width: 1920px) {
+  table {
+    margin-right: 32px !important;
+  }
 }

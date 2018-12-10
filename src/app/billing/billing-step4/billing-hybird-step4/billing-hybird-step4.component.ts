@@ -30,20 +30,7 @@ export class BillingHybirdStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) {
-    this.transcationoption = [
-      {
-        id: 1,
-        label: 'At the end of contract',
-        value: 0
-      },
-      {
-        id: 2,
-        label: 'On every transaction',
-        value: 1
-      }
-    ];
-  }
+  ) {}
 
   ngOnInit() {
     this.model = {
@@ -57,6 +44,18 @@ export class BillingHybirdStep4Component implements OnInit {
       PullRecurrencecost: '',
       TotalETH: ''
     };
+    this.transcationoption = [
+      {
+        id: 1,
+        label: 'Once at the end of contract',
+        value: 0
+      },
+      {
+        id: 2,
+        label: 'On every billing cycle',
+        value: 1
+      }
+    ];
     this.model.transactions = this.transcationoption[0].label;
     this.Step1data = this.service1.model;
     this.Step2data = this.service2.model;

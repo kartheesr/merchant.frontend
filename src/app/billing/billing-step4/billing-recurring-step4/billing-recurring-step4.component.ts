@@ -29,20 +29,7 @@ export class BillingRecurringStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) {
-    this.transcationoption = [
-      {
-        id: 1,
-        label: 'At the end of contract',
-        value: 0
-      },
-      {
-        id: 2,
-        label: 'On every transaction',
-        value: 1
-      }
-    ];
-  }
+  ) {}
 
   ngOnInit() {
     this.model = {
@@ -54,6 +41,18 @@ export class BillingRecurringStep4Component implements OnInit {
       TotalcostRecuurence: '',
       TotalETH: ''
     };
+    this.transcationoption = [
+      {
+        id: 1,
+        label: 'Once at the end of contract',
+        value: 0
+      },
+      {
+        id: 2,
+        label: 'On every billing cycle',
+        value: 1
+      }
+    ];
     this.model.transactions = this.transcationoption[0].label;
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
@@ -120,7 +119,7 @@ export class BillingRecurringStep4Component implements OnInit {
     this.publish();
   }
   handleChangetransactions(data) {
-    if (data.value == 'At the end of contract') {
+    if (data.value == 'Once at the end of contract') {
       this.model.TransRecurrence = 1;
       this.model.TotalcostRecuurence = this.model.EtherValue;
       let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);

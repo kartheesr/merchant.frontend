@@ -37,7 +37,9 @@ export class BillingStep4Component implements OnInit {
     this.model = {
       EtherValue: '',
       SingleETH: '',
-      TransferETH: ''
+      TransferETH: '',
+      USDValue: '',
+      TotalUSD: ''
     };
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
@@ -59,6 +61,9 @@ export class BillingStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
+    this.service4.gasusdvalue().subscribe(result => {
+      this.model.USDValue = result.data.USD;
+    });
     this.service4.gasuseddata().subscribe(result => {
       let gasused = result.data;
       this.service4.gasvalueCalcualtion().subscribe(result => {
@@ -69,7 +74,9 @@ export class BillingStep4Component implements OnInit {
         this.model.SingleETH = sample.toFixed(20).replace(/0+$/, '');
         this.model.TransferETH = data.toFixed(20).replace(/0+$/, '');
         let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
-        this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+        this.model.TotalETH = parseFloat(Total.toFixed(20).replace(/0+$/, ''));
+        let USD = this.model.TotalETH * this.model.USDValue;
+        this.model.TotalUSD = parseFloat(USD.toFixed(20).replace(/0+$/, ''));
         this.service4.setValues(this.model);
       });
     });

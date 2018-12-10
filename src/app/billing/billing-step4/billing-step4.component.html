@@ -69,7 +69,10 @@
             <td>Total</td>
             <td class="tablevalue"></td>
             <td class="tablevalue"></td>
-            <td class="tableresult">{{ model.TotalETH }}</td>
+            <td class="tableresult">
+              <span class="Totalvalue">{{ model.TotalETH }}</span>
+              <span class="TotalUSD">(~${{ model.TotalUSD }})</span>
+            </td>
           </tr>
         </table>
       </div>
@@ -95,7 +98,7 @@
       ><br />
       <span class="subcontent">You need to have enough ETH in your Gas Wallet for the payment to occur.</span> </label
     ><br />
-    <label class="tContent"> Learn more </label>
+    <a class="tContent" href="https://wiki.pumapay.io/#/page/portalbillingmodels" target="_blank"> Learn more </a>
   </div>
   <div class="col-xs-12 col-sm-12 col-md-12 FooterDiv">
     <button class="backbtn" (click)="onBack()">Back</button>

@@ -39,7 +39,9 @@ export class BillingRecurringStep4Component implements OnInit {
       transactions: '',
       TransRecurrence: 1,
       TotalcostRecuurence: '',
-      TotalETH: ''
+      TotalETH: '',
+      USDValue: '',
+      TotalUSD: ''
     };
     this.transcationoption = [
       {
@@ -74,8 +76,10 @@ export class BillingRecurringStep4Component implements OnInit {
       automatedCashOut: true,
       cashOutFrequency: 1
     };
-    console.log(data);
     this.data = data;
+    this.service4.gasusdvalue().subscribe(result => {
+      this.model.USDValue = result.data.USD;
+    });
     this.service4.gasuseddata().subscribe(result => {
       let gasused = result.data;
       this.service4.gasvalueCalcualtion().subscribe(result => {
@@ -86,6 +90,8 @@ export class BillingRecurringStep4Component implements OnInit {
         let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.EtherValue);
         this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
         this.model.TotalcostRecuurence = this.model.EtherValue;
+        let USD = this.model.TotalETH * this.model.USDValue;
+        this.model.TotalUSD = parseFloat(USD.toFixed(20).replace(/0+$/, ''));
       });
     });
     this.model.Recurrence = this.data3.No2;

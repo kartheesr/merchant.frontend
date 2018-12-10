@@ -42,7 +42,9 @@ export class BillingHybirdStep4Component implements OnInit {
       RecurrenceETH: '',
       PullRecurrence: 1,
       PullRecurrencecost: '',
-      TotalETH: ''
+      TotalETH: '',
+      USDValue: '',
+      TotalUSD: ''
     };
     this.transcationoption = [
       {
@@ -77,6 +79,9 @@ export class BillingHybirdStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
+    this.service4.gasusdvalue().subscribe(result => {
+      this.model.USDValue = result.data.USD;
+    });
     this.service4.gasuseddata().subscribe(result => {
       let gasused = result.data;
       this.service4.gasvalueCalcualtion().subscribe(result => {
@@ -93,6 +98,8 @@ export class BillingHybirdStep4Component implements OnInit {
           parseFloat(this.model.initialcost) +
           parseFloat(this.model.PullRecurrencecost);
         this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+        let USD = this.model.TotalETH * this.model.USDValue;
+        this.model.TotalUSD = parseFloat(USD.toFixed(20).replace(/0+$/, ''));
       });
     });
     this.model.Recurrence = this.Step3data.Recurringdays;

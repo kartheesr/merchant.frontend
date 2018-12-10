@@ -148,7 +148,12 @@ table {
     text-align: center;
     background-color: #669bff;
     color: #ffffff;
-    font-size: 12px;
+    .Totalvalue {
+      font-size: 15px;
+    }
+    .TotalUSD {
+      font-size: 12px;
+    }
   }
 }
 .textcontent {
@@ -176,6 +181,8 @@ table {
   font-size: 12px;
   padding-left: 28px;
   color: #0064ff;
+  text-decoration: none !important;
+  cursor: pointer;
 }
 .FooterDiv {
   background-color: #ffffff;

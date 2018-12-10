@@ -1,11 +1,16 @@
+// .line{
+//   line-height: 2.45;
+// }
 .step2container {
   background-color: #ffffff;
 }
 .title {
   font-size: 14px;
+  font-weight: bold;
   padding-left: 20px;
   padding-top: 20px;
   line-height: 0.5px;
+  padding-bottom: 10px !important;
 }
 .subTitle {
   font-size: 12px;
@@ -38,6 +43,7 @@
 .char-msg {
   font-size: 12px;
   margin-left: 480px;
+  // margin-top: -10px !important ;
 }
 
 input.is-invalid,

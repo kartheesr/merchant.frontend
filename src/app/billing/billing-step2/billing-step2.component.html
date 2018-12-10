@@ -1,44 +1,48 @@
 <form name="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(f)">
   <div class=" row step2container">
     <div class="col-xs-12 col-sm-8 col-md-8">
+      <br />
       <div class="form-group">
-        <label class="title">Product Name</label> <br />
+        <div class="line">
+          <label class="title">Product Name</label> <br />
 
-        <input
-          type="text"
-          class="productInput"
-          name="productName"
-          placeholder="Enter your Product Name"
-          [(ngModel)]="model.productName"
-          #productName="ngModel"
-          [ngClass]="{ 'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength }"
-          required
-          minlength="2"
-          maxlength="50"
-        />
-        <br />
+          <input
+            type="text"
+            class="productInput"
+            name="productName"
+            placeholder="Enter your Product Name"
+            [(ngModel)]="model.productName"
+            #productName="ngModel"
+            [ngClass]="{ 'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength }"
+            required
+            minlength="2"
+            maxlength="50"
+          />
+        </div>
+
         <div *ngIf="f.submitted">
           <div class="ntfyMsgproduct" *ngIf="productName.errors?.required">Product name is required</div>
           <div class="ntfyMsgmin" *ngIf="productName.errors?.minlength">Product name must be atleast 2 characters</div>
         </div>
       </div>
       <div class="form-group">
-        <label class="title">Billing Model Name</label> <br />
+        <div class="line">
+          <label class="title">Billing Model Name</label> <br />
+          <input
+            type="text"
+            class="productInput"
+            name="billingModelName"
+            placeholder="Choose a Billing Model Name"
+            [(ngModel)]="model.billingModelName"
+            #billingModelName="ngModel"
+            [ngClass]="{
+              'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+            }"
+            required
+            minlength="2"
+          />
+        </div>
 
-        <input
-          type="text"
-          class="productInput"
-          name="billingModelName"
-          placeholder="Choose a Billing Model Name"
-          [(ngModel)]="model.billingModelName"
-          #billingModelName="ngModel"
-          [ngClass]="{
-            'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
-          }"
-          required
-          minlength="2"
-        />
-        <br />
         <div *ngIf="f.submitted">
           <div class="ntfyMsg" *ngIf="billingModelName.errors?.required">Billing model name is required</div>
           <div class="ntfyMsg1" *ngIf="billingModelName.errors?.minlength">
@@ -47,20 +51,23 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="title">Billing Model Description</label> <br />
+        <div class="line">
+          <label class="title">Billing Model Description</label> <br />
 
-        <textarea
-          class="inputDes"
-          name="billModelDes"
-          placeholder="Explain briefly what your Billing Model offers"
-          [(ngModel)]="model.billModelDes"
-          #billModelDes="ngModel"
-          [ngClass]="{ 'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength }"
-          required
-          minlength="2"
-          maxlength="140"
-        ></textarea
-        ><br />
+          <textarea
+            class="inputDes"
+            name="billModelDes"
+            placeholder="Explain briefly what your Billing Model offers"
+            [(ngModel)]="model.billModelDes"
+            #billModelDes="ngModel"
+            [ngClass]="{
+              'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+            }"
+            required
+            minlength="2"
+            maxlength="140"
+          ></textarea>
+        </div>
         <div><label class="char-msg" [hidden]="billModelDes.errors">140 characters</label></div>
         <div *ngIf="f.submitted">
           <div class="notifyMsg" *ngIf="billModelDes.errors?.required">Billing model description is required</div>

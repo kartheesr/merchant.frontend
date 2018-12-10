@@ -97,7 +97,7 @@
             </div>
 
             <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg" /> </label> <br />
-            <div class="paymentBtn row">
+            <div class="paymentBtn">
               <div class="col-md-3 logo3" value="click to copy">
                 <img
                   class="pumaButton"
@@ -252,7 +252,7 @@
             </div>
 
             <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg" /> </label> <br />
-            <div class="paymentBtn row">
+            <div class="paymentBtn">
               <div class="col-md-3 logo3" value="click to copy">
                 <img class="pumaButton" src="assets/images/logo3.png" (click)="openCopyButton(pumacopyRecurring)" />
                 <br />
@@ -497,7 +497,7 @@
             </div>
 
             <label class="title new_title">PAYMENT BUTTON <img src="assets/images/info-billing.svg" /> </label> <br />
-            <div class="paymentBtn row">
+            <div class="paymentBtn">
               <div class="col-md-3 logo3" value="click to copy">
                 <img class="pumaButton" src="assets/images/logo3.png" (click)="openCopyButton(pumacopyHybrid)" /> <br />
                 <label class="Btn-copy" (click)="hybridCopyButton(1)">Copy Button</label>
@@ -720,57 +720,57 @@
         ></ngx-qrcode>
       </div>
     </div>
-    <div class="row box-main ">
-      <div class="col-xs-12 col-sm-7 col-md-7">
-        <div class="data-info">
-          <table>
-            <tbody>
-              <tr>
-                <td><img class="img-size" src="assets/images/initial.svg" /></td>
-                <td>Initial: {{ currency | CustomeCurrency }}{{ initalamount }} PMA</td>
-              </tr>
-              <tr>
-                <td><img class="img-size" src="assets/images/amount.svg" /></td>
-                <td>Amount: {{ currency | CustomeCurrency }}{{ amount }} PMA</td>
-              </tr>
-              <tr>
-                <td><img class="img-size" src="assets/images/period.svg" /></td>
-                <td>Billing Starts: {{ BillingPeriod }}</td>
-              </tr>
-              <tr>
-                <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
-                <td>
-                  Payment Cycle:
-                  <a>
-                    <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
-                    <span *ngIf="temp.months != ''"
-                      >{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
-                    </span>
-                    <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
-                    <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td><img class="img-size" src="assets/images/cycle.svg" /></td>
-                <td>Recurrences: {{ Recurrences }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-5 col-md-5">
-        <label class="tit-text">{{ title }}</label> <br />
-        <label class="bm-text">{{ description }}</label> <br />
-        <label class="bill-info">Billing Model description.</label> <br />
-        <label class="bill-info1">{{ billingdescription }}</label>
-        <!--
-          <label class="bill-info">
-            Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing
-            Model offers
-          </label>
-        -->
+    <!-- <div class="row box-main "> -->
+    <div class="col-xs-12 col-sm-7 col-md-7">
+      <div class="data-info">
+        <table>
+          <tbody>
+            <tr>
+              <td><img class="img-size" src="assets/images/initial.svg" /></td>
+              <td>Initial: {{ currency | CustomeCurrency }}{{ initalamount }} PMA</td>
+            </tr>
+            <tr>
+              <td><img class="img-size" src="assets/images/amount.svg" /></td>
+              <td>Amount: {{ currency | CustomeCurrency }}{{ amount }} PMA</td>
+            </tr>
+            <tr>
+              <td><img class="img-size" src="assets/images/period.svg" /></td>
+              <td>Billing Starts: {{ BillingPeriod }}</td>
+            </tr>
+            <tr>
+              <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
+              <td>
+                Payment Cycle:
+                <a>
+                  <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
+                  <span *ngIf="temp.months != ''"
+                    >{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
+                  </span>
+                  <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
+                  <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td><img class="img-size" src="assets/images/cycle.svg" /></td>
+              <td>Recurrences: {{ Recurrences }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+    <div class="col-xs-12 col-sm-5 col-md-5">
+      <label class="tit-text">{{ title }}</label> <br />
+      <label class="bm-text">{{ description }}</label> <br />
+      <label class="bill-info">Billing Model description.</label> <br />
+      <label class="bill-info1">{{ billingdescription }}</label>
+      <!--
+        <label class="bill-info">
+          Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing
+          Model offers
+        </label>
+      -->
+    </div>
+    <!-- </div> -->
   </div>
 </ng-template>

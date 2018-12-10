@@ -122,6 +122,14 @@ export class BillingModelOverviewComponent implements OnInit {
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
       localStorage.removeItem('publishId');
+      var seconds = result.data.frequency;
+      var numyears = Math.floor(seconds / 31536000);
+      var nummonths = Math.floor((seconds % 31536000) / 2628000);
+      var numweeks = Math.floor(((seconds % 31536000) % 2628000) / 604800);
+      var numdays = Math.floor((((seconds % 31536000) % 2628000) % 604800) / 86400);
+      console.log(
+        'seconds' + seconds + ' years: ' + numyears + 'month: ' + nummonths + 'weeks:' + numweeks + 'days: ' + numdays
+      );
 
       this.temp = { days: '', weeks: '', months: '', years: '' };
       this.days = result.data.frequency / (24 * 60 * 60);

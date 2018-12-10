@@ -164,7 +164,6 @@ export class BillingRecurringStep3Component implements OnInit {
     if (this.model.Period2 == 'Days') {
       let val = this.model.No3;
       this.model.trialdaycount = val * 24 * 60 * 60;
-      console.log(this.model.trialdaycount);
     }
   }
 }

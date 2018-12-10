@@ -416,7 +416,13 @@ export class BillingModelOverviewComponent implements OnInit {
       '" data-toggle="modal" data-target="#myModal" onclick="copyValue(' +
       this.trialPeriod +
       ',' +
-      this.temp +
+      this.temp.years +
+      ',' +
+      this.temp.months +
+      ',' +
+      this.temp.weeks +
+      ',' +
+      this.temp.days +
       ')"/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract Details</label> </div><div class="modelSize2"><div> ' +
       '<div class="qr-image"> <img src="' +
       this.model.qrSrc +
@@ -455,16 +461,16 @@ export class BillingModelOverviewComponent implements OnInit {
       '<a>' +
       '<span id="years" style="display:contents;" >' +
       this.temp.years +
-      'years</span>' +
+      ' years </span>' +
       '<span id="months" style="display:contents;" >' +
-      this.temp.month +
-      'months</span>' +
+      this.temp.months +
+      ' months </span>' +
       '<span id="weeks" style="display:contents;" >' +
       this.temp.weeks +
-      'weeks</span>' +
+      ' weeks </span>' +
       '<span id="days" style="display:contents;" >' +
       this.temp.days +
-      'days</span>' +
+      ' days </span>' +
       '</a>' +
       '</td>' +
       '</tr>' +
@@ -487,19 +493,19 @@ export class BillingModelOverviewComponent implements OnInit {
       '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">' +
       this.billingdescription +
       '</label></div></div></div></div></div></div>' +
-      '<script>function copyValue(data,temp) {' +
+      '<script>function copyValue(data,years,months,weeks,days) {' +
       'console.log(data);' +
       'console.log(temp);' +
       'var userinput = document.getElementById("trial");' +
       'if(data!=0){ userinput.style.display = "contents"; } else { userinput.style.display = "none"; }' +
       'var y = document.getElementById("years");' +
-      'if(temp.years!=" "){ y.style.display = "contents"; } else { y.style.display = "none"; }' +
+      'if(years!=" "){ y.style.display = "contents"; } else { y.style.display = "none"; }' +
       'var m = document.getElementById("months");' +
-      'if(temp.month!=" "){ m.style.display = "contents"; } else { m.style.display = "none"; }' +
+      'if(months!=" "){ m.style.display = "contents"; } else { m.style.display = "none"; }' +
       'var w = document.getElementById("weeks");' +
-      'if(temp.weeks!=" "){ w.style.display = "contents"; } else { w.style.display = "none"; }' +
+      'if(weeks!=" "){ w.style.display = "contents"; } else { w.style.display = "none"; }' +
       'var d = document.getElementById("days");' +
-      'if(temp.days!=" "){ d.style.display = "contents"; } else { d.style.display = "none"; }' +
+      'if(days!=" "){ d.style.display = "contents"; } else { d.style.display = "none"; }' +
       '}' +
       '</script>' +
       '</body></html>';
@@ -535,7 +541,15 @@ export class BillingModelOverviewComponent implements OnInit {
       '</head>' +
       '<body><div class="container"><img src="' +
       src +
-      '" data-toggle="modal" data-target="#myModal"/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract Details</label> </div><div class="modelSize2"><div> ' +
+      '" data-toggle="modal" data-target="#myModal" onclick="copyValue(' +
+      this.temp.years +
+      ',' +
+      this.temp.months +
+      ',' +
+      this.temp.weeks +
+      ',' +
+      this.temp.days +
+      ')"/>   <div class="modal fade" id="myModal" role="dialog">     <div class="modal-dialog"> 	<div class="modalTitle"> <label>Contract Details</label> </div><div class="modelSize2"><div> ' +
       '<div class="qr-image"> <img src="' +
       this.model.qrSrc +
       '"/> </div></div><div class="row box-main "><div class="col-xs-12 col-sm-7 col-md-7 aligndiv"><div class="data-info"><table><tbody><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
@@ -585,16 +599,16 @@ export class BillingModelOverviewComponent implements OnInit {
       '<a>' +
       '<span id="years" style="display:contents;" >' +
       this.temp.years +
-      'years</span>' +
+      ' years </span>' +
       '<span id="months" style="display:contents;" >' +
-      this.temp.month +
-      'months</span>' +
+      this.temp.months +
+      ' months </span>' +
       '<span id="weeks" style="display:contents;" >' +
       this.temp.weeks +
-      'weeks</span>' +
+      ' weeks </span>' +
       '<span id="days" style="display:contents;" >' +
       this.temp.days +
-      'days</span>' +
+      ' days </span>' +
       '</a>' +
       '</td></tr><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<mask id="mask4" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="12">' +
@@ -614,7 +628,18 @@ export class BillingModelOverviewComponent implements OnInit {
       '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">' +
       this.billingdescription +
       '</label></div></div></div></div></div></div>' +
-      '<script>function copyValue() {var userinput = document.getElementById("userinput");userinput.select();document.execCommand("copy");}</script>' +
+      '<script>function copyValue(years,months,weeks,days) {' +
+      'console.log(temp);' +
+      'var y = document.getElementById("years");' +
+      'if(years!=" "){ y.style.display = "contents"; } else { y.style.display = "none"; }' +
+      'var m = document.getElementById("months");' +
+      'if(months!=" "){ m.style.display = "contents"; } else { m.style.display = "none"; }' +
+      'var w = document.getElementById("weeks");' +
+      'if(weeks!=" "){ w.style.display = "contents"; } else { w.style.display = "none"; }' +
+      'var d = document.getElementById("days");' +
+      'if(days!=" "){ d.style.display = "contents"; } else { d.style.display = "none"; }' +
+      '}' +
+      '</script>' +
       '</body></html>';
     let input = document.createElement('input');
     input.setAttribute('type', 'text');

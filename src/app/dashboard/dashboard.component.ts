@@ -85,4 +85,7 @@ export class DashboardComponent implements OnInit {
   pullpaymentaddress(data) {
     window.open(`https://etherscan.io/address/${data}`, '_blank');
   }
+  learnMore() {
+    window.open(`https://wiki.pumapay.io/#/page/backendtreasury`, '_blank');
+  }
 }

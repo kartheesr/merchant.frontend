@@ -75,6 +75,7 @@ export class BillingComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.temp = { days: '', weeks: '', months: '', years: '' }
     this.sample = [];
     this.show1 = true;
     this.Getpull();
@@ -160,6 +161,10 @@ export class BillingComponent implements OnInit {
                 temp.days = this.month;
                 this.sample[i].data = temp;
               }
+            } else if (this.days == 365) {
+              this.month3 = this.days / 365;
+              temp.years = this.month3;
+              this.sample[i].data = temp;
             } else if (this.days > 30 && this.days < 365) {
               if (this.days > 30) {
                 this.month1 = this.days / 30;

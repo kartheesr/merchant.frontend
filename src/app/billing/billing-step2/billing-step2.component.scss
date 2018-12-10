@@ -100,7 +100,10 @@ textarea.is-invalid {
 .ntfyMsgproduct {
   color: red;
   font-size: 12px;
-  padding-left: 61%;
+  // padding-left: 61%;
+  width: 550px;
+  text-align: right;
+  margin-left: 20px;
 }
 .ntfyMsg1 {
   color: red;
@@ -151,11 +154,11 @@ textarea.is-invalid {
     font-size: 12px;
     padding-left: 35%;
   }
-  .ntfyMsgproduct {
-    color: red;
-    font-size: 12px;
-    padding-left: 51%;
-  }
+  // .ntfyMsgproduct {
+  //   color: red;
+  //   font-size: 12px;
+  //   padding-left: 51%;
+  // }
   .ntfyMsgmin {
     color: red;
     font-size: 12px;

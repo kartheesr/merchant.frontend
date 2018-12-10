@@ -4,7 +4,7 @@
       <div class="billingBoxCont">
         <div class="row">
           <div class="col-xs-12 col-sm-8 col-md-8">
-            <label>Amount charged at the beginning of the period</label>
+            <label>Amount</label>
             <div class="row SingleRecurringClass">
               <div class="col-xs-12 col-sm-3 col-md-3 amountselect">
                 <select
@@ -48,7 +48,7 @@
                     <input
                       class="col-xs-12 col-sm-11 col-md-11"
                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                      placeholder="No."
+                      placeholder="0"
                       type="number"
                       name="No1"
                       [(ngModel)]="model.No1"
@@ -95,7 +95,7 @@
                     <input
                       class="col-xs-12 col-sm-11 col-md-11"
                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                      placeholder="No."
+                      placeholder="0"
                       type="number"
                       name="No2"
                       [(ngModel)]="model.No2"
@@ -150,7 +150,7 @@
                     <input
                       class="col-xs-12 col-sm-11 col-md-11"
                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                      placeholder="No."
+                      placeholder="0"
                       type="number"
                       name="No3"
                       [(ngModel)]="model.No3"

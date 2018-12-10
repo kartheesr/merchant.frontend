@@ -37,7 +37,13 @@
 }
 .char-msg {
   font-size: 12px;
-  margin-left: 480px;
+  padding-left: 79%;
+  padding-bottom: -10px;
+  // margin-left: 480px;
+}
+.number {
+  font-size: 12px;
+  padding-left: 79%;
 }
 
 input.is-invalid,
@@ -127,6 +133,14 @@ textarea.is-invalid {
   margin-right: 0px !important;
   margin-left: 0px !important;
 }
+.numbercount {
+  color: red;
+  font-size: 12px;
+  padding-left: 80%;
+}
+.msg {
+  margin-top: -20px;
+}
 @media (min-width: 1920px) {
   .notifyMsg {
     color: red;
@@ -155,4 +169,25 @@ textarea.is-invalid {
     font-size: 12px;
     padding-left: 40%;
   }
+  .char-msg {
+    font-size: 12px;
+    padding-left: 66%;
+  }
+  .numbercount {
+    color: red;
+    font-size: 12px;
+    padding-left: 68%;
+  }
+}
+::selection {
+  //color: red;
+  background: #ffa3a3;
+}
+input:focus {
+  outline: none !important;
+  border: 0.5px solid #ffa3a3 !important;
+}
+textarea:focus {
+  outline: none !important;
+  border: 0.5px solid #ffa3a3 !important;
 }

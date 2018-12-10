@@ -14,6 +14,8 @@ export class BillingStep2Component implements OnInit {
   editId;
   datavalidation: any = {};
   newForm;
+  homePage;
+  homePage1;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -22,6 +24,12 @@ export class BillingStep2Component implements OnInit {
     private stepTrack: StepperComponent
   ) {}
   ngOnInit() {
+    this.homePage = {
+      count: ''
+    };
+    this.homePage1 = {
+      count2: ''
+    };
     this.datavalidation = this.billingdata.model;
     this.model.billingModelName = this.datavalidation.billing;
     this.editId = localStorage.getItem('editId');
@@ -53,5 +61,37 @@ export class BillingStep2Component implements OnInit {
         }
       }
     });
+  }
+  showSelectedText(oField) {
+    let text;
+    let str;
+    this.homePage.count = 0;
+    let count1 = 0;
+    if (window.getSelection) {
+      text = window.getSelection().toString();
+      str = text.split('');
+      for (let val of str) {
+        if (val != '') {
+          count1 += 1;
+        }
+      }
+    }
+    this.homePage.count = count1;
+  }
+  showSelectedText1(oField) {
+    let text;
+    let str;
+    this.homePage1.count = 0;
+    let count2 = 0;
+    if (window.getSelection) {
+      text = window.getSelection().toString();
+      str = text.split('');
+      for (let val of str) {
+        if (val != '') {
+          count2 += 1;
+        }
+      }
+    }
+    this.homePage1.count3 = count2;
   }
 }

@@ -52,7 +52,7 @@
         <textarea
           class="inputDes"
           name="billModelDes"
-          placeholder="What does your billing model offers?"
+          placeholder="Explain briefly what your Billing Model offers"
           [(ngModel)]="model.billModelDes"
           #billModelDes="ngModel"
           [ngClass]="{ 'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength }"

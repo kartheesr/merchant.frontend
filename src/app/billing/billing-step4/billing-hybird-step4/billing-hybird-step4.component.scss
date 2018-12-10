@@ -196,17 +196,19 @@ table {
   img {
     width: 17px;
     height: 17px;
+    float: left;
   }
 }
 .contenttitle {
   font-size: 15px;
   font-weight: bold;
-  padding: 0px 12px;
+  padding: 0px 28px;
 }
 .decripitionContent {
   font-size: 12px;
   text-align: justify;
   margin-left: 28px;
+  color: #000000 !important;
 }
 .tContent {
   font-size: 12px;

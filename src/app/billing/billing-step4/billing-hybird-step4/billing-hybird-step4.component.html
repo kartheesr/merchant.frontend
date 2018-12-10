@@ -16,7 +16,7 @@
             </select>
           </div>
         </div>
-  
+
         <div class="col-xs-12 col-sm-10 col-md-10">
           <table>
             <tr>
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class="Fundingtext">
       <img src="assets/images/info.png" class="info" />
       <label class="Fundinghead">Funding the PullPayment Accounts with Gas</label>
@@ -72,7 +72,7 @@
       </label>
       <label class="tContent"> Learn more </label>
     </div>
-  
+
     <div class="bm-footer">
       <button type="reset" (click)="onBack()" class="backbtn">Back</button>
       <button type="submit" class="continuebtn" (click)="onPublish()">Publish</button>
@@ -101,7 +101,10 @@
         <table>
           <tr>
             <td>Transaction</td>
-            <td>Number of recurrences</td>
+            <td>
+              Chosen number of <br />
+              recurrences
+            </td>
             <td>Estimated Gas <br />Cost/transaction (ETH)</td>
             <td>Total Estimated Gas cost (ETH)</td>
           </tr>
@@ -143,22 +146,23 @@
     </div>
   </div>
   <div class="textcontent">
-    <img src="assets/images/info.svg" /> <label class="contenttitle">PullPayment Accounts and Gas Costs</label><br />
+    <img src="assets/images/info.svg" />
+    <p class="contenttitle">PullPayment Accounts and Gas Costs</p>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
-        <label class="decripitionContent"
-          ><b>Every</b> time a <b>new customer</b> subscribes to a billing model, the system creates a
+        <p class="decripitionContent">
+          <b>Every</b> time a <b>new customer</b> subscribes to a billing model, the system creates a
           <b>new PullPayment account.</b> The PullPayment account will continuously bill the customer according to the
           billing model’s parameters. The <b>PMA</b> tokens will be kept in <b>the PullPayment</b> accounts until they
-          are transferred to the Treasury.</label
-        >
+          are transferred to the Treasury.
+        </p>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
-        <label class="decripitionContent"
-          ><b>Choose how often</b> you want to transfer funds from all the PullPayment accounts associated with this
+        <p class="decripitionContent">
+          <b>Choose how often</b> you want to transfer funds from all the PullPayment accounts associated with this
           billing model to your Treasury. Depending on your choice, the specific amount of <b>ETH is allocated</b> for
-          those recurring payments <b>to pay for </b>the gas fees of the <b>transfer to the Treasury.</b></label
-        >
+          those recurring payments <b>to pay for </b>the gas fees of the <b>transfer to the Treasury.</b>
+        </p>
       </div>
     </div>
     <label class="tContent"> Learn more </label>

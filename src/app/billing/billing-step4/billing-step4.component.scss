@@ -157,18 +157,20 @@ table {
   img {
     width: 17px;
     height: 17px;
+    float: left;
   }
 }
 .contenttitle {
   font-size: 15px;
   font-weight: bold;
-  padding: 0px 12px;
+  padding: 0px 28px;
 }
 .sublabel {
   padding-left: 28px;
 }
 .subcontent {
   font-size: 12px;
+  color: #000000 !important;
 }
 .tContent {
   font-size: 12px;

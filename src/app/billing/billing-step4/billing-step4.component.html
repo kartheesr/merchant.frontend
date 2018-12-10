@@ -53,7 +53,7 @@
           <tr>
             <td>Single pull transaction</td>
             <td class="tablevalue">{{ SingleRecurrence }}</td>
-            <td class="tablevalue">{{ EtherValue }}</td>
+            <td class="tablevalue">{{ model.EtherValue }}</td>
             <td class="tablevalue">{{ model.SingleETH }}</td>
           </tr>
           <tr>
@@ -62,7 +62,7 @@
               PullPayment Account to Treasury
             </td>
             <td class="tablevalue">{{ TransferRecurrence }}</td>
-            <td class="tablevalue">{{ EtherValue }}</td>
+            <td class="tablevalue">{{ model.EtherValue }}</td>
             <td class="tablevalue">{{ model.TransferETH }}</td>
           </tr>
           <tr>
@@ -82,7 +82,8 @@
     </div>
   </div>
   <div class="textcontent">
-    <img src="assets/images/info.svg" /> <label class="contenttitle">PullPayment Accounts and Gas Costs</label><br />
+    <img src="assets/images/info.svg" />
+    <p class="contenttitle">PullPayment Accounts and Gas Costs</p>
     <label class="sublabel">
       <span class="subcontent"
         ><b>Every</b> time a <b>new customer</b> subscribes to a billing model, the system creates a

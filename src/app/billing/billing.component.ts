@@ -115,7 +115,6 @@ export class BillingComponent implements OnInit {
               this.RecurringWithTrialValue++;
             }
           }
-
           for (let cal of result.data) {
             let temp = { days: '', weeks: '', months: '', years: '' };
             this.days = cal.frequency / (24 * 60 * 60);

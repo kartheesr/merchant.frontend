@@ -30,6 +30,7 @@ export class BillingModelOverviewComponent implements OnInit {
   public transactionHistorArray;
   public data = '';
   public EtherValue;
+  trialDays;
   value;
   model;
   typeID;
@@ -85,6 +86,7 @@ export class BillingModelOverviewComponent implements OnInit {
     config.keyboard = false;
   }
   ngOnInit() {
+    this.trialDays = { days: '', weeks: '', months: '', years: '' };
     this.temp = { days: '', weeks: '', months: '', years: '' };
     this.model = {
       data: ''
@@ -302,7 +304,20 @@ export class BillingModelOverviewComponent implements OnInit {
           });
         });
       }
+      this.find();
     });
+  }
+
+  find() {
+    let number_of_days = this.trialPeriod;
+    var years = Math.floor(number_of_days / 365);
+    var months = Math.floor((number_of_days % 365) / 30);
+    var weeks = Math.floor(((number_of_days % 365) % 30) / 7);
+    var days = Math.floor(((number_of_days % 365) % 30) % 7);
+    this.trialDays.years = years;
+    this.trialDays.months = months;
+    this.trialDays.weeks = weeks;
+    this.trialDays.days = days;
   }
 
   base64() {
@@ -314,6 +329,7 @@ export class BillingModelOverviewComponent implements OnInit {
     }
     this.model.qrSrc = imgSrc;
   }
+
   copyInputMessage(inputElement) {
     inputElement.select();
     document.execCommand('copy');

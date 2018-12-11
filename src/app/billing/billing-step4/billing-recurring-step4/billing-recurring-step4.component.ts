@@ -86,12 +86,12 @@ export class BillingRecurringStep4Component implements OnInit {
         //let data = web3.fromWei(result.result, 'ether');
         this.model.EtherValue = result.res.gasprice * gasused;
         let sample = this.model.EtherValue * this.data3.No2;
-        this.model.TotalCost = sample.toFixed(20).replace(/0+$/, '');
+        this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
         let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.EtherValue);
-        this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+        this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
         this.model.TotalcostRecuurence = this.model.EtherValue;
         let USD = this.model.TotalETH * this.model.USDValue;
-        this.model.TotalUSD = parseFloat(USD.toFixed(20).replace(/0+$/, ''));
+        this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
       });
     });
     this.model.Recurrence = this.data3.No2;
@@ -129,14 +129,14 @@ export class BillingRecurringStep4Component implements OnInit {
       this.model.TransRecurrence = 1;
       this.model.TotalcostRecuurence = this.model.EtherValue;
       let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
-      this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+      this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       this.service4.setValues(this.model);
     } else {
       this.model.TransRecurrence = this.data3.No2;
       let total = parseFloat(this.model.TransRecurrence) * parseFloat(this.model.EtherValue);
-      this.model.TotalcostRecuurence = total.toFixed(20).replace(/0+$/, '');
+      this.model.TotalcostRecuurence = total.toFixed(5).replace(/0+$/, '');
       let Total1 = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
-      this.model.TotalETH = Total1.toFixed(20).replace(/0+$/, '');
+      this.model.TotalETH = Total1.toFixed(5).replace(/0+$/, '');
       this.service4.setValues(this.model);
     }
   }

@@ -68,15 +68,15 @@ export class BillingStep4Component implements OnInit {
       let gasused = result.data;
       this.service4.gasvalueCalcualtion().subscribe(result => {
         let cal = result.res.gasprice * gasused * 2;
-        this.model.EtherValue = cal.toFixed(20).replace(/0+$/, '');
+        this.model.EtherValue = cal.toFixed(5).replace(/0+$/, '');
         let sample = this.model.EtherValue * this.SingleRecurrence;
         let data = this.model.EtherValue * this.TransferRecurrence;
-        this.model.SingleETH = sample.toFixed(20).replace(/0+$/, '');
-        this.model.TransferETH = data.toFixed(20).replace(/0+$/, '');
+        this.model.SingleETH = sample.toFixed(5).replace(/0+$/, '');
+        this.model.TransferETH = data.toFixed(5).replace(/0+$/, '');
         let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
-        this.model.TotalETH = parseFloat(Total.toFixed(20).replace(/0+$/, ''));
+        this.model.TotalETH = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
         let USD = this.model.TotalETH * this.model.USDValue;
-        this.model.TotalUSD = parseFloat(USD.toFixed(20).replace(/0+$/, ''));
+        this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
         this.service4.setValues(this.model);
       });
     });

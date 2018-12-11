@@ -87,19 +87,19 @@ export class BillingHybirdStep4Component implements OnInit {
       this.service4.gasvalueCalcualtion().subscribe(result => {
         let double = result.res.gasprice * gasused * 2;
         //let data = web3.fromWei(double, 'ether');
-        this.model.initialETH = double.toFixed(20).replace(/0+$/, '');
+        this.model.initialETH = double.toFixed(5).replace(/0+$/, '');
         this.model.initialcost = this.model.initialETH;
         let sample = this.model.initialETH * this.Step3data.Recurringdays;
-        this.model.RecurrenceETH = sample.toFixed(20).replace(/0+$/, '');
+        this.model.RecurrenceETH = sample.toFixed(5).replace(/0+$/, '');
         let cost = this.model.PullRecurrence * this.model.initialETH;
-        this.model.PullRecurrencecost = cost.toFixed(20).replace(/0+$/, '');
+        this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
         let Total =
           parseFloat(this.model.RecurrenceETH) +
           parseFloat(this.model.initialcost) +
           parseFloat(this.model.PullRecurrencecost);
-        this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+        this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
         let USD = this.model.TotalETH * this.model.USDValue;
-        this.model.TotalUSD = parseFloat(USD.toFixed(20).replace(/0+$/, ''));
+        this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
       });
     });
     this.model.Recurrence = this.Step3data.Recurringdays;
@@ -135,22 +135,22 @@ export class BillingHybirdStep4Component implements OnInit {
     if (data.value == 'At the end of contract') {
       this.model.PullRecurrence = 1;
       let cost = this.model.PullRecurrence * this.model.initialETH;
-      this.model.PullRecurrencecost = cost.toFixed(20).replace(/0+$/, '');
+      this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
       let Total =
         parseFloat(this.model.RecurrenceETH) +
         parseFloat(this.model.initialcost) +
         parseFloat(this.model.PullRecurrencecost);
-      this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+      this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       this.service4.setValues(this.model);
     } else {
       this.model.PullRecurrence = this.Step3data.Recurringdays;
       let cost = this.model.PullRecurrence * this.model.initialETH;
-      this.model.PullRecurrencecost = cost.toFixed(20).replace(/0+$/, '');
+      this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
       let Total =
         parseFloat(this.model.RecurrenceETH) +
         parseFloat(this.model.initialcost) +
         parseFloat(this.model.PullRecurrencecost);
-      this.model.TotalETH = Total.toFixed(20).replace(/0+$/, '');
+      this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       this.service4.setValues(this.model);
     }
   }

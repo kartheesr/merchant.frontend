@@ -23,6 +23,7 @@ export class BillingHybirdStep4Component implements OnInit {
   editId;
   public model: any = {};
   public transcationoption: any;
+  public disabledBtn: boolean = true;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -49,13 +50,18 @@ export class BillingHybirdStep4Component implements OnInit {
     this.transcationoption = [
       {
         id: 1,
-        label: 'Once at the end of contract',
+        label: 'Choose frequency',
         value: 0
       },
       {
         id: 2,
-        label: 'On every billing cycle',
+        label: 'Once at the end of contract',
         value: 1
+      },
+      {
+        id: 3,
+        label: 'On every billing cycle',
+        value: 2
       }
     ];
     this.model.transactions = this.transcationoption[0].label;
@@ -132,7 +138,8 @@ export class BillingHybirdStep4Component implements OnInit {
     this.publish();
   }
   handleChangetransactions(data) {
-    if (data.value == 'At the end of contract') {
+    if (data.value == 'Once at the end of contract') {
+      this.disabledBtn = false;
       this.model.PullRecurrence = 1;
       let cost = this.model.PullRecurrence * this.model.initialETH;
       this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
@@ -142,7 +149,8 @@ export class BillingHybirdStep4Component implements OnInit {
         parseFloat(this.model.PullRecurrencecost);
       this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       this.service4.setValues(this.model);
-    } else {
+    } else if (data.value == 'On every billing cycle') {
+      this.disabledBtn = false;
       this.model.PullRecurrence = this.Step3data.Recurringdays;
       let cost = this.model.PullRecurrence * this.model.initialETH;
       this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
@@ -152,6 +160,16 @@ export class BillingHybirdStep4Component implements OnInit {
         parseFloat(this.model.PullRecurrencecost);
       this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       this.service4.setValues(this.model);
+    } else {
+      this.disabledBtn = true;
+      this.model.PullRecurrence = 1;
+      let cost = this.model.PullRecurrence * this.model.initialETH;
+      this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
+      let Total =
+        parseFloat(this.model.RecurrenceETH) +
+        parseFloat(this.model.initialcost) +
+        parseFloat(this.model.PullRecurrencecost);
+      this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
     }
   }
 }

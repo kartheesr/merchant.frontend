@@ -22,6 +22,7 @@ export class BillingRecurringStep4Component implements OnInit {
   editId;
   public model: any = {};
   public transcationoption: any;
+  public disabledBtn: boolean = true;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -46,13 +47,18 @@ export class BillingRecurringStep4Component implements OnInit {
     this.transcationoption = [
       {
         id: 1,
-        label: 'Once at the end of contract',
+        label: 'Choose frequency',
         value: 0
       },
       {
         id: 2,
-        label: 'On every billing cycle',
+        label: 'Once at the end of contract',
         value: 1
+      },
+      {
+        id: 3,
+        label: 'On every billing cycle',
+        value: 2
       }
     ];
     this.model.transactions = this.transcationoption[0].label;
@@ -84,7 +90,8 @@ export class BillingRecurringStep4Component implements OnInit {
       let gasused = result.data;
       this.service4.gasvalueCalcualtion().subscribe(result => {
         //let data = web3.fromWei(result.result, 'ether');
-        this.model.EtherValue = result.res.gasprice * gasused;
+        let cal = result.res.gasprice * gasused;
+        this.model.EtherValue = cal.toFixed(5).replace(/0+$/, '');
         let sample = this.model.EtherValue * this.data3.No2;
         this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
         let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.EtherValue);
@@ -126,18 +133,28 @@ export class BillingRecurringStep4Component implements OnInit {
   }
   handleChangetransactions(data) {
     if (data.value == 'Once at the end of contract') {
+      this.disabledBtn = false;
       this.model.TransRecurrence = 1;
-      this.model.TotalcostRecuurence = this.model.EtherValue;
+      let cal = this.model.EtherValue * this.model.TransRecurrence;
+      this.model.TotalcostRecuurence = cal.toFixed(5).replace(/0+$/, '');
       let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
       this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       this.service4.setValues(this.model);
-    } else {
+    } else if (data.value == 'On every billing cycle') {
+      this.disabledBtn = false;
       this.model.TransRecurrence = this.data3.No2;
       let total = parseFloat(this.model.TransRecurrence) * parseFloat(this.model.EtherValue);
       this.model.TotalcostRecuurence = total.toFixed(5).replace(/0+$/, '');
       let Total1 = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
       this.model.TotalETH = Total1.toFixed(5).replace(/0+$/, '');
       this.service4.setValues(this.model);
+    } else {
+      this.disabledBtn = true;
+      this.model.TransRecurrence = 1;
+      let cal = this.model.EtherValue * this.model.TransRecurrence;
+      this.model.TotalcostRecuurence = cal.toFixed(5).replace(/0+$/, '');
+      let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
+      this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
     }
   }
 }

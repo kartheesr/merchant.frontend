@@ -21,7 +21,7 @@
     <div class="col">
       <label>
           Gas Wallet 
-          <a href="" class="gasAlert">
+          <a href="" *ngIf="gasBalance <= 0.01" class="gasAlert">
               <img src="assets/images/warning-sign.png"/>
               <div class="GasAlertBody">
                 Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms 

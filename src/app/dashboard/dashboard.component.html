@@ -20,14 +20,14 @@
     </div>
     <div class="col">
       <label>
-          Gas Wallet 
-          <a href="" *ngIf="gasBalance <= 0.01" class="gasAlert">
-              <img src="assets/images/warning-sign.png"/>
-              <div class="GasAlertBody">
-                Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms 
-                your Billing Model contracts, the payment will fail
-              </div>
-          </a>
+        Gas Wallet
+        <a *ngIf="gasBalance <= 0.01" class="gasAlert">
+          <img src="assets/images/warning-sign.png" />
+          <div class="GasAlertBody">
+            Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing
+            Model contracts, the payment will fail
+          </div>
+        </a>
       </label>
       <div class="pma-box active">
         <div>

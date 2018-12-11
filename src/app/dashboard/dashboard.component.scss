@@ -27,7 +27,7 @@
             font-size: 15px;
             font-weight: normal;
             text-align: left;
-            color: #9b9b9b;
+            color: #556486;
           }
         }
       }
@@ -74,7 +74,7 @@
       color: #ffffff;
     }
     p {
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
   .qrCodeContainer {
@@ -215,34 +215,37 @@ li {
   color: #1e6af6;
   cursor: pointer;
 }
-.gasAlert{ 
-  position:relative; 
-  margin-left:6px;
-  .GasAlertBody{
-    position:absolute;
-    top:30px; 
-    left:-5px;
-    background-color:#000000;
-    color:#FFFFFF;
-    display:none;
-    padding:15px 10px;
-    border-radius:5px;
-    min-width:240px;
-    font-size:11px;
+.gasAlert {
+  position: relative;
+  margin-left: 6px;
+  .GasAlertBody {
+    position: absolute;
+    top: 30px;
+    left: -5px;
+    background-color: #000000;
+    color: #ffffff;
+    display: none;
+    padding: 15px 10px;
+    border-radius: 5px;
+    min-width: 240px;
+    font-size: 11px;
   }
-  .GasAlertBody:before{
-    content:'';
+  .GasAlertBody:before {
+    content: "";
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 5px solid black;
-    position:absolute;
-    top:-5px;
+    position: absolute;
+    top: -5px;
   }
 }
-.gasAlert img{ width:20px; height:20px;}
-.gasAlert:hover .GasAlertBody{
-  display:block;
+.gasAlert img {
+  width: 20px;
+  height: 20px;
 }
-.pma-box.active p{
-  color:#FFFFFF;
+.gasAlert:hover .GasAlertBody {
+  display: block;
+}
+.pma-box.active p {
+  color: #ffffff;
 }

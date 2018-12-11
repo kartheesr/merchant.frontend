@@ -258,7 +258,9 @@ export class BillingModelOverviewComponent implements OnInit {
         this.overviewdata.gasuseddata().subscribe(result => {
           let gasused = result.data;
           this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-            this.EtherValue = result.res.gasprice * gasused;
+            let cal2 = result.res.gasprice * gasused * 2;
+            this.EtherValue = cal2.toFixed(5).replace(/0+$/, '');
+            // this.EtherValue = result.res.gasprice * gasused;
             let Recurrence = this.EtherValue * this.Recurrences;
             this.TotalCost = Recurrence.toFixed(5).replace(/0+$/, '');
             let trans = this.EtherValue * this.TransRecurrence;

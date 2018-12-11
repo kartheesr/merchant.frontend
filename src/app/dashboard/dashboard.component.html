@@ -19,7 +19,16 @@
       </div>
     </div>
     <div class="col">
-      <label>Gas Wallet</label>
+      <label>
+          Gas Wallet 
+          <a href="" class="gasAlert">
+              <img src="assets/images/warning-sign.png"/>
+              <div class="GasAlertBody">
+                Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms 
+                your Billing Model contracts, the payment will fail
+              </div>
+          </a>
+      </label>
       <div class="pma-box active">
         <div>
           <h3>{{ gasCurrency ? gasCurrency : 'ETH' }}</h3>

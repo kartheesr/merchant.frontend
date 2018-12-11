@@ -161,22 +161,22 @@
 .imgCont img {
   width: 20px !important;
   height: 20px !important;
-  // position: relative;
-  // top: -4px;
+  position: relative;
+  top: -4px;
 }
-// .imgCont.active img{
-//   display: none;
-// }
+.imgCont.active img {
+  display: none;
+}
 // .appContainer .sidebar ul li a.active{
 //   padding-top: 0px !important;
 // }
-// .appContainer .sidebar ul li a.active .imgCont.active img{
-//   display: block !important;
-//   left: 28px;
-//   top: 5px;
-//   width: 20px !important;
-// }
-// .appContainer .sidebar ul li a.active .imgCont.inactive img{
-//   display:none !important;
-//   top: 5px;
-// }
+.appContainer .sidebar ul li a.active .imgCont.active img {
+  display: block !important;
+  left: 28px;
+  top: 5px;
+  width: 20px !important;
+}
+.appContainer .sidebar ul li a.active .imgCont.inactive img {
+  display: none !important;
+  top: 5px;
+}

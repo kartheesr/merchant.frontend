@@ -659,7 +659,7 @@
                 <td><img class="img-size" src="assets/images/amount.svg" /></td>
                 <td>Amount: {{ currency | CustomeCurrency }}{{ amount }} PMA</td>
               </tr>
-              <tr *ngIf="trialPeriod != 0">
+              <tr>
                 <td><img class="img-size" src="assets/images/period.svg" /></td>
                 <td>
                   Trial Period:
@@ -668,8 +668,7 @@
                       {{ trialDays.years }} {{ trialDays.years == 1 ? 'year ' : 'years ' }}</span
                     >
                     <span *ngIf="trialDays.months != ' '"
-                      >{{ trialDays.months }} {{ trialDays.months == 1 ? 'month
-                      ' : 'months ' }}
+                      >{{ trialDays.months }} {{ trialDays.months == 1 ? 'month ' : 'months ' }}
                     </span>
                     <span *ngIf="trialDays.weeks != ' '"
                       >{{ trialDays.weeks }} {{ trialDays.weeks == 1 ? 'week ' : 'weeks ' }}

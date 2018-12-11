@@ -260,7 +260,6 @@ export class BillingModelOverviewComponent implements OnInit {
           this.overviewdata.gasvalueCalcualtion().subscribe(result => {
             let cal2 = result.res.gasprice * gasused * 2;
             this.EtherValue = cal2.toFixed(5).replace(/0+$/, '');
-            // this.EtherValue = result.res.gasprice * gasused;
             let Recurrence = this.EtherValue * this.Recurrences;
             this.TotalCost = Recurrence.toFixed(5).replace(/0+$/, '');
             let trans = this.EtherValue * this.TransRecurrence;
@@ -542,8 +541,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">' +
       this.billingdescription +
       '</label></div></div></div></div></div></div>' +
-      '<script>function copyValue(data,years,months,weeks,days,trialYear,trialMonth,trialWeek,trialDay) {' +
-      'console.log(temp);' +
+      '<script>function copyValue(years,months,weeks,days,trialYear,trialMonth,trialWeek,trialDay) {' +
       'var Y = document.getElementById("trialYear");' +
       'if(trialYear!=" "){ Y.style.display = "contents"; } else { Y.style.display = "none"; }' +
       'var M = document.getElementById("trialMonth");' +
@@ -552,8 +550,6 @@ export class BillingModelOverviewComponent implements OnInit {
       'if(trialWeek!=" "){ W.style.display = "contents"; } else { W.style.display = "none"; }' +
       'var D = document.getElementById("trialDay");' +
       'if(trialDay!= " "){ D.style.display = "contents"; } else { D.style.display = "none"; }' +
-      'var userinput = document.getElementById("trial");' +
-      'if(data!=0){ userinput.style.display = "contents"; } else { userinput.style.display = "none"; }' +
       'var y = document.getElementById("years");' +
       'if(years!=" "){ y.style.display = "contents"; } else { y.style.display = "none"; }' +
       'var m = document.getElementById("months");' +
@@ -685,7 +681,6 @@ export class BillingModelOverviewComponent implements OnInit {
       this.billingdescription +
       '</label></div></div></div></div></div></div>' +
       '<script>function copyValue(years,months,weeks,days) {' +
-      'console.log(temp);' +
       'var y = document.getElementById("years");' +
       'if(years!=" "){ y.style.display = "contents"; } else { y.style.display = "none"; }' +
       'var m = document.getElementById("months");' +

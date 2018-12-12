@@ -217,7 +217,8 @@ export class BillingModelOverviewComponent implements OnInit {
           let gasused = result.data;
           this.overviewdata.gasvalueCalcualtion().subscribe(result => {
             let cal = result.res.gasprice * gasused * 2;
-            this.EtherValue = cal.toFixed(5).replace(/0+$/, '');
+            let add = cal.toFixed(5).replace(/0+$/, '');
+            this.EtherValue = parseFloat(add) + parseFloat(add);
           });
         });
         this.data = this.overviewdata.model;

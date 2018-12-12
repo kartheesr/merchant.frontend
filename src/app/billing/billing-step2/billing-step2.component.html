@@ -10,10 +10,12 @@
             type="text"
             class="productInput"
             name="productName"
-            placeholder="Enter your Product Name"
+            placeholder="Product Name"
             [(ngModel)]="model.productName"
             #productName="ngModel"
-            [ngClass]="{ 'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength }"
+            [ngClass]="{
+              'invalid\': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+            }"
             required
             minlength="2"
             maxlength="50"
@@ -32,11 +34,11 @@
             type="text"
             class="productInput"
             name="billingModelName"
-            placeholder="Choose a Billing Model Name"
+            placeholder="Billing Model Name"
             [(ngModel)]="model.billingModelName"
             #billingModelName="ngModel"
             [ngClass]="{
-              'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+              'invalid\': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
             }"
             required
             minlength="2"
@@ -61,7 +63,7 @@
             [(ngModel)]="model.billModelDes"
             #billModelDes="ngModel"
             [ngClass]="{
-              'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+              'invalid\': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
             }"
             required
             minlength="2"

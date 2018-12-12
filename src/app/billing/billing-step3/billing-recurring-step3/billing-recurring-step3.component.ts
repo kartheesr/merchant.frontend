@@ -75,8 +75,8 @@ export class BillingRecurringStep3Component implements OnInit {
       Period1: '',
       Period2: '',
       Toggle: '',
-      typeid: 5,
-      trialperiod: 1,
+      typeid: 3,
+      trialperiod: 0,
       daycount: '',
       trialdaycount: 0
     };

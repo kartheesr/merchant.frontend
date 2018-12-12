@@ -46,7 +46,11 @@
       .billingBox.active {
         border-color: #1c67f5;
         .boxHead {
-          color: #003aa7;
+          color: #1c67f5;
+        }
+        .boxCont a span {
+          color: #1c67f5;
+          font-size: 12px;
         }
       }
       .billingBox {
@@ -54,7 +58,7 @@
         border-radius: 6px 6px 0px 0px;
         .boxHead {
           padding: 12px 15px;
-          color: #003aa7;
+          color: #1c67f5;
           font-size: 12px;
           .ImgCont {
             width: 20px;
@@ -70,7 +74,7 @@
           padding: 0px 15px;
           background-color: #fcfdff;
           .pad-l-20 {
-            padding-left: 29px;
+            padding-left: 20px;
             p {
               font-size: 22px;
               span {
@@ -86,6 +90,7 @@
             font-size: 30px;
             font-weight: 600;
             height: 60px;
+            margin-left: 6px !important;
             span {
               padding-left: 3px;
             }
@@ -108,11 +113,11 @@
         }
       }
       .billingBox {
-        border: 1px solid #1c67f5;
+        border: 1px solid#AC8BFC;
         border-radius: 6px 6px 0px 0px;
         .boxHead-sigleRecurring {
           padding: 12px 15px;
-          color: #2f00a2;
+          color: #ac8bfc;
           font-size: 12px;
           .ImgCont {
             width: 20px;
@@ -128,10 +133,11 @@
           padding: 0px 15px;
           background-color: #fcfdff;
           a {
-            color: #2f00a2;
+            color: #ac8bfc;
+            font-size: 12px;
           }
           .pad-l-20 {
-            padding-left: 29px;
+            padding-left: 20px;
             p {
               font-size: 22px;
               span {
@@ -147,6 +153,7 @@
             font-size: 30px;
             font-weight: 600;
             height: 60px;
+            margin-left: 6px !important;
             span {
               padding-left: 3px;
             }
@@ -170,11 +177,11 @@
         }
       } // singl + recurring
       .billingBox-single {
-        border: 1px solid #eebe47;
+        border: 1px solid#F9B741;
         border-radius: 6px 6px 0px 0px;
         .boxHead-single {
           padding: 12px 15px;
-          color: #c67f00;
+          color: #f9b741;
           font-size: 12px;
           .ImgCont {
             width: 20px;
@@ -190,7 +197,7 @@
           padding: 0px 15px;
           background-color: #fcfdff;
           .pad-l-20 {
-            padding-left: 29px;
+            padding-left: 20px;
             p {
               font-size: 22px;
               span {
@@ -206,6 +213,7 @@
             font-size: 30px;
             font-weight: 600;
             height: 60px;
+            margin-left: 6px !important;
             span {
               padding-left: 3px;
             }
@@ -231,6 +239,45 @@
     }
   }
 }
+fieldset.scheduler-border {
+  // border: 1px groove #828282 !important;
+  border: 0.5px solid #82828278 !important;
+  border-radius: 3px;
+  padding: 0 0.4em 0em 0.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #828282;
+  box-shadow: 0px 0px 0px 0px #828282;
+  width: 70%;
+  margin: 1px 15px !important;
+  word-wrap: break-word;
+  float: left;
+  margin-left: 16px;
+  label {
+    font-size: 28px;
+    align-items: center;
+    float: left;
+    word-wrap: break-word;
+  }
+  .intialvalue {
+    font-size: 20px;
+    align-items: center;
+    float: left;
+    word-wrap: break-word;
+  }
+}
+
+legend.scheduler-border {
+  font-size: 8px !important;
+  // font-weight: bold !important;
+  font-weight: normal !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 5px;
+  // border-bottom: none;
+  word-wrap: break-word;
+  margin-bottom: 0px !important;
+  color: #828282fa !important;
+}
 
 .flex-center-center {
   display: flex;
@@ -241,6 +288,7 @@
 .single-class {
   float: left;
   margin: 10px 0px !important;
+  padding: 0px 5px !important;
 }
 .billingImg1 {
   float: right;
@@ -295,41 +343,27 @@ table {
   .table-responsive td {
     display: block;
   }
-
   .table-responsive thead tr {
     position: absolute;
-
     top: -9999px;
-
     left: -9999px;
   }
-
   .table-responsive tfoot tr > th {
     position: absolute;
-
     top: -9999px;
-
     left: -9999px;
   }
-
   .table-responsive tr {
     border: 1px solid #ccc;
   }
-
   .table-responsive td {
     border: none;
-
     border-bottom: 1px solid #eee;
-
     position: relative;
-
     white-space: normal;
-
     text-align: left;
-
     padding: 5px 10px 5px calc(50% + 10px);
   }
-
   .table-responsive td:before {
     content: attr(data-title);
     position: absolute;
@@ -337,19 +371,14 @@ table {
     left: 1px;
     width: calc(50% - 20px);
     padding: 5px 10px;
-
     white-space: nowrap;
-
     text-align: left;
-
     font-weight: bold;
   }
 }
-
 .tblMargin {
   margin-left: -10px;
 }
-
 .BillingModelTable {
   font-size: 13px;
   margin: 20px 0px;
@@ -624,6 +653,7 @@ li {
   font-size: 20px;
   font-weight: 400;
   height: 40px;
+
   span {
     padding-left: 3px;
   }
@@ -640,4 +670,49 @@ li {
 }
 .pumaButton {
   cursor: pointer;
+}
+.single-class {
+  max-width: 22% !important;
+}
+.labelcolor {
+  line-height: 1 !important;
+  margin-bottom: 0px !important;
+}
+.pad-l-20 {
+  padding-left: 12px !important;
+}
+.large .scheduler-border {
+  margin: 1px 12px !important;
+}
+.billingModelContainer .bm-main .billingBoxCont .billingBox-single .boxHead-single {
+  padding: 12px 6px !important;
+}
+legend.scheduler-border {
+  padding: 0 4px !important;
+}
+.boxHead {
+  padding: 12px 6px !important;
+}
+// fieldset.scheduler-border{
+//   width: 85% !important;
+// }
+.ImgCont img {
+  width: 18px !important;
+}
+.billingModelContainer .bm-main .billingBoxCont .billingBox .boxHead-sigleRecurring {
+  padding: 12px 6px !important;
+}
+.boxCont .large .scheduler-border {
+  margin: 1px 4px !important;
+}
+.largeSmall .scheduler-border label {
+  color: #828282;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px 0px !important;
+}
+.billingModelContainer .bm-main .billingBoxCont .billingBox .boxCont .pad-l-20 p {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: #000 !important;
 }

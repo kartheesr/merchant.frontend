@@ -9,21 +9,32 @@
         <div class="col-xs-12 col-sm-3 col-md-3 single-class">
           <div class="billingBox-single active">
             <div class="boxHead-single">
-              <div class="ImgCont"><img src="assets/images/Vector_old.png" width="15" /></div>
+              <div class="ImgCont"><img src="assets/images/single.png" width="15" /></div>
               <span>Single</span>
             </div>
 
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  {{ title }} <br />
-                  <span>{{ description }}</span>
+                  {{ title }}
+                  <!--
+                    <br />
+                    <span>{{ description }}</span>
+                  -->
                 </p>
               </div>
               <div class="large">
                 <div>
-                  <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
-                  <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
+                  <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">SINGLE CHARGE</legend>
+                    <label class="labelcolor">{{ currency | CustomeCurrency }}{{ amount }}</label>
+                  </fieldset>
+                  <!--
+                    <div class="ImgCont">
+                      <img src="assets/images/Vector_black.png" />
+                    </div>
+                    <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
+                  -->
                 </div>
               </div>
               <!--
@@ -39,11 +50,17 @@
         <div class="col-xs-12 col-sm-9 cols-md-9">
           <div class="product-div">
             <label class="title"
-              >{{ title }} <br />
-              <span>{{ description }}</span>
+              >{{ title }}
+              <!--
+                <br />
+                <span>{{ description }}</span>
+              -->
             </label>
             <br />
-            <label class="bill-info">Billing Model description.</label> <br />
+            <!--
+              <label class="bill-info">Billing Model description.</label>
+              <br />
+            -->
             <label class="subTitle">{{ billingdescription }}</label>
           </div>
 
@@ -137,15 +154,18 @@
         <div class="col-xs-12 col-sm-3 col-md-3 single-class">
           <div class="billingBox active">
             <div class="boxHead">
-              <div class="ImgCont"><img src="assets/images/refresh.svg" width="15" /></div>
+              <div class="ImgCont"><img src="assets/images/recurring.png" width="15" /></div>
               <span>Recurring</span>
             </div>
 
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  {{ title }} <br />
-                  <span>{{ description }}</span>
+                  {{ title }}
+                  <!--
+                    <br />
+                    <span>{{ description }}</span>
+                  -->
                 </p>
                 <a>
                   <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
@@ -158,8 +178,16 @@
               </div>
               <div class="large">
                 <div>
-                  <div class="ImgCont"><img src="assets/images/refresh-b.svg" width="18" /></div>
-                  <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
+                  <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">RECURRING CHARGE</legend>
+                    <label class="labelcolor">{{ currency | CustomeCurrency }}{{ amount }}</label>
+                  </fieldset>
+                  <!--
+                    <div class="ImgCont">
+                      <img src="assets/images/refresh-b.svg" width="18" />
+                    </div>
+                    <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
+                  -->
                 </div>
               </div>
               <!--
@@ -175,11 +203,17 @@
         <div class="col-xs-12 col-sm-9 cols-md-9">
           <div class="product-div">
             <label class="title"
-              >{{ title }} <br />
-              <span>{{ description }}</span>
+              >{{ title }}
+              <!--
+                <br />
+                <span>{{ description }}</span>
+              -->
             </label>
+            <!--
+              <br />
+              <label class="bill-info">Billing Model description.</label>
+            -->
             <br />
-            <label class="bill-info">Billing Model description.</label> <br />
             <label class="subTitle">{{ billingdescription }}</label>
           </div>
 
@@ -363,17 +397,20 @@
     <div class="billingBoxCont">
       <div class="row">
         <div class="col-xs-12 col-sm-3 col-md-3 single-class">
-          <div class="billingBox active">
+          <div class="billingBox active2">
             <div class="boxHead-sigleRecurring">
-              <div class="ImgCont"><img src="assets/images/single+recurring.png" /></div>
+              <div class="ImgCont"><img src="assets/images/single + recurring.png" /></div>
               <span>Single + Recurring</span>
             </div>
 
             <div class="boxCont">
               <div class="pad-l-20">
                 <p>
-                  {{ title }} <br />
-                  <span>{{ description }}</span>
+                  {{ title }}
+                  <!--
+                    <br />
+                    <span>{{ description }}</span>
+                  -->
                 </p>
                 <a>
                   <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
@@ -386,12 +423,28 @@
               </div>
               <div class="large">
                 <div>
-                  <div class="ImgCont"><img src="assets/images/single+recurring_Group.png" /></div>
-                  <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
+                  <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">RECURRING CHARGE</legend>
+                    <label class="labelcolor">{{ currency | CustomeCurrency }}{{ amount }}</label>
+                  </fieldset>
+                  <!--
+                    <div class="ImgCont">
+                      <img src="assets/images/single+recurring_Group.png" />
+                    </div>
+                    <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
+                  -->
                 </div>
                 <div class="largeSmall">
-                  <div class="ImgCont"><img src="assets/images/Vector_black.png" /></div>
-                  <span>{{ currency | CustomeCurrency }}{{ initalamount }}</span>
+                  <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">INITIAL CHARGE</legend>
+                    <label class="labelcolor">{{ currency | CustomeCurrency }}{{ initalamount }}</label>
+                  </fieldset>
+                  <!--
+                    <div class="ImgCont">
+                      <img src="assets/images/Vector_black.png" />
+                    </div>
+                    <span>{{ currency | CustomeCurrency }}{{ initalamount }}</span>
+                  -->
                 </div>
               </div>
               <br />
@@ -408,11 +461,17 @@
         <div class="col-xs-12 col-sm-9 cols-md-9">
           <div class="product-div">
             <label class="title"
-              >{{ title }} <br />
-              <span>{{ description }}</span>
+              >{{ title }}
+              <!--
+                <br />
+                <span>{{ description }}</span>
+              -->
             </label>
             <br />
-            <label class="bill-info">Billing Model description.</label> <br />
+            <!--
+              <label class="bill-info">Billing Model description.</label>
+              <br />
+            -->
             <label class="subTitle">{{ billingdescription }}</label>
           </div>
 

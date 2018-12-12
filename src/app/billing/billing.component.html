@@ -9,19 +9,40 @@
     </div>
   </div>
 </div>
-<!--
-  <div class="row" *ngIf="loadimg">
-    <div class="col-md-12 lds-spinner">
-      <div class="lds-ring">
-      </div>
-    </div>
-  </div>
--->
 <div *ngIf="show2">
   <div class="billingModelContainer">
+    <!--
+      <div class="bm-header">
+
+        <div class="row">
+          <div class="col">Billing Models</div>
+          <div class="col text-right">
+            <button href="" (click)="new()" routerLink="/pullpayments/step1">
+              <img src="assets/images/plus.svg" /> NEW
+            </button>
+          </div>
+        </div>
+      </div>
+    -->
+
     <div class="bm-header">
       <div class="row">
         <div class="col">Billing Models</div>
+        <div class="alertbilling">
+          <!-- <div *ngIf="gasBalance <= 0.01"> -->
+          <!--
+            <label>
+              <a class="billingAlert">
+                <img height="16" src="assets/images/warning-sign.png" />
+                <div class="BillingAlertBody">
+                  Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing Model contracts,the
+                  payment will fail
+                </div>
+              </a>
+              <a (click)="open(QRPopup)" class="alertTag"> Send ETH to your Gas Wallet first</a>
+            </label>
+          -->
+        </div>
         <div class="col text-right">
           <button href="" (click)="new()" routerLink="/pullpayments/step1">
             <img src="assets/images/plus.svg" /> NEW
@@ -59,11 +80,13 @@
                       </div>
                       <div class="boxCont row">
                         <div class="pad-l-20 col-md-12">
-                          <div class="number">{{ array.title }}</div>
-                          <p *ngIf="array.typeID == 2">Single</p>
-                          <p *ngIf="array.typeID == 3">Recurring</p>
-                          <p *ngIf="array.typeID == 5">Recurring</p>
-                          <p *ngIf="array.typeID == 6">Single + Recurring</p>
+                          <p class="number">{{ array.title }}</p>
+                          <!--
+                            <p class="number" *ngIf="array.typeID == 2">Single</p>
+                            <p class="number" *ngIf="array.typeID == 3">Recurring</p>
+                            <p class="number" *ngIf="array.typeID == 5">Recurring</p>
+                            <p class="number" *ngIf="array.typeID == 6">Single + Recurring</p>
+                          -->
                           <div class="LinkTag">
                             <a *ngIf="array.typeID == 2"> </a>
                             <a *ngIf="array.typeID == 3">
@@ -166,3 +189,27 @@
   <br />
   <br />
 </div>
+<ng-template #QRPopup let-c="close" let-d="dismiss">
+  <div class="modelSize2">
+    <div class="closeBtn" (click)="d()"><img src="assets/images/Close-Btn.svg" /></div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to Send eth to your gas wallet</label></div>
+      <div class="col-xs-12 col-sm-4 cols-md-4 QRCodeClass">
+        <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
+      </div>
+      <div class="col-xs-12 col-sm-8 cols-md-8">
+        <div class="qrContents">
+          <p>
+            <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span> <br />
+            <span>Gas fees are used to execute any transaction over the Ethereum network.</span>
+            <span>You will be unable to accept new subscriptions or execute any transfers without enough ETH.</span>
+          </p>
+          <div class="qrCodeField">
+            <input type="text" value="{{treasuryAddress}}" #userinput />
+            <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

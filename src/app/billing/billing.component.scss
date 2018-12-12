@@ -178,6 +178,7 @@
             // margin-bottom: 10%;
             // padding-bottom: 17px;
             color: #000;
+            font-weight: bold;
             // height: 10px;
             // margin-top: 10px;
             margin-bottom: 5px;
@@ -252,6 +253,162 @@
   align-items: center;
   justify-content: center;
 }
+.alertbilling {
+  margin-left: 500px;
+  // float: right;
+}
+.alertTag {
+  line-height: 14px;
+  font-size: 12px;
+  text-decoration-line: underline !important;
+  color: #1e6af6 !important;
+  cursor: pointer;
+}
+.billingAlert {
+  position: relative;
+  margin-left: 20px;
+  img {
+    height: 16px !important;
+    width: 16px !important;
+    position: relative;
+    left: -10px;
+    top: -2px;
+  }
+  .BillingAlertBody {
+    position: absolute;
+    top: 30px;
+    left: -16px;
+    background-color: #000000;
+    color: #ffffff;
+    display: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    min-width: 405px;
+    font-size: 11px;
+    z-index: 1;
+  }
+  .BillingAlertBody:before {
+    content: "";
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    position: absolute;
+    top: -5px;
+  }
+}
+.billingAlert img {
+  width: 20px;
+  height: 20px;
+}
+.billingAlert:hover .BillingAlertBody {
+  display: block;
+}
+.alert {
+  line-height: 10px;
+  font-size: 12px;
+  text-decoration-line: underline !important;
+  color: #1e6af6 !important;
+}
+// .Billinglabel{
+//-------->Popup
+.modelSize2 {
+  height: 342px;
+  width: 650px;
+  background-color: #ffffff !important;
+  label {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 60px 10px 0px 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+.modal-content {
+  left: 6%;
+  margin-top: 60px;
+}
+.qrContents {
+  font-size: 12px;
+  color: #9b9b9b;
+  margin-top: 15px;
+}
+.qrCodeField {
+  input {
+    width: 290px;
+    height: 38px;
+  }
+}
+.qrCont {
+  margin-left: 15px;
+}
+.closeBtn {
+  float: right;
+  padding: 20px;
+  img {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+  }
+}
+
+// }
+// .qrCodeContainer {
+//   .qrCont {
+//     margin-top: 10px;
+//     img {
+//       // margin-right: 20px;
+//       width: 120px;
+//     }
+//     .qrContents {
+//       display: inline-block;
+//       vertical-align: top;
+//       position: relative;
+//       height: 120px;
+//       p {
+//         font-size: 12px;
+//         color: #9b9b9b;
+//       }
+//       .qrCodeField {
+//         position: absolute;
+//         bottom: 0px;
+//         input {
+//           width: 300px;
+//           height: 40px;
+//           padding: 0px 50px 0px 10px;
+//           border: 1px solid #cccccc;
+//         }
+//         img {
+//           height: 43px;
+//           width: 43px;
+//           position: absolute;
+//           right: -3px;
+//           margin-right: 0px;
+//         }
+//       }
+//     }
+//   }
+// }
+// .qrContents {
+//   margin-top: 10px !important;
+//   margin-left: 6%;
+// }
+
+// .qrContents p {
+//   font-size: 13px !important;
+//   color: #9b9b9b !important;
+//   line-height: 2em;
+// }
+// .qrCont img {
+//   margin: 0px 0px 0px -13px !important;
+// }
+// .qrCodeField {
+//   margin-top: 20px !important;
+// }
+// .QRCodeClass {
+//   padding-left: 10px !important;
+//   padding-right: 10px !important;
+// }
 
 .single-class {
   float: left;
@@ -364,6 +521,9 @@ legend.scheduler-border {
     height: 275px !important;
     width: 245px !important;
   }
+  .qrContents {
+    margin-left: 0% !important;
+  }
   .bm-main.flex-center-center {
     left: inherit !important;
     width: 67.4% !important;
@@ -381,6 +541,9 @@ legend.scheduler-border {
   .billingModelContainer .bm-header button img {
     position: relative;
     top: -2px;
+  }
+  .BillingAlertBody {
+    min-width: 475px !important;
   }
 }
 .billingModelContainer .bm-header button img {
@@ -477,4 +640,7 @@ fieldset label {
 .noBilling button img {
   position: relative;
   top: -4px;
+}
+.billingModelContainer .bm-main .billingBoxCont {
+  overflow-y: inherit !important;
 }

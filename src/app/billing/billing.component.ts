@@ -33,6 +33,8 @@ export class BillingComponent implements OnInit {
   show2: boolean;
   newForm = 'newForm';
   temp;
+  gasBalance;
+  treasuryAddress;
 
   SinglePullValue: number;
   RecurringPullValue: number;
@@ -40,7 +42,7 @@ export class BillingComponent implements OnInit {
   RecurringWithTrialValue: number;
   YearValue: any = {};
   YearValue1: any = {};
-
+  value: string = '';
   days: any;
   weeks: any;
   months: any;
@@ -75,18 +77,31 @@ export class BillingComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.temp = { days: '', weeks: '', months: '', years: '' }
     this.sample = [];
     this.show1 = true;
     this.Getpull();
     this.getPullPayment();
+    this.billingService.gasvalueCalcualtion().subscribe(res => {
+      this.gasBalance = res.balance; // GAS VALUE
+    });
+    this.billingService.getQRCodeaddress().subscribe(result => {
+      this.treasuryAddress = result.address; // TREASURY ADDRESS
+    });
+    setTimeout(() => {
+      this.qrValue();
+    }, 3000);
   }
-  open(content) {
-    this.modalService.open(content);
+  copyInputMessage(inputElement) {
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
   }
-  open1(data) {
-    this.modalService.open(data);
+  open(pumacopyHybrid) {
+    this.modalService.open(pumacopyHybrid);
   }
+  // open1(data) {
+  //   this.modalService.open(data);
+  // }
   update(data) {
     localStorage.removeItem('newForm');
     localStorage.setItem('editId', data);
@@ -118,99 +133,108 @@ export class BillingComponent implements OnInit {
           for (let cal of result.data) {
             let temp = { days: '', weeks: '', months: '', years: '' };
             this.days = cal.frequency / (24 * 60 * 60);
-            if (this.days > 365) {
-              this.year = this.days / 365;
-              this.year1 = parseInt(this.year);
-              temp.years = this.year1;
-              this.month = this.days - this.year1 * 365;
-              this.sample[i].data = temp;
-              if (this.month > 30) {
-                this.month1 = this.month / 30;
-                this.month2 = parseInt(this.month1);
-                temp.months = this.month2;
-                this.week = this.month - this.month2 * 30;
-                this.sample[i].data = temp;
-                if (this.week > 7) {
-                  this.week2 = this.week / 7;
-                  this.week1 = parseInt(this.week2);
-                  temp.weeks = this.week1;
-                  this.day = this.week - this.week1 * 7;
-                  temp.days = this.day;
-                  this.sample[i].data = temp;
-                } else if (this.week == 7) {
-                  this.week3 = this.week / 7;
-                  temp.weeks = this.week3;
-                  this.sample[i].data = temp;
-                } else if (this.week < 7) {
-                  temp.days = this.week;
-                  this.sample[i].data = temp;
-                }
-              } else if (this.month2 == 30) {
-                this.month3 = this.month2 / 30;
-                temp.months = this.month3;
-                this.sample[i].data = temp;
-              } else if (this.month < 30 && this.month > 7) {
-                this.week2 = this.month / 7;
-                this.week5 = parseInt(this.week2);
-                temp.weeks = this.week5;
-                this.day = this.month - this.week5 * 7;
-                temp.days = this.day;
-                this.sample[i].data = temp;
-              } else if (this.month < 7) {
-                temp.days = this.month;
-                this.sample[i].data = temp;
-              }
-            } else if (this.days == 365) {
-              this.month3 = this.days / 365;
-              temp.years = this.month3;
-              this.sample[i].data = temp;
-            } else if (this.days > 30 && this.days < 365) {
-              if (this.days > 30) {
-                this.month1 = this.days / 30;
-                this.month2 = parseInt(this.month1);
-                temp.months = this.month2;
-                this.week = this.days - this.month2 * 30;
-                this.sample[i].data = temp;
+            this.years = Math.floor(this.days / 365);
+            this.months = Math.floor((this.days % 365) / 30);
+            this.weeks = Math.floor(((this.days % 365) % 30) / 7);
+            this.days = Math.floor(((this.days % 365) % 30) % 7);
+            temp.years = this.years;
+            temp.months = this.months;
+            temp.weeks = this.weeks;
+            temp.days = this.days;
+            this.sample[i].data = temp;
+            // if (this.days > 365) {
+            //   this.year = this.days / 365;
+            //   this.year1 = parseInt(this.year);
+            //   temp.years = this.year1;
+            //   this.month = this.days - this.year1 * 365;
+            //   this.sample[i].data = temp;
+            //   if (this.month > 30) {
+            //     this.month1 = this.month / 30;
+            //     this.month2 = parseInt(this.month1);
+            //     temp.months = this.month2;
+            //     this.week = this.month - this.month2 * 30;
+            //     this.sample[i].data = temp;
+            //     if (this.week > 7) {
+            //       this.week2 = this.week / 7;
+            //       this.week1 = parseInt(this.week2);
+            //       temp.weeks = this.week1;
+            //       this.day = this.week - this.week1 * 7;
+            //       temp.days = this.day;
+            //       this.sample[i].data = temp;
+            //     } else if (this.week == 7) {
+            //       this.week3 = this.week / 7;
+            //       temp.weeks = this.week3;
+            //       this.sample[i].data = temp;
+            //     } else if (this.week < 7) {
+            //       temp.days = this.week;
+            //       this.sample[i].data = temp;
+            //     }
+            //   } else if (this.month2 == 30) {
+            //     this.month3 = this.month2 / 30;
+            //     temp.months = this.month3;
+            //     this.sample[i].data = temp;
+            //   } else if (this.month < 30 && this.month > 7) {
+            //     this.week2 = this.month / 7;
+            //     this.week5 = parseInt(this.week2);
+            //     temp.weeks = this.week5;
+            //     this.day = this.month - this.week5 * 7;
+            //     temp.days = this.day;
+            //     this.sample[i].data = temp;
+            //   } else if (this.month < 7) {
+            //     temp.days = this.month;
+            //     this.sample[i].data = temp;
+            //   }
+            // } else if (this.days == 365) {
+            //   this.month3 = this.days / 365;
+            //   temp.years = this.month3;
+            //   this.sample[i].data = temp;
+            // } else if (this.days > 30 && this.days < 365) {
+            //   if (this.days > 30) {
+            //     this.month1 = this.days / 30;
+            //     this.month2 = parseInt(this.month1);
+            //     temp.months = this.month2;
+            //     this.week = this.days - this.month2 * 30;
+            //     this.sample[i].data = temp;
 
-                if (this.week == 30) {
-                  this.month3 = this.week / 30;
-                  temp.months = this.month3;
-                  this.sample[i].data = temp;
-                } else if (this.week > 7) {
-                  this.week2 = this.week / 7;
-                  this.week1 = parseInt(this.week2);
-                  temp.weeks = this.week1;
-                  this.day = this.week - this.week1 * 7;
-                  temp.days = this.day;
-                  this.sample[i].data = temp;
-                } else if (this.week == 7) {
-                  this.week3 = this.week / 7;
-                  temp.weeks = this.week3;
-                  this.sample[i].data = temp;
-                } else if (this.week < 7) {
-                  temp.days = this.week;
-                  this.sample[i].data = temp;
-                }
-              }
-            } else if (this.days == 30) {
-              this.month3 = this.days / 30;
-              temp.months = this.month3;
-              this.sample[i].data = temp;
-            } else if (this.days > 7 && this.days < 30) {
-              this.week2 = this.days / 7;
-              this.week1 = parseInt(this.week2);
-              temp.weeks = this.week1;
-              this.day = this.days - this.week1 * 7;
-              temp.days = this.day;
-              this.sample[i].data = temp;
-            } else if (this.days == 7) {
-              this.week3 = this.days / 7;
-              temp.weeks = this.week3;
-              this.sample[i].data = temp;
-            } else if (this.days < 7) {
-              temp.days = this.days;
-              this.sample[i].data = temp;
-            }
+            //     if (this.week == 30) {
+            //       this.month3 = this.week / 30;
+            //       temp.months = this.month3;
+            //       this.sample[i].data = temp;
+            //     } else if (this.week > 7) {
+            //       this.week2 = this.week / 7;
+            //       this.week1 = parseInt(this.week2);
+            //       temp.weeks = this.week1;
+            //       this.day = this.week - this.week1 * 7;
+            //       temp.days = this.day;
+            //       this.sample[i].data = temp;
+            //     } else if (this.week == 7) {
+            //       this.week3 = this.week / 7;
+            //       temp.weeks = this.week3;
+            //       this.sample[i].data = temp;
+            //     } else if (this.week < 7) {
+            //       temp.days = this.week;
+            //       this.sample[i].data = temp;
+            //     }
+            //   }
+            // } else if (this.days == 30) {
+            //   this.month3 = this.days / 30;
+            //   temp.months = this.month3;
+            //   this.sample[i].data = temp;
+            // } else if (this.days > 7 && this.days < 30) {
+            //   this.week2 = this.days / 7;
+            //   this.week1 = parseInt(this.week2);
+            //   temp.weeks = this.week1;
+            //   this.day = this.days - this.week1 * 7;
+            //   temp.days = this.day;
+            //   this.sample[i].data = temp;
+            // } else if (this.days == 7) {
+            //   this.week3 = this.days / 7;
+            //   temp.weeks = this.week3;
+            //   this.sample[i].data = temp;
+            // } else if (this.days < 7) {
+            //   temp.days = this.days;
+            //   this.sample[i].data = temp;
+            // }
             i++;
           }
         }
@@ -230,6 +254,12 @@ export class BillingComponent implements OnInit {
       if (result.success == true) {
         this.Getpull();
       }
+    });
+  }
+
+  qrValue() {
+    this.billingService.getQRValue(this.gasBalance, this.treasuryAddress).subscribe(result => {
+      this.value = JSON.stringify(result.data);
     });
   }
   getPullPayment() {

@@ -265,7 +265,9 @@ table {
 .Pricedecription {
   font-size: 10px;
   color: #669bff;
-  margin-top: 180px;
+  //margin-top: 180px;
+  position: absolute;
+  bottom: 0px;
 }
 .noMargin {
   margin: 0px !important;

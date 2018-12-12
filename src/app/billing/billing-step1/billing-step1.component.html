@@ -81,9 +81,31 @@
   <form #f="ngForm" (ngSubmit)="f.valid && onSubmit(f)">
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
+        <!--
+          <div class="row productdiv">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <a class="gasAlert" [hidden]="!disabledBtn">
+                <img src="assets/images/warning-sign.png" /> <label (click)="openpopup(QRPopup)" class="errormsg">Send
+                  ETH to your Gas wallet first</label>
+                <div class="GasAlertBody">
+                  Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your
+                  Billing
+                  Model contracts, the payment will fail
+                </div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <select name="ProductName" [(ngModel)]="model.ProductName" #ProductName="ngModel">
+                <option *ngFor="let item of ProductNamelist" [selected]="item.value === 0" [ngValue]="item.label">{{
+                  item.label
+                  }}</option>
+              </select>
+            </div>
+          </div>
+        -->
         <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div [ngClass]="{ 'billingBox-active': button1 }" class="billingBox">
+            <div [ngClass]="{ 'billingBox-active': button1 }" class="billingBox" [class.disabled]="disabledBtn">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6">
@@ -121,7 +143,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div [ngClass]="{ 'billingBox-active': button2 }" class="billingBox">
+            <div [ngClass]="{ 'billingBox-active': button2 }" class="billingBox" [class.disabled]="disabledBtn">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6">
@@ -164,7 +186,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div [ngClass]="{ 'billingBox-active': button3 }" class="billingBox">
+            <div [ngClass]="{ 'billingBox-active': button3 }" class="billingBox" [class.disabled]="disabledBtn">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-8 col-md-8">
@@ -184,6 +206,7 @@
                         value="Single + Recurring"
                         name="billing"
                         [(ngModel)]="model.billing"
+                        [disabled]="disabledBtn"
                         (click)="onChange(bmName2.value)"
                       />
                       <span class="checkmark"></span>
@@ -257,3 +280,28 @@
   }
   </script>
 -->
+
+<ng-template #QRPopup let-c="close" let-d="dismiss">
+  <div class="modelSize2">
+    <div class="closeBtn" (click)="d()"><img src="assets/images/Close-Btn.svg" /></div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to Send eth to your gas wallet</label></div>
+      <div class="col-xs-12 col-sm-4 cols-md-4 QRCodeClass">
+        <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
+      </div>
+      <div class="col-xs-12 col-sm-8 cols-md-8">
+        <div class="qrContents">
+          <p>
+            <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span><br />
+            <span>Gas fees are used to execute any transaction over the Ethereum network.</span>
+            <span>You will be unable to accept new subscriptions or execute any transfers without enough ETH.</span>
+          </p>
+          <div class="qrCodeField">
+            <input type="text" value="{{treasuryAddress}}" #userinput />
+            <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

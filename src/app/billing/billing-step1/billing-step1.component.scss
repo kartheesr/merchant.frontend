@@ -14,6 +14,7 @@
   }
   .bm-main {
     background-color: #ffffff;
+    //padding: 30px 30px;
     padding: 50px 30px;
     min-height: 120px;
     .billingBoxCont {
@@ -71,6 +72,7 @@
   .bs-footer {
     background-color: #ffffff;
     padding: 50px 30px;
+    //padding:0px 30px 50px 30px;
     button {
       display: block;
       background-color: #1c67f5;
@@ -434,4 +436,104 @@ span.Round-tab {
 }
 .container p b {
   font-family: "noto_sansregular" !important;
+}
+
+.disabled {
+  cursor: not-allowed !important;
+  background: #f4f6fb !important;
+  border-radius: 6px;
+  border: 1px solid #cdd3dc;
+}
+select {
+  width: 310px;
+  height: 38px;
+  background-color: #ffffff;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 3px;
+  padding: 10px 20px;
+  border: none;
+  box-shadow: 1px 1px #ccd1d9;
+  float: right;
+}
+.productdiv {
+  margin-bottom: 30px;
+}
+.errormsg {
+  color: #1c67f5;
+  font-size: 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.gasAlert {
+  position: relative;
+  margin-left: 6px;
+  .GasAlertBody {
+    position: absolute;
+    bottom: 30px;
+    left: -5px;
+    background-color: #000000;
+    color: #ffffff;
+    display: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    min-width: 420px;
+    font-size: 11px;
+  }
+  .GasAlertBody:before {
+    content: "";
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    position: absolute;
+    bottom: -5px;
+  }
+}
+.gasAlert img {
+  width: 20px;
+  height: 20px;
+}
+.gasAlert:hover .GasAlertBody {
+  display: block;
+}
+.modelSize2 {
+  height: 342px;
+  width: 650px;
+  background-color: #ffffff !important;
+  label {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 60px 10px 0px 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+.modal-content {
+  left: 6%;
+  margin-top: 60px;
+}
+.qrContents {
+  font-size: 12px;
+  color: #9b9b9b;
+  margin-top: 15px;
+}
+.qrCodeField {
+  input {
+    width: 290px;
+    height: 38px;
+  }
+}
+.qrCont {
+  margin-left: 15px;
+}
+.closeBtn {
+  float: right;
+  padding: 20px;
+  img {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+  }
 }

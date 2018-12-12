@@ -83,7 +83,7 @@ export class BillingRecurringStep3Component implements OnInit {
     this.model.Period2 = this.recurrenceOption[0].label;
     this.model.Period1 = this.recurrenceOption[0].label;
     this.model.rupees = this.selectOption[0].label;
-    this.model.Toggle = true;
+    this.model.Toggle = false;
     this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {

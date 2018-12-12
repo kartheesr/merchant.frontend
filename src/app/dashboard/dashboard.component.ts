@@ -49,19 +49,26 @@ export class DashboardComponent implements OnInit {
       this.transactionHistorArray = result.data;
       for (let val of result.data) {
         {
-          this.pullPaymentsBalance += parseFloat(val.balance);
+          let result;
+          result += parseFloat(val.balance);
+          this.pullPaymentsBalance = result.toFixed(5).replace(/0+$/, '');
         }
       }
     });
     this.dashboardService.gasvalueCalcualtion().subscribe(res => {
-      this.gasBalance = res.balance; // GAS VALUE
+      this.gasBalance = parseFloat(res.balance)
+        .toFixed(5)
+        .replace(/0+$/, ''); // GAS VALUE
     });
     this.dashboardService.getQRCodeaddress().subscribe(result => {
       this.treasuryAddress = result.address; // TREASURY ADDRESS
     });
 
     this.dashboardService.getTreasurybalance().subscribe(result => {
-      this.treasuryBalance = result.result; // TREASURY BALANCE
+      this.treasuryBalance = parseFloat(result.result)
+        .toFixed(5)
+        .replace(/0+$/, ''); // TREASURY BALANCE
+
       setTimeout(() => {
         this.qr();
       }, 3000);

@@ -14,7 +14,7 @@
             [(ngModel)]="model.productName"
             #productName="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+              'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength
             }"
             required
             minlength="2"
@@ -38,7 +38,7 @@
             [(ngModel)]="model.billingModelName"
             #billingModelName="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+              'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
             }"
             required
             minlength="2"
@@ -63,7 +63,7 @@
             [(ngModel)]="model.billModelDes"
             #billModelDes="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+              'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
             }"
             required
             minlength="2"

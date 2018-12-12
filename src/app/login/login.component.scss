@@ -178,6 +178,9 @@
     }
   }
 }
+.email_box::placeholder {
+  color: #d8e0ef;
+}
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1200px) {
   .info-holder {

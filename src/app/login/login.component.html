@@ -13,18 +13,18 @@
     <div class="form-holder">
       <div class="form-content flex-center" *ngIf="loginForm">
         <div class="form-items">
-          <h3>Welcome to PumaPay Merchant Portal!</h3>
+          <h3>Welcome to PumaPay Business Console</h3>
           <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="field-container">
               <label>Email Address</label>
               <input
-                class="form-control"
+                class="form-control email_box"
                 type="email"
                 formControlName="email"
-                placeholder="Email"
+                placeholder="Email address"
                 (input)="falseMsg()"
                 autofocus
-                [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || errormsg }"
+                [ngClass]="{ 'invalid\': ': (submitted && f.email.errors) || errormsg }"
               />
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
@@ -46,9 +46,8 @@
                 class="form-control"
                 type="password"
                 formControlName="password"
-                placeholder="Password"
                 (input)="falseMsg()"
-                [ngClass]="{ 'is-invalid': (submitted && f.password.errors) || passworderrormsg }"
+                [ngClass]="{ 'invalid\': ': (submitted && f.password.errors) || passworderrormsg }"
                 required
               />
 

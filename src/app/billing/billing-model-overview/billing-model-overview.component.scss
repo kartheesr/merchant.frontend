@@ -276,6 +276,7 @@ legend.scheduler-border {
   // border-bottom: none;
   word-wrap: break-word;
   margin-bottom: 0px !important;
+  color: #000 !important;
   color: #828282fa !important;
 }
 
@@ -545,7 +546,7 @@ ul.pagination li:last-child {
   left: 4% !important;
 }
 :host {
-  //font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
 .text-center {
@@ -715,4 +716,10 @@ legend.scheduler-border {
   font-size: 16px !important;
   font-weight: bold !important;
   color: #000 !important;
+}
+.large legend.scheduler-border {
+  color: #304053 !important;
+}
+.largeSmall legend.scheduler-border {
+  color: #828282 !important;
 }

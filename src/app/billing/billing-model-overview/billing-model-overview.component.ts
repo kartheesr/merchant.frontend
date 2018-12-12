@@ -245,7 +245,6 @@ export class BillingModelOverviewComponent implements OnInit {
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
         this.trialPeriod = result.data.trialPeriod / (24 * 3600);
-        console.log('trial', this.trialPeriod);
         this.frequency = this.temp;
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
@@ -259,7 +258,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.overviewdata.gasuseddata().subscribe(result => {
           let gasused = result.data;
           this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-            let cal2 = result.res.gasprice * gasused * 2;
+            let cal2 = result.res.gasprice * gasused;
             this.EtherValue = cal2.toFixed(5).replace(/0+$/, '');
             let Recurrence = this.EtherValue * this.Recurrences;
             this.TotalCost = Recurrence.toFixed(5).replace(/0+$/, '');

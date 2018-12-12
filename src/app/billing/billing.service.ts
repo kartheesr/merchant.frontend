@@ -17,6 +17,8 @@ export class BillingService {
   public user: any;
   public userID: string;
   public OverViewQrcodeUrl;
+  private QRCodeURL;
+  private gasactionUrl;
   private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'api-request-source': 'portal'
@@ -27,6 +29,8 @@ export class BillingService {
     this.actionUrl1 = `${Constants.apiHost}${Constants.apiPrefix}balance/all/`;
     this.billingModelUrl = `${Constants.apiHost}${Constants.apiPrefix}pull-payment-models/`;
     this.OverViewQrcodeUrl = `${Constants.apiHost}${Constants.apiPrefix}qr/`;
+    this.QRCodeURL = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/address`;
+    this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/etherBalance`;
   }
 
   public Getpull(): Observable<any> {
@@ -43,5 +47,27 @@ export class BillingService {
   }
   public getByIdBillingModelqr(id): Observable<any> {
     return this._http.get(this.OverViewQrcodeUrl + id, { headers: this.headers });
+  }
+  public getQRCodeaddress(): Observable<any> {
+    return this._http.get(this.QRCodeURL).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+  public getQRValue(gas, address): Observable<any> {
+    var url = `${Constants.apiHost}${Constants.apiPrefix}qr/${address}/1000000000000000000/${gas}`;
+    return this._http.get(url).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+  public gasvalueCalcualtion(): Observable<any> {
+    return this._http.get(this.gasactionUrl).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
   }
 }

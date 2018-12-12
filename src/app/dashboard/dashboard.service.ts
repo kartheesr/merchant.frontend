@@ -65,11 +65,9 @@ export class DashboardService {
   }
 
   public getQRValue(gas, address): Observable<any> {
-    console.log('gas1-->', gas, address);
     var url = `${Constants.apiHost}${Constants.apiPrefix}qr/${address}/1000000000000000000/${gas}`;
     return this.http.get(url).pipe(
       map((response: HttpResponse) => {
-        console.log('gas2-->', gas, address);
         return response;
       })
     );

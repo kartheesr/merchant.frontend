@@ -69,7 +69,7 @@ export class BillingRecurringStep4Component implements OnInit {
     localStorage.removeItem('newForm');
     let data = {
       merchantID: '4a17335e-bf18-11e8-a355-000000fb1459',
-      title: this.data2.productName,
+      title: this.data2.billingModelName,
       description: this.data2.billModelDes,
       amount: this.data3.amount,
       initialPaymentAmount: 0,

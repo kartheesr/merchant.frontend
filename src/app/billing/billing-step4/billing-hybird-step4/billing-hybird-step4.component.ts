@@ -71,7 +71,7 @@ export class BillingHybirdStep4Component implements OnInit {
     this.editId = localStorage.getItem('editId');
     let data = {
       merchantID: '4a17335e-bf18-11e8-a355-000000fb1459',
-      title: this.Step2data.productName,
+      title: this.Step2data.billingModelName,
       description: this.Step2data.billModelDes,
       amount: this.Step3data.Periodprice,
       initialPaymentAmount: this.Step3data.price,

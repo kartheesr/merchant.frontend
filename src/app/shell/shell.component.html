@@ -8,28 +8,36 @@
         <ul>
           <li>
             <a href="" routerLink="/dashboard" routerLinkActive="active">
-              <div class="imgCont active"><img src="assets/images/dashboard.png" /></div>
-              <div class="imgCont inactive"><img src="assets/images/dashboard_gray.png" /></div>
+              <div class="imgCont active">
+                <img src="assets/images/dashboard.png" />
+              </div>
+              <div class="imgCont inactive">
+                <img src="assets/images/dashboard_gray.png" />
+              </div>
               Dashboard
             </a>
           </li>
           <li>
-            <a href="" routerLink="/product" routerLinkActive="active">
+            <!-- <a href="" routerLink="/product" routerLinkActive="active">
               <div class="imgCont active"><img src="assets/images/products.png" /></div>
               <div class="imgCont inactive"><img src="assets/images/products_gray.png" /></div>
               Products
-            </a>
+            </a> -->
 
-            <ul>
-              <li>
-                <a href="" routerLink="/billing" routerLinkActive="active">
-                  <div class="imgCont active"><img src="assets/images/billing.png" /></div>
-                  <div class="imgCont inactive"><img src="assets/images/billing_gray.png" /></div>
-                  Billing Models
-                </a>
-              </li>
-            </ul>
+            <!-- <ul>
+              <li> -->
+            <a href="" routerLink="/billing" routerLinkActive="active">
+              <div class="imgCont active">
+                <img src="assets/images/billing.png" />
+              </div>
+              <div class="imgCont inactive">
+                <img src="assets/images/billing_gray.png" />
+              </div>
+              Billing Models
+            </a>
           </li>
+          <!-- </ul>
+          </li> -->
         </ul>
 
         <ul class="d-abs">
@@ -44,7 +52,9 @@
         </ul>
       </aside>
       <!---->
-      <section class="wrapper"><router-outlet></router-outlet></section>
+      <section class="wrapper">
+        <router-outlet></router-outlet>
+      </section>
     </div>
   </div>
   <footer class="appFooter">
@@ -62,7 +72,9 @@
             <a href="https://twitter.com/pumapay" target="_blank">
               <i class="fab fa-twitter" aria-hidden="true"></i>
             </a>
-            <a href="https://t.me/PumaPay" target="_blank"> <i class="fa fa-paper-plane" aria-hidden="true"></i> </a>
+            <a href="https://t.me/PumaPay" target="_blank">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </a>
           </span>
         </div>
         <div class="col flex-end-center ">

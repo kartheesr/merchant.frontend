@@ -66,16 +66,16 @@
                         </div>
                         <div class="ImgCont RecurringClass" *ngIf="array.typeID == 3">
                           <img src="assets/images/recurring.png" />
-                          <p>Recurring</p>
+                          <p>Subscription</p>
                         </div>
                         <div class="ImgCont RecurringClass" *ngIf="array.typeID == 5">
                           <img src="assets/images/recurring.png" />
-                          <p>Recurring</p>
+                          <p>Subscription</p>
                         </div>
 
                         <div class="ImgCont SingleRecurringClass" *ngIf="array.typeID == 6">
                           <img src="assets/images/single + recurring.png" />
-                          <p class="logo">Single + Recurring</p>
+                          <p class="logo">Single + Subscription</p>
                         </div>
                       </div>
                       <div class="boxCont row">
@@ -100,7 +100,9 @@
                                 >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
                               </span>
                               <span *ngIf="array.data.days != ''"
-                                >{{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
+                                >{{ array.data.days }}
+                                {{ array.data.days == 1 ? 'day
+                                ' : 'days ' }}
                               </span>
                             </a>
                             <a *ngIf="array.typeID == 5">
@@ -114,7 +116,9 @@
                                 >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
                               </span>
                               <span *ngIf="array.data.days != ''"
-                                >{{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
+                                >{{ array.data.days }}
+                                {{ array.data.days == 1 ? 'day
+                                ' : 'days ' }}
                               </span>
                             </a>
                             <a *ngIf="array.typeID == 6">
@@ -128,7 +132,9 @@
                                 >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
                               </span>
                               <span *ngIf="array.data.days != ''"
-                                >{{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
+                                >{{ array.data.days }}
+                                {{ array.data.days == 1 ? 'day
+                                ' : 'days ' }}
                               </span>
                             </a>
                           </div>

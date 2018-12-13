@@ -29,7 +29,7 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [ngClass]="{ 'invalid\': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
@@ -58,7 +58,7 @@
                       #NoOfRecuurence1="ngModel"
                       (input)="handlechangedays()"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -71,7 +71,7 @@
                       #Period1="ngModel"
                       (change)="handlechangecalculate(Period1)"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
@@ -88,7 +88,7 @@
             </div>
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <span class="BillingCycleClass">Recurrences</span> <br />
+                <span class="BillingCycleClass">Subscriptions</span> <br />
                 <label>Number of billing cycles</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
@@ -102,7 +102,7 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
                       [min]="2"
                       min="2"
@@ -110,7 +110,7 @@
                       appBlockCopyPaste
                     />
                     <div *ngIf="f.submitted">
-                      <div class="errorMSg" [hidden]="!NoOfRecuurence2.errors?.required">Recurrences is required</div>
+                      <div class="errorMSg" [hidden]="!NoOfRecuurence2.errors?.required">Subscriptions is required</div>
                     </div>
                     <div class="errorMSg" *ngIf="NoOfRecuurence2.errors?.min">Need to be more than 1</div>
                   </div>
@@ -144,7 +144,7 @@
             </div>
             <div class="row " *ngIf="model.Toggle">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <label>Start recurring billing after</label>
+                <label>Start subscription billing after</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
                     <input
@@ -160,7 +160,7 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -173,7 +173,7 @@
                       #Period2="ngModel"
                       (change)="handlechangetrailperiods(Period2)"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"

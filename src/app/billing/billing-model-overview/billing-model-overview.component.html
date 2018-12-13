@@ -230,7 +230,7 @@
                 <thead>
                   <tr>
                     <th>Purpose</th>
-                    <th>Number of recurrences</th>
+                    <th>Number of subscriptions</th>
                     <th>
                       Estimated Gas <br />
                       Cost/transaction (ETH)
@@ -241,7 +241,7 @@
 
                 <tbody>
                   <tr>
-                    <td class="userId">Recurring Pull Transaction</td>
+                    <td class="userId">Subscription Pull Transaction</td>
                     <td class="value-td">{{ data.Recurrence ? data.Recurrence : Recurrences }}</td>
                     <td class="value-td">{{ recurrencegas ? recurrencegas : '0.0' }}</td>
                     <td class="value-td">{{ data.TotalCost ? data.TotalCost : TotalCost }}</td>
@@ -491,7 +491,7 @@
                 <thead>
                   <tr>
                     <th>Transaction</th>
-                    <th>Number of recurrences</th>
+                    <th>Number of subscriptions</th>
                     <th>
                       Estimated Gas <br />
                       Cost/transaction (ETH)
@@ -509,7 +509,7 @@
                   </tr>
 
                   <tr>
-                    <td class="userId">Recurring Pull Transaction</td>
+                    <td class="userId">Subscription Pull Transaction</td>
                     <td class="value-td">{{ data.Recurrence ? data.Recurrence : Recurrences }}</td>
                     <td class="value-td">{{ recurrencegas ? recurrencegas : '0.0' }}</td>
                     <td class="value-td">{{ data.RecurrenceETH ? data.RecurrenceETH : RecurrencesETH }}</td>
@@ -770,7 +770,7 @@
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/cycle.svg" /></td>
-                <td>Recurrences: {{ Recurrences }}</td>
+                <td>Subscriptions: {{ Recurrences }}</td>
               </tr>
             </tbody>
           </table>
@@ -849,7 +849,7 @@
               </tr>
               <tr>
                 <td><img class="img-size" src="assets/images/cycle.svg" /></td>
-                <td>Recurrences: {{ Recurrences }}</td>
+                <td>Subscriptions: {{ Recurrences }}</td>
               </tr>
             </tbody>
           </table>

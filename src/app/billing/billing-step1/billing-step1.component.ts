@@ -23,7 +23,7 @@ export class BillingStep1Component implements OnInit {
   button2: boolean = false;
   button3: boolean = false;
   disabled: boolean = true;
-  public disabledBtn = true;
+  //public disabledBtn = true;
   public ProductNamelist: any;
   public ProductName: any;
   public id;

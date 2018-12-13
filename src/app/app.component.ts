@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute, Event } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
@@ -22,7 +22,13 @@ export class AppComponent implements OnInit {
     private titleService: Title,
     private translateService: TranslateService,
     private i18nService: I18nService
-  ) {}
+  ) {
+    router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        history.pushState(null, document.title, location.href);
+      }
+    });
+  }
 
   ngOnInit() {
     // Setup logger

@@ -405,9 +405,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '</svg>' +
       '</td><td>Transfer: Instantly</td></tr></tbody></table></div></div><div class="col-xs-12 col-sm-5 col-md-5 aligndiv"><label class="tit-text">' +
       this.title +
-      '</label> <br /><label class="bm-text">' +
-      this.description +
-      '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">' +
+      '</label> <br/><br /><label class="bill-info">' +
       this.billingdescription +
       '</label></div></div></div></div></div></div>' +
       '<script>function copyValue() {var userinput = document.getElementById("userinput");userinput.select();document.execCommand("copy");}</script></body></html>';
@@ -539,9 +537,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '</tr>' +
       '</tbody></table></div></div><div class="col-xs-12 col-sm-5 col-md-5 aligndiv"><label class="tit-text">' +
       this.title +
-      '</label> <br /><label class="bm-text">' +
-      this.description +
-      '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">' +
+      '</label> <br /><br /><label class="bill-info">' +
       this.billingdescription +
       '</label></div></div></div></div></div></div>' +
       '<script>function copyValue(data,years,months,weeks,days,trialYear,trialMonth,trialWeek,trialDay) {' +
@@ -680,9 +676,7 @@ export class BillingModelOverviewComponent implements OnInit {
       this.Recurrences +
       '</td></tr></tbody></table></div></div><div class="col-xs-12 col-sm-5 col-md-5 aligndiv"><label class="tit-text">' +
       this.title +
-      '</label> <br /><label class="bm-text">' +
-      this.description +
-      '</label> <br /><label class="bill-info">Billing Model description.</label><br /><label class="bill-info">' +
+      '</label> <br /><br /><label class="bill-info">' +
       this.billingdescription +
       '</label></div></div></div></div></div></div>' +
       '<script>function copyValue(years,months,weeks,days) {' +

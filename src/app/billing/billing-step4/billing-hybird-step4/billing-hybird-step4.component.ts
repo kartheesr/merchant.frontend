@@ -31,7 +31,7 @@ export class BillingHybirdStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.model = {
@@ -66,7 +66,7 @@ export class BillingHybirdStep4Component implements OnInit {
         value: 2
       }
     ];
-    this.model.transactions = this.transcationoption[0].label;
+    this.model.transactions = this.transcationoption[1].label;
     this.Step1data = this.service1.model;
     this.Step2data = this.service2.model;
     this.Step3data = this.service3.model;

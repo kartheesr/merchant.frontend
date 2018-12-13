@@ -39,7 +39,7 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to send ETH to your gas wallet</label></div>
+    <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to send ETH to your Gas wallet</label></div>
     <div class="col-xs-12 col-sm-2 cols-md-2 QRCodeClass">
       <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
     </div>
@@ -77,11 +77,13 @@
         <tr>
           <th>Date</th>
           <th>Billing Model</th>
-          <th>Status</th>
+          <!-- <th>Status</th> -->
           <th>TxHash</th>
-          <th>Customer ID</th>
+          <!-- <th>Customer ID</th> -->
+          <th>Customer Address</th>
           <th>PullPayments Account Address</th>
-          <th>PMA Balance</th>
+          <!-- <th>PMA Balance</th> -->
+          <th>Amount</th>
         </tr>
       </thead>
       <tbody>
@@ -89,7 +91,7 @@
           <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
           <!-- <td>{{ val.billingModel }}</td> -->
           <td>Gold</td>
-          <td>{{ val.statusID }}/6</td>
+          <!-- <td>{{ val.statusID }}/6</td> -->
           <td (click)="txhash(val.hash)">
             <span class="overflow-Address TxHash">{{ val.hash }}</span>
           </td>

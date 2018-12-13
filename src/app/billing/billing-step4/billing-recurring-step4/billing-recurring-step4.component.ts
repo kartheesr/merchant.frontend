@@ -30,7 +30,7 @@ export class BillingRecurringStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.model = {
@@ -63,7 +63,7 @@ export class BillingRecurringStep4Component implements OnInit {
         value: 2
       }
     ];
-    this.model.transactions = this.transcationoption[0].label;
+    this.model.transactions = this.transcationoption[1].label;
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
     this.data3 = this.service3.model;

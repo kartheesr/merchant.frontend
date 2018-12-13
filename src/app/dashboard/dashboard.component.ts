@@ -87,10 +87,10 @@ export class DashboardComponent implements OnInit {
     });
   }
   txhash(data) {
-    window.open(`https://etherscan.io/tx/${data}`, '_blank');
+    window.open(`https://ropsten.etherscan.io/tx/${data}`, '_blank');
   }
   pullpaymentaddress(data) {
-    window.open(`https://etherscan.io/address/${data}`, '_blank');
+    window.open(`https://ropsten.etherscan.io/address/${data}`, '_blank');
   }
   learnMore() {
     window.open(`https://wiki.pumapay.io/#/page/backendtreasury`, '_blank');

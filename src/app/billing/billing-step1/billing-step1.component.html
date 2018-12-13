@@ -112,19 +112,12 @@
                     <!-- <input type="radio" value="Single" name="billing" [(ngModel)]="model.billing" /> -->
                     <label class="container">
                       <p>
-                        <b
-                          >Single <br />
+                        <b>Single
+                          <br />
                           <span>PullPayment</span>
                         </b>
                       </p>
-                      <input
-                        #bmName
-                        type="radio"
-                        value="Single"
-                        name="billing"
-                        [(ngModel)]="model.billing"
-                        (click)="onChange(bmName.value)"
-                      />
+                      <input #bmName type="radio" value="Single" name="billing" [(ngModel)]="model.billing" (click)="onChange(bmName.value)" />
                       <span class="checkmark"></span>
                     </label>
                   </div>
@@ -135,10 +128,14 @@
                       </p>
                     </div>
                   -->
-                  <div class="col-xs-12 col-sm-6 col-md-6"><img src="assets/images/single.svg" /></div>
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <img src="assets/images/single.svg" />
+                  </div>
                 </div>
               </div>
-              <div class="boxCont"><p>Access a one-time payment from your customers.</p></div>
+              <div class="boxCont">
+                <p>Access a one-time payment from your customers.</p>
+              </div>
             </div>
           </div>
 
@@ -150,18 +147,12 @@
                     <!-- <input type="radio" value="Recurring" name="billing" [(ngModel)]="model.billing" /> -->
                     <label class="container">
                       <p>
-                        <b
-                          >Subscription <br />
+                        <b>Subscription
+                          <br />
                           <span>PullPayment</span>
                         </b>
                       </p>
-                      <input
-                        #bmName1
-                        type="radio"
-                        value="Subscription"
-                        name="billing"
-                        [(ngModel)]="model.billing"
-                        (click)="onChange(bmName1.value)"
+                      <input #bmName1 type="radio" value="Subscription" name="billing" [(ngModel)]="model.billing" (click)="onChange(bmName1.value)"
                       />
                       <span class="checkmark"></span>
                     </label>
@@ -173,12 +164,15 @@
                       </p>
                     </div>
                   -->
-                  <div class="col-xs-12 col-sm-6 col-md-6"><img src="assets/images/recurring.svg" /></div>
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <img src="assets/images/recurring.svg" />
+                  </div>
                 </div>
               </div>
               <div class="boxCont">
                 <p>
-                  Create a recurring billing model to charge customer a fixed amount at a predefined interval. <br />
+                  Create a recurring billing model to charge customer a fixed amount at a predefined interval.
+                  <br />
                   <span class="fontstyle">Example: monthly subscription</span>
                 </p>
               </div>
@@ -195,20 +189,13 @@
                     -->
                     <label class="container">
                       <p>
-                        <b
-                          >Single+Subscription <br />
+                        <b>Single+Subscription
+                          <br />
                           <span>PullPayment</span>
                         </b>
                       </p>
-                      <input
-                        #bmName2
-                        type="radio"
-                        value="Single + Subscription"
-                        name="billing"
-                        [(ngModel)]="model.billing"
-                        [disabled]="disabledBtn"
-                        (click)="onChange(bmName2.value)"
-                      />
+                      <input #bmName2 type="radio" value="Single + Subscription" name="billing" [(ngModel)]="model.billing" [disabled]="disabledBtn"
+                        (click)="onChange(bmName2.value)" />
                       <span class="checkmark"></span>
                     </label>
                   </div>
@@ -219,15 +206,16 @@
                       </p>
                     </div>
                   -->
-                  <div class="col-xs-12 col-sm-4 col-md-4"><img src="assets/images/single+recurring.svg" /></div>
+                  <div class="col-xs-12 col-sm-4 col-md-4">
+                    <img src="assets/images/single+recurring.svg" />
+                  </div>
                 </div>
               </div>
               <div class="boxCont">
                 <p>
-                  You can Accept a single payment followed by a recurring payment. <br />
-                  <span class="fontstyle"
-                    >For example, this can be a registration fee followed by monthly membership.</span
-                  >
+                  Accept a single payment followed by a recurring payment.
+                  <br />
+                  <span class="fontstyle">For example, this can be a registration fee followed by monthly membership.</span>
                 </p>
               </div>
             </div>
@@ -235,7 +223,9 @@
         </div>
       </div>
     </div>
-    <div class="bs-footer"><button type="submit" class="button" [disabled]="disabled">Continue</button></div>
+    <div class="bs-footer">
+      <button type="submit" class="button" [disabled]="disabled">Continue</button>
+    </div>
   </form>
 </div>
 
@@ -283,16 +273,23 @@
 
 <ng-template #QRPopup let-c="close" let-d="dismiss">
   <div class="modelSize2">
-    <div class="closeBtn" (click)="d()"><img src="assets/images/Close-Btn.svg" /></div>
+    <div class="closeBtn" (click)="d()">
+      <img src="assets/images/Close-Btn.svg" />
+    </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to Send eth to your gas wallet</label></div>
+      <div class="col-xs-12 col-sm-12 cols-md-12">
+        <label>Scan the QR code to Send eth to your gas wallet</label>
+      </div>
       <div class="col-xs-12 col-sm-4 cols-md-4 QRCodeClass">
-        <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
+        <div class="qrCont">
+          <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-8 cols-md-8">
         <div class="qrContents">
           <p>
-            <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span><br />
+            <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span>
+            <br />
             <span>Gas fees are used to execute any transaction over the Ethereum network.</span>
             <span>You will be unable to accept new subscriptions or execute any transfers without enough ETH.</span>
           </p>

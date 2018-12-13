@@ -18,6 +18,8 @@ export class BillingServiceCall {
   public gasactionUrl: string;
   public gasusedurl: string;
   public usdvalue: string;
+  public transfergas: string;
+  public recurrencegas: string;
   setValues(values) {
     this.model = values;
   }
@@ -30,6 +32,8 @@ export class BillingServiceCall {
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/gas`;
     this.gasusedurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/gasused`;
     this.usdvalue = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usdvalue`;
+    this.transfergas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transferGas`;
+    this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pullPaymentGas`;
   }
   public billingPost(data): Observable<any> {
     return this._http.post(this.actionUrl, data, { headers: this.headers }).pipe(
@@ -58,6 +62,22 @@ export class BillingServiceCall {
 
   public gasusdvalue(): Observable<any> {
     return this._http.get(this.usdvalue).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+
+  public gastransferpull(): Observable<any> {
+    return this._http.get(this.recurrencegas).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+
+  public gasrecurrence(): Observable<any> {
+    return this._http.get(this.transfergas).pipe(
       map((response: HttpResponse) => {
         return response;
       })

@@ -158,7 +158,7 @@
                       <input
                         #bmName1
                         type="radio"
-                        value="Recurring"
+                        value="Subscription"
                         name="billing"
                         [(ngModel)]="model.billing"
                         (click)="onChange(bmName1.value)"
@@ -179,7 +179,7 @@
               <div class="boxCont">
                 <p>
                   Create a recurring billing model to charge customer a fixed amount at a predefined interval. <br />
-                  <span class="fontstyle">Example,monthly subscription</span>
+                  <span class="fontstyle">Example: monthly subscription</span>
                 </p>
               </div>
             </div>
@@ -203,7 +203,7 @@
                       <input
                         #bmName2
                         type="radio"
-                        value="Single + Recurring"
+                        value="Single + Subscription"
                         name="billing"
                         [(ngModel)]="model.billing"
                         [disabled]="disabledBtn"

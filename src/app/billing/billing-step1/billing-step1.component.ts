@@ -87,8 +87,8 @@ export class BillingStep1Component implements OnInit {
         if (this.editId) {
           this.Typeid1 = result.data.typeID;
           if (this.Typeid1 == 1) this.model.billing = 'Single';
-          else if (this.Typeid1 == 2) this.model.billing = 'Recurring';
-          else this.model.billing = 'Single + Recurring';
+          else if (this.Typeid1 == 2) this.model.billing = 'Subscription';
+          else this.model.billing = 'Single + Subscription';
         }
       }
     });
@@ -99,12 +99,12 @@ export class BillingStep1Component implements OnInit {
       this.disabled = false;
       this.button2 = false;
       this.button3 = false;
-    } else if (value == 'Recurring') {
+    } else if (value == 'Subscription') {
       this.button1 = false;
       this.disabled = false;
       this.button2 = true;
       this.button3 = false;
-    } else if (value == 'Single + Recurring') {
+    } else if (value == 'Single + Subscription') {
       this.button1 = false;
       this.disabled = false;
       this.button2 = false;

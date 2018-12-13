@@ -30,7 +30,7 @@ export class BillingRecurringStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.model = {
@@ -80,7 +80,7 @@ export class BillingRecurringStep4Component implements OnInit {
       numberOfPayments: this.data3.No2,
       typeID: this.data3.typeid,
       frequency: this.data3.daycount,
-      networkID: 1,
+      networkID: 3,
       automatedCashOut: true,
       cashOutFrequency: 1
     };
@@ -102,7 +102,7 @@ export class BillingRecurringStep4Component implements OnInit {
         let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
         this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
         let USD = this.model.TotalETH * this.model.USDValue;
-        this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
+        this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
       });
     });
     this.model.Recurrence = this.data3.No2;
@@ -146,7 +146,7 @@ export class BillingRecurringStep4Component implements OnInit {
       let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
       this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       let USD = this.model.TotalETH * this.model.USDValue;
-      this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
+      this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
       this.service4.setValues(this.model);
     } else if (data.value == 'On every billing cycle') {
       this.disabledBtn = false;
@@ -159,7 +159,7 @@ export class BillingRecurringStep4Component implements OnInit {
       let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
       this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       let USD = this.model.TotalETH * this.model.USDValue;
-      this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
+      this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
       this.service4.setValues(this.model);
     } else {
       this.disabledBtn = true;
@@ -171,7 +171,7 @@ export class BillingRecurringStep4Component implements OnInit {
       let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
       this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       let USD = this.model.TotalETH * this.model.USDValue;
-      this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
+      this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
       this.service4.setValues(this.model);
     }
   }

@@ -32,7 +32,7 @@ export class BillingStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) {}
+  ) { }
   ngOnInit() {
     this.model = {
       EtherValue: '',
@@ -58,7 +58,7 @@ export class BillingStep4Component implements OnInit {
       numberOfPayments: 1,
       typeID: 2,
       frequency: 1,
-      networkID: 1,
+      networkID: 3,
       automatedCashOut: true,
       cashOutFrequency: 1
     };
@@ -78,7 +78,7 @@ export class BillingStep4Component implements OnInit {
           let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
           this.model.TotalETH = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
           let USD = this.model.TotalETH * this.model.USDValue;
-          this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
+          this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
           this.service4.setValues(this.model);
         });
       });

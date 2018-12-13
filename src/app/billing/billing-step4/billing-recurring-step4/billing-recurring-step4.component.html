@@ -1,75 +1,3 @@
-<!--
-  <div class="billingModelContainer">
-    <div class="bmr-main flex-center-center">
-      <div class="mainContent">
-        <div class="billingBoxCont">
-          <label calss="labelalign">GAS FUNDING FOR EACH SUBCRIBED CUSTOMER</label><br />
-          <label class="labelalign">Frequency</label>
-          <div class="col-xs-12 col-sm-8 col-md-8 padd_left">
-            <select
-              name="transactions"
-              [(ngModel)]="model.transactions"
-              #transactions="ngModel"
-              (change)="handleChangetransactions(transactions)"
-            >
-              <option *ngFor="let item of transcationoption" [selected]="item.value === 0" [ngValue]="item.label">{{
-                item.label
-              }}</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-10 col-md-10 TableData">
-          <div class="row">
-            <div class="Columndata col-md-3">Purpose</div>
-            <div class="Columndata txt-ctr col-md-3">Number of recurrences</div>
-            <div class="Columndata txt-ctr col-md-3">Estimated Gas Cost/transaction(ETH)</div>
-            <div class="Columndata txt-ctr col-md-3">Total Estimated Gas cost (ETH)</div>
-          </div>
-          <div class="row">
-            <div class="Columndata right-bor col-md-3">Recurring Pull Transaction</div>
-            <div class="Columndata bor_line  col-md-3">{{ model.Recurrence }}</div>
-            <div class="Columndata bor_line  col-md-3">{{ model.EtherValue }}</div>
-            <div class="Columndata bor_line  col-md-3">{{ model.TotalCost }}</div>
-          </div>
-          <div class="row">
-            <div class="Columndata right-bor col-md-3">
-              Transfers from <br />
-              PullPayment Account to Treasury
-            </div>
-            <div class="Columndata bor_line  col-md-3">{{ model.TransRecurrence }}</div>
-            <div class="Columndata bor_line  col-md-3">{{ model.EtherValue }}</div>
-            <div class="Columndata bor_line  col-md-3">{{ model.TotalcostRecuurence }}</div>
-          </div>
-          <div class="row">
-            <div class="Columndata right-bor col-md-3">Total</div>
-            <div class="Columndata bor_line  col-md-3"></div>
-            <div class="Columndata bor_line  col-md-3"></div>
-            <div class="Columndata2 bor_line col-md-3">{{ model.TotalETH }}</div>
-          </div>
-        </div>
-        <div class="txtContent">
-          <img class="info" src="assets/images/info.png" class="info" />
-          <label class="titleFun">Funding the PullPayment Accounts with Gas</label>
-          <label class="titleContent">
-            Every time a new customer subscribes to a billing model, the system creates a new PullPayment account. The
-            PullPayment account will continuously bill the customer according to the billing model’s parameters. The PMA
-            tokens will be kept in the PullPayment account until they are transferred to the Treasury.
-          </label>
-          <label class="titleContent"
-            >Choose how often you want to transfer funds from all the PullPayment accounts associated with this billing
-            model to your Treasury. Depending on your choice, the specific amount of ETH is allocated for those recurring
-            payments to pay for the gas fees of the transfer to the Treasury.
-          </label>
-          <label class="tContent"> Learn more </label>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <button class="backbtn" (click)="onBack()">Back</button>
-          <button class="continuebtn" (click)="onPublish()">Publish</button>
-        </div>
-      </div>
-    </div>
-  </div>
--->
 <div class="mainContent">
   <label class="titleOne">Transfer from PullPayment Accounts to Treasury</label><br />
   <label class="subtitle">Choose how often you will receive your payments from the PullPayment Accounts</label>
@@ -102,7 +30,7 @@
           <tr>
             <td>Recurring Pull Transaction</td>
             <td class="tablevalue">{{ model.Recurrence }}</td>
-            <td class="tablevalue">{{ model.EtherValue }}</td>
+            <td class="tablevalue">{{ model.recurrencegas }}</td>
             <td class="tablevalue">{{ model.TotalCost }}</td>
           </tr>
           <tr>
@@ -111,7 +39,7 @@
               PullPayment Account to Treasury
             </td>
             <td class="tablevalue">{{ model.TransRecurrence }}</td>
-            <td class="tablevalue">{{ model.EtherValue }}</td>
+            <td class="tablevalue">{{ model.Transfergas }}</td>
             <td class="tablevalue">{{ model.TotalcostRecuurence }}</td>
           </tr>
           <tr>

@@ -1,38 +1,3 @@
-<!--
-  <div class="mainContent">
-    <label class="titleOne">GAS FUNDING FOR EACH SUBSCRIBED CUSTOMER</label>
-    <div class="sTable">
-      <div class="row">
-        <div class="bgSet col-md-3">Transaction</div>
-        <div class="bgSet txt-align col-md-3">Total Estimated Gas cost (ETH)</div>
-      </div>
-      <div class="row">
-        <div class="bgSet col-md-3">Single Pull Transaction</div>
-        <div class="bgSet2 col-md-3">{{ model.EtherValue }}</div>
-      </div>
-    </div>
-    <div class="txtContent">
-      <img src="assets/images/info.png" class="info" />
-      <label class="titleFun">Funding the PullPayment Accounts with Gas</label>
-      <label class="titleContent">
-        Every time a new customer subscribes to a billing model, the system creates a new PullPayment account. The
-        PullPayment account will continuously bill the customer according to the billing model’s parameters. The PMA
-        tokens will be kept in the PullPayment account until they are transferred to the Treasury.
-      </label>
-      <label class="titleContent"
-        >Choose how often you want to transfer funds from all the PullPayment accounts associated with this billing model
-        to your Treasury. Depending on your choice, the specific amount of ETH is allocated for those recurring payments
-        to pay for the gas fees of the transfer to the Treasury.
-      </label>
-      <label class="tContent"> Learn more </label>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 FooterDiv">
-      <button class="backbtn" (click)="onBack()">Back</button>
-      <button class=" continuebtn" (click)="onPublish()">Publish</button>
-    </div>
-  </div>
--->
-
 <div class="mainContent">
   <label class="titleOne">Transfer from PullPayment Accounts to Treasury</label><br />
   <label class="subtitle"
@@ -53,7 +18,7 @@
           <tr>
             <td>Single pull transaction</td>
             <td class="tablevalue">{{ SingleRecurrence }}</td>
-            <td class="tablevalue">{{ model.EtherValue }}</td>
+            <td class="tablevalue">{{ model.recurrencegas }}</td>
             <td class="tablevalue">{{ model.SingleETH }}</td>
           </tr>
           <tr>
@@ -62,7 +27,7 @@
               PullPayment Account to Treasury
             </td>
             <td class="tablevalue">{{ TransferRecurrence }}</td>
-            <td class="tablevalue">{{ model.EtherValue }}</td>
+            <td class="tablevalue">{{ model.Transfergas }}</td>
             <td class="tablevalue">{{ model.TransferETH }}</td>
           </tr>
           <tr>

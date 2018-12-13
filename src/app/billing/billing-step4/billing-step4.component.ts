@@ -39,7 +39,9 @@ export class BillingStep4Component implements OnInit {
       SingleETH: '',
       TransferETH: '',
       USDValue: '',
-      TotalUSD: ''
+      TotalUSD: '',
+      Transfergas: '',
+      recurrencegas: ''
     };
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
@@ -61,23 +63,24 @@ export class BillingStep4Component implements OnInit {
       cashOutFrequency: 1
     };
     this.data = data;
-    this.service4.gasusdvalue().subscribe(result => {
-      this.model.USDValue = result.data.USD;
-    });
-    this.service4.gasuseddata().subscribe(result => {
-      let gasused = result.data;
-      this.service4.gasvalueCalcualtion().subscribe(result => {
-        let cal = result.res.gasprice * gasused * 2;
-        this.model.EtherValue = cal.toFixed(5).replace(/0+$/, '');
-        let sample = this.model.EtherValue * this.SingleRecurrence;
-        let data = this.model.EtherValue * this.TransferRecurrence;
-        this.model.SingleETH = sample.toFixed(5).replace(/0+$/, '');
-        this.model.TransferETH = data.toFixed(5).replace(/0+$/, '');
-        let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
-        this.model.TotalETH = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
-        let USD = this.model.TotalETH * this.model.USDValue;
-        this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
-        this.service4.setValues(this.model);
+    this.service4.gastransferpull().subscribe(result => {
+      let gas = result.data * 0.00000001;
+      this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+      this.service4.gasrecurrence().subscribe(result => {
+        let val = result.data * 0.00000001;
+        this.model.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+        this.service4.gasusdvalue().subscribe(result => {
+          this.model.USDValue = result.data.USD;
+          let sample = this.model.recurrencegas * this.SingleRecurrence;
+          this.model.SingleETH = sample.toFixed(5).replace(/0+$/, '');
+          let data = this.model.Transfergas * this.TransferRecurrence;
+          this.model.TransferETH = data.toFixed(5).replace(/0+$/, '');
+          let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
+          this.model.TotalETH = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
+          let USD = this.model.TotalETH * this.model.USDValue;
+          this.model.TotalUSD = parseFloat(USD.toFixed(5).replace(/0+$/, ''));
+          this.service4.setValues(this.model);
+        });
       });
     });
   }

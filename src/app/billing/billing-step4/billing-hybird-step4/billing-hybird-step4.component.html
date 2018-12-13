@@ -1,84 +1,3 @@
-<!--
-  <div class="billingModelContainer">
-    <div class="bm-main flex-center-center">
-      <div class="billingBoxCont">
-        <label class="labelalign">GAS FUNDING FOR EACH SUBSCRIBED CUSTOMER</label>
-        <div class="SelectComponent">
-          <label class="labelalign">Frequency</label>
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <select
-              name="transactions"
-              [(ngModel)]="model.transactions"
-              #transactions="ngModel"
-              (change)="handleChangetransactions(transactions)"
-            >
-              <option *ngFor="let item of transcationoption" [ngValue]="item.label">{{ item.label }}</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-10 col-md-10">
-          <table>
-            <tr>
-              <td class="row1">Transcation</td>
-              <td class="row1">Number of recurrences</td>
-              <td class="row1">Estimated Gas Cost/transation(ETH)</td>
-              <td class="row1">Total Estimated Gas Cost(ETH)</td>
-            </tr>
-            <tr>
-              <td class="row1">Inital Charge</td>
-              <td class="row2">{{ model.initialRecurrence }}</td>
-              <td class="row3">{{ model.initialETH }}</td>
-              <td class="row4">{{ model.initialETH }}</td>
-            </tr>
-            <tr>
-              <td class="row1">Recurring Pull Transaction</td>
-              <td class="row2">{{ model.Recurrence }}</td>
-              <td class="row3">{{ model.initialETH }}</td>
-              <td class="row4">{{ model.RecurrenceETH }}</td>
-            </tr>
-            <tr>
-              <td class="row1">
-                Transfers from<br />
-                PullPayment Account to Treasury
-              </td>
-              <td class="row2">{{ model.PullRecurrence }}</td>
-              <td class="row3">{{ model.initialETH }}</td>
-              <td class="row4">{{ model.PullRecurrencecost }}</td>
-            </tr>
-            <tr>
-              <td class="row1">Total</td>
-              <td class="row2"></td>
-              <td class="row3"></td>
-              <td class="row4 rowcolor">{{ model.TotalETH }}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="Fundingtext">
-      <img src="assets/images/info.png" class="info" />
-      <label class="Fundinghead">Funding the PullPayment Accounts with Gas</label>
-      <label class="titleContent">
-        Every time a new customer subscribes to a billing model, the system creates a new PullPayment account. The
-        PullPayment account will continuously bill the customer according to the billing model’s parameters. The PMA
-        tokens will be kept in the PullPayment account until they are transferred to the Treasury.
-      </label>
-      <label class="titleContent">
-        Choose how often you want to transfer funds from all the PullPayment accounts associated with this billing model
-        to your Treasury. Depending on your choice, the specific amount of ETH is allocated for those recurring payments
-        to pay for the gas fees of the transfer to the Treasury.
-      </label>
-      <label class="tContent"> Learn more </label>
-    </div>
-
-    <div class="bm-footer">
-      <button type="reset" (click)="onBack()" class="backbtn">Back</button>
-      <button type="submit" class="continuebtn" (click)="onPublish()">Publish</button>
-    </div>
-  </div>
--->
 <div class="mainContent">
   <label class="titleOne">Transfer from PullPayment Accounts to Treasury</label><br />
   <label class="subtitle">Choose how often you will receive your payments from the PullPayment Accounts</label>
@@ -108,13 +27,13 @@
           <tr>
             <td>Inital Charge</td>
             <td class="tablevalue">{{ model.initialRecurrence }}</td>
-            <td class="tablevalue">{{ model.initialETH }}</td>
+            <td class="tablevalue">{{ model.recurrencegas }}</td>
             <td class="tablevalue">{{ model.initialETH }}</td>
           </tr>
           <tr>
             <td>Recurring Pull Transaction</td>
             <td class="tablevalue">{{ model.Recurrence }}</td>
-            <td class="tablevalue">{{ model.initialETH }}</td>
+            <td class="tablevalue">{{ model.recurrencegas }}</td>
             <td class="tablevalue">{{ model.RecurrenceETH }}</td>
           </tr>
           <tr>
@@ -123,7 +42,7 @@
               PullPayment Account to Treasury
             </td>
             <td class="tablevalue">{{ model.PullRecurrence }}</td>
-            <td class="tablevalue">{{ model.initialETH }}</td>
+            <td class="tablevalue">{{ model.Transfergas }}</td>
             <td class="tablevalue">{{ model.PullRecurrencecost }}</td>
           </tr>
           <tr>

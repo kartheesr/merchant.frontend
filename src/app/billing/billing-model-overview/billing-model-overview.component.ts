@@ -61,6 +61,7 @@ export class BillingModelOverviewComponent implements OnInit {
   previouslist = '';
   nextlist = '';
   public currencySymbol: string;
+  SingleRecurrence;
   //hybird
   public initialRecurrence;
   public PullRecurrence;
@@ -72,6 +73,10 @@ export class BillingModelOverviewComponent implements OnInit {
   public TransRecurrence;
   public TotalCost;
   public TotalcostRecuurence;
+
+  //API value
+  public Transfergas;
+  public recurrencegas;
   constructor(
     public service: BillingService,
     @Inject(DOCUMENT) private document: any,
@@ -213,12 +218,23 @@ export class BillingModelOverviewComponent implements OnInit {
       //   this.temp.days = this.days;
       // }
       if (result.data.typeID == 2) {
-        this.overviewdata.gasuseddata().subscribe(result => {
-          let gasused = result.data;
-          this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-            let cal = result.res.gasprice * gasused * 2;
-            let add = cal.toFixed(5).replace(/0+$/, '');
-            this.EtherValue = parseFloat(add) + parseFloat(add);
+        this.overviewdata.gastransferpull().subscribe(result => {
+          let gas = result.data * 0.00000001;
+          this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+          this.overviewdata.gasrecurrence().subscribe(result => {
+            let val = result.data * 0.00000001;
+            this.model.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+            this.overviewdata.gasusdvalue().subscribe(result => {
+              this.model.USDValue = result.data.USD;
+              this.SingleRecurrence = 1;
+              let sample = this.model.recurrencegas * this.SingleRecurrence;
+              this.model.SingleETH = sample.toFixed(5).replace(/0+$/, '');
+              this.TransRecurrence = 1;
+              let data = this.model.Transfergas * this.TransRecurrence;
+              this.model.TransferETH = data.toFixed(5).replace(/0+$/, '');
+              let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
+              this.EtherValue = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
+            });
           });
         });
         this.data = this.overviewdata.model;
@@ -256,17 +272,19 @@ export class BillingModelOverviewComponent implements OnInit {
         this.TotalCost = 0;
         this.TotalcostRecuurence = 0;
         this.TotalETH = 0;
-        this.overviewdata.gasuseddata().subscribe(result => {
-          let gasused = result.data;
-          this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-            let cal2 = result.res.gasprice * gasused;
-            this.EtherValue = cal2.toFixed(5).replace(/0+$/, '');
-            let Recurrence = this.EtherValue * this.Recurrences;
-            this.TotalCost = Recurrence.toFixed(5).replace(/0+$/, '');
-            let trans = this.EtherValue * this.TransRecurrence;
-            this.TotalcostRecuurence = trans.toFixed(5).replace(/0+$/, '');
-            let total = parseFloat(this.TotalCost) + parseFloat(this.TotalcostRecuurence);
-            this.TotalETH = total.toFixed(5).replace(/0+$/, '');
+        this.overviewdata.gastransferpull().subscribe(result => {
+          let gas = result.data * 0.00000001;
+          this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+          this.overviewdata.gasrecurrence().subscribe(result => {
+            let val = result.data * 0.00000001;
+            this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+            let sample = this.recurrencegas * this.Recurrences;
+            this.TotalCost = sample.toFixed(5).replace(/0+$/, '');
+            this.TransRecurrence = 1;
+            let data = parseFloat(this.Transfergas) * this.TransRecurrence;
+            this.TotalcostRecuurence = data.toFixed(5).replace(/0+$/, '');
+            let Total = parseFloat(this.TotalCost) + parseFloat(this.TotalcostRecuurence);
+            this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
           });
         });
       } else {
@@ -293,20 +311,21 @@ export class BillingModelOverviewComponent implements OnInit {
         this.RecurrencesETH = 0;
         this.PullRecurrenceETH = 0;
         this.TotalETH = 0;
-        this.overviewdata.gasuseddata().subscribe(result => {
-          let gasused = result.data;
-          this.overviewdata.gasvalueCalcualtion().subscribe(result => {
-            let cal = result.res.gasprice * gasused * 2;
-            this.EtherValue = cal.toFixed(5).replace(/0+$/, '');
-            let intial = this.EtherValue * this.initialRecurrence;
-            this.intialETH = intial.toFixed(5).replace(/0+$/, '');
-            let recurrence = this.EtherValue * this.Recurrences;
-            this.RecurrencesETH = recurrence.toFixed(5).replace(/0+$/, '');
-            let pull = this.EtherValue * this.PullRecurrence;
-            this.PullRecurrenceETH = pull.toFixed(5).replace(/0+$/, '');
-            let total =
-              parseFloat(this.intialETH) + parseFloat(this.RecurrencesETH) + parseFloat(this.PullRecurrenceETH);
-            this.TotalETH = total.toFixed(5).replace(/0+$/, '');
+        this.overviewdata.gastransferpull().subscribe(result => {
+          let gas = result.data * 0.00000001;
+          this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+          this.overviewdata.gasrecurrence().subscribe(result => {
+            let vala = result.data * 0.00000001;
+            this.recurrencegas = vala.toFixed(5).replace(/0+$/, '');
+            let valy = this.initialRecurrence * this.recurrencegas;
+            this.intialETH = valy.toFixed(5).replace(/0+$/, '');
+            let sample = this.recurrencegas * this.Recurrences;
+            this.RecurrencesETH = sample.toFixed(5).replace(/0+$/, '');
+            let cost = this.PullRecurrence * this.Transfergas;
+            this.PullRecurrenceETH = cost.toFixed(5).replace(/0+$/, '');
+            let Total =
+              parseFloat(this.RecurrencesETH) + parseFloat(this.intialETH) + parseFloat(this.PullRecurrenceETH);
+            this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
           });
         });
       }

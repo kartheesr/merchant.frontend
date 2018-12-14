@@ -23,7 +23,7 @@ export class BillingStep2Component implements OnInit {
     private service: BillingServiceStep2,
     private billingdata: BillingServiceStep1,
     private stepTrack: StepperComponent
-  ) {}
+  ) { }
   ngOnInit() {
     this.homePage = {
       count: 140
@@ -98,7 +98,7 @@ export class BillingStep2Component implements OnInit {
   }
   handleCount(data) {
     if (data.value.length > 0) {
-      let count = data.value.length - 140;
+      let count = 140 - data.value.length;
       this.homePage.count = count;
       this.valid = true;
     } else {

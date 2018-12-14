@@ -277,7 +277,6 @@ legend.scheduler-border {
   margin-bottom: 0px !important;
   color: #000 !important;
   color: #828282fa !important;
-  
 }
 
 .flex-center-center {
@@ -442,6 +441,7 @@ table {
   width: 100%;
   padding: 8px;
   font-size: 13px;
+  resize: none;
 }
 .paymentBtn {
   padding-left: 20px;
@@ -727,7 +727,7 @@ legend.scheduler-border {
 //   font-weight: normal !important;
 //   // color: #333333 !important;
 // }
-.scheduler-border .labelcolor{
+.scheduler-border .labelcolor {
   font-weight: normal !important;
   color: #333333 !important;
 }

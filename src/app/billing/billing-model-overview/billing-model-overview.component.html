@@ -144,6 +144,54 @@
   </div>
 </div>
 
+<div class="billingModelContainer" *ngIf="single">
+  <div class="bm-main flex-center-center">
+    <div class="transaction-table">
+      <div class="row">
+        <div class="col"><label>Transaction History</label></div>
+        <div class="col ">
+          <div class="text-right">
+            <pagination-controls
+              (pageChange)="p = $event"
+              previousLabel="{{previouslist}}"
+              nextLabel="{{nextlist}}"
+            ></pagination-controls>
+          </div>
+        </div>
+      </div>
+      <table class="table  table-responsive">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Payments Completed</th>
+            <th>TxHash</th>
+            <th>Customer ID</th>
+            <th>PullPayments Account Address</th>
+            <th>PMA Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let val of (transactionHistorArray | paginate: { itemsPerPage: 10, currentPage: p })">
+            <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
+            <!-- <td>{{ val.billingModel }}</td> -->
+            <!-- <td>Gold</td> -->
+            <td>{{ val.statusID }}/6</td>
+            <td (click)="txhash(val.hash)">
+              <span class="overflow-Address TxHash">{{ val.hash }}</span>
+            </td>
+            <td>
+              <span class="overflow-Address">{{ val.customerAddress }}</span>
+            </td>
+            <td (click)="pullpaymentaddress(val.pullPaymentAddress)">
+              <span class="overflow-Address TxHash">{{ val.pullPaymentAddress }}</span>
+            </td>
+            <td>{{ val.balance }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 <!-- - SINGLE -->
 
 <!-- - RECURRING -->
@@ -359,33 +407,6 @@
             </td>
             <td>{{ val.balance }}</td>
           </tr>
-
-          <!--
-            <tr>
-              <td>13 Jun</td>
-              <td>(2/6)</td>
-              <td class="txHash" (click)="txhash()">Oxdf4c18485dea496d6...</td>
-              <td>723487</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>230,023.76</td>
-            </tr>
-            <tr>
-              <td>13 Jun</td>
-              <td>(2/6)</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>723487</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>230,023.76</td>
-            </tr>
-            <tr>
-              <td>13 Jun</td>
-              <td>(2/6)</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>723487</td>
-              <td class="txHash">Oxdf4c18485dea496d6...</td>
-              <td>230,023.76</td>
-            </tr>
-          -->
         </tbody>
       </table>
     </div>

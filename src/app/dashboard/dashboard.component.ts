@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   error: string;
   treasuryBalance;
   treasuryCurrency;
-  pullPaymentsBalance: number = 0;
+  pullPaymentsBalance;
   sumBal;
   pullPaymentsCurrency;
   gasBalance;
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     private dashboardService: DashboardService,
     @Inject(DOCUMENT) private document: any,
     private BillingServiceCall: BillingServiceCall
-  ) {}
+  ) { }
 
   ngOnInit() {
     var pullpaymentAddress = [];
@@ -52,6 +52,8 @@ export class DashboardComponent implements OnInit {
           let result;
           result += parseFloat(val.balance);
           this.pullPaymentsBalance = result.toFixed(5).replace(/0+$/, '');
+          var nf = new Intl.NumberFormat();
+          this.pullPaymentsBalance = nf.format(this.pullPaymentsBalance);
         }
       }
     });
@@ -59,6 +61,8 @@ export class DashboardComponent implements OnInit {
       this.gasBalance = parseFloat(res.balance)
         .toFixed(5)
         .replace(/0+$/, ''); // GAS VALUE
+      var nf = new Intl.NumberFormat();
+      this.gasBalance = nf.format(this.gasBalance);
     });
     this.dashboardService.getQRCodeaddress().subscribe(result => {
       this.treasuryAddress = result.address; // TREASURY ADDRESS
@@ -68,7 +72,8 @@ export class DashboardComponent implements OnInit {
       this.treasuryBalance = parseFloat(result.result)
         .toFixed(5)
         .replace(/0+$/, ''); // TREASURY BALANCE
-
+      var nf = new Intl.NumberFormat();
+      this.treasuryBalance = nf.format(this.treasuryBalance);
       setTimeout(() => {
         this.qr();
       }, 3000);

@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     private dashboardService: DashboardService,
     @Inject(DOCUMENT) private document: any,
     private BillingServiceCall: BillingServiceCall
-  ) { }
+  ) {}
 
   ngOnInit() {
     var pullpaymentAddress = [];
@@ -47,11 +47,12 @@ export class DashboardComponent implements OnInit {
       this.previouslist = '<';
       this.nextlist = '>';
       this.transactionHistorArray = result.data;
+
+      let data = 0;
       for (let val of result.data) {
-        {
-          let result;
-          result += parseFloat(val.balance);
-          this.pullPaymentsBalance = result.toFixed(5).replace(/0+$/, '');
+        if (val.balance != '0') {
+          data += parseFloat(val.balance);
+          this.pullPaymentsBalance = data.toFixed(5).replace(/0+$/, '');
           var nf = new Intl.NumberFormat();
           this.pullPaymentsBalance = nf.format(this.pullPaymentsBalance);
         }

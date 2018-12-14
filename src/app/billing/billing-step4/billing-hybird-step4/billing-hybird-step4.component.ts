@@ -23,7 +23,7 @@ export class BillingHybirdStep4Component implements OnInit {
   editId;
   public model: any = {};
   public transcationoption: any;
-  public disabledBtn: boolean = true;
+  public disabledBtn: boolean = false;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,

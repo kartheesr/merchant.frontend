@@ -18,8 +18,14 @@
           <tr>
             <td>Single pull transaction</td>
             <td class="tablevalue">{{ SingleRecurrence }}</td>
-            <td class="tablevalue">{{ model.recurrencegas }}</td>
-            <td class="tablevalue">{{ model.SingleETH }}</td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.recurrencegas }}</span>
+              <span class="TotalUSD">(~${{ model.SingleGasUSD }})</span>
+            </td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.SingleETH }}</span>
+              <span class="TotalUSD">(~${{ model.SingleUSD }})</span>
+            </td>
           </tr>
           <tr>
             <td>
@@ -27,8 +33,14 @@
               PullPayment Account to Treasury
             </td>
             <td class="tablevalue">{{ TransferRecurrence }}</td>
-            <td class="tablevalue">{{ model.Transfergas }}</td>
-            <td class="tablevalue">{{ model.TransferETH }}</td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.Transfergas }}</span>
+              <span class="TotalUSD">(~${{ model.TransferGasUSD }})</span>
+            </td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.TransferETH }}</span>
+              <span class="TotalUSD">(~${{ model.TransferUSD }})</span>
+            </td>
           </tr>
           <tr>
             <td>Total</td>

@@ -22,7 +22,7 @@ export class BillingRecurringStep4Component implements OnInit {
   editId;
   public model: any = {};
   public transcationoption: any;
-  public disabledBtn: boolean = true;
+  public disabledBtn: boolean = false;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -87,22 +87,30 @@ export class BillingRecurringStep4Component implements OnInit {
     this.data = data;
     this.service4.gasusdvalue().subscribe(result => {
       this.model.USDValue = result.data.USD;
-    });
-    this.service4.gastransferpull().subscribe(result => {
-      let gas = result.data * 0.00000001;
-      this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
       this.service4.gasrecurrence().subscribe(result => {
         let val = result.data * 0.00000001;
         this.model.recurrencegas = val.toFixed(5).replace(/0+$/, '');
-        let sample = this.model.recurrencegas * this.data3.No2;
-        this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
-        this.model.TransRecurrence = 1;
-        let data = parseFloat(this.model.Transfergas) * this.model.TransRecurrence;
-        this.model.TotalcostRecuurence = data.toFixed(5).replace(/0+$/, '');
-        let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
-        this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
-        let USD = this.model.TotalETH * this.model.USDValue;
-        this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
+        let valUSD = this.model.recurrencegas * this.model.USDValue;
+        this.model.RecurrenceUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
+        this.service4.gastransferpull().subscribe(result => {
+          let gas = result.data * 0.00000001;
+          this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+          let gasUSD = this.model.Transfergas * this.model.USDValue;
+          this.model.TransferUSD = parseFloat(gasUSD.toFixed(2).replace(/0+$/, ''));
+          let sample = this.model.recurrencegas * this.data3.No2;
+          this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
+          let USDCost = this.model.RecurrenceUSD * this.data3.No2;
+          this.model.TotalUSDCost = parseFloat(USDCost.toFixed(2).replace(/0+$/, ''));
+          this.model.TransRecurrence = 1;
+          let data = parseFloat(this.model.Transfergas) * this.model.TransRecurrence;
+          this.model.TotalcostRecuurence = data.toFixed(5).replace(/0+$/, '');
+          let dataUSD = this.model.TransferUSD * this.model.TransRecurrence;
+          this.model.TotalcostRecuurenceUSD = parseFloat(dataUSD.toFixed(2).replace(/0+$/, ''));
+          let Total = parseFloat(this.model.TotalCost) + parseFloat(this.model.TotalcostRecuurence);
+          this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
+          let USD = this.model.TotalUSDCost + this.model.TotalcostRecuurenceUSD;
+          this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
+        });
       });
     });
     this.model.Recurrence = this.data3.No2;

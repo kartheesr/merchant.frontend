@@ -133,7 +133,7 @@ table {
     text-align: center !important;
   }
   td {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     width: 250px;
     border: 2px #ffffff solid;
@@ -142,7 +142,18 @@ table {
   .tablevalue {
     text-align: center;
     color: #556486;
-    font-size: 12px;
+    font-weight: normal !important;
+    .Totalvalue {
+      font-size: 12px;
+      margin-right: 5px;
+      font-weight: normal !important;
+    }
+    .TotalUSD {
+      font-size: 12px;
+      color: #556486 !important;
+      font-style: italic;
+      font-weight: bold !important;
+    }
   }
   .tableresult {
     text-align: center;

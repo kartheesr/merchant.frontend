@@ -16,16 +16,18 @@ export class BillingStep2Component implements OnInit {
   newForm;
   homePage;
   homePage1;
+  valid: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private service: BillingServiceStep2,
     private billingdata: BillingServiceStep1,
     private stepTrack: StepperComponent
-  ) {}
+  ) { }
   ngOnInit() {
+
     this.homePage = {
-      count: ''
+      count: 140
     };
     this.homePage1 = {
       count2: ''
@@ -94,5 +96,19 @@ export class BillingStep2Component implements OnInit {
       }
     }
     this.homePage1.count3 = count2;
+  }
+  handleCount(data) {
+    console.log("fdgh", data);
+    if (data.value.length > 0) {
+
+      let count = data.value.length - 140;
+      this.homePage.count = count;
+      this.valid = true;
+      console.log("this.homePage.count", this.homePage.count);
+    }
+    else {
+      this.homePage.count = '';
+      this.valid = false;
+    }
   }
 }

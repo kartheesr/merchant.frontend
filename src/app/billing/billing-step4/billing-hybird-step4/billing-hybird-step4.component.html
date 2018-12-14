@@ -27,14 +27,26 @@
           <tr>
             <td>Inital Charge</td>
             <td class="tablevalue">{{ model.initialRecurrence }}</td>
-            <td class="tablevalue">{{ model.recurrencegas }}</td>
-            <td class="tablevalue">{{ model.initialETH }}</td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.recurrencegas }}</span>
+              <span class="TotalUSD">(~${{ model.RecurrenceUSD }})</span>
+            </td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.initialETH }}</span>
+              <span class="TotalUSD">(~${{ model.initialUSD }})</span>
+            </td>
           </tr>
           <tr>
             <td>Subscription Pull Transaction</td>
             <td class="tablevalue">{{ model.Recurrence }}</td>
-            <td class="tablevalue">{{ model.recurrencegas }}</td>
-            <td class="tablevalue">{{ model.RecurrenceETH }}</td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.recurrencegas }}</span>
+              <span class="TotalUSD">(~${{ model.RecurrenceUSD }})</span>
+            </td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.RecurrenceETH }}</span>
+              <span class="TotalUSD">(~${{ model.RecurrenceETHUSD }})</span>
+            </td>
           </tr>
           <tr>
             <td>
@@ -42,8 +54,14 @@
               PullPayment Account to Treasury
             </td>
             <td class="tablevalue">{{ model.PullRecurrence }}</td>
-            <td class="tablevalue">{{ model.Transfergas }}</td>
-            <td class="tablevalue">{{ model.PullRecurrencecost }}</td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.Transfergas }}</span>
+              <span class="TotalUSD">(~${{ model.TransferUSD }})</span>
+            </td>
+            <td class="tablevalue">
+              <span class="Totalvalue">{{ model.PullRecurrencecost }}</span>
+              <span class="TotalUSD">(~${{ model.PullRecurrencecostUSD }})</span>
+            </td>
           </tr>
           <tr>
             <td>Total</td>

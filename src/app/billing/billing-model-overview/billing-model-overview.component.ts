@@ -102,7 +102,7 @@ export class BillingModelOverviewComponent implements OnInit {
     this.dashboardService.getTransactionHistory().subscribe(result => {
       this.previouslist = '<';
       this.nextlist = '>';
-      this.transactionHistorArray = result.data;
+      this.transactionHistorArray = result.data.data;
     });
     if (this.route.snapshot.queryParamMap.get('pullPayId')) {
       this.id = this.route.snapshot.queryParamMap.get('pullPayId');

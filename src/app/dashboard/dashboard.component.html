@@ -52,7 +52,7 @@
           <span class="learnMore" (click)="learnMore()"> Learn More ></span>
         </p>
         <div class="qrCodeField">
-          <input type="text" value="{{treasuryAddress}}" #userinput />
+          <input readonly type="text" value="{{treasuryAddress}}" #userinput />
           <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
         </div>
       </div>

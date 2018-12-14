@@ -102,7 +102,7 @@ export class BillingStep2Component implements OnInit {
       this.homePage.count = count;
       this.valid = true;
     } else {
-      this.homePage.count = '';
+      this.homePage.count = 140;
       this.valid = false;
     }
   }

@@ -44,8 +44,8 @@
             }" required minlength="2" maxlength="140" (input)="handleCount(billModelDes)"></textarea>
         </div>
         <div>
-          <label class="char-msg" *ngIf="!billModelDes.errors">{{this.homePage.count==""?140:this.homePage.count}} characters</label>
-          <label class="char-msg" *ngIf="billModelDes.errors">{{this.homePage.count==""?140:this.homePage.count}} characters</label>
+          <label class="char-msg" *ngIf="!billModelDes.errors">{{this.homePage.count}} characters</label>
+          <label class="char-msg" *ngIf="billModelDes.errors">{{this.homePage.count}} characters</label>
         </div>
         <div *ngIf="f.submitted">
           <div class="notifyMsg" *ngIf="billModelDes.errors?.required">Billing model description is required</div>

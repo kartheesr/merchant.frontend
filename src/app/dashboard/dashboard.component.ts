@@ -46,10 +46,10 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getTransactionHistory().subscribe(result => {
       this.previouslist = '<';
       this.nextlist = '>';
-      this.transactionHistorArray = result.data;
+      this.transactionHistorArray = result.data.data;
 
       let data = 0;
-      for (let val of result.data) {
+      for (let val of result.data.data) {
         if (val.balance != '0') {
           data += parseFloat(val.balance);
           this.pullPaymentsBalance = data.toFixed(5).replace(/0+$/, '');
@@ -59,18 +59,18 @@ export class DashboardComponent implements OnInit {
       }
     });
     this.dashboardService.gasvalueCalcualtion().subscribe(res => {
-      this.gasBalance = parseFloat(res.balance)
+      this.gasBalance = parseFloat(res.data)
         .toFixed(5)
         .replace(/0+$/, ''); // GAS VALUE
       var nf = new Intl.NumberFormat();
       this.gasBalance = nf.format(this.gasBalance);
     });
     this.dashboardService.getQRCodeaddress().subscribe(result => {
-      this.treasuryAddress = result.address; // TREASURY ADDRESS
+      this.treasuryAddress = result.data; // TREASURY ADDRESS
     });
 
     this.dashboardService.getTreasurybalance().subscribe(result => {
-      this.treasuryBalance = parseFloat(result.result)
+      this.treasuryBalance = parseFloat(result.data)
         .toFixed(5)
         .replace(/0+$/, ''); // TREASURY BALANCE
       var nf = new Intl.NumberFormat();

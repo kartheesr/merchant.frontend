@@ -1,16 +1,11 @@
 <div class="mainContent">
-  <label class="titleOne">Transfer from PullPayment Accounts to Treasury</label><br />
+  <label class="titleOne">Transfer from PullPayment Accounts to Treasury</label>
+  <br />
   <label class="subtitle">Choose how often you will receive your payments from the PullPayment Accounts</label>
   <div class="col-xs-12 col-sm-8 col-md-8">
-    <select
-      name="transactions"
-      [(ngModel)]="model.transactions"
-      #transactions="ngModel"
-      (change)="handleChangetransactions(transactions)"
-    >
-      <option *ngFor="let item of transcationoption" [selected]="item.value === 0" [ngValue]="item.label">{{
-        item.label
-      }}</option>
+    <select name="transactions" [(ngModel)]="model.transactions" #transactions="ngModel" (change)="handleChangetransactions(transactions)">
+      <option *ngFor="let item of transcationoption" [selected]="item.value === 0" [ngValue]="item.label">{{ item.label }}
+      </option>
     </select>
   </div>
   <div class="tablecontent">
@@ -21,7 +16,8 @@
           <tr>
             <td>Transaction</td>
             <td>Number of subscriptions</td>
-            <td>Estimated Gas <br />Cost/transaction (ETH)</td>
+            <td>Estimated Gas
+              <br />Cost/transaction (ETH)</td>
             <td>Total Estimated Gas cost (ETH)</td>
           </tr>
           <tr>
@@ -50,8 +46,8 @@
           </tr>
           <tr>
             <td>
-              Transfers from<br />
-              PullPayment Account to Treasury
+              Transfers from
+              <br /> PullPayment Account to Treasury
             </td>
             <td class="tablevalue">{{ model.PullRecurrence }}</td>
             <td class="tablevalue">
@@ -75,10 +71,9 @@
         </table>
       </div>
       <div class="col-xs-12 col-sm-2 col-md-2">
-        <label class="Pricedecription"
-          >will be paid for <b>Gas fees</b><br />
-          every time a new customer subscribes</label
-        >
+        <label class="Pricedecription">will be paid for
+          <b>Gas fees</b>
+          <br /> every time a new customer subscribes</label>
       </div>
     </div>
   </div>
@@ -88,19 +83,21 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
         <p class="decripitionContent">
-          <b>Every</b> time a <b>new customer</b> subscribes to a billing model, the system creates a
-          <b>new PullPayment account.</b> The PullPayment account will continuously bill the customer according to the
-          billing model’s parameters. The <b>PMA</b> tokens will be kept in <b>the PullPayment</b> accounts until they
-          are transferred to the Treasury.
+          <b>Every</b> time a
+          <b>new customer</b> subscribes to a billing model, the system creates a
+          <b>new PullPayment account.</b> The PullPayment account will continuously bill the customer according to the billing
+          model’s parameters. The
+          <b>PMA</b> tokens will be kept in
+          <b>the PullPayment</b> accounts until they are transferred to the Treasury.
         </p>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
         <p class="decripitionContent">
-          <b>Choose how often</b> you want to transfer funds from all the PullPayment accounts associated with this
-          billing model to your Treasury. Depending on your choice, the specific amount of <b>ETH is allocated</b> for
-          those subscription payments <b>to pay for</b> all the gas fees of the <b>transfer to the Treasury</b>.Upon
-          every subscription,the above Total Estimated Gas Cost(ETH) will be transferred from the Gas Wallet to a new
-          PullPayment account.
+          <b>Choose how often</b> you want to transfer funds from all the PullPayment accounts associated with this billing
+          model to your Treasury. Depending on your choice, the specific amount of
+          <b>ETH is allocated</b>
+          <b>to pay for</b> all the gas fees. Upon every subscription,the above Total Estimated Gas Cost (ETH) will be transferred
+          from the Gas Wallet to a new PullPayment account.
         </p>
       </div>
     </div>

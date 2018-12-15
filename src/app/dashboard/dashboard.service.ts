@@ -20,6 +20,7 @@ export class DashboardService {
   private treasuryUrl;
   private gasactionUrl;
   public transcationurl;
+  hashurl;
 
   constructor(private http: HttpClient) {
     this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/getAll`;
@@ -34,6 +35,7 @@ export class DashboardService {
     this.treasuryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pmabalance`;
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/etherBalance`;
     this.transcationurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/hash`;
+    this.hashurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transhash`;
   }
 
   public getTransactionHistory(): Observable<any> {
@@ -98,4 +100,38 @@ export class DashboardService {
       })
     );
   }
+
+  public getvaluefirst(): Observable<any> {
+    return this.http.get(this.hashurl).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+
+  public getvalueSecond(hash): Observable<any> {
+    let datasample = {
+      jsonrpc: '2.0',
+
+      method: 'eth_getTransactionByHash',
+
+      params: [hash],
+
+      id: 1
+    };
+    let getsample = `https://ropsten.infura.io/eS5XgCLEJRygOsT6E4Bf`;
+    return this.http.post(getsample, datasample, { headers: this.headers }).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+  // public getvalueSecond(address,blocknumber): Observable<any> {
+  //   let sample = `http://api-ropsten.etherscan.io/api?module=account&action=tokentx&address=${address}&startblock=${blocknumber}&endblock=${blocknumber}`
+  //   return this.http.get(sample).pipe(
+  //     map((response: HttpResponse) => {
+  //       return response;
+  //     })
+  //   );
+  // }
 }

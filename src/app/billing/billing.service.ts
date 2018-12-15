@@ -19,6 +19,9 @@ export class BillingService {
   public OverViewQrcodeUrl;
   private QRCodeURL;
   private gasactionUrl;
+  public usdvalue: string;
+  public transfergas: string;
+  public recurrencegas: string;
   private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'api-request-source': 'portal'
@@ -31,8 +34,33 @@ export class BillingService {
     this.OverViewQrcodeUrl = `${Constants.apiHost}${Constants.apiPrefix}qr/`;
     this.QRCodeURL = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/address`;
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/etherBalance`;
+    this.usdvalue = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usdvalue`;
+    this.transfergas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transferGas`;
+    this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pullPaymentGas`;
+  }
+  public gasusdvalue(): Observable<any> {
+    return this._http.get(this.usdvalue).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
   }
 
+  public gastransferpull(): Observable<any> {
+    return this._http.get(this.recurrencegas).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+
+  public gasrecurrence(): Observable<any> {
+    return this._http.get(this.transfergas).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
   public Getpull(): Observable<any> {
     return this._http.get(this.actionUrl, { headers: this.headers });
   }

@@ -62,6 +62,13 @@ export class BillingComponent implements OnInit {
   week4;
   week5;
   day1;
+  USDValue;
+  Transfergas;
+  recurrencegas;
+  workdata;
+  workdata1;
+  workdata2;
+  Totalgas;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -130,7 +137,7 @@ export class BillingComponent implements OnInit {
             }
           }
           for (let cal of result.data) {
-            let temp = { days: '', weeks: '', months: '', years: '' };
+            let temp = { days: '', weeks: '', months: '', years: '', gascost: '' };
             let temp1 = { day: '', week: '', month: '', year: '' };
             this.days = cal.frequency / (24 * 60 * 60);
             this.years = Math.floor(this.days / 365);
@@ -141,8 +148,67 @@ export class BillingComponent implements OnInit {
             temp.months = this.months;
             temp.weeks = this.weeks;
             temp.days = this.days;
+            if (cal.typeID == 2) {
+              this.billingService.gasusdvalue().subscribe(result => {
+                this.USDValue = result.data.USD;
+                this.billingService.gastransferpull().subscribe(result => {
+                  let gas = result.data * 0.00000001;
+                  this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+                  this.billingService.gasrecurrence().subscribe(result => {
+                    let val = result.data * 0.00000001;
+                    this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+                    let recurrence = 1;
+                    this.workdata = (this.recurrencegas * this.USDValue * recurrence).toFixed(5).replace(/0+$/, '');
+                    let TransRecurrence = 1;
+                    this.workdata2 = (this.Transfergas * this.USDValue * TransRecurrence).toFixed(5).replace(/0+$/, '');
+                    let Total = parseFloat(this.workdata) + parseFloat(this.workdata2);
+                    this.Totalgas = parseFloat(Total.toFixed(2).replace(/0+$/, ''));
+                    temp.gascost = this.Totalgas;
+                  });
+                });
+              });
+            } else if (cal.typeID == 3 || cal.typeID == 5) {
+              this.billingService.gasusdvalue().subscribe(result => {
+                this.USDValue = result.data.USD;
+                this.billingService.gastransferpull().subscribe(result => {
+                  let gas = result.data * 0.00000001;
+                  this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+                  this.billingService.gasrecurrence().subscribe(result => {
+                    let val = result.data * 0.00000001;
+                    this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+                    let recurrence = cal.numberOfPayments;
+                    this.workdata = (this.recurrencegas * this.USDValue * recurrence).toFixed(5).replace(/0+$/, '');
+                    let TransRecurrence = 1;
+                    this.workdata2 = (this.Transfergas * this.USDValue * TransRecurrence).toFixed(5).replace(/0+$/, '');
+                    let Total = parseFloat(this.workdata) + parseFloat(this.workdata2);
+                    this.Totalgas = parseFloat(Total.toFixed(2).replace(/0+$/, ''));
+                    temp.gascost = this.Totalgas;
+                  });
+                });
+              });
+            } else {
+              this.billingService.gasusdvalue().subscribe(result => {
+                this.USDValue = result.data.USD;
+                this.billingService.gastransferpull().subscribe(result => {
+                  let gas = result.data * 0.00000001;
+                  this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+                  this.billingService.gasrecurrence().subscribe(result => {
+                    let val = result.data * 0.00000001;
+                    this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+                    let inital = 1;
+                    this.workdata = (this.recurrencegas * this.USDValue * inital).toFixed(5).replace(/0+$/, '');
+                    let recurrence = cal.numberOfPayments;
+                    this.workdata1 = (this.recurrencegas * this.USDValue * recurrence).toFixed(5).replace(/0+$/, '');
+                    let TransRecurrence = 1;
+                    this.workdata2 = (this.Transfergas * this.USDValue * TransRecurrence).toFixed(5).replace(/0+$/, '');
+                    let Total = parseFloat(this.workdata) + parseFloat(this.workdata1) + parseFloat(this.workdata2);
+                    this.Totalgas = parseFloat(Total.toFixed(2).replace(/0+$/, ''));
+                    temp.gascost = this.Totalgas;
+                  });
+                });
+              });
+            }
             this.sample[i].data = temp;
-
             this.day = cal.trialPeriod / (24 * 60 * 60);
             this.year = Math.floor(this.day / 365);
             this.month = Math.floor((this.day % 365) / 30);

@@ -101,7 +101,7 @@
           <td (click)="pullpaymentaddress(val.to)">
             <span class="overflow-Address TxHash">{{ val.to }}</span>
           </td>
-          <td>{{ val.value / 1000000000000000000 }}</td>
+          <td>{{ (val.value / 1000000000000000000).toFixed(5) }}</td>
         </tr>
       </tbody>
     </table>

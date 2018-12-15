@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { Logger } from '@app/core';
 // import { ValueConverter } from '@angular/compiler/src/render3/view/template';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, DecimalPipe } from '@angular/common';
 import { BillingServiceCall } from '../billing/billing-step4/billing-step4.service';
 import { Constants } from '@app/app.constants';
 import { $ } from 'protractor';
@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   error: string;
   treasuryBalance;
   treasuryCurrency;
-  pullPaymentsBalance: number = 0;
+  pullPaymentsBalance;
   sumBal;
   pullPaymentsCurrency;
   gasBalance;
@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit {
   nextlist = '';
   p: number = 1;
   valuer;
+  sample;
   constructor(
     private dashboardService: DashboardService,
     @Inject(DOCUMENT) private document: any,
@@ -81,18 +82,46 @@ export class DashboardComponent implements OnInit {
     });
 
     this.dashboardService.gettabledata().subscribe(result => {
+      this.previouslist = '<';
+      this.nextlist = '>';
       result.data.map((value, index) => {
         this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(result => {
-          this.previouslist = '<';
-          this.nextlist = '>';
           this.transactionHistorArray.push(result.result[0]);
           this.transactionHistorArray[index].billName = value.billingName;
-          this.pullPaymentsBalance += parseFloat(this.transactionHistorArray[index].value) / 10000000000000000000;
         });
+        setTimeout(() => {
+          this.getdecimal();
+        }, 3000);
       });
     });
+    // this.dashboardService.getvaluefirst().subscribe(result => {
+    //   this.previouslist = '<';
+    //   this.nextlist = '>';
+    //   this.sample = result.data;
+    //   this.sample.map((value, index) => {
+    //     this.dashboardService.getvalueSecond(value.hash).subscribe(result => {
+    //       let d2 = result.result;
+    //       this.dashboardService.getvalue(d2.from, parseInt(d2.blockNumber)).subscribe(result => {
+    //         this.transactionHistorArray.push(result.result[0]);
+    //       });
+    //     });
+    //   });
+    //   setTimeout(() => {
+    //     this.getdecimal();
+    //   }, 3000);
+    // });
   }
-
+  getdecimal() {
+    let data = 0;
+    this.transactionHistorArray.map((value, index) => {
+      data += parseFloat(this.transactionHistorArray[index].value) / 1000000000000000000;
+    });
+    var num = new Number(data);
+    this.pullPaymentsBalance = num.toFixed(5);
+    // this.sample.map((value, index) => {
+    //   this.transactionHistorArray[index].billName = value.name;
+    // })
+  }
   copyInputMessage(inputElement) {
     inputElement.select();
     document.execCommand('copy');

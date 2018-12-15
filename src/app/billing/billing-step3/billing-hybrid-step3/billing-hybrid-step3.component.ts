@@ -79,7 +79,8 @@ export class BillingHybridStep3Component implements OnInit {
       billingdays: '',
       billingcalendar: '',
       Recurringdays: '',
-      daycount: ''
+      daycount: '',
+      billingdaycount: ''
     };
     this.model.Currency = this.amountCurrency[0].label;
     this.model.calendar = this.calendarlist[0].label;
@@ -162,4 +163,26 @@ export class BillingHybridStep3Component implements OnInit {
       this.model.daycount = val * 24 * 60 * 60;
     }
   }
+  handlechangestartbilling(data) {
+    if (data.value == 'Days') {
+      let val = this.model.days;
+      this.model.billingdaycount = val * 24 * 60 * 60;
+    } else if (data.value == 'Weeks') {
+      let val = this.model.days * 7;
+      this.model.billingdaycount = val * 24 * 60 * 60;
+    } else if (data.value == 'Months') {
+      let val = this.model.days * 30;
+      this.model.billingdaycount = val * 24 * 60 * 60;
+    } else {
+      let val = this.model.days * 365;
+      this.model.billingdaycount = val * 24 * 60 * 60;
+    }
+  }
+  handlechangestartdays() {
+    if (this.model.calendar == 'Days') {
+      let val = this.model.days;
+      this.model.billingdaycount = val * 24 * 60 * 60;
+    }
+  }
+
 }

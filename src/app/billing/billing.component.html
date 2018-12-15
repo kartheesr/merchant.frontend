@@ -4,26 +4,15 @@
     <div class="bm-main flex-center-center">
       <div class="noBilling">
         <img src="assets/images/billing-img.png" class="billingImg" width="120" />
-        <button href="" routerLink="/pullpayments/step1"><img src="assets/images/plus.svg" /> BILLING MODEL</button>
+        <button href="" routerLink="/pullpayments/step1">
+          <img src="assets/images/plus.svg" /> BILLING MODEL</button>
       </div>
     </div>
   </div>
 </div>
 <div *ngIf="show2">
   <div class="billingModelContainer">
-    <!--
-      <div class="bm-header">
 
-        <div class="row">
-          <div class="col">Billing Models</div>
-          <div class="col text-right">
-            <button href="" (click)="new()" routerLink="/pullpayments/step1">
-              <img src="assets/images/plus.svg" /> NEW
-            </button>
-          </div>
-        </div>
-      </div>
-    -->
 
     <div class="bm-header">
       <div class="row">
@@ -90,94 +79,97 @@
                           <div class="LinkTag">
                             <a *ngIf="array.typeID == 2"> </a>
                             <a *ngIf="array.typeID == 3">
+                              <label>Every </label>
                               <span *ngIf="array.data.years != ''">
-                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span
-                              >
-                              <span *ngIf="array.data.months != ''"
-                                >{{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
+                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span>
+
+                              <span *ngIf="array.data.months != ''"> {{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
                               </span>
-                              <span *ngIf="array.data.weeks != ''"
-                                >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
+                              <span *ngIf="array.data.weeks != ''"> {{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
                               </span>
-                              <span *ngIf="array.data.days != ''"
-                                >{{ array.data.days }}
-                                {{ array.data.days == 1 ? 'day
-                                ' : 'days ' }}
+                              <span *ngIf="array.data.days != ''"> {{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
                               </span>
+                              <label>for </label>
                             </a>
                             <a *ngIf="array.typeID == 5">
+                              <label>Every </label>
                               <span *ngIf="array.data.years != ''">
-                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span
-                              >
-                              <span *ngIf="array.data.months != ''"
-                                >{{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
+                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span>
+                              <span *ngIf="array.data.months != ''"> {{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
                               </span>
-                              <span *ngIf="array.data.weeks != ''"
-                                >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
+                              <span *ngIf="array.data.weeks != ''"> {{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
                               </span>
-                              <span *ngIf="array.data.days != ''"
-                                >{{ array.data.days }}
-                                {{ array.data.days == 1 ? 'day
-                                ' : 'days ' }}
+                              <span *ngIf="array.data.days != ''"> {{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
                               </span>
+                              <label>for </label>
                             </a>
                             <a *ngIf="array.typeID == 6">
+                              <label>Every </label>
+
                               <span *ngIf="array.data.years != ''">
-                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span
-                              >
-                              <span *ngIf="array.data.months != ''"
-                                >{{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
+                                {{ array.data.years }} {{ array.data.years == 1 ? 'year ' : 'years ' }}</span>
+                              <span *ngIf="array.data.months != ''"> {{ array.data.months }} {{ array.data.months == 1 ? 'month ' : 'months ' }}
                               </span>
-                              <span *ngIf="array.data.weeks != ''"
-                                >{{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
+                              <span *ngIf="array.data.weeks != ''"> {{ array.data.weeks }} {{ array.data.weeks == 1 ? 'week ' : 'weeks ' }}
                               </span>
-                              <span *ngIf="array.data.days != ''"
-                                >{{ array.data.days }}
-                                {{ array.data.days == 1 ? 'day
-                                ' : 'days ' }}
+                              <span *ngIf="array.data.days != ''"> {{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
                               </span>
+                              <label>for</label>
                             </a>
+                            <label *ngIf="array.typeID != 2"> {{ array.numberOfPayments}} recurrences</label>
                           </div>
+                        </div>
+                        <div>
+                          <label *ngIf="array.typeID == 5"> Free trial period
+                            <span *ngIf="array.data1.year != ''">
+                              {{ array.data1.year }} {{ array.data1.year == 1 ? 'year ' : 'years ' }}</span>
+                            <span *ngIf="array.data1.month != ''"> {{ array.data1.month }} {{ array.data1.month == 1 ? 'month ' : 'months ' }}
+                            </span>
+                            <span *ngIf="array.data1.week != ''"> {{ array.data1.week }} {{ array.data1.week == 1 ? 'week ' : 'weeks ' }}
+                            </span>
+                            <span *ngIf="array.data1.day != ''"> {{ array.data1.days }} {{ array.data1.day == 1 ? 'day ' : 'days ' }}
+                            </span>
+                          </label>
+                          <label *ngIf="(array.typeID == 6)"> Initial trial period
+                            <span *ngIf="array.data1.year != ''">
+                              {{ array.data1.year }} {{ array.data1.year == 1 ? 'year ' : 'years ' }}</span>
+                            <span *ngIf="array.data1.month != ''"> {{ array.data1.month }} {{ array.data1.month == 1 ? 'month ' : 'months ' }}
+                            </span>
+                            <span *ngIf="array.data1.week != ''"> {{ array.data1.week }} {{ array.data1.week == 1 ? 'week ' : 'weeks ' }}
+                            </span>
+                            <span *ngIf="array.data1.day != ''"> {{ array.data1.days }} {{ array.data1.day == 1 ? 'day ' : 'days ' }}
+                            </span>
+                          </label>
                         </div>
                         <div class="large col-md-12">
                           <div class="new1" *ngIf="array.typeID == 2">
                             <fieldset class="scheduler-border">
                               <legend class="scheduler-border">SINGLE CHARGE</legend>
-                              <label class="labelcolor"
-                                >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
-                              >
+                              <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
                             </fieldset>
                           </div>
                           <div class="new2" *ngIf="array.typeID == 3">
                             <fieldset class="scheduler-border">
                               <legend class="scheduler-border">SUBSCRIPTION CHARGE</legend>
-                              <label class="labelcolor"
-                                >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
-                              >
+                              <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
                             </fieldset>
                           </div>
                           <div class="new2" *ngIf="array.typeID == 5">
                             <fieldset class="scheduler-border">
                               <legend class="scheduler-border">SUBSCRIPTION CHARGE</legend>
-                              <label class="labelcolor"
-                                >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
-                              >
+                              <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
                             </fieldset>
                           </div>
                           <div class="new" *ngIf="array.typeID == 6">
                             <fieldset class="scheduler-border">
                               <legend class="scheduler-border">SUBSCRIPTION CHARGE</legend>
-                              <label class="labelcolor"
-                                >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
-                              >
+                              <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
                             </fieldset>
                           </div>
                           <div class="new1" *ngIf="array.typeID == 6">
                             <fieldset class="scheduler-border">
                               <legend class="scheduler-border">INITIAL CHARGE</legend>
-                              <label class="intialvalue"
-                                >{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label
-                              >
+                              <label class="intialvalue">{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label>
                             </fieldset>
                           </div>
                         </div>
@@ -197,16 +189,23 @@
 </div>
 <ng-template #QRPopup let-c="close" let-d="dismiss">
   <div class="modelSize2">
-    <div class="closeBtn" (click)="d()"><img src="assets/images/Close-Btn.svg" /></div>
+    <div class="closeBtn" (click)="d()">
+      <img src="assets/images/Close-Btn.svg" />
+    </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to Send eth to your gas wallet</label></div>
+      <div class="col-xs-12 col-sm-12 cols-md-12">
+        <label>Scan the QR code to Send eth to your gas wallet</label>
+      </div>
       <div class="col-xs-12 col-sm-4 cols-md-4 QRCodeClass">
-        <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
+        <div class="qrCont">
+          <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-8 cols-md-8">
         <div class="qrContents">
           <p>
-            <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span> <br />
+            <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span>
+            <br />
             <span>Gas fees are used to execute any transaction over the Ethereum network.</span>
             <span>You will be unable to accept new subscriptions or execute any transfers without enough ETH.</span>
           </p>

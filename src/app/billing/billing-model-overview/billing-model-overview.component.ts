@@ -145,95 +145,54 @@ export class BillingModelOverviewComponent implements OnInit {
       this.temp.weeks = weeks;
       this.temp.days = days;
 
-      // if (this.days > 365) {
-      //   this.year = this.days / 365;
-      //   this.year1 = parseInt(this.year);
-      //   this.temp.years = this.year1;
-      //   this.month = this.days - this.year1 * 365;
 
-      //   if (this.month > 30) {
-      //     this.month1 = this.month / 30;
-      //     this.month2 = parseInt(this.month1);
-      //     this.temp.months = this.month2;
-      //     this.week = this.month - this.month2 * 30;
-      //     if (this.week > 7) {
-      //       this.week2 = this.week / 7;
-      //       this.week1 = parseInt(this.week2);
-      //       this.temp.weeks = this.week1;
-      //       this.day = this.week - this.week1 * 7;
-      //       this.temp.days = this.day;
-      //     } else if (this.week == 7) {
-      //       this.week3 = this.week / 7;
-      //       this.temp.weeks = this.week3;
-      //     } else if (this.week < 7) {
-      //       this.temp.days = this.week;
-      //     }
-      //   } else if (this.month2 == 30) {
-      //     this.month3 = this.month2 / 30;
-      //     this.temp.months = this.month3;
-      //   } else if (this.month < 30 && this.month > 7) {
-      //     this.week2 = this.month / 7;
-      //     this.week5 = parseInt(this.week2);
-      //     this.temp.weeks = this.week5;
-      //     this.day = this.month - this.week5 * 7;
-      //     this.temp.days = this.day;
-      //   } else if (this.month < 7) {
-      //     this.temp.days = this.month;
-      //   }
-      // } else if (this.days > 30 && this.days < 365) {
-      //   if (this.days > 30) {
-      //     this.month1 = this.days / 30;
-      //     this.month2 = parseInt(this.month1);
-      //     this.temp.months = this.month2;
-      //     this.week = this.days - this.month2 * 30;
-      //     if (this.week == 30) {
-      //       this.month3 = this.week / 30;
-      //       this.temp.months = this.month3;
-      //     } else if (this.week > 7) {
-      //       this.week2 = this.week / 7;
-      //       this.week1 = parseInt(this.week2);
-      //       this.temp.weeks = this.week1;
-      //       this.day = this.week - this.week1 * 7;
-      //       this.temp.days = this.day;
-      //     } else if (this.week == 7) {
-      //       this.week3 = this.week / 7;
-      //       this.temp.weeks = this.week3;
-      //     } else if (this.week < 7) {
-      //       this.temp.days = this.week;
-      //     }
-      //   }
-      // } else if (this.days == 30) {
-      //   this.month3 = this.days / 30;
-      //   this.temp.months = this.month3;
-      // } else if (this.days > 7 && this.days < 30) {
-      //   this.week2 = this.days / 7;
-      //   this.week1 = parseInt(this.week2);
-      //   this.temp.weeks = this.week1;
-      //   this.day = this.days - this.week1 * 7;
-      //   this.temp.days = this.day;
-      // } else if (this.days == 7) {
-      //   this.week3 = this.days / 7;
-      //   this.temp.weeks = this.week3;
-      // } else if (this.days < 7) {
-      //   this.temp.days = this.days;
-      // }
       if (result.data.typeID == 2) {
-        this.overviewdata.gastransferpull().subscribe(result => {
-          let gas = result.data * 0.00000001;
-          this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+        // this.overviewdata.gastransferpull().subscribe(result => {
+        //   let gas = result.data * 0.00000001;
+        //   this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+        //   this.overviewdata.gasrecurrence().subscribe(result => {
+        //     let val = result.data * 0.00000001;
+        //     this.model.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+        //     this.overviewdata.gasusdvalue().subscribe(result => {
+        //       this.model.USDValue = result.data.USD;
+        //       this.SingleRecurrence = 1;
+        //       let sample = this.model.recurrencegas * this.SingleRecurrence;
+        //       this.model.SingleETH = sample.toFixed(5).replace(/0+$/, '');
+        //       this.TransRecurrence = 1;
+        //       let data = this.model.Transfergas * this.TransRecurrence;
+        //       this.model.TransferETH = data.toFixed(5).replace(/0+$/, '');
+        //       let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
+        //       this.EtherValue = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
+        //     });
+        //   });
+        // });
+        this.overviewdata.gasusdvalue().subscribe(result => {
+          this.model.USDValue = result.data.USD;
           this.overviewdata.gasrecurrence().subscribe(result => {
             let val = result.data * 0.00000001;
             this.model.recurrencegas = val.toFixed(5).replace(/0+$/, '');
-            this.overviewdata.gasusdvalue().subscribe(result => {
-              this.model.USDValue = result.data.USD;
+            let USDValue = this.model.USDValue * this.model.recurrencegas;
+            this.model.SingleGasUSD = parseFloat(USDValue.toFixed(2).replace(/0+$/, ''));
+            this.overviewdata.gastransferpull().subscribe(result => {
+              let gas = result.data * 0.00000001;
+              this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+              let Transfer = this.model.USDValue * this.model.Transfergas;
+              this.model.TransferGasUSD = parseFloat(Transfer.toFixed(2).replace(/0+$/, ''));
               this.SingleRecurrence = 1;
               let sample = this.model.recurrencegas * this.SingleRecurrence;
               this.model.SingleETH = sample.toFixed(5).replace(/0+$/, '');
+              let SingleUSD = this.model.SingleGasUSD * this.SingleRecurrence;
+              this.model.SingleUSD = parseFloat(SingleUSD.toFixed(2).replace(/0+$/, ''));
               this.TransRecurrence = 1;
               let data = this.model.Transfergas * this.TransRecurrence;
               this.model.TransferETH = data.toFixed(5).replace(/0+$/, '');
+              let TransferUSD = this.model.TransferGasUSD * this.TransRecurrence;
+              this.model.TransferUSD = parseFloat(TransferUSD.toFixed(2).replace(/0+$/, ''));
               let Total = parseFloat(this.model.SingleETH) + parseFloat(this.model.TransferETH);
               this.EtherValue = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
+              let USD = this.model.SingleUSD + this.model.TransferUSD;
+              this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
+              console.log("single", this.model.TotalUSD);
             });
           });
         });
@@ -272,19 +231,48 @@ export class BillingModelOverviewComponent implements OnInit {
         this.TotalCost = 0;
         this.TotalcostRecuurence = 0;
         this.TotalETH = 0;
-        this.overviewdata.gastransferpull().subscribe(result => {
-          let gas = result.data * 0.00000001;
-          this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+        // this.overviewdata.gastransferpull().subscribe(result => {
+        //   let gas = result.data * 0.00000001;
+        //   this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+        //   this.overviewdata.gasrecurrence().subscribe(result => {
+        //     let val = result.data * 0.00000001;
+        //     this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+        //     let sample = this.recurrencegas * this.Recurrences;
+        //     this.TotalCost = sample.toFixed(5).replace(/0+$/, '');
+        //     this.TransRecurrence = 1;
+        //     let data = parseFloat(this.Transfergas) * this.TransRecurrence;
+        //     this.TotalcostRecuurence = data.toFixed(5).replace(/0+$/, '');
+        //     let Total = parseFloat(this.TotalCost) + parseFloat(this.TotalcostRecuurence);
+        //     this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
+        //   });
+        // });
+        this.overviewdata.gasusdvalue().subscribe(result => {
+          this.model.USDValue = result.data.USD;
           this.overviewdata.gasrecurrence().subscribe(result => {
             let val = result.data * 0.00000001;
             this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
-            let sample = this.recurrencegas * this.Recurrences;
-            this.TotalCost = sample.toFixed(5).replace(/0+$/, '');
-            this.TransRecurrence = 1;
-            let data = parseFloat(this.Transfergas) * this.TransRecurrence;
-            this.TotalcostRecuurence = data.toFixed(5).replace(/0+$/, '');
-            let Total = parseFloat(this.TotalCost) + parseFloat(this.TotalcostRecuurence);
-            this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
+            let valUSD = this.recurrencegas * this.model.USDValue;
+            this.model.RecurrenceUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
+            this.overviewdata.gastransferpull().subscribe(result => {
+              let gas = result.data * 0.00000001;
+              this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+              let gasUSD = this.Transfergas * this.model.USDValue;
+              this.model.TransferUSD = parseFloat(gasUSD.toFixed(2).replace(/0+$/, ''));
+              let sample = this.recurrencegas * this.Recurrences;
+              this.TotalCost = sample.toFixed(5).replace(/0+$/, '');
+              let USDCost = this.model.RecurrenceUSD * this.Recurrences;
+              this.model.TotalUSDCost = parseFloat(USDCost.toFixed(2).replace(/0+$/, ''));
+              this.model.TransRecurrence = 1;
+              let data = parseFloat(this.Transfergas) * this.model.TransRecurrence;
+              this.TotalcostRecuurence = data.toFixed(5).replace(/0+$/, '');
+              let dataUSD = this.model.TransferUSD * this.model.TransRecurrence;
+              this.model.TotalcostRecuurenceUSD = parseFloat(dataUSD.toFixed(2).replace(/0+$/, ''));
+              let Total = parseFloat(this.TotalCost) + parseFloat(this.TotalcostRecuurence);
+              this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
+              let USD = this.model.TotalUSDCost + this.model.TotalcostRecuurenceUSD;
+              this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
+              console.log(this.model.TotalUSD);
+            });
           });
         });
       } else {
@@ -298,7 +286,7 @@ export class BillingModelOverviewComponent implements OnInit {
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
         this.frequency = this.temp;
-        this.trialPeriod = result.data.trialPeriod;
+        this.trialPeriod = result.data.trialPeriod / (24 * 3600);
         this.initalamount = result.data.initialPaymentAmount / 100;
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
@@ -311,21 +299,55 @@ export class BillingModelOverviewComponent implements OnInit {
         this.RecurrencesETH = 0;
         this.PullRecurrenceETH = 0;
         this.TotalETH = 0;
-        this.overviewdata.gastransferpull().subscribe(result => {
-          let gas = result.data * 0.00000001;
-          this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+        // this.overviewdata.gastransferpull().subscribe(result => {
+        //   let gas = result.data * 0.00000001;
+        //   this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+        //   this.overviewdata.gasrecurrence().subscribe(result => {
+        //     let vala = result.data * 0.00000001;
+        //     this.recurrencegas = vala.toFixed(5).replace(/0+$/, '');
+        //     let valy = this.initialRecurrence * this.recurrencegas;
+        //     this.intialETH = valy.toFixed(5).replace(/0+$/, '');
+        //     let sample = this.recurrencegas * this.Recurrences;
+        //     this.RecurrencesETH = sample.toFixed(5).replace(/0+$/, '');
+        //     let cost = this.PullRecurrence * this.Transfergas;
+        //     this.PullRecurrenceETH = cost.toFixed(5).replace(/0+$/, '');
+        //     let Total = parseFloat(this.RecurrencesETH) + parseFloat(this.intialETH) + parseFloat(this.PullRecurrenceETH);
+        //     this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
+        //   });
+        // });
+        this.overviewdata.gasusdvalue().subscribe(result => {
+          this.model.USDValue = result.data.USD;
           this.overviewdata.gasrecurrence().subscribe(result => {
-            let vala = result.data * 0.00000001;
-            this.recurrencegas = vala.toFixed(5).replace(/0+$/, '');
-            let valy = this.initialRecurrence * this.recurrencegas;
-            this.intialETH = valy.toFixed(5).replace(/0+$/, '');
-            let sample = this.recurrencegas * this.Recurrences;
-            this.RecurrencesETH = sample.toFixed(5).replace(/0+$/, '');
-            let cost = this.PullRecurrence * this.Transfergas;
-            this.PullRecurrenceETH = cost.toFixed(5).replace(/0+$/, '');
-            let Total =
-              parseFloat(this.RecurrencesETH) + parseFloat(this.intialETH) + parseFloat(this.PullRecurrenceETH);
-            this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
+            let val = result.data * 0.00000001;
+            this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
+            let valUSD = this.model.USDValue * this.recurrencegas;
+            this.model.RecurrenceUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
+            this.overviewdata.gastransferpull().subscribe(result => {
+              let gas = result.data * 0.00000001;
+              this.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+              let gasUSD = this.model.USDValue * this.Transfergas;
+              this.model.TransferUSD = parseFloat(gasUSD.toFixed(2).replace(/0+$/, ''));
+              let val = this.initialRecurrence * this.recurrencegas;
+              this.intialETH = val.toFixed(5).replace(/0+$/, '');
+              let valUSD = this.initialRecurrence * this.model.RecurrenceUSD;
+              this.model.initialUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
+              let sample = this.recurrencegas * this.Recurrences;
+              this.RecurrencesETH = sample.toFixed(5).replace(/0+$/, '');
+              let sampleUSD = this.model.RecurrenceUSD * this.Recurrences;
+              this.model.RecurrenceETHUSD = parseFloat(sampleUSD.toFixed(2).replace(/0+$/, ''));
+              let cost = this.PullRecurrence * this.Transfergas;
+              this.PullRecurrenceETH = cost.toFixed(5).replace(/0+$/, '');
+              let costUSD = this.PullRecurrence * this.model.TransferUSD;
+              this.model.PullRecurrencecostUSD = parseFloat(costUSD.toFixed(2).replace(/0+$/, ''));
+              let Total =
+                parseFloat(this.RecurrencesETH) +
+                parseFloat(this.intialETH) +
+                parseFloat(this.PullRecurrenceETH);
+              this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
+              let USD = this.model.initialUSD + this.model.RecurrenceETHUSD + this.model.PullRecurrencecostUSD;
+              this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
+              console.log(this.model.TotalUSD)
+            });
           });
         });
       }

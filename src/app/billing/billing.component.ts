@@ -142,7 +142,7 @@ export class BillingComponent implements OnInit {
             temp.weeks = this.weeks;
             temp.days = this.days;
             this.sample[i].data = temp;
-            console.log("cal", this.sample);
+
             this.day = cal.trialPeriod / (24 * 60 * 60);
             this.year = Math.floor(this.day / 365);
             this.month = Math.floor((this.day % 365) / 30);
@@ -153,7 +153,6 @@ export class BillingComponent implements OnInit {
             temp1.week = this.week;
             temp1.day = this.day;
             this.sample[i].data1 = temp1;
-            console.log("val", this.sample);
             i++;
           }
         }

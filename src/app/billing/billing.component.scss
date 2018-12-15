@@ -86,7 +86,7 @@
         .LinkTag {
           // height: 10px;
           color: #1e6af6;
-          font-size: 12px;
+          font-size: 10px;
         }
       }
       .billingBox.active2 {
@@ -102,7 +102,7 @@
         }
         .LinkTag {
           color: #ac8bfc;
-          font-size: 12px;
+          font-size: 10px;
         }
       }
       .billingBox {
@@ -206,6 +206,10 @@
               color: #828282;
             }
             .new2 {
+              margin-top: 22px;
+              color: #828282;
+            }
+            .new3            {
               margin-top: 0px;
               color: #828282;
             }
@@ -463,7 +467,7 @@ fieldset.scheduler-border {
   margin: 0 0 1.5em 0 !important;
   -webkit-box-shadow: 0px 0px 0px 0px #828282;
   box-shadow: 0px 0px 0px 0px #828282;
-  width: 70%;
+  width: 88%;
   margin: 1px 15px !important;
   word-wrap: break-word;
   float: left;
@@ -655,3 +659,86 @@ fieldset label {
 .active2 .new1 legend.scheduler-border {
   color: #828282 !important;
 }
+.LinkTag label{
+  margin-bottom:0px !important;
+}
+// .boxCont div:nth-child(2) label{
+//   color: #000 !important;
+//   margin-left: 15px !important;
+// }
+.trialPeriod-sub span{
+  color:#000!important;
+  line-height: 14px !important;
+    // font-size: 11px !important;
+    // margin-left: 14%;
+}
+.trialPeriod-sub label{
+  color:#000!important;
+  line-height: 14px !important;
+    font-size: 11px !important;
+    margin-left: 10%;
+}
+.billingModelContainer .bm-main .billingBoxCont .billingBox .boxCont .large .new1{
+  margin-top: 42px !important;
+    color: #828282;
+}
+.borderLineS{
+  border-bottom: 1px solid #9b9b9b;
+  margin-left: 15px;
+  position: relative;
+  top: 118px;
+  width: 87%;
+}
+.borderLineR{
+  border-bottom: 1px solid #9b9b9b;
+  position: relative;
+    top: 100px;
+    width: 86%;
+    padding-left: 10px;
+    margin-left: 16px;
+}
+.borderLineRT{
+  border-bottom: 1px solid #9b9b9b;
+  position: relative;
+    top: 80px;
+    width: 86%;
+    margin-left: 16px;
+}
+.trialPeriod-sub{
+  margin-left: 25px;
+}
+.new3{
+  position: relative;
+    top: 2px;
+}
+.active hr{
+  position: relative;
+    top: 100px;
+}
+.active1 hr{
+  position: relative;
+  top:80px;
+}
+.active2 hr{
+  position: relative;
+  top:60px;
+}
+.active em{
+  position: relative;
+  border: 0px;
+  top: 96px !important;
+  color: #000;
+}
+.active1 em{
+  position: relative;
+  border: 0px;
+  top: 75px !important;
+  color: #000;
+}
+.active2 em{
+  position: relative;
+  border: 0px;
+  top: 56px !important;
+  color: #000;
+}
+

@@ -70,12 +70,6 @@
                       <div class="boxCont row">
                         <div class="pad-l-20 col-md-12">
                           <p class="number">{{ array.title }}</p>
-                          <!--
-                            <p class="number" *ngIf="array.typeID == 2">Single</p>
-                            <p class="number" *ngIf="array.typeID == 3">Recurring</p>
-                            <p class="number" *ngIf="array.typeID == 5">Recurring</p>
-                            <p class="number" *ngIf="array.typeID == 6">Single + Recurring</p>
-                          -->
                           <div class="LinkTag">
                             <a *ngIf="array.typeID == 2"> </a>
                             <a *ngIf="array.typeID == 3">
@@ -119,27 +113,31 @@
                             <label *ngIf="array.typeID != 2"> {{ array.numberOfPayments}} recurrences</label>
                           </div>
                         </div>
-                        <div>
-                          <label *ngIf="array.typeID == 5"> Free trial period
+                        <div class="trialPeriod-sub">
+                          <div *ngIf="array.typeID == 5">
+                            <a>
+                              <span> Free trial period </span>
+                              <span *ngIf="array.data1.year != ''">
+                                {{ array.data1.year }} {{ array.data1.year == 1 ? 'year' : 'years' }}</span>
+                              <span *ngIf="array.data1.month != ''">{{ array.data1.month }}{{ array.data1.month == 1 ? 'month' : 'months' }}
+                              </span>
+                              <span *ngIf="array.data1.week != ''">{{ array.data1.week }}{{ array.data1.week == 1 ? 'week' : 'weeks' }}
+                              </span>
+                              <span *ngIf="array.data1.day != ''">{{ array.data1.days }}{{ array.data1.day == 1 ? 'day' : 'days' }}
+                              </span>
+                            </a>
+                          </div>
+                          <div *ngIf="array.typeID == 6">
+                            <span *ngIf="(array.typeID == 6)"> Initial trial period </span>
                             <span *ngIf="array.data1.year != ''">
-                              {{ array.data1.year }} {{ array.data1.year == 1 ? 'year ' : 'years ' }}</span>
-                            <span *ngIf="array.data1.month != ''"> {{ array.data1.month }} {{ array.data1.month == 1 ? 'month ' : 'months ' }}
+                              {{ array.data1.year }}{{ array.data1.year == 1 ? 'year' : 'years' }}</span>
+                            <span *ngIf="array.data1.month != ''">{{ array.data1.month }} {{ array.data1.month == 1 ? 'month' : 'months' }}
                             </span>
-                            <span *ngIf="array.data1.week != ''"> {{ array.data1.week }} {{ array.data1.week == 1 ? 'week ' : 'weeks ' }}
+                            <span *ngIf="array.data1.week != ''">{{ array.data1.week }} {{ array.data1.week == 1 ? 'week' : 'weeks' }}
                             </span>
-                            <span *ngIf="array.data1.day != ''"> {{ array.data1.days }} {{ array.data1.day == 1 ? 'day ' : 'days ' }}
+                            <span *ngIf="array.data1.day != ''">{{ array.data1.days }} {{ array.data1.day == 1 ? 'day' : 'days' }}
                             </span>
-                          </label>
-                          <label *ngIf="(array.typeID == 6)"> Initial trial period
-                            <span *ngIf="array.data1.year != ''">
-                              {{ array.data1.year }} {{ array.data1.year == 1 ? 'year ' : 'years ' }}</span>
-                            <span *ngIf="array.data1.month != ''"> {{ array.data1.month }} {{ array.data1.month == 1 ? 'month ' : 'months ' }}
-                            </span>
-                            <span *ngIf="array.data1.week != ''"> {{ array.data1.week }} {{ array.data1.week == 1 ? 'week ' : 'weeks ' }}
-                            </span>
-                            <span *ngIf="array.data1.day != ''"> {{ array.data1.days }} {{ array.data1.day == 1 ? 'day ' : 'days ' }}
-                            </span>
-                          </label>
+                          </div>
                         </div>
                         <div class="large col-md-12">
                           <div class="new1" *ngIf="array.typeID == 2">
@@ -154,7 +152,7 @@
                               <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
                             </fieldset>
                           </div>
-                          <div class="new2" *ngIf="array.typeID == 5">
+                          <div class="new3" *ngIf="array.typeID == 5">
                             <fieldset class="scheduler-border">
                               <legend class="scheduler-border">SUBSCRIPTION CHARGE</legend>
                               <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
@@ -174,6 +172,12 @@
                           </div>
                         </div>
                       </div>
+                      <!-- <p class="borderLineS" *ngIf="array.typeID == 2"></p>
+                      <p class="borderLineR" *ngIf="array.typeID == 3"></p>
+                      <p class="borderLineRT" *ngIf="array.typeID == 5"></p>
+                      <p class="borderLineSR" *ngIf="array.typeID == 6"></p> -->
+                      <hr>
+                      <em>test</em>
                     </div>
                   </div>
                 </div>

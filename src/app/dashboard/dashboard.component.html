@@ -88,20 +88,20 @@
       </thead>
       <tbody>
         <tr *ngFor="let val of (transactionHistorArray | paginate: { itemsPerPage: 10, currentPage: p })">
-          <td>{{ val.lastPaymentDate | date: 'dd MMM' }}</td>
+          <td>{{ val.timeStamp | date: 'dd MMM' }}</td>
           <!-- <td>{{ val.billingModel }}</td> -->
-          <td>Gold</td>
+          <td>{{ val.billName }}</td>
           <!-- <td>{{ val.statusID }}/6</td> -->
           <td (click)="txhash(val.hash)">
             <span class="overflow-Address TxHash">{{ val.hash }}</span>
           </td>
           <td>
-            <span class="overflow-Address">{{ val.customerAddress }}</span>
+            <span class="overflow-Address">{{ val.from }}</span>
           </td>
-          <td (click)="pullpaymentaddress(val.pullPaymentAddress)">
-            <span class="overflow-Address TxHash">{{ val.pullPaymentAddress }}</span>
+          <td (click)="pullpaymentaddress(val.to)">
+            <span class="overflow-Address TxHash">{{ val.to }}</span>
           </td>
-          <td>{{ val.balance }}</td>
+          <td>{{ val.value / 1000000000000000000 }}</td>
         </tr>
       </tbody>
     </table>

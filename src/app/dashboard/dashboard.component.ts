@@ -20,13 +20,13 @@ export class DashboardComponent implements OnInit {
   error: string;
   treasuryBalance;
   treasuryCurrency;
-  pullPaymentsBalance;
+  pullPaymentsBalance: number = 0;
   sumBal;
   pullPaymentsCurrency;
   gasBalance;
   gasCurrency;
   value: string = '';
-  transactionHistorArray;
+  transactionHistorArray = [];
   pmaAddressList;
   addressList;
   treasuryAddress;
@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
   previouslist = '';
   nextlist = '';
   p: number = 1;
-
+  valuer;
   constructor(
     private dashboardService: DashboardService,
     @Inject(DOCUMENT) private document: any,
@@ -43,21 +43,21 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     var pullpaymentAddress = [];
-    this.dashboardService.getTransactionHistory().subscribe(result => {
-      this.previouslist = '<';
-      this.nextlist = '>';
-      this.transactionHistorArray = result.data.data;
+    // this.dashboardService.getTransactionHistory().subscribe(result => {
+    //   this.previouslist = '<';
+    //   this.nextlist = '>';
+    //   this.transactionHistorArray = result.data.data;
 
-      let data = 0;
-      for (let val of result.data.data) {
-        if (val.balance != '0') {
-          data += parseFloat(val.balance);
-          this.pullPaymentsBalance = data.toFixed(5).replace(/0+$/, '');
-          var nf = new Intl.NumberFormat();
-          this.pullPaymentsBalance = nf.format(this.pullPaymentsBalance);
-        }
-      }
-    });
+    //   let data = 0;
+    //   for (let val of result.data.data) {
+    //     if (val.balance != '0') {
+    //       data += parseFloat(val.balance);
+    //       this.pullPaymentsBalance = data.toFixed(5).replace(/0+$/, '');
+    //       var nf = new Intl.NumberFormat();
+    //       this.pullPaymentsBalance = nf.format(this.pullPaymentsBalance);
+    //     }
+    //   }
+    // });
     this.dashboardService.gasvalueCalcualtion().subscribe(res => {
       this.gasBalance = parseFloat(res.data)
         .toFixed(5)
@@ -78,6 +78,18 @@ export class DashboardComponent implements OnInit {
       setTimeout(() => {
         this.qr();
       }, 3000);
+    });
+
+    this.dashboardService.gettabledata().subscribe(result => {
+      result.data.map((value, index) => {
+        this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(result => {
+          this.previouslist = '<';
+          this.nextlist = '>';
+          this.transactionHistorArray.push(result.result[0]);
+          this.transactionHistorArray[index].billName = value.billingName;
+          this.pullPaymentsBalance += parseFloat(this.transactionHistorArray[index].value) / 10000000000000000000;
+        });
+      });
     });
   }
 

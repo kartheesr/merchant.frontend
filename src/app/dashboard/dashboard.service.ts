@@ -19,6 +19,7 @@ export class DashboardService {
   private QRCodeURL;
   private treasuryUrl;
   private gasactionUrl;
+  public transcationurl;
 
   constructor(private http: HttpClient) {
     this.transactionHistoryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/getAll`;
@@ -32,6 +33,7 @@ export class DashboardService {
     this.QRCodeURL = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/address`;
     this.treasuryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pmabalance`;
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/etherBalance`;
+    this.transcationurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/hash`;
   }
 
   public getTransactionHistory(): Observable<any> {
@@ -75,6 +77,22 @@ export class DashboardService {
 
   public gasvalueCalcualtion(): Observable<any> {
     return this.http.get(this.gasactionUrl).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+
+  public gettabledata(): Observable<any> {
+    return this.http.get(this.transcationurl).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+  public getvalue(address, blocknumber): Observable<any> {
+    let sample = `http://api-ropsten.etherscan.io/api?module=account&action=tokentx&address=${address}&startblock=${blocknumber}&endblock=${blocknumber}`;
+    return this.http.get(sample).pipe(
       map((response: HttpResponse) => {
         return response;
       })

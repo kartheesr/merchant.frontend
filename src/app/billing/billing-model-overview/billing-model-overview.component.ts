@@ -27,9 +27,10 @@ export class BillingModelOverviewComponent implements OnInit {
   public subscribers = 0;
   public frequency;
   public pmaAmount;
-  public transactionHistorArray;
+  public transactionHistorArray = [];
   public data = '';
   public EtherValue;
+  pageShow;
   trialDays;
   value;
   model;
@@ -99,11 +100,30 @@ export class BillingModelOverviewComponent implements OnInit {
     var dt = new Date();
     this.BillingPeriod = moment(dt).format('D MMM YYYY');
     this.id = localStorage.getItem('publishId');
-    this.dashboardService.getTransactionHistory().subscribe(result => {
+    // this.dashboardService.getTransactionHistory().subscribe(result => {
+    //   this.previouslist = '<';
+    //   this.nextlist = '>';
+    //   this.transactionHistorArray = result.data.data;
+    //   if (this.transactionHistorArray.length != 0) {
+    //     this.pageShow = true;
+    //   } else {
+    //     this.pageShow = false;
+    //   }
+    // });
+    this.dashboardService.gettabledata().subscribe(result => {
       this.previouslist = '<';
       this.nextlist = '>';
-      this.transactionHistorArray = result.data.data;
+      result.data.map((value, index) => {
+        this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(result => {
+          this.transactionHistorArray.push(result.result[0]);
+          this.transactionHistorArray[index].billName = value.billingName;
+        });
+        setTimeout(() => {
+          this.getdecimal();
+        }, 1500);
+      });
     });
+
     if (this.route.snapshot.queryParamMap.get('pullPayId')) {
       this.id = this.route.snapshot.queryParamMap.get('pullPayId');
     } else {
@@ -144,7 +164,6 @@ export class BillingModelOverviewComponent implements OnInit {
       this.temp.months = months;
       this.temp.weeks = weeks;
       this.temp.days = days;
-
 
       if (result.data.typeID == 2) {
         // this.overviewdata.gastransferpull().subscribe(result => {
@@ -192,7 +211,7 @@ export class BillingModelOverviewComponent implements OnInit {
               this.EtherValue = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
               let USD = this.model.SingleUSD + this.model.TransferUSD;
               this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
-              console.log("single", this.model.TotalUSD);
+              console.log('single', this.model.TotalUSD);
             });
           });
         });
@@ -340,19 +359,26 @@ export class BillingModelOverviewComponent implements OnInit {
               let costUSD = this.PullRecurrence * this.model.TransferUSD;
               this.model.PullRecurrencecostUSD = parseFloat(costUSD.toFixed(2).replace(/0+$/, ''));
               let Total =
-                parseFloat(this.RecurrencesETH) +
-                parseFloat(this.intialETH) +
-                parseFloat(this.PullRecurrenceETH);
+                parseFloat(this.RecurrencesETH) + parseFloat(this.intialETH) + parseFloat(this.PullRecurrenceETH);
               this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
               let USD = this.model.initialUSD + this.model.RecurrenceETHUSD + this.model.PullRecurrencecostUSD;
               this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
-              console.log(this.model.TotalUSD)
+              console.log(this.model.TotalUSD);
             });
           });
         });
       }
       this.find();
     });
+  }
+
+  getdecimal() {
+    let length = this.transactionHistorArray.length;
+    if (length != 0) {
+      this.pageShow = true;
+    } else {
+      this.pageShow = false;
+    }
   }
 
   find() {

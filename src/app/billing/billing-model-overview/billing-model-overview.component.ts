@@ -410,7 +410,7 @@ export class BillingModelOverviewComponent implements OnInit {
   }
 
   txhash(data) {
-    window.open(`https://etherscan.io/tx/${data}`, '_blank');
+    window.open(`https://ropsten.etherscan.io/tx/${data}`, '_blank');
   }
 
   open(content) {
@@ -421,7 +421,7 @@ export class BillingModelOverviewComponent implements OnInit {
   }
   //pull
   pullpaymentaddress(data) {
-    window.open(`https://etherscan.io/address/${data}`, '_blank');
+    window.open(`https://ropsten.etherscan.io/address/${data}`, '_blank');
   }
   copycontent(color) {
     var src;

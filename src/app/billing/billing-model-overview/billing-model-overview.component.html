@@ -51,19 +51,25 @@
                 </div>
               </div>
 
-              <p class="borderLine"></p>
-
-              <div class="footerText">
-                <span
-                  >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
-                >
-
-                <!--
-                  <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-
-                  <span>Subscribers {{ 0 }}</span>
-                -->
+              <div class="large_next">
+                <hr />
+                <em class="Footergas"
+                  >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b>
+                </em>
               </div>
+              <!--
+                <div class="footerText">
+                  <span
+                    >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
+                  >
+
+                  
+                    <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
+
+                    <span>Subscribers {{ 0 }}</span>
+                 
+                </div>
+              -->
             </div>
           </div>
         </div>
@@ -88,11 +94,11 @@
               <br />
             -->
 
-            <label class="subTitle">{{ billingdescription }}</label>
+            <p class="subTitle">{{ billingdescription }}</p>
           </div>
 
           <div class="product-div">
-            <label class="title new_title">Gas funding for each subscribed customer</label>
+            <label class="title new_title"><b>Gas Cost</b></label>
 
             <br />
 
@@ -100,7 +106,7 @@
               <table class="BillingModelTable ZeroMargin">
                 <thead>
                   <tr>
-                    <th>transaction</th>
+                    <th>Transaction</th>
 
                     <th>Number of subscriptions</th>
 
@@ -405,7 +411,7 @@
                   <span> recurrences</span>
                 </a>
 
-                <div *ngIf="trialPeriod != 0">
+                <div class="new" *ngIf="trialPeriod != 0">
                   <a>
                     <span>Free trial period </span>
 
@@ -437,18 +443,25 @@
                   </fieldset>
                 </div>
               </div>
-
-              <div class="footerText">
-                <span
-                  >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
-                >
-
-                <!--
-                  <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-
-                  <span>Subscribers {{ 0 }}</span>
-                -->
+              <div class="large_next">
+                <hr />
+                <em class="Footergas"
+                  >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b>
+                </em>
               </div>
+              <!--
+                <div class="footerText">
+                  <span
+                    >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
+                  >
+
+
+                    <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
+
+                    <span>Subscribers {{ 0 }}</span>
+                  
+                </div>
+              -->
             </div>
           </div>
         </div>
@@ -473,11 +486,11 @@
 
             <br />
 
-            <label class="subTitle">{{ billingdescription }}</label>
+            <p class="subTitle">{{ billingdescription }}</p>
           </div>
 
           <div class="product-div">
-            <label class="title new_title left">Gas funding for each subscribed customer</label>
+            <label class="title new_title left"><b>Gas Cost</b></label>
 
             <br />
 
@@ -809,18 +822,25 @@
               </div>
 
               <br />
-
-              <div class="footerText">
-                <span
-                  >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
-                >
-
-                <!--
-                  <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-
-                  <span>Subscribers {{ 0 }}</span>
-                -->
+              <div>
+                <hr />
+                <em class="Footergas"
+                  >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b>
+                </em>
               </div>
+              <!--
+                <div class="footerText">
+                  <span
+                    >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
+                  >
+
+                  
+                    <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
+
+                    <span>Subscribers {{ 0 }}</span>
+                 
+                </div>
+              -->
             </div>
           </div>
         </div>
@@ -845,11 +865,11 @@
               <br />
             -->
 
-            <label class="subTitle">{{ billingdescription }}</label>
+            <p class="subTitle">{{ billingdescription }}</p>
           </div>
 
           <div class="product-div-1">
-            <label class="title new_title left">Gas funding for each subscribed customer</label>
+            <label class="title new_title left"><b>Gas Cost</b></label>
 
             <br />
 

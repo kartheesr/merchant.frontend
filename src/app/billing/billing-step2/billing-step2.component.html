@@ -4,12 +4,21 @@
       <br />
       <div class="form-group">
         <div class="line">
-          <label class="title">Product Name</label>
-          <br />
-          <input type="text" class="productInput" name="productName" placeholder="Product Name" [(ngModel)]="model.productName" #productName="ngModel"
+          <label class="title">Product Name</label> <br />
+          <input
+            type="text"
+            class="productInput"
+            name="productName"
+            placeholder=""
+            [(ngModel)]="model.productName"
+            #productName="ngModel"
             [ngClass]="{
-              'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength
-            }" required minlength="2" maxlength="50" />
+              'invalid\': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+            }"
+            required
+            minlength="2"
+            maxlength="50"
+          />
         </div>
 
         <div *ngIf="f.submitted">
@@ -19,12 +28,20 @@
       </div>
       <div class="form-group">
         <div class="line">
-          <label class="title">Billing Model Name</label>
-          <br />
-          <input type="text" class="productInput" name="billingModelName" placeholder="Billing Model Name" [(ngModel)]="model.billingModelName"
-            #billingModelName="ngModel" [ngClass]="{
-              'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
-            }" required minlength="2" />
+          <label class="title">Billing Model Name</label> <br />
+          <input
+            type="text"
+            class="productInput"
+            name="billingModelName"
+            placeholder=""
+            [(ngModel)]="model.billingModelName"
+            #billingModelName="ngModel"
+            [ngClass]="{
+              'invalid\': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+            }"
+            required
+            minlength="2"
+          />
         </div>
 
         <div *ngIf="f.submitted">
@@ -36,16 +53,25 @@
       </div>
       <div class="form-group">
         <div class="line">
-          <label class="title">Billing Model Description</label>
-          <br />
-          <textarea class="inputDes" name="billModelDes" placeholder="Explain briefly what your Billing Model offers" [(ngModel)]="model.billModelDes"
-            #billModelDes="ngModel" [ngClass]="{
-              'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
-            }" required minlength="2" maxlength="140" (input)="handleCount(billModelDes)"></textarea>
+          <label class="title">Billing Model Description</label> <br />
+          <textarea
+            class="inputDes"
+            name="billModelDes"
+            placeholder=""
+            [(ngModel)]="model.billModelDes"
+            #billModelDes="ngModel"
+            [ngClass]="{
+              'invalid\': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+            }"
+            required
+            minlength="2"
+            maxlength="140"
+            (input)="handleCount(billModelDes)"
+          ></textarea>
         </div>
         <div>
-          <label class="char-msg" *ngIf="!billModelDes.errors">{{this.homePage.count}} characters</label>
-          <label class="char-msg" *ngIf="billModelDes.errors">{{this.homePage.count}} characters</label>
+          <label class="char-msg" *ngIf="!billModelDes.errors">{{ this.homePage.count }} characters</label>
+          <label class="char-msg" *ngIf="billModelDes.errors">{{ this.homePage.count }} characters</label>
         </div>
         <div *ngIf="f.submitted">
           <div class="notifyMsg" *ngIf="billModelDes.errors?.required">Billing model description is required</div>
@@ -56,9 +82,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4">
-      <div>
-        <img src="assets/images/mobile.png" class="mobile" />
-      </div>
+      <div><img src="assets/images/mobile.png" class="mobile" /></div>
     </div>
     <div class="btCtrl col-xs-12 col-sm-10 col-md-11">
       <button class="backbtn" (click)="onBack()">Back</button>

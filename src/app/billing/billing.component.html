@@ -115,33 +115,39 @@
                               <span *ngIf="array.data.days != ''">
                                 {{ array.data.days }} {{ array.data.days == 1 ? 'day ' : 'days ' }}
                               </span>
-                              <label>for</label>
-                            </a>
-                            <label *ngIf="array.typeID != 2"> {{ array.numberOfPayments }} recurrences</label>
+                              <label>for </label>
+                            </a>&nbsp;
+                            <label *ngIf="array.typeID != 2"> {{ array.numberOfPayments }} {{ array.numberOfPayments == 1 ? 'Subscription' : 'Subscriptions'
+                              }}
+                            </label>
                           </div>
                           <div class="trialPeriod-sub">
 
                             <div *ngIf="array.typeID == 5">
                               <span> Free trial period </span>
-                              <span *ngIf="array.data1.year != ''">
-                                {{ array.data1.year }} {{ array.data1.year == 1 ? 'year' : 'years' }}</span>
-                              <span *ngIf="array.data1.month != ''">{{ array.data1.month }}{{ array.data1.month == 1 ? 'month' : 'months' }}
-                              </span>
-                              <span *ngIf="array.data1.week != ''">{{ array.data1.week }}{{ array.data1.week == 1 ? 'week' : 'weeks' }}
-                              </span>
-                              <span *ngIf="array.data1.day != ''">{{ array.data1.days }}{{ array.data1.day == 1 ? 'day' : 'days' }}
-                              </span>
+                              <b>
+                                <span *ngIf="array.data1.year != ''">
+                                  {{ array.data1.year }} {{ array.data1.year == 1 ? 'year' : 'years' }}</span>
+                                <span *ngIf="array.data1.month != ''">{{ array.data1.month }}{{ array.data1.month == 1 ? 'month' : 'months' }}
+                                </span>
+                                <span *ngIf="array.data1.week != ''">{{ array.data1.week }}{{ array.data1.week == 1 ? 'week' : 'weeks' }}
+                                </span>
+                                <span *ngIf="array.data1.day != ''">{{ array.data1.days }}{{ array.data1.day == 1 ? 'day' : 'days' }}
+                                </span>
+                              </b>
                             </div>
                             <div *ngIf="array.typeID == 6">
                               <span *ngIf="array.typeID == 6"> Initial trial period </span>
-                              <span *ngIf="array.data1.year != ''">
-                                {{ array.data1.year }}{{ array.data1.year == 1 ? 'year' : 'years' }}</span>
-                              <span *ngIf="array.data1.month != ''">{{ array.data1.month }} {{ array.data1.month == 1 ? 'month' : 'months' }}
-                              </span>
-                              <span *ngIf="array.data1.week != ''">{{ array.data1.week }} {{ array.data1.week == 1 ? 'week' : 'weeks' }}
-                              </span>
-                              <span *ngIf="array.data1.day != ''">{{ array.data1.days }} {{ array.data1.day == 1 ? 'day' : 'days' }}
-                              </span>
+                              <b>
+                                <span *ngIf="array.data1.year != ''">
+                                  {{ array.data1.year }}{{ array.data1.year == 1 ? 'year' : 'years' }}</span>
+                                <span *ngIf="array.data1.month != ''">{{ array.data1.month }} {{ array.data1.month == 1 ? 'month' : 'months' }}
+                                </span>
+                                <span *ngIf="array.data1.week != ''">{{ array.data1.week }} {{ array.data1.week == 1 ? 'week' : 'weeks' }}
+                                </span>
+                                <span *ngIf="array.data1.day != ''">{{ array.data1.days }} {{ array.data1.day == 1 ? 'day' : 'days' }}
+                                </span>
+                              </b>
                             </div>
                           </div>
                         </div>

@@ -14,7 +14,7 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 amountinput">
                 <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="{{ Placeholdername }}"
-                  name="price" [(ngModel)]="model.price" #price="ngModel" required [ngClass]="{ 'lid\': \': ': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
+                  name="price" [(ngModel)]="model.price" #price="ngModel" required [ngClass]="{  'is-invalid': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
                   [gt]="0" maxlength="17" />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" [hidden]="!price.errors?.required">Price is required</div>
@@ -27,7 +27,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
                 <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number"
-                  placeholder="1" name="days" [min]="1" min="1" [(ngModel)]="model.days" #days="ngModel" required [ngClass]="{ 'lid\': \': ': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
+                  placeholder="1" name="days" [min]="1" min="1" [(ngModel)]="model.days" #days="ngModel" required [ngClass]="{  'is-invalid': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" appBlockCopyPaste (input)="handlechangestartdays()"
                 />
                 <div class="aligntxt" *ngIf="days.errors?.min">Needs to be at least 1 day</div>
@@ -59,7 +59,7 @@
                 <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="Periodprice"
                   placeholder="{{ Placeholdername }}" name="Periodprice" [(ngModel)]="model.Periodprice" #Periodprice="ngModel"
                   required [ngClass]="{
-                    'lid\': \': ': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
+                    'is-invalid': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
                   }" [gt]="0" />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" *ngIf="Periodprice.errors?.required">Amount is required</div>
@@ -78,13 +78,13 @@
                 <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number"
                   placeholder="0" name="billingdays" [min]="1" min="1" [(ngModel)]="model.billingdays" #billingdays="ngModel"
                   required (input)="handlechangedayscycle()" [ngClass]="{
-                    'lid\': \': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }" onkeypress="return event.charCode >= 48 && event.charCode <= 57" appBlockCopyPaste />
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 calendarselect dayselect">
                 <select name="billingcalendar" [(ngModel)]="model.billingcalendar" #billingcalendar="ngModel" required (change)="handlechangecalculatecycle(billingcalendar)"
                   [ngClass]="{
-                    'lid\': \': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }">
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
                 </select>

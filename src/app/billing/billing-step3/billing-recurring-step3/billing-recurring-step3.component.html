@@ -7,32 +7,15 @@
             <label>Amount</label>
             <div class="row SingleRecurringClass">
               <div class="col-xs-12 col-sm-3 col-md-3 amountselect">
-                <select
-                  name="rupees"
-                  [(ngModel)]="model.rupees"
-                  #rupees="ngModel"
-                  required
-                  [ngClass]="{ 'is-invalid': f.submitted && rupees.errors?.required }"
-                >
-                  <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label"
-                    >{{ item.name }} {{ item.label }}
+                <select name="rupees" [(ngModel)]="model.rupees" #rupees="ngModel" required [ngClass]="{ 'is-invalid': f.submitted && rupees.errors?.required }">
+                  <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label">{{ item.name }} {{ item.label }}
                   </option>
                 </select>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 amountinput">
-                <input
-                  class="input"
-                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                  id="amount"
-                  placeholder="$ 0.00"
-                  name="amount"
-                  [(ngModel)]="model.amount"
-                  required
-                  #amountentry="ngModel"
-                  [ngClass]="{ 'invalid\': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
-                  [gt]="0"
-                  maxlength="17"
-                />
+                <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="amount" placeholder="$ 0.00"
+                  name="amount" [(ngModel)]="model.amount" required #amountentry="ngModel" [ngClass]="{  'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [gt]="0" maxlength="17" />
                 <div *ngIf="f.submitted">
                   <div class="notifyMsg" [hidden]="!amountentry.errors?.required">Amount is required</div>
                 </div>
@@ -41,41 +24,22 @@
             </div>
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <span class="BillingCycleClass">Billing Cycle</span> <br />
+                <span class="BillingCycleClass">Billing Cycle</span>
+                <br />
                 <label>Customers will be billed every</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
-                    <input
-                      class="col-xs-12 col-sm-11 col-md-11"
-                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                      placeholder="0"
-                      type="number"
-                      name="No1"
-                      [(ngModel)]="model.No1"
-                      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                      appBlockCopyPaste
-                      required
-                      #NoOfRecuurence1="ngModel"
-                      (input)="handlechangedays()"
-                      [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
-                      }"
-                      [min]="1"
-                      min="1"
-                    />
+                    <input class="col-xs-12 col-sm-11 col-md-11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                      placeholder="0" type="number" name="No1" [(ngModel)]="model.No1" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                      appBlockCopyPaste required #NoOfRecuurence1="ngModel" (input)="handlechangedays()" [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                      }" [min]="1" min="1" />
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 dayselect">
-                    <select
-                      name="Period1"
-                      [(ngModel)]="model.Period1"
-                      #Period1="ngModel"
-                      (change)="handlechangecalculate(Period1)"
-                      [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
-                      }"
-                    >
-                      <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
-                        >{{ option.label }}
+                    <select name="Period1" [(ngModel)]="model.Period1" #Period1="ngModel" (change)="handlechangecalculate(Period1)" [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                      }">
+                      <option *ngFor="let option of recurrenceOption" [ngValue]="option.label">{{ option.label }}
                       </option>
                     </select>
                     <div *ngIf="f.submitted">
@@ -88,26 +52,16 @@
             </div>
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <span class="BillingCycleClass">Subscriptions</span> <br />
+                <span class="BillingCycleClass">Subscriptions</span>
+                <br />
                 <label>Number of billing cycles</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
-                    <input
-                      class="col-xs-12 col-sm-11 col-md-11"
-                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                      placeholder="0"
-                      type="number"
-                      name="No2"
-                      [(ngModel)]="model.No2"
-                      required
-                      #NoOfRecuurence2="ngModel"
+                    <input class="col-xs-12 col-sm-11 col-md-11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                      placeholder="0" type="number" name="No2" [(ngModel)]="model.No2" required #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
-                      }"
-                      [min]="2"
-                      min="2"
-                      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                      appBlockCopyPaste
+                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                      }" [min]="2" min="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57" appBlockCopyPaste
                     />
                     <div *ngIf="f.submitted">
                       <div class="errorMSg" [hidden]="!NoOfRecuurence2.errors?.required">Subscriptions is required</div>
@@ -119,18 +73,13 @@
             </div>
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <span class="BillingCycleClass">Trial period</span> <br />
+                <span class="BillingCycleClass">Trial period</span>
+                <br />
                 <label>Offer your customers a trial before they start paying you</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
                     <label class="switch">
-                      <input
-                        type="checkbox"
-                        name="Toggle"
-                        [(ngModel)]="model.Toggle"
-                        (change)="handlechangetrial(Toggle)"
-                        #Toggle="ngModel"
-                      />
+                      <input type="checkbox" name="Toggle" [(ngModel)]="model.Toggle" (change)="handlechangetrial(Toggle)" #Toggle="ngModel" />
                       <span class="slider round"></span>
                     </label>
                     <!--
@@ -147,37 +96,17 @@
                 <label>Start subscription billing after</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
-                    <input
-                      class="col-xs-12 col-sm-11 col-md-11"
-                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                      placeholder="0"
-                      type="number"
-                      name="No3"
-                      [(ngModel)]="model.No3"
-                      (input)="handlechangetraildays()"
-                      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                      appBlockCopyPaste
-                      required
-                      #NoOfRecuurence3="ngModel"
-                      [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
-                      }"
-                      [min]="1"
-                      min="1"
-                    />
+                    <input class="col-xs-12 col-sm-11 col-md-11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                      placeholder="0" type="number" name="No3" [(ngModel)]="model.No3" (input)="handlechangetraildays()" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                      appBlockCopyPaste required #NoOfRecuurence3="ngModel" [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                      }" [min]="1" min="1" />
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 dayselect">
-                    <select
-                      name="Period2"
-                      [(ngModel)]="model.Period2"
-                      #Period2="ngModel"
-                      (change)="handlechangetrailperiods(Period2)"
-                      [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
-                      }"
-                    >
-                      <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
-                        >{{ option.label }}
+                    <select name="Period2" [(ngModel)]="model.Period2" #Period2="ngModel" (change)="handlechangetrailperiods(Period2)" [ngClass]="{
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                      }">
+                      <option *ngFor="let option of recurrenceOption" [ngValue]="option.label">{{ option.label }}
                       </option>
                     </select>
                     <div *ngIf="f.submitted">

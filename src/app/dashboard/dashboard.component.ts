@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
   p: number = 1;
   valuer;
   sample;
+  pageShow;
   constructor(
     private dashboardService: DashboardService,
     @Inject(DOCUMENT) private document: any,
@@ -113,6 +114,12 @@ export class DashboardComponent implements OnInit {
   }
   getdecimal() {
     let data = 0;
+    let length = this.transactionHistorArray.length;
+    if (length != 0) {
+      this.pageShow = true;
+    } else {
+      this.pageShow = false;
+    }
     this.transactionHistorArray.map((value, index) => {
       data += parseFloat(this.transactionHistorArray[index].value) / 1000000000000000000;
     });

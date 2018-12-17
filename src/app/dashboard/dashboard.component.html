@@ -65,6 +65,7 @@
       <div class="col ">
         <div class="text-right">
           <pagination-controls
+            *ngIf="pageShow"
             (pageChange)="p = $event"
             previousLabel="{{previouslist}}"
             nextLabel="{{nextlist}}"

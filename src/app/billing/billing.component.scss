@@ -115,7 +115,6 @@
         border-radius: 6px 6px 0px 0px;
         .boxHead {
           padding: 8px 8px;
-          padding-bottom: 0px !important;
           color: #003aa7;
           font-size: 10px;
           line-height: 20px;
@@ -151,16 +150,17 @@
         }
         .boxCont {
           // padding: 5px 5px;
+          margin-left: 5px !important;
           background-color: #fcfdff;
           .pad-l-20 {
             // padding-left: 10px;
             // padding-bottom: 2px;
-            padding-left: 24px;
+            // padding-left: 24px;
             // margin-top: -20%;
             p {
               font-size: 15.5021px;
               color: #000;
-              width: 160px;
+              // width: 160px;
               span {
                 font-size: 20px;
               }
@@ -191,7 +191,7 @@
             margin: 0px 0px;
             font-size: 30px;
             font-weight: 600;
-            height: 50px;
+            // height: 50px;
             color: #333333;
             word-wrap: break-word;
             .new {
@@ -202,15 +202,15 @@
               }
             }
             .new1 {
-              margin-top: 15px;
+              // margin-top: 15px;
               color: #828282;
             }
             .new2 {
-              margin-top: 22px;
+              // margin-top: 22px;
               color: #828282;
             }
             .new3 {
-              margin-top: 0px;
+              // margin-top: 0px;
               color: #828282;
             }
             .labelcolor {
@@ -464,14 +464,14 @@ fieldset.scheduler-border {
   border: 0.5px solid #82828278 !important;
   border-radius: 3px;
   padding: 0 0.4em 0em 0.4em !important;
-  margin: 0 0 1.5em 0 !important;
+  // margin: 0 0 1.5em 0 !important;
   -webkit-box-shadow: 0px 0px 0px 0px #828282;
   box-shadow: 0px 0px 0px 0px #828282;
-  width: 88%;
-  margin: 1px 15px !important;
+  width: 100%;
+  // margin: 1px 15px !important;
   word-wrap: break-word;
   float: left;
-  margin-left: 16px;
+  // margin-left: 16px;
   label {
     font-size: 28px;
     align-items: center;
@@ -634,7 +634,7 @@ fieldset label {
 }
 .new legend.scheduler-border {
   color: #304053 !important;
-  width: 100%;
+  // width: 100%;
 }
 /*** Scroll Bar Style ***/
 
@@ -654,7 +654,7 @@ fieldset label {
 }
 .new2 legend.scheduler-border {
   color: #304053 !important;
-  width: 100%;
+  // width: 100%;
 }
 .active2 .new1 legend.scheduler-border {
   color: #828282 !important;
@@ -679,7 +679,7 @@ fieldset label {
   margin-left: 10%;
 }
 .billingModelContainer .bm-main .billingBoxCont .billingBox .boxCont .large .new1 {
-  margin-top: 42px !important;
+  // margin-top: 42px !important;
   color: #828282;
 }
 .borderLineS {
@@ -705,44 +705,72 @@ fieldset label {
   margin-left: 16px;
 }
 .trialPeriod-sub {
-  margin-left: 25px;
+  height: 20px !important;
+  float: left;
 }
-.new3 {
-  position: relative;
-  top: 2px;
+.new1 {
+  float: left;
+  width: 100%;
 }
-.active hr {
-  position: relative;
-  top: 100px;
+.new {
+  float: left;
+  width: 100%;
 }
-.active1 hr {
-  position: relative;
-  top: 80px;
+.extra_box {
+  float: left;
+  width: 100%;
+  height: 50px;
 }
-.active2 hr {
-  position: relative;
-  top: 60px;
-}
-.active em {
-  position: relative;
-  border: 0px;
-  top: 96px !important;
-  color: #000;
-}
-.active1 em {
-  position: relative;
-  border: 0px;
-  top: 75px !important;
-  color: #000;
-}
-.active2 em {
-  position: relative;
-  border: 0px;
-  top: 56px !important;
-  color: #000;
-}
+// .trialPeriod-sub {
+//   margin-left: 25px;
+// }
+// .new3 {
+//   position: relative;
+//   top: 2px;
+// }
+// .active hr {
+//   position: relative;
+//   top: 100px;
+// }
+// .active1 hr {
+//   position: relative;
+//   top: 80px;
+// }
+// .active2 hr {
+//   position: relative;
+//   top: 60px;
+// }
+// .active em {
+//   position: relative;
+//   border: 0px;
+//   top: 96px !important;
+//   color: #000;
+// }
+// .active1 em {
+//   position: relative;
+//   border: 0px;
+//   top: 75px !important;
+//   color: #000;
+// }
+// .active2 em {
+//   position: relative;
+//   border: 0px;
+//   top: 56px !important;
+//   color: #000;
+// }
 .Footergas {
   font-size: 11px;
   font-style: normal !important;
-  left: 10% !important;
+  text-align: center;
+  width: 100%;
+  float: left;
+}
+.billingBox {
+  border: none !important;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 6px !important;
+}
+.billingBox hr {
+  float: right;
+  width: 92%;
 }

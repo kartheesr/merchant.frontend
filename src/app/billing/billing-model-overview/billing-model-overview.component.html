@@ -25,7 +25,7 @@
 
                   <!--
                     <br />
-                    
+
                     <span>{{ description }}</span>
                   -->
                 </p>
@@ -41,11 +41,11 @@
 
                   <!--
                     <div class="ImgCont">
-                    
+
                     <img src="assets/images/Vector_black.png" />
-                    
+
                     </div>
-                    
+
                     <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
                   -->
                 </div>
@@ -54,11 +54,13 @@
               <p class="borderLine"></p>
 
               <div class="footerText">
-                <span>Est.gas cost/customer:(~${{ model.TotalUSD }})</span>
+                <span
+                  >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
+                >
 
                 <!--
                   <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-                  
+
                   <span>Subscribers {{ 0 }}</span>
                 -->
               </div>
@@ -73,7 +75,7 @@
 
               <!--
                 <br />
-                
+
                 <span>{{ description }}</span>
               -->
             </label>
@@ -82,7 +84,7 @@
 
             <!--
               <label class="bill-info">Billing Model description.</label>
-              
+
               <br />
             -->
 
@@ -157,43 +159,43 @@
 
             <!--
               <div class="table-responsive tblMargin">
-              
+
               <table class="BillingModelTable ZeroMargin">
-              
+
               <thead>
-              
+
               <tr>
-              
+
               <th class="text-left">Transaction</th>
-              
+
               <th>Total Estimated Gas cost (ETH)</th>
-              
+
               </tr>
-              
+
               </thead>
-              
+
               <tbody>
-              
+
               <tr>
-              
+
               <td class="userId text-left">Single Pull Transaction</td>
-              
+
               <td class="total-td">
-              
+
               <span>{{ EtherValue ? EtherValue : '0.0' }}</span>
-              
+
               <span class="TotalUSD">(~${{ model.TotalUSD }})</span>
-              
+
               </td>
-              
+
               </tr>
-              
+
               </tbody>
-              
+
               </table>
-              
+
               </div>
-              
+
               </div>
             -->
           </div>
@@ -378,7 +380,7 @@
 
                   <!--
                     <br />
-                    
+
                     <span>{{ description }}</span>
                   -->
                 </p>
@@ -437,11 +439,13 @@
               </div>
 
               <div class="footerText">
-                <span>Est.gas cost/customer:(~${{ model.TotalUSD }})</span>
+                <span
+                  >Est. gas cost/customer: <b>${{ model.TotalUSD }})</b></span
+                >
 
                 <!--
                   <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-                  
+
                   <span>Subscribers {{ 0 }}</span>
                 -->
               </div>
@@ -456,14 +460,14 @@
 
               <!--
                 <br />
-                
+
                 <span>{{ description }}</span>
               -->
             </label>
 
             <!--
               <br />
-              
+
               <label class="bill-info">Billing Model description.</label>
             -->
 
@@ -716,7 +720,7 @@
 
                   <!--
                     <br />
-                    
+
                     <span>{{ description }}</span>
                   -->
                 </p>
@@ -776,11 +780,11 @@
 
                   <!--
                     <div class="ImgCont">
-                    
+
                     <img src="assets/images/single+recurring_Group.png" />
-                    
+
                     </div>
-                    
+
                     <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
                   -->
                 </div>
@@ -794,11 +798,11 @@
 
                   <!--
                     <div class="ImgCont">
-                    
+
                     <img src="assets/images/Vector_black.png" />
-                    
+
                     </div>
-                    
+
                     <span>{{ currency | CustomeCurrency }}{{ initalamount }}</span>
                   -->
                 </div>
@@ -807,11 +811,13 @@
               <br />
 
               <div class="footerText">
-                <span>Est.gas cost/customer:(~${{ model.TotalUSD }})</span>
+                <span
+                  >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
+                >
 
                 <!--
                   <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
-                  
+
                   <span>Subscribers {{ 0 }}</span>
                 -->
               </div>
@@ -826,7 +832,7 @@
 
               <!--
                 <br />
-                
+
                 <span>{{ description }}</span>
               -->
             </label>
@@ -835,7 +841,7 @@
 
             <!--
               <label class="bill-info">Billing Model description.</label>
-              
+
               <br />
             -->
 
@@ -1146,13 +1152,13 @@
 
         <!--
           <label class="bm-text">{{ description }}</label>
-          
+
           <br />
         -->
 
         <!--
           <label class="bill-info">Billing Model description.</label>
-          
+
           <br />
         -->
 
@@ -1160,11 +1166,11 @@
 
         <!--
           <label class="bill-info">
-          
+
           Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing
-          
+
           Model offers
-          
+
           </label>
         -->
       </div>
@@ -1272,11 +1278,11 @@
 
         <!--
           <label class="bm-text">{{ description }}</label>
-          
+
           <br />
-          
+
           <label class="bill-info">Billing Model description.</label>
-          
+
           <br />
         -->
 
@@ -1284,11 +1290,11 @@
 
         <!--
           <label class="bill-info">
-          
+
           Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing
-          
+
           Model offers
-          
+
           </label>
         -->
       </div>
@@ -1382,11 +1388,11 @@
 
         <!--
           <label class="bm-text">{{ description }}</label>
-          
+
           <br />
-          
+
           <label class="bill-info">Billing Model description.</label>
-          
+
           <br />
         -->
 
@@ -1394,11 +1400,11 @@
 
         <!--
           <label class="bill-info">
-          
+
           Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing
-          
+
           Model offers
-          
+
           </label>
         -->
       </div>

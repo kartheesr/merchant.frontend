@@ -30,7 +30,6 @@
                   -->
                 </p>
               </div>
-
               <div class="large">
                 <div>
                   <fieldset class="scheduler-border">
@@ -49,6 +48,12 @@
                     <span>{{ currency | CustomeCurrency }}{{ amount }}</span>
                   -->
                 </div>
+                <div class="largeSmall">
+                  <fieldset class="scheduler-border extra_field">
+                    <legend class="scheduler-border"></legend>
+                    <label class="labelcolor"></label>
+                  </fieldset>
+                </div>
               </div>
 
               <div class="large_next">
@@ -63,11 +68,11 @@
                     >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
                   >
 
-                  
+
                     <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
 
                     <span>Subscribers {{ 0 }}</span>
-                 
+
                 </div>
               -->
             </div>
@@ -459,7 +464,7 @@
                     <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
 
                     <span>Subscribers {{ 0 }}</span>
-                  
+
                 </div>
               -->
             </div>
@@ -822,7 +827,7 @@
               </div>
 
               <br />
-              <div>
+              <div class="large_next">
                 <hr />
                 <em class="Footergas"
                   >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b>
@@ -834,11 +839,11 @@
                     >Est. gas cost/customer: <b>${{ model.TotalUSD }}</b></span
                   >
 
-                  
+
                     <p>{{ pmaAmount ? pmaAmount : '0.0 PMA' }}</p>
 
                     <span>Subscribers {{ 0 }}</span>
-                 
+
                 </div>
               -->
             </div>

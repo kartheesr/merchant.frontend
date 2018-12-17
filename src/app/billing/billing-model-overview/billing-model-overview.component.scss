@@ -61,6 +61,7 @@
         border: none !important;
         box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1) !important;
         border-radius: 6px 6px 6px 6px;
+        overflow: hidden;
         .boxHead {
           padding: 12px 15px;
           color: #1c67f5;
@@ -80,22 +81,25 @@
           background-color: #fcfdff;
           .pad-l-20 {
             padding-left: 20px;
+            margin-top: 20px;
             p {
               font-size: 22px;
               span {
                 font-size: 20px;
               }
               border-bottom: 1px solid #9b9b9b;
-              padding-bottom: 8px;
+              padding-bottom: 4px;
               margin-bottom: 4px;
             }
           }
           .large {
-            margin: 30px 0px;
+            // margin: 30px 0px;
             font-size: 30px;
             font-weight: 600;
+            margin: 15px 0px 20px 0px;
+            display: inline-block;
             // height: 60px;
-            margin-left: 6px !important;
+            // margin-left: 6px !important;
             span {
               padding-left: 3px;
             }
@@ -123,6 +127,7 @@
         border: none !important;
         box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1) !important;
         border-radius: 6px 6px 6px 6px;
+        overflow: hidden;
         .boxHead-sigleRecurring {
           padding: 12px 15px;
           color: #ac8bfc;
@@ -162,6 +167,7 @@
             // font-weight: 600;
             // height: 60px;
             // margin-left: 6px !important;
+            //margin-top: 0px !important;
             span {
               padding-left: 3px;
             }
@@ -189,6 +195,7 @@
         box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1) !important;
         border: none !important;
         border-radius: 6px;
+        overflow: hidden;
         .boxHead-single {
           padding: 12px 15px;
           color: #f9b741;
@@ -215,7 +222,7 @@
 
           .pad-l-20 {
             padding-left: 20px;
-
+            margin-top: 20px;
             p {
               font-size: 16px;
 
@@ -241,6 +248,7 @@
             // height: 60px;
 
             // margin-left: 6px !important;
+            margin-top: 20px;
 
             span {
               padding-left: 3px;
@@ -1003,7 +1011,15 @@ legend.scheduler-border {
 // // color: #333333 !important;
 
 // }
-
+.largeSmall .extra_field {
+  float: left !important;
+  border: none !important;
+  width: 100% !important;
+}
+.largeSmall {
+  float: left !important;
+  width: 100% !important;
+}
 .scheduler-border .labelcolor {
   font-weight: normal !important;
 

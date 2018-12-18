@@ -95,22 +95,6 @@ export class DashboardComponent implements OnInit {
         }, 3000);
       });
     });
-    // this.dashboardService.getvaluefirst().subscribe(result => {
-    //   this.previouslist = '<';
-    //   this.nextlist = '>';
-    //   this.sample = result.data;
-    //   this.sample.map((value, index) => {
-    //     this.dashboardService.getvalueSecond(value.hash).subscribe(result => {
-    //       let d2 = result.result;
-    //       this.dashboardService.getvalue(d2.from, parseInt(d2.blockNumber)).subscribe(result => {
-    //         this.transactionHistorArray.push(result.result[0]);
-    //       });
-    //     });
-    //   });
-    //   setTimeout(() => {
-    //     this.getdecimal();
-    //   }, 3000);
-    // });
   }
   getdecimal() {
     let data = 0;

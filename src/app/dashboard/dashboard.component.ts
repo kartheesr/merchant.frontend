@@ -87,8 +87,8 @@ export class DashboardComponent implements OnInit {
       this.nextlist = '>';
       result.data.map((value, index) => {
         this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(result => {
+          result.result[0].billName = value.billingName;
           this.transactionHistorArray.push(result.result[0]);
-          this.transactionHistorArray[index].billName = value.billingName;
         });
         setTimeout(() => {
           this.getdecimal();

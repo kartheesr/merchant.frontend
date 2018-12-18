@@ -148,6 +148,7 @@ export class BillingRecurringStep4Component implements OnInit {
     if (data.value == 'Once at the end of contract') {
       this.disabledBtn = false;
       this.data.automatedCashOut = false;
+      this.data.cashOutFrequency = 0;
       let sample = this.model.recurrencegas * this.data3.No2;
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
       let USDCost = this.model.RecurrenceUSD * this.data3.No2;
@@ -165,6 +166,7 @@ export class BillingRecurringStep4Component implements OnInit {
     } else if (data.value == 'On every billing cycle') {
       this.disabledBtn = false;
       this.data.automatedCashOut = true;
+      this.data.cashOutFrequency = 1;
       // this.model.TransRecurrence = this.data3.No2;
       let sample = this.model.recurrencegas * this.data3.No2;
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');

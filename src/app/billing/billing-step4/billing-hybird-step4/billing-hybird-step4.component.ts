@@ -155,6 +155,7 @@ export class BillingHybirdStep4Component implements OnInit {
     if (data.value == 'Once at the end of contract') {
       this.disabledBtn = false;
       this.data.automatedCashOut = false;
+      this.data.cashOutFrequency = 0;
       this.model.PullRecurrence = 1;
       let val = this.model.initialRecurrence * this.model.recurrencegas;
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');
@@ -179,6 +180,7 @@ export class BillingHybirdStep4Component implements OnInit {
     } else if (data.value == 'On every billing cycle') {
       this.disabledBtn = false;
       this.data.automatedCashOut = true;
+      this.data.cashOutFrequency = 1;
       this.model.PullRecurrence = this.Step3data.Recurringdays;
       let val = this.model.initialRecurrence * this.model.recurrencegas;
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');

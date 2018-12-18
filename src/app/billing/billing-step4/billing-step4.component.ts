@@ -32,7 +32,7 @@ export class BillingStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) {}
+  ) { }
   ngOnInit() {
     this.model = {
       EtherValue: '',

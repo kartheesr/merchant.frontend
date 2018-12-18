@@ -32,7 +32,7 @@ export class BillingHybirdStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.model = {
@@ -85,7 +85,7 @@ export class BillingHybirdStep4Component implements OnInit {
       frequency: this.Step3data.daycount,
       networkID: 3,
       automatedCashOut: this.automatedCashOut,
-      cashOutFrequency: 1
+      cashOutFrequency: 0
     };
     this.data = data;
     this.service4.gasusdvalue().subscribe(result => {

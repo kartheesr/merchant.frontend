@@ -117,11 +117,11 @@
         margin-top: 5px;
         left: -20px;
       }
-
       .singleimg {
-        width: 247px;
+        width: 280px;
         height: 470px;
         float: right;
+        padding-right: 5%;
       }
       .backbtn {
         display: block;
@@ -213,3 +213,9 @@
     left: -5em !important;
   }
 }
+@media (min-width: 768px){
+  .col-md-12 {
+      flex: 0 0 100%;
+      max-width: 96%;
+  }
+  }

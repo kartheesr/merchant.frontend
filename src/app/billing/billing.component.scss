@@ -1,6 +1,5 @@
 .billingModelContainer {
-  width: 98.6%;
-  // margin-bottom: 20px;
+  width: 98.6%; 
   .bm-header {
     background-color: #fcfdff;
     height: 50px;
@@ -25,13 +24,9 @@
     }
   }
   .bm-main {
-    background-color: #ffffff;
-    // position: absolute;
-    //padding: 40px 25px;
-    // width: 1075px;
+    background-color: #ffffff;   
     min-height: 120px;
-    overflow-x: hidden;
-    // left: 230px;
+    overflow-x: hidden;    
     top: 82px;
     .billingImg {
       display: block;
@@ -48,15 +43,12 @@
       cursor: pointer;
       height: 38px;
       border-radius: 3px;
-      border: none;
-      // margin-top: 25px;
+      border: none;      
       box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
       margin-bottom: 30px !important;
     }
-
     .billingBoxCont {
-      padding: 20px 20px;
-      // height: 460px;
+      padding: 20px 20px;     
       overflow-y: scroll;
       .billingBox.active {
         border-color: #f9b741;
@@ -66,14 +58,12 @@
         .boxHead {
           color: #f9b741;
         }
-        .LinkTag {
-          //height: 5px;
+        .LinkTag {          
           color: #003aa7;
           font-size: 12px;
         }
       }
-      .billingBox.active1 {
-        //border-color: #1E6AF6;
+      .billingBox.active1 {        
         background: #ffffff;
         /* puma blue */
         border: 0.5px solid #1e6af6;
@@ -83,14 +73,12 @@
         .boxHead {
           color: #1e6af6;
         }
-        .LinkTag {
-          // height: 10px;
+        .LinkTag {         
           color: #1e6af6;
           font-size: 10px;
         }
       }
-      .billingBox.active2 {
-        // border-color: #2f00a2;
+      .billingBox.active2 {   
         background: #ffffff;
         /* purple */
         border: 0.5px solid #ac8bfc;
@@ -108,9 +96,7 @@
       .billingBox {
         min-height: 300px;
         cursor: pointer;
-        margin-bottom: 20px;
-
-        //overflow-y: auto;
+        margin-bottom: 20px;      
         border: 0.5px solid #1c67f5;
         border-radius: 6px 6px 0px 0px;
         .boxHead {
@@ -120,47 +106,30 @@
           line-height: 20px;
           .ImgCont {
             width: 90%;
-            position: relative;
-            // top: -7px;
-            // height: 50px;
-            // margin-left: -18px;
+            position: relative;           
             display: inline-block;
             p {
               margin-top: -1px;
-              margin-right: 5px;
-              // text-transform: uppercase;
+              margin-right: 5px;             
               font-size: 12px;
             }
-            img {
-              // float: left;
-              // margin-right: 10px;
-              // margin-top: 6px;
+            img {            
               float: left;
-
               margin-right: -12px;
-
               margin-top: 0px;
-
               position: relative;
-
               left: -15px;
               width: 18px;
             }
           }
         }
-        .boxCont {
-          // padding: 5px 5px;
+        .boxCont {        
           margin-left: 5px !important;
           background-color: #fcfdff;
-          .pad-l-20 {
-            // padding-left: 10px;
-            // padding-bottom: 2px;
-            // padding-left: 24px;
-            // margin-top: -20%;
+          .pad-l-20 {         
             p {
               font-size: 15.5021px;
-              color: #000;
-              // width: 160px;
+              color: #000;            
               span {
                 font-size: 20px;
               }
@@ -174,13 +143,9 @@
             }
           }
           .number {
-            font-size: 19.5021px;
-            // margin-bottom: 10%;
-            // padding-bottom: 17px;
+            font-size: 19.5021px;           
             color: #000;
-            font-weight: bold;
-            // height: 10px;
-            // margin-top: 10px;
+            font-weight: bold;            
             margin-bottom: 5px;
             word-wrap: break-word;
             .p {
@@ -190,8 +155,7 @@
           .large {
             margin: 0px 0px;
             font-size: 30px;
-            font-weight: 600;
-            // height: 50px;
+            font-weight: 600;           
             color: #333333;
             word-wrap: break-word;
             .new {
@@ -201,16 +165,13 @@
                 color: black;
               }
             }
-            .new1 {
-              // margin-top: 15px;
+            .new1 {            
               color: #828282;
             }
-            .new2 {
-              // margin-top: 22px;
+            .new2 {             
               color: #828282;
             }
-            .new3 {
-              // margin-top: 0px;
+            .new3 {          
               color: #828282;
             }
             .labelcolor {
@@ -218,26 +179,20 @@
             }
           }
           .footerText {
-            color: #828282;
-            // padding-left: 29px;
-            font-size: 15.5021px;
-            // float: left;
-            .footerTextPma {
-              // margin-top: 50%;
+            color: #828282;           
+            font-size: 15.5021px;           
+            .footerTextPma {             
               height: 50px;
               margin-top: 64px;
-              margin-left: 15px;
-              // padding-left: 10px;
+              margin-left: 15px;            
               .footertype {
                 margin-top: 10px;
               }
             }
-            p {
-              //margin: 0px;
+            p {            
               font-size: 18px;
             }
           }
-
           .ImgCont {
             width: 10px;
             position: relative;
@@ -251,7 +206,6 @@
     }
   }
 }
-
 .flex-center-center {
   display: flex;
   align-items: center;
@@ -259,7 +213,6 @@
 }
 .alertbilling {
   margin-left: 500px;
-  // float: right;
 }
 .alertTag {
   line-height: 14px;
@@ -313,8 +266,6 @@
   text-decoration-line: underline !important;
   color: #1e6af6 !important;
 }
-// .Billinglabel{
-//-------->Popup
 .modelSize2 {
   height: 342px;
   width: 650px;
@@ -355,65 +306,6 @@
     cursor: pointer;
   }
 }
-
-// }
-// .qrCodeContainer {
-//   .qrCont {
-//     margin-top: 10px;
-//     img {
-//       // margin-right: 20px;
-//       width: 120px;
-//     }
-//     .qrContents {
-//       display: inline-block;
-//       vertical-align: top;
-//       position: relative;
-//       height: 120px;
-//       p {
-//         font-size: 12px;
-//         color: #9b9b9b;
-//       }
-//       .qrCodeField {
-//         position: absolute;
-//         bottom: 0px;
-//         input {
-//           width: 300px;
-//           height: 40px;
-//           padding: 0px 50px 0px 10px;
-//           border: 1px solid #cccccc;
-//         }
-//         img {
-//           height: 43px;
-//           width: 43px;
-//           position: absolute;
-//           right: -3px;
-//           margin-right: 0px;
-//         }
-//       }
-//     }
-//   }
-// }
-// .qrContents {
-//   margin-top: 10px !important;
-//   margin-left: 6%;
-// }
-
-// .qrContents p {
-//   font-size: 13px !important;
-//   color: #9b9b9b !important;
-//   line-height: 2em;
-// }
-// .qrCont img {
-//   margin: 0px 0px 0px -13px !important;
-// }
-// .qrCodeField {
-//   margin-top: 20px !important;
-// }
-// .QRCodeClass {
-//   padding-left: 10px !important;
-//   padding-right: 10px !important;
-// }
-
 .single-class {
   float: left;
   margin: 5px 0px !important;
@@ -459,19 +351,15 @@
   color: #ac8bfc !important;
   font-size: 10px;
 }
-fieldset.scheduler-border {
-  // border: 1px groove #828282 !important;
+fieldset.scheduler-border {  
   border: 0.5px solid #82828278 !important;
   border-radius: 3px;
-  padding: 0 0.4em 0em 0.4em !important;
-  // margin: 0 0 1.5em 0 !important;
+  padding: 0 0.4em 0em 0.4em !important;  
   -webkit-box-shadow: 0px 0px 0px 0px #828282;
   box-shadow: 0px 0px 0px 0px #828282;
-  width: 100%;
-  // margin: 1px 15px !important;
+  width: 100%;  
   word-wrap: break-word;
-  float: left;
-  // margin-left: 16px;
+  float: left;  
   label {
     font-size: 28px;
     align-items: center;
@@ -485,41 +373,33 @@ fieldset.scheduler-border {
     word-wrap: break-word;
   }
 }
-
 legend.scheduler-border {
-  font-size: 8px !important;
-  // font-weight: bold !important;
+  font-size: 8px !important; 
   font-weight: normal !important;
   text-align: left !important;
   width: auto;
-  padding: 0 5px;
-  // border-bottom: none;
+  padding: 0 5px;  
   word-wrap: break-word;
   margin-bottom: 0px !important;
 }
 
 /*** Scroll Bar Style ***/
 
-.billingBox::-webkit-scrollbar-track {
-  //	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+.billingBox::-webkit-scrollbar-track {  
   background-color: #f4f6fb;
   border: 0.5px solid #c5ccce;
   margin: 0px 5px;
 }
-
 .billingBox::-webkit-scrollbar {
   width: 6px;
   background-color: #f4f6fb;
   margin: 0px 5px;
 }
-
 .billingBox::-webkit-scrollbar-thumb {
   background-color: #c5ccce;
   margin: 0px 5px;
 }
-
 /*** Scroll Bar Style ***/
-
 @media (min-width: 1920px) {
   .billingBox {
     height: 275px !important;
@@ -554,45 +434,45 @@ legend.scheduler-border {
   position: relative;
   top: -2px;
 }
-/** Loader**/
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
-  margin: 30%;
-  margin-bottom: 40%;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 51px;
-  height: 51px;
+// /** Loader**/
+// .lds-ring {
+//   display: inline-block;
+//   position: relative;
+//   width: 64px;
+//   height: 64px;
+//   margin: 30%;
+//   margin-bottom: 40%;
+// }
+// .lds-ring div {
+//   box-sizing: border-box;
+//   display: block;
+//   position: absolute;
+//   width: 51px;
+//   height: 51px;
 
-  margin-bottom: 540px;
-  border: 6px solid rgb(252, 4, 4);
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: rgb(252, 4, 4) transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+//   margin-bottom: 540px;
+//   border: 6px solid rgb(252, 4, 4);
+//   border-radius: 50%;
+//   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+//   border-color: rgb(252, 4, 4) transparent transparent transparent;
+// }
+// .lds-ring div:nth-child(1) {
+//   animation-delay: -0.45s;
+// }
+// .lds-ring div:nth-child(2) {
+//   animation-delay: -0.3s;
+// }
+// .lds-ring div:nth-child(3) {
+//   animation-delay: -0.15s;
+// }
+// @keyframes lds-ring {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
 .billingBoxCont .single-class .active1 .footerTextPma {
   margin-top: 80px !important;
 }
@@ -613,7 +493,6 @@ legend.scheduler-border {
 label.labelcolor {
   margin-bottom: 0px !important;
 }
-/** Loader**/
 fieldset label {
   margin-bottom: 5px !important;
 }
@@ -633,8 +512,7 @@ fieldset label {
   background-color: #c5ccce;
 }
 .new legend.scheduler-border {
-  color: #304053 !important;
-  // width: 100%;
+  color: #304053 !important; 
 }
 /*** Scroll Bar Style ***/
 
@@ -653,8 +531,7 @@ fieldset label {
   color: #304053 !important;
 }
 .new2 legend.scheduler-border {
-  color: #304053 !important;
-  // width: 100%;
+  color: #304053 !important;  
 }
 .active2 .new1 legend.scheduler-border {
   color: #828282 !important;
@@ -662,15 +539,10 @@ fieldset label {
 .LinkTag label {
   margin-bottom: 0px !important;
 }
-// .boxCont div:nth-child(2) label{
-//   color: #000 !important;
-//   margin-left: 15px !important;
-// }
 .trialPeriod-sub span {
   color: #333333 !important;
   line-height: 14px !important;
-  font-size: 11px !important;
-  // margin-left: 14%;
+  font-size: 11px !important; 
 }
 .trialPeriod-sub label {
   color:#333333 !important;
@@ -679,8 +551,7 @@ fieldset label {
   margin-left: 10%;
 }
 
-.billingModelContainer .bm-main .billingBoxCont .billingBox .boxCont .large .new1 {
-  // margin-top: 42px !important;
+.billingModelContainer .bm-main .billingBoxCont .billingBox .boxCont .large .new1 {  
   color: #828282;
 }
 .borderLineS {
@@ -722,43 +593,7 @@ fieldset label {
   width: 100%;
   height: 50px;
 }
-// .trialPeriod-sub {
-//   margin-left: 25px;
-// }
-// .new3 {
-//   position: relative;
-//   top: 2px;
-// }
-// .active hr {
-//   position: relative;
-//   top: 100px;
-// }
-// .active1 hr {
-//   position: relative;
-//   top: 80px;
-// }
-// .active2 hr {
-//   position: relative;
-//   top: 60px;
-// }
-// .active em {
-//   position: relative;
-//   border: 0px;
-//   top: 96px !important;
-//   color: #000;
-// }
-// .active1 em {
-//   position: relative;
-//   border: 0px;
-//   top: 75px !important;
-//   color: #000;
-// }
-// .active2 em {
-//   position: relative;
-//   border: 0px;
-//   top: 56px !important;
-//   color: #000;
-// }
+
 .Footergas {
   font-size: 11px;
   font-style: normal !important;

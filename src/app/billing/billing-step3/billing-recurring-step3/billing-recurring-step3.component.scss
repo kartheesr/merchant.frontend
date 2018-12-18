@@ -73,8 +73,11 @@
       margin: 0px 10px;
     }
     .singleimg {
-      width: 222px;
+      width: 270px;
       height: 442px;
+      float: right;
+      padding: 10%;
+
     }
     .backbtn {
       display: block;
@@ -217,4 +220,10 @@ input.is-invalid {
 }
 .SingleRecurringClass input.col-md-11 {
   max-width: 100% !important;
+}
+@media (min-width: 768px){
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 96%;
+}
 }

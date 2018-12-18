@@ -22,6 +22,7 @@ export class BillingService {
   public usdvalue: string;
   public transfergas: string;
   public recurrencegas: string;
+  public tabledataurl: string;
   private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'api-request-source': 'portal'
@@ -37,6 +38,7 @@ export class BillingService {
     this.usdvalue = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usdvalue`;
     this.transfergas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transferGas`;
     this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pullPaymentGas`;
+    this.tabledataurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/hashOverView`;
   }
   public gasusdvalue(): Observable<any> {
     return this._http.get(this.usdvalue).pipe(
@@ -93,6 +95,13 @@ export class BillingService {
   }
   public gasvalueCalcualtion(): Observable<any> {
     return this._http.get(this.gasactionUrl).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+  public gettabledatasingle(): Observable<any> {
+    return this._http.get(this.tabledataurl).pipe(
       map((response: HttpResponse) => {
         return response;
       })

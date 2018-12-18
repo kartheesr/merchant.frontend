@@ -78,6 +78,9 @@ export class BillingModelOverviewComponent implements OnInit {
   //API value
   public Transfergas;
   public recurrencegas;
+  public singletable = [];
+  public recurringtable = [];
+  public hybirdtable = [];
   constructor(
     public service: BillingService,
     @Inject(DOCUMENT) private document: any,
@@ -100,6 +103,16 @@ export class BillingModelOverviewComponent implements OnInit {
     var dt = new Date();
     this.BillingPeriod = moment(dt).format('D MMM YYYY');
     this.id = localStorage.getItem('publishId');
+    if (this.route.snapshot.queryParamMap.get('pullPayId')) {
+      this.id = this.route.snapshot.queryParamMap.get('pullPayId');
+    } else {
+      this.id = localStorage.getItem('publishId');
+    }
+    this.service.getPullPayment().subscribe(result => {
+      if (result.success == true) {
+        this.pmaAmount = result.data.balance;
+      }
+    });
     // this.dashboardService.getTransactionHistory().subscribe(result => {
     //   this.previouslist = '<';
     //   this.nextlist = '>';
@@ -110,29 +123,54 @@ export class BillingModelOverviewComponent implements OnInit {
     //     this.pageShow = false;
     //   }
     // });
-    this.dashboardService.gettabledata().subscribe(result => {
+    // this.dashboardService.gettabledata().subscribe(result => {
+    //   this.previouslist = '<';
+    //   this.nextlist = '>';
+    //   result.data.map((value, index) => {
+    //     this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(result => {
+    //       this.transactionHistorArray.push(result.result[0]);
+    //       this.transactionHistorArray[index].billName = value.billingName;
+    //     });
+    //     setTimeout(() => {
+    //       this.getdecimal();
+    //     }, 1500);
+    //   });
+    // });
+    this.service.gettabledatasingle().subscribe(result => {
       this.previouslist = '<';
       this.nextlist = '>';
-      result.data.map((value, index) => {
-        this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(result => {
-          this.transactionHistorArray.push(result.result[0]);
-          this.transactionHistorArray[index].billName = value.billingName;
-        });
-        setTimeout(() => {
-          this.getdecimal();
-        }, 1500);
-      });
-    });
-
-    if (this.route.snapshot.queryParamMap.get('pullPayId')) {
-      this.id = this.route.snapshot.queryParamMap.get('pullPayId');
-    } else {
-      this.id = localStorage.getItem('publishId');
-    }
-    this.service.getPullPayment().subscribe(result => {
-      if (result.success == true) {
-        this.pmaAmount = result.data.balance;
+      for (let cal of result.data) {
+        if (cal.typeID == 2 && cal.id == this.id) {
+          this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
+            for (let i = 0; i < result.result.length; i++) {
+              this.singletable.push(result.result[i]);
+            }
+          });
+        } else if (cal.typeID == 3 && cal.id == this.id) {
+          this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
+            this.recurringtable = [];
+            for (let i = 0; i < result.result.length; i++) {
+              this.recurringtable.push(result.result[i]);
+            }
+          });
+        } else if (cal.typeID == 5 && cal.id == this.id) {
+          this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
+            this.recurringtable = [];
+            for (let i = 0; i < result.result.length; i++) {
+              this.recurringtable.push(result.result[i]);
+            }
+          });
+        } else if (cal.typeID == 6 && cal.id == this.id) {
+          this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
+            for (let i = 0; i < result.result.length; i++) {
+              this.hybirdtable.push(result.result[i]);
+            }
+          });
+        }
       }
+      setTimeout(() => {
+        this.getdecimal();
+      }, 1500);
     });
 
     // this.service.Getpull().subscribe(result => {
@@ -373,7 +411,7 @@ export class BillingModelOverviewComponent implements OnInit {
   }
 
   getdecimal() {
-    let length = this.transactionHistorArray.length;
+    let length = this.singletable.length || this.recurringtable.length || this.hybirdtable.length;
     if (length != 0) {
       this.pageShow = true;
     } else {
@@ -442,7 +480,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>' +
       '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>' +
       '<style>.modal.in .modal-dialog {-webkit-transform: translate(0,0) !important;-ms-transform: translate(0,0) !important;-o-transform: translate(0,0) !important;transform: translate(0,0) !important;background-color: #F8FAFE !important; padding: 15px !important;' +
-      'border-radius: 4px !important; } .qr-image{margin-left: 145px; } .txt-box{ width: 80%; margin-left: 55px; } .modalTitle{ background-color: #F8FAFE } .data-info {   margin-left: 55px;   border: black;   border-width: 2px;   box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1); } th,td { text-align: left;background-color: white;font-size: 12px;padding: 7px;border-bottom: 1px solid #ddd;}tr{padding: 10px;} label{ margin: 0px; } .bm-text { color: #1c67f5; font-size: 12px; } .bill-info { font-size: 9px; word-wrap: break-word;}' +
+      'border-radius: 4px !important; } .qr-image{margin-left: 145px; } .txt-box{ width: 80%; margin-left: 55px; } .modalTitle{ background-color: #F8FAFE } .data-info {   margin-left: 55px;   border: black;   border-width: 2px;   box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1); } th,td { text-align: left;background-color: white;font-size: 12px;padding: 7px;border-bottom: 1px solid #ddd;}tr{padding: 10px;} label{ margin: 0px; } .bm-text { color: #1c67f5; font-size: 12px; } .bill-info { font-size: 9px;word-wrap: break-word;}' +
       '.ttbody{ width: 100% !important;} .copyClick{cursor: pointer; } .aligndiv{margin-top:20px; padding-left:20px;}   </style>' +
       '</head>' +
       '<body><div class="container"><img src="' +

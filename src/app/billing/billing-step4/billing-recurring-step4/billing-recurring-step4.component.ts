@@ -23,6 +23,7 @@ export class BillingRecurringStep4Component implements OnInit {
   public model: any = {};
   public transcationoption: any;
   public disabledBtn: boolean = false;
+  public automatedCashOut: boolean = false;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -81,7 +82,7 @@ export class BillingRecurringStep4Component implements OnInit {
       typeID: this.data3.typeid,
       frequency: this.data3.daycount,
       networkID: 3,
-      automatedCashOut: true,
+      automatedCashOut: this.automatedCashOut,
       cashOutFrequency: 1
     };
     this.data = data;
@@ -146,6 +147,7 @@ export class BillingRecurringStep4Component implements OnInit {
   handleChangetransactions(data) {
     if (data.value == 'Once at the end of contract') {
       this.disabledBtn = false;
+      this.data.automatedCashOut = false;
       let sample = this.model.recurrencegas * this.data3.No2;
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
       let USDCost = this.model.RecurrenceUSD * this.data3.No2;
@@ -162,6 +164,7 @@ export class BillingRecurringStep4Component implements OnInit {
       this.service4.setValues(this.model);
     } else if (data.value == 'On every billing cycle') {
       this.disabledBtn = false;
+      this.data.automatedCashOut = true;
       // this.model.TransRecurrence = this.data3.No2;
       let sample = this.model.recurrencegas * this.data3.No2;
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');

@@ -119,6 +119,7 @@ export class BillingRecurringStep3Component implements OnInit {
     if (data.value == false) {
       this.model.typeid = 3;
       this.model.trialperiod = 0;
+      this.model.No3 = '';
     } else {
       this.model.typeid = 5;
       this.model.trialperiod = 1;

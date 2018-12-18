@@ -24,6 +24,7 @@ export class BillingHybirdStep4Component implements OnInit {
   public model: any = {};
   public transcationoption: any;
   public disabledBtn: boolean = false;
+  public automatedCashOut: boolean = false;
   constructor(
     private router: Router,
     private service1: BillingServiceStep1,
@@ -31,7 +32,7 @@ export class BillingHybirdStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.model = {
@@ -83,11 +84,10 @@ export class BillingHybirdStep4Component implements OnInit {
       typeID: 6,
       frequency: this.Step3data.daycount,
       networkID: 3,
-      automatedCashOut: true,
+      automatedCashOut: this.automatedCashOut,
       cashOutFrequency: 1
     };
     this.data = data;
-    console.log("this.data", this.data);
     this.service4.gasusdvalue().subscribe(result => {
       this.model.USDValue = result.data.USD;
       this.service4.gasrecurrence().subscribe(result => {
@@ -154,6 +154,7 @@ export class BillingHybirdStep4Component implements OnInit {
   handleChangetransactions(data) {
     if (data.value == 'Once at the end of contract') {
       this.disabledBtn = false;
+      this.data.automatedCashOut = false;
       this.model.PullRecurrence = 1;
       let val = this.model.initialRecurrence * this.model.recurrencegas;
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');
@@ -177,6 +178,7 @@ export class BillingHybirdStep4Component implements OnInit {
       this.service4.setValues(this.model);
     } else if (data.value == 'On every billing cycle') {
       this.disabledBtn = false;
+      this.data.automatedCashOut = true;
       this.model.PullRecurrence = this.Step3data.Recurringdays;
       let val = this.model.initialRecurrence * this.model.recurrencegas;
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');

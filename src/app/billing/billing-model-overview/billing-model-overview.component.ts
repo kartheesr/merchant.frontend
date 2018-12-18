@@ -442,7 +442,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>' +
       '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>' +
       '<style>.modal.in .modal-dialog {-webkit-transform: translate(0,0) !important;-ms-transform: translate(0,0) !important;-o-transform: translate(0,0) !important;transform: translate(0,0) !important;background-color: #F8FAFE !important; padding: 15px !important;' +
-      'border-radius: 4px !important; } .qr-image{margin-left: 145px; } .txt-box{ width: 80%; margin-left: 55px; } .modalTitle{ background-color: #F8FAFE } .data-info {   margin-left: 55px;   border: black;   border-width: 2px;   box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1); } th,td { text-align: left;background-color: white;font-size: 12px;padding: 7px;border-bottom: 1px solid #ddd;}tr{padding: 10px;} label{ margin: 0px; } .bm-text { color: #1c67f5; font-size: 12px; } .bill-info { font-size: 9px;}' +
+      'border-radius: 4px !important; } .qr-image{margin-left: 145px; } .txt-box{ width: 80%; margin-left: 55px; } .modalTitle{ background-color: #F8FAFE } .data-info {   margin-left: 55px;   border: black;   border-width: 2px;   box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1); } th,td { text-align: left;background-color: white;font-size: 12px;padding: 7px;border-bottom: 1px solid #ddd;}tr{padding: 10px;} label{ margin: 0px; } .bm-text { color: #1c67f5; font-size: 12px; } .bill-info { font-size: 9px; word-wrap: break-word;}' +
       '.ttbody{ width: 100% !important;} .copyClick{cursor: pointer; } .aligndiv{margin-top:20px; padding-left:20px;}   </style>' +
       '</head>' +
       '<body><div class="container"><img src="' +
@@ -472,9 +472,9 @@ export class BillingModelOverviewComponent implements OnInit {
       '</svg>' +
       '</td><td>Transfer: Instantly</td></tr></tbody></table></div></div><div class="col-xs-12 col-sm-5 col-md-5 aligndiv"><label class="tit-text">' +
       this.title +
-      '</label> <br/><br /><label class="bill-info">' +
+      '</label> <br/><br /><p class="bill-info">' +
       this.billingdescription +
-      '</label></div></div></div></div></div></div>' +
+      '</p></div></div></div></div></div></div>' +
       '<script>function copyValue() {var userinput = document.getElementById("userinput");userinput.select();document.execCommand("copy");}</script></body></html>';
     let input = document.createElement('input');
     input.setAttribute('type', 'text');
@@ -503,7 +503,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>' +
       '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>' +
       '<style>.modal.in .modal-dialog {-webkit-transform: translate(0,0) !important;-ms-transform: translate(0,0) !important;-o-transform: translate(0,0) !important;transform: translate(0,0) !important;background-color: #F8FAFE !important; padding: 15px !important;' +
-      'border-radius: 4px !important; } .qr-image{margin-left: 145px; } .txt-box{ width: 80%; margin-left: 55px; } .modalTitle{ background-color: #F8FAFE } .data-info {   margin-left: 55px;   border: black;   border-width: 2px;   box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1); } th,td { text-align: left;background-color: white;font-size: 12px;padding: 7px;border-bottom: 1px solid #ddd;}tr{padding: 10px;} label{ margin: 0px; } .bm-text { color: #1c67f5; font-size: 12px; } .bill-info { font-size: 9px;}' +
+      'border-radius: 4px !important; } .qr-image{margin-left: 145px; } .txt-box{ width: 80%; margin-left: 55px; } .modalTitle{ background-color: #F8FAFE } .data-info {   margin-left: 55px;   border: black;   border-width: 2px;   box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1); } th,td { text-align: left;background-color: white;font-size: 12px;padding: 7px;border-bottom: 1px solid #ddd;}tr{padding: 10px;} label{ margin: 0px; } .bm-text { color: #1c67f5; font-size: 12px; } .bill-info { font-size: 9px;word-wrap: break-word;}' +
       '.ttbody{ width: 100% !important;} .copyClick{ cursor: pointer; } .aligndiv{margin-top:20px; padding-left:20px;}  </style>' +
       '</head>' +
       '<body><div class="container"><img src="' +
@@ -604,9 +604,9 @@ export class BillingModelOverviewComponent implements OnInit {
       '</tr>' +
       '</tbody></table></div></div><div class="col-xs-12 col-sm-5 col-md-5 aligndiv"><label class="tit-text">' +
       this.title +
-      '</label> <br /><br /><label class="bill-info">' +
+      '</label> <br /><br /><p class="bill-info">' +
       this.billingdescription +
-      '</label></div></div></div></div></div></div>' +
+      '</p></div></div></div></div></div></div>' +
       '<script>function copyValue(data,years,months,weeks,days,trialYear,trialMonth,trialWeek,trialDay) {' +
       'var userinput = document.getElementById("trial");' +
       'if(data!=0){ userinput.style.display = "contents"; } else { userinput.style.display = "none"; }' +
@@ -656,7 +656,7 @@ export class BillingModelOverviewComponent implements OnInit {
       '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>' +
       '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>' +
       '<style>.modal.in .modal-dialog {-webkit-transform: translate(0,0) !important;-ms-transform: translate(0,0) !important;-o-transform: translate(0,0) !important;transform: translate(0,0) !important;background-color: #F8FAFE !important; padding: 15px !important;' +
-      'border-radius: 4px !important; } .qr-image{margin-left: 145px; } .txt-box{ width: 80%; margin-left: 55px; height:38px; } .modalTitle{ background-color: #F8FAFE } .data-info { margin-left: 55px; border: black; border-width: 2px; box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1); } th,td { text-align: left;background-color: white;font-size: 12px;padding: 7px;border-bottom: 1px solid #ddd;}tr{padding: 10px;} label{ margin: 0px; } .bm-text { color: #1c67f5; font-size: 12px; } .bill-info { font-size: 9px;}' +
+      'border-radius: 4px !important; } .qr-image{margin-left: 145px; } .txt-box{ width: 80%; margin-left: 55px; height:38px; } .modalTitle{ background-color: #F8FAFE } .data-info { margin-left: 55px; border: black; border-width: 2px; box-shadow: 0px 0.652639px 7.83167px rgba(0, 0, 0, 0.1); } th,td { text-align: left;background-color: white;font-size: 12px;padding: 7px;border-bottom: 1px solid #ddd;}tr{padding: 10px;} label{ margin: 0px; } .bm-text { color: #1c67f5; font-size: 12px; } .bill-info { font-size: 9px;word-wrap: break-word;}' +
       '.ttbody{ width: 100% !important;} table{ width:100%} .aligndiv{margin-top:20px; padding-left:20px;}  .aligndiv label{line-height:20px;} .copyClick{ cursor: pointer; }</style>' +
       '</head>' +
       '<body><div class="container"><img src="' +
@@ -743,9 +743,9 @@ export class BillingModelOverviewComponent implements OnInit {
       this.Recurrences +
       '</td></tr></tbody></table></div></div><div class="col-xs-12 col-sm-5 col-md-5 aligndiv"><label class="tit-text">' +
       this.title +
-      '</label> <br /><br /><label class="bill-info">' +
+      '</label> <br /><br /><p class="bill-info">' +
       this.billingdescription +
-      '</label></div></div></div></div></div></div>' +
+      '</p></div></div></div></div></div></div>' +
       '<script>function copyValue(years,months,weeks,days) {' +
       'var y = document.getElementById("years");' +
       'if(years!=" "){ y.style.display = "contents"; } else { y.style.display = "none"; }' +

@@ -33,6 +33,51 @@ export class BillingServiceCall {
     this.transfergas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transferGas`;
     this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pullPaymentGas`;
   }
+  /**
+   * @method {post}
+   * @apiDescription To create a new billing model in database.
+   * @url: http://202.61.120.46:9500/api/v2/pull-payment-models/
+   * @data:{
+            "merchantID": "4a17335e-bf18-11e8-a355-000000fb1459",
+            "title": "National Cryptographic Gold Mebmership",
+            "description": "Access to all gold articles",
+            "amount": 1099,
+            "initialPaymentAmount": 199,
+            "trialPeriod": 86400,
+            "currency": "USD",
+            "numberOfPayments": 12,
+            "typeID": 2,
+            "frequency": 604800,
+            "networkID": 3,
+            "automatedCashOut": true,
+            "cashOutFrequency": 1
+          }
+   *
+   * @methodName billingPost
+   *
+   * @apiResponse (200) {
+                          "code": 200,
+                          "success": true,
+                          "message": "Billing model details retrieved successfully",
+                          "data": {
+                            "id": "4a17335e-bf18-11e8-a355-000000fb1459",
+                            "merchantID": "4a17335e-bf18-11e8-a355-111111fb1459",
+                            "title": "National Cryptographic Gold Mebmership",
+                            "description": "Access to all gold articles",
+                            "amount": 1099,
+                            "initialPaymentAmount": 199,
+                            "trialPeriod": 86400,
+                            "currency": "USD",
+                            "numberOfPayments": 12,
+                            "typeID": 2,
+                            "frequency": 604800,
+                            "networkID": 3,
+                            "automatedCashOut": true,
+                            "cashOutFrequency": 1
+                          }
+   *                    }
+   *
+   */
   public billingPost(data): Observable<any> {
     return this._http.post(this.actionUrl, data, { headers: this.headers }).pipe(
       map((response: HttpResponse) => {

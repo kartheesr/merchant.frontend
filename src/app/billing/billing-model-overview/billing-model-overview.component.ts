@@ -26,7 +26,6 @@ export class BillingModelOverviewComponent implements OnInit {
   public title;
   public subscribers = 0;
   public frequency;
-  public pmaAmount;
   public transactionHistorArray = [];
   public data = '';
   public EtherValue;
@@ -108,11 +107,7 @@ export class BillingModelOverviewComponent implements OnInit {
     } else {
       this.id = localStorage.getItem('publishId');
     }
-    this.service.getPullPayment().subscribe(result => {
-      if (result.success == true) {
-        this.pmaAmount = result.data.balance;
-      }
-    });
+
     // this.dashboardService.getTransactionHistory().subscribe(result => {
     //   this.previouslist = '<';
     //   this.nextlist = '>';

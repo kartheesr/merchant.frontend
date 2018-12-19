@@ -115,7 +115,7 @@ export class BillingStep1Component implements OnInit {
     this.modalService.open(QRPopup);
   }
   qrValue() {
-    this.billingService.getQRValue(this.gasBalance, this.treasuryAddress).subscribe(result => {
+    this.dashboardService.getQRValue(this.gasBalance, this.treasuryAddress).subscribe(result => {
       this.value = JSON.stringify(result.data);
     });
   }

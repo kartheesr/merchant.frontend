@@ -12,12 +12,13 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { restElement } from 'babel-types';
 import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic/src/platform_providers';
+import { DashboardService } from '@app/dashboard/dashboard.service';
 
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
   styleUrls: ['./billing.component.scss'],
-  providers: [CurrencyPipe, NgbModalConfig, NgbModal]
+  providers: [CurrencyPipe, NgbModalConfig, NgbModal, DashboardService]
 })
 export class BillingComponent implements OnInit {
   public sample = [];
@@ -76,7 +77,8 @@ export class BillingComponent implements OnInit {
     private i18nService: I18nService,
     config: NgbModalConfig,
     private modalService: NgbModal,
-    private billingService: BillingService
+    private billingService: BillingService,
+    private dashboardService: DashboardService
   ) {
     config.backdrop = 'static';
     config.keyboard = false;
@@ -100,11 +102,6 @@ export class BillingComponent implements OnInit {
           this.Getpull();
         });
       });
-    });
-
-    this.getPullPayment();
-    this.billingService.gasvalueCalcualtion().subscribe(res => {
-      this.gasBalance = res.balance; // GAS VALUE
     });
     this.billingService.getQRCodeaddress().subscribe(result => {
       this.treasuryAddress = result.address; // TREASURY ADDRESS
@@ -216,24 +213,9 @@ export class BillingComponent implements OnInit {
     localStorage.removeItem('editId');
   }
 
-  deletePull(data) {
-    this.billingService.Deletepull(data.id).subscribe(result => {
-      if (result.success == true) {
-        this.Getpull();
-      }
-    });
-  }
-
   qrValue() {
-    this.billingService.getQRValue(this.gasBalance, this.treasuryAddress).subscribe(result => {
+    this.dashboardService.getQRValue(this.gasBalance, this.treasuryAddress).subscribe(result => {
       this.value = JSON.stringify(result.data);
-    });
-  }
-  getPullPayment() {
-    this.isLoading = true;
-    this.billingService.getPullPayment().subscribe(result => {
-      this.pullPaymentsBalance = result.data.pullPayments.balance;
-      this.pullPaymentsCurrency = result.data.pullPayment.currency;
     });
   }
 

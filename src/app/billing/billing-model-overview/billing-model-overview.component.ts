@@ -179,6 +179,7 @@ export class BillingModelOverviewComponent implements OnInit {
       billmodelId: this.id
     };
     this.service.gettabledatasingle(this.getid).subscribe(result => {
+      console.log("Result===>",result);
       this.previouslist = '<';
       this.nextlist = '>';
       result.data.map((value, index) => {
@@ -209,6 +210,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.base64();
       }, 200);
     });
+
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
       localStorage.removeItem('publishId');

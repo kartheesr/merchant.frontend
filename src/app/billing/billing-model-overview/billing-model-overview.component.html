@@ -1024,7 +1024,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let val of (hybirdtable | paginate: { itemsPerPage: 10, currentPage: p })">
+          <tr *ngFor="let val of (singletable | paginate: { itemsPerPage: 10, currentPage: p })">
             <td>{{ (val.timeStamp * 1000) | date: 'dd MMM' }}</td>
 
             <!-- <td>{{ val.billingModel }}</td> -->

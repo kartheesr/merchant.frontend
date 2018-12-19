@@ -11,11 +11,11 @@ import { StepperComponent } from '../stepper/stepper.component';
 })
 export class BillingStep2Component implements OnInit {
   model: any = {};
-  editId;
+  // editId;
   datavalidation: any = {};
   newForm;
   homePage;
-  homePage1;
+  // homePage1;
   valid: boolean;
   constructor(
     private router: Router,
@@ -23,22 +23,15 @@ export class BillingStep2Component implements OnInit {
     private service: BillingServiceStep2,
     private billingdata: BillingServiceStep1,
     private stepTrack: StepperComponent
-  ) { }
+  ) {}
   ngOnInit() {
     this.homePage = {
       count: 140
     };
-    this.homePage1 = {
-      count2: ''
-    };
     this.datavalidation = this.billingdata.model;
-    //this.model.billingModelName = this.datavalidation.billing;
-    this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {
       this.model.billing = '';
-    } else if (this.editId) {
-      this.Updateget();
     }
   }
   onBack() {
@@ -53,49 +46,7 @@ export class BillingStep2Component implements OnInit {
     else if (this.datavalidation.billing == 'Single + Subscription')
       this.router.navigate(['pullpayments/hybrid/step3']);
   }
-  Updateget() {
-    this.service.Updateget(this.editId).subscribe(result => {
-      if (result.success == true) {
-        if (this.editId) {
-          this.model.productName = result.data.title;
-          this.model.billingModelName = this.datavalidation.billing;
-          this.model.billModelDes = result.data.description;
-        }
-      }
-    });
-  }
-  showSelectedText(oField) {
-    let text;
-    let str;
-    this.homePage.count = 0;
-    let count1 = 0;
-    if (window.getSelection) {
-      text = window.getSelection().toString();
-      str = text.split('');
-      for (let val of str) {
-        if (val != '') {
-          count1 += 1;
-        }
-      }
-    }
-    this.homePage.count = count1;
-  }
-  showSelectedText1(oField) {
-    let text;
-    let str;
-    this.homePage1.count = 0;
-    let count2 = 0;
-    if (window.getSelection) {
-      text = window.getSelection().toString();
-      str = text.split('');
-      for (let val of str) {
-        if (val != '') {
-          count2 += 1;
-        }
-      }
-    }
-    this.homePage1.count3 = count2;
-  }
+
   handleCount(data) {
     if (data.value.length > 0) {
       let count = 140 - data.value.length;

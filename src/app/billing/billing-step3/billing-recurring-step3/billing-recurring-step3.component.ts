@@ -10,7 +10,6 @@ import { StepperComponent } from '@app/billing/stepper/stepper.component';
 })
 export class BillingRecurringStep3Component implements OnInit {
   public model;
-  editId;
   newForm;
   public selectOption: any;
   public recurrenceOption = [];
@@ -84,28 +83,14 @@ export class BillingRecurringStep3Component implements OnInit {
     this.model.Period1 = this.recurrenceOption[0].label;
     this.model.rupees = this.selectOption[0].label;
     this.model.Toggle = false;
-    this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {
       this.model.billing = '';
-    } else if (this.editId) {
-      this.Updateget();
     }
   }
   onBack() {
     this.stepTrack.onBackStep2();
     this.router.navigate(['pullpayments/step2']);
-  }
-  Updateget() {
-    this.service.Updateget(this.editId).subscribe(result => {
-      if (result.success == true) {
-        if (this.editId) {
-          this.model.amount = result.data.amount;
-          this.model.rupees = result.data.currency;
-          this.model.No2 = result.data.frequency;
-        }
-      }
-    });
   }
   onSubmit(data) {
     if (data.value) {

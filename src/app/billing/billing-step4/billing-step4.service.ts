@@ -16,7 +16,6 @@ export class BillingServiceCall {
   public gasValueURL: string;
   private headers: HttpHeaders = new HttpHeaders();
   public gasactionUrl: string;
-  public gasusedurl: string;
   public usdvalue: string;
   public transfergas: string;
   public recurrencegas: string;
@@ -30,7 +29,6 @@ export class BillingServiceCall {
     this.headers.append('Access-Control-Allow-Origin', '*');
     this.headers.append('Access-Control-Allow-Methods', 'OPTIONS, TRACE, GET, HEAD, POST');
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/gas`;
-    this.gasusedurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/gasused`;
     this.usdvalue = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usdvalue`;
     this.transfergas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transferGas`;
     this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pullPaymentGas`;
@@ -42,9 +40,20 @@ export class BillingServiceCall {
       })
     );
   }
-  public Updateput(id, putdata): Observable<any> {
-    return this._http.put(this.actionUrl + id, putdata, { headers: this.headers });
-  }
+  /**
+   * @method {get}
+   * @apiDescription Retrieve the gas balance
+   * @url: http://202.61.120.46:9500/api/v2/Dashboard/etherBalance
+   *
+   *
+   * @methodName gasvalueCalcualtion
+   *
+   * @apiResponse (200) {"success": true,
+   *                     "status": 200,
+   *                     "message": "Balance retrieve successfully",
+   *                     "data": "45.221430273509750478"}
+   *
+   */
   public gasvalueCalcualtion(): Observable<any> {
     return this._http.get(this.gasactionUrl).pipe(
       map((response: HttpResponse) => {
@@ -52,14 +61,25 @@ export class BillingServiceCall {
       })
     );
   }
-  public gasuseddata(): Observable<any> {
-    return this._http.get(this.gasusedurl).pipe(
-      map((response: HttpResponse) => {
-        return response;
-      })
-    );
-  }
-
+  /**
+     *@method {get}
+     * @apiDescription Retrieve the USD value 
+     * @url: http://202.61.120.46:9500/api/v2/Dashboard/usdvalue
+     * 
+     *
+     * @apiName gasusdvalue
+     *
+     * @apiSuccess (200) {
+                          "success": true,
+                          "status": 200,
+                          "message": "Balance retrieve successfully",
+                          "data":{
+                              "USD": 103.99,
+                              "EUR": 90.69
+                          }
+                        }
+     *
+     */
   public gasusdvalue(): Observable<any> {
     return this._http.get(this.usdvalue).pipe(
       map((response: HttpResponse) => {
@@ -67,7 +87,22 @@ export class BillingServiceCall {
       })
     );
   }
-
+  /**
+     *@method {get}
+     * @apiDescription Retrieve the Pull Payment gas fee 
+     * @url: http://202.61.120.46:9500/api/v2/Dashboard/pullPaymentGas
+     * 
+     *
+     * @apiName gastransferpull
+     *
+     * @apiSuccess (200) {
+                          success": true,
+                          "status": 200,
+                          "message": "Pull Payment gas fee retrieve successfully.",
+                          "data": 107795
+                        }
+     *
+     */
   public gastransferpull(): Observable<any> {
     return this._http.get(this.recurrencegas).pipe(
       map((response: HttpResponse) => {
@@ -75,7 +110,22 @@ export class BillingServiceCall {
       })
     );
   }
-
+  /**
+         *@method {get}
+         * @apiDescription Retrieve the PMA Transfer gas
+         * @url: http://202.61.120.46:9500/api/v2/Dashboard/transferGas
+         * 
+         *
+         * @apiName gasrecurrence
+         *
+         * @apiSuccess (200) {
+                              success": true,
+                              "status": 200,
+                              "message": "PMA Transfer gas retrieve successfully.",
+                              "data": 37244
+                            }
+         *
+         */
   public gasrecurrence(): Observable<any> {
     return this._http.get(this.transfergas).pipe(
       map((response: HttpResponse) => {

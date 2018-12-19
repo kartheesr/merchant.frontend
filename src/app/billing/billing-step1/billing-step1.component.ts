@@ -15,7 +15,6 @@ import { DashboardService } from '@app/dashboard/dashboard.service';
 export class BillingStep1Component implements OnInit {
   model: any = {};
   showerror: boolean;
-  editId: any = {};
   typeID;
   Typeid1: any = {};
   newForm;
@@ -49,11 +48,8 @@ export class BillingStep1Component implements OnInit {
     ];
     this.model.ProductName = this.ProductNamelist[0].label;
     this.newForm = localStorage.getItem('newForm');
-    this.editId = localStorage.getItem('editId');
     if (this.newForm) {
       this.model.billing = '';
-    } else if (this.editId) {
-      this.Updateget();
     }
     this.dashboardService.gasvalueCalcualtion().subscribe(res => {
       this.gasBalance = res.balance; // GAS VALUE
@@ -80,18 +76,6 @@ export class BillingStep1Component implements OnInit {
       this.service.setValues(this.model);
       this.router.navigate(['/pullpayments/step2']);
     }
-  }
-  Updateget() {
-    this.service.Updateget(this.editId).subscribe(result => {
-      if (result.success == true) {
-        if (this.editId) {
-          this.Typeid1 = result.data.typeID;
-          if (this.Typeid1 == 1) this.model.billing = 'Single';
-          else if (this.Typeid1 == 2) this.model.billing = 'Subscription';
-          else this.model.billing = 'Single + Subscription';
-        }
-      }
-    });
   }
   onChange(value) {
     if (value == 'Single') {

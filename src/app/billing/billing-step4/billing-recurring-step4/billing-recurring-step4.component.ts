@@ -19,7 +19,6 @@ export class BillingRecurringStep4Component implements OnInit {
   data3: any = {};
   data: any = {};
   getputdata: any = {};
-  editId;
   public model: any = {};
   public transcationoption: any;
   public disabledBtn: boolean = false;
@@ -31,7 +30,7 @@ export class BillingRecurringStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.model = {
@@ -68,7 +67,6 @@ export class BillingRecurringStep4Component implements OnInit {
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
     this.data3 = this.service3.model;
-    this.editId = localStorage.getItem('editId');
     localStorage.removeItem('newForm');
     let data = {
       merchantID: '4a17335e-bf18-11e8-a355-000000fb1459',
@@ -118,28 +116,17 @@ export class BillingRecurringStep4Component implements OnInit {
     this.service4.setValues(this.model);
   }
   publish() {
-    if (this.editId) {
-      this.Updateput();
-    } else {
-      this.service4.billingPost(this.data).subscribe(result => {
-        if (result.success == true) {
-          localStorage.setItem('publishId', result.data.id);
-          this.router.navigate(['./billing/billingmodeloverview']);
-        }
-      });
-    }
+    this.service4.billingPost(this.data).subscribe(result => {
+      if (result.success == true) {
+        localStorage.setItem('publishId', result.data.id);
+        this.router.navigate(['./billing/billingmodeloverview']);
+      }
+    });
   }
 
   onBack() {
     this.stepTrack.onBackStep3();
     this.router.navigate(['pullpayments/recurring/step3']);
-  }
-  Updateput() {
-    this.service4.Updateput(this.editId, this.getputdata).subscribe(result => {
-      localStorage.removeItem('editId');
-      localStorage.setItem('publishId', result.data.id);
-      this.router.navigate(['./billing/billingmodeloverview']);
-    });
   }
   onPublish() {
     this.publish();

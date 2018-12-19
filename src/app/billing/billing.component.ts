@@ -118,9 +118,7 @@ export class BillingComponent implements OnInit {
   open(pumacopyHybrid) {
     this.modalService.open(pumacopyHybrid);
   }
-  // open1(data) {
-  //   this.modalService.open(data);
-  // }
+
   update(data) {
     localStorage.removeItem('newForm');
     localStorage.setItem('editId', data);

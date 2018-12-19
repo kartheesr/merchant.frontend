@@ -10,7 +10,6 @@ import { StepperComponent } from '../stepper/stepper.component';
 })
 export class BillingStep3Component implements OnInit {
   model: any = {};
-  editId;
   newForm;
   public selectOption: any;
   Placeholdername: string;
@@ -46,12 +45,9 @@ export class BillingStep3Component implements OnInit {
     this.Placeholdername = '$0.00';
   }
   ngOnInit() {
-    this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {
       this.model.billing = '';
-    } else if (this.editId) {
-      this.Updateget();
     }
   }
   onSubmit(data) {
@@ -66,16 +62,6 @@ export class BillingStep3Component implements OnInit {
   onBack() {
     this.stepTrack.onBackStep2();
     this.router.navigate(['pullpayments/step2']);
-  }
-  Updateget() {
-    this.service.Updateget(this.editId).subscribe(result => {
-      if (result.success == true) {
-        if (this.editId) {
-          this.model.amount = result.data.amount;
-          this.model.rupees = result.data.currency;
-        }
-      }
-    });
   }
   handleChangeCurrency(data) {
     if (data.value == 'USD') this.Placeholdername = '$0.00';

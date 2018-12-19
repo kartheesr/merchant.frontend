@@ -10,7 +10,6 @@ import { StepperComponent } from '@app/billing/stepper/stepper.component';
 })
 export class BillingHybridStep3Component implements OnInit {
   public model: any;
-  editId;
   newForm;
   public amountCurrency: any;
   public calendarlist: any;
@@ -84,17 +83,13 @@ export class BillingHybridStep3Component implements OnInit {
     };
     this.model.Currency = this.amountCurrency[0].label;
     this.model.calendar = this.calendarlist[0].label;
-
     this.model.PeriodCurrency = this.amountCurrency[0].label;
     this.model.billingcalendar = this.calendarlist[0].label;
     this.Placeholdername = '$0.00';
     this.Priceplaceholdername = '$0.00';
-    this.editId = localStorage.getItem('editId');
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {
       this.model.billing = '';
-    } else if (this.editId) {
-      this.Updateget();
     }
   }
   onSubmit(data) {
@@ -111,17 +106,6 @@ export class BillingHybridStep3Component implements OnInit {
   onBack() {
     this.stepTrack.onBackStep2();
     this.router.navigate(['pullpayments/step2']);
-  }
-  Updateget() {
-    this.service.Updateget(this.editId).subscribe(result => {
-      if (result.success == true) {
-        if (this.editId) {
-          this.model.price = result.data.amount;
-          this.model.Currency = result.data.currency;
-          this.model.days = result.data.frequency;
-        }
-      }
-    });
   }
   handlevalidate(data) {
     if (data.value == 1) this.hideerror = true;
@@ -184,5 +168,4 @@ export class BillingHybridStep3Component implements OnInit {
       this.model.billingdaycount = val * 24 * 60 * 60;
     }
   }
-
 }

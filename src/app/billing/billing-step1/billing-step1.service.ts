@@ -17,11 +17,5 @@ export class BillingServiceStep1 {
   setValues(values) {
     this.model = values;
   }
-  constructor(private _http: HttpClient) {
-    this.actionUrl = `${Constants.apiPrefix}pull-payment-models/`;
-  }
-
-  public Updateget(data): Observable<any> {
-    return this._http.get(this.actionUrl + data, { headers: this.headers });
-  }
+  constructor(private _http: HttpClient) {}
 }

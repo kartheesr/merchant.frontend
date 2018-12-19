@@ -29,6 +29,7 @@ export class BillingModelOverviewComponent implements OnInit {
   public transactionHistorArray = [];
   public data = '';
   public EtherValue;
+ 
   pageShow;
   trialDays;
   value;
@@ -80,6 +81,7 @@ export class BillingModelOverviewComponent implements OnInit {
   public singletable = [];
   public recurringtable = [];
   public hybirdtable = [];
+  getid;
   constructor(
     public service: BillingService,
     @Inject(DOCUMENT) private document: any,
@@ -131,48 +133,79 @@ export class BillingModelOverviewComponent implements OnInit {
     //     }, 1500);
     //   });
     // });
-    this.service.gettabledatasingle().subscribe(result => {
-      this.previouslist = '<';
-      this.nextlist = '>';
-      for (let cal of result.data) {
-        if (cal.typeID == 2 && cal.id == this.id) {
-          this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
-            for (let i = 0; i < result.result.length; i++) {
-              this.singletable.push(result.result[i]);
-            }
-          });
-        } else if (cal.typeID == 3 && cal.id == this.id) {
-          this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
-            this.recurringtable = [];
-            for (let i = 0; i < result.result.length; i++) {
-              this.recurringtable.push(result.result[i]);
-            }
-          });
-        } else if (cal.typeID == 5 && cal.id == this.id) {
-          this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
-            this.recurringtable = [];
-            for (let i = 0; i < result.result.length; i++) {
-              this.recurringtable.push(result.result[i]);
-            }
-          });
-        } else if (cal.typeID == 6 && cal.id == this.id) {
-          this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
-            for (let i = 0; i < result.result.length; i++) {
-              this.hybirdtable.push(result.result[i]);
-            }
-          });
-        }
-      }
-      setTimeout(() => {
-        this.getdecimal();
-      }, 1500);
-    });
+    // this.service.gettabledatasingle().subscribe(result => {
+    //   this.previouslist = '<';
+    //   this.nextlist = '>';
+    //   for (let cal of result.data) {
+    //     if (cal.typeID == 2 && cal.id == this.id) {
+    //       this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
+    //         for (let i = 0; i < result.result.length; i++) {
+    //           this.singletable.push(result.result[i]);
+    //         }
+    //       });
+    //     } else if (cal.typeID == 3 && cal.id == this.id) {
+    //       this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
+    //         this.recurringtable = [];
+    //         for (let i = 0; i < result.result.length; i++) {
+    //           this.recurringtable.push(result.result[i]);
+    //         }
+    //       });
+    //     } else if (cal.typeID == 5 && cal.id == this.id) {
+    //       this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
+    //         this.recurringtable = [];
+    //         for (let i = 0; i < result.result.length; i++) {
+    //           this.recurringtable.push(result.result[i]);
+    //         }
+    //       });
+    //     } else if (cal.typeID == 6 && cal.id == this.id) {
+    //       this.dashboardService.getvalue(cal.from, cal.blockNumber).subscribe(result => {
+    //         for (let i = 0; i < result.result.length; i++) {
+    //           this.hybirdtable.push(result.result[i]);
+    //         }
+    //       });
+    //     }
+    //   }
+    //   setTimeout(() => {
+    //     this.getdecimal();
+    //   }, 1500);
+    // });
 
     // this.service.Getpull().subscribe(result => {
     //   if (result.success == true) {
     //     this.subscribers = result.data.length;
     //   }
     // });
+
+    this.getid = {
+      billmodelId: this.id
+    }
+    this.service.gettabledatasingle(this.getid).subscribe(result => {
+      this.previouslist = '<';
+      this.nextlist = '>';
+      this.dashboardService.getvalue(result.data[0].from, result.data[0].blockNumber).subscribe(result => {
+        for (let i = 0; i < result.result.length; i++) {
+          this.singletable.push(result.result[i]);
+        }
+      });
+      setTimeout(() => {
+        this.getdecimal();
+      }, 1000);
+    })
+
+
+
+    // this.service.Getpull().subscribe(result => {
+    //   if (result.success == true) {
+    //     this.subscribers = result.data.length;
+    //   }
+    // });
+    this.service.getByIdBillingModelqr(this.id).subscribe(result => {
+      this.value = JSON.stringify(result.data);
+      setTimeout(() => {
+        this.base64();
+      }, 200);
+    });
+	
     this.service.getByIdBillingModelqr(this.id).subscribe(result => {
       this.value = JSON.stringify(result.data);
       setTimeout(() => {
@@ -406,7 +439,7 @@ export class BillingModelOverviewComponent implements OnInit {
   }
 
   getdecimal() {
-    let length = this.singletable.length || this.recurringtable.length || this.hybirdtable.length;
+    let length = this.singletable.length;
     if (length != 0) {
       this.pageShow = true;
     } else {

@@ -280,8 +280,18 @@ export class BillingService {
                         }
    *
    */
-  public gettabledatasingle(): Observable<any> {
-    return this._http.get(this.tabledataurl).pipe(
+  // public gettabledatasingle(): Observable<any> {
+  //   return this._http.get(this.tabledataurl).pipe(
+  //     map((response: HttpResponse) => {
+  //       return response;
+  //     })
+  //   );
+  // }
+
+
+  
+  public gettabledatasingle(data): Observable<any> {
+    return this._http.post(this.tabledataurl, data, { headers: this.headers}).pipe(
       map((response: HttpResponse) => {
         return response;
       })

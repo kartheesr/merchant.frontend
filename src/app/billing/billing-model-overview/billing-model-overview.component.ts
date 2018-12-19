@@ -29,7 +29,6 @@ export class BillingModelOverviewComponent implements OnInit {
   public transactionHistorArray = [];
   public data = '';
   public EtherValue;
- 
   pageShow;
   trialDays;
   value;
@@ -178,21 +177,19 @@ export class BillingModelOverviewComponent implements OnInit {
 
     this.getid = {
       billmodelId: this.id
-    }
+    };
     this.service.gettabledatasingle(this.getid).subscribe(result => {
       this.previouslist = '<';
       this.nextlist = '>';
-      this.dashboardService.getvalue(result.data[0].from, result.data[0].blockNumber).subscribe(result => {
-        for (let i = 0; i < result.result.length; i++) {
-          this.singletable.push(result.result[i]);
-        }
+      result.data.map((value, index) => {
+        this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(res => {
+          this.singletable.push(res.result[0]);
+        });
+        setTimeout(() => {
+          this.getdecimal();
+        }, 1000);
       });
-      setTimeout(() => {
-        this.getdecimal();
-      }, 1000);
-    })
-
-
+    });
 
     // this.service.Getpull().subscribe(result => {
     //   if (result.success == true) {
@@ -205,7 +202,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.base64();
       }, 200);
     });
-	
+
     this.service.getByIdBillingModelqr(this.id).subscribe(result => {
       this.value = JSON.stringify(result.data);
       setTimeout(() => {

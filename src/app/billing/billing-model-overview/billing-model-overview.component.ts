@@ -179,12 +179,11 @@ export class BillingModelOverviewComponent implements OnInit {
       billmodelId: this.id
     };
     this.service.gettabledatasingle(this.getid).subscribe(result => {
-      console.log("Result===>",result);
       this.previouslist = '<';
       this.nextlist = '>';
       result.data.map((value, index) => {
         this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(res => {
-          this.singletable.push(res.result[0]);
+          if (res.status != 0) this.singletable.push(res.result[0]);
         });
         setTimeout(() => {
           this.getdecimal();
@@ -210,7 +209,6 @@ export class BillingModelOverviewComponent implements OnInit {
         this.base64();
       }, 200);
     });
-
 
     this.service.getByIdBillingModel(this.id).subscribe(result => {
       localStorage.removeItem('publishId');

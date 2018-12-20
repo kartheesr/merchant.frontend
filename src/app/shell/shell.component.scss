@@ -37,7 +37,7 @@
         }
         li {
           ul {
-            margin: 0px 0px 0px 15px !important;
+            // margin: 0px 0px 0px 15px !important;
           }
         }
       }
@@ -179,4 +179,7 @@
 .appContainer .sidebar ul li a.active .imgCont.inactive img {
   display: none !important;
   top: 5px;
+}
+.sidebar ul li ul {
+  margin-top: 5px !important;
 }

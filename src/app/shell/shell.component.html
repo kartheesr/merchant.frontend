@@ -7,9 +7,17 @@
         <img src="assets/images/logo_pumapay.png" />
         <ul>
           <li>
-            <a href="" routerLink="/dashboard" routerLinkActive="active">
-              <div class="imgCont active"><img src="assets/images/dashboard.png" /></div>
-              <div class="imgCont inactive"><img src="assets/images/dashboard_gray.png" /></div>
+            <a
+              href=""
+              routerLink="/dashboard"
+              (click)="handleActive('dashboard')"
+              [ngClass]="{ active: activeTab == 'dashboard' }"
+              routerLinkActive="active"
+            >
+              <div class="imgCont ">
+                <img *ngIf="activeTab == 'dashboard'" src="assets/images/dashboard.png" />
+                <img *ngIf="activeTab != 'dashboard'" class="inactive" src="assets/images/dashboard_gray.png" />
+              </div>
               Dashboard
             </a>
           </li>
@@ -21,21 +29,27 @@
                 Products
               </a>
             -->
-
-            <!--
-              <ul>
-              <li>
-            -->
-            <a href="" routerLink="/billing" routerLinkActive="active">
-              <div class="imgCont active"><img src="assets/images/billing.png" /></div>
-              <div class="imgCont inactive"><img src="assets/images/billing_gray.png" /></div>
+            <a
+              href=""
+              routerLink="/billing"
+              (click)="handleActive('billing')"
+              [ngClass]="{ active: activeTab == 'billing' }"
+              routerLinkActive="active"
+            >
+              <div class="imgCont">
+                <img *ngIf="activeTab == 'billing'" src="assets/images/billing.png" />
+                <img *ngIf="activeTab != 'billing'" src="assets/images/billing_gray.png" />
+              </div>
               Billing Models
             </a>
+            <!--
+              <ul>
+                <li>
+                  
+                </li>
+              </ul>
+            -->
           </li>
-          <!--
-            </ul>
-            </li>
-          -->
         </ul>
 
         <ul class="d-abs">
@@ -59,16 +73,14 @@
         <div class="col flex-start-center">PumaPay @ 2018 all Rights Reserved</div>
         <div class="col flex-center-center">
           <span class="d-block d-md-inline-block social-icons-container">
-            <a href="https://www.facebook.com/PumaPay/" target="_blank">
-              <i class="fab fa-facebook-f" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/decentralized-vision/" target="_blank">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://twitter.com/pumapay" target="_blank">
-              <i class="fab fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="https://t.me/PumaPay" target="_blank"> <i class="fa fa-paper-plane" aria-hidden="true"></i> </a>
+            <a href="https://www.facebook.com/PumaPay/" target="_blank"
+              ><i class="fab fa-facebook-f" aria-hidden="true"></i
+            ></a>
+            <a href="https://www.linkedin.com/company/decentralized-vision/" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://twitter.com/pumapay" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href="https://t.me/PumaPay" target="_blank"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
           </span>
         </div>
         <div class="col flex-end-center ">

@@ -242,7 +242,7 @@ export class BillingModelOverviewComponent implements OnInit {
             }, 3000);
           });
         });
-        this.data = this.overviewdata.model;
+        //this.data = this.overviewdata.model;
         this.description = 'Single';
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
@@ -257,7 +257,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.recurring = false;
         this.singleRecurring = false;
       } else if (result.data.typeID == 3 || result.data.typeID == 5) {
-        this.data = this.overviewdata.model ? this.overviewdata.model : '';
+        //this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Recurring';
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
@@ -291,7 +291,7 @@ export class BillingModelOverviewComponent implements OnInit {
           });
         });
       } else {
-        this.data = this.overviewdata.model ? this.overviewdata.model : '';
+        //this.data = this.overviewdata.model ? this.overviewdata.model : '';
         this.description = 'Single + Recurring';
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
@@ -305,6 +305,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.initalamount = result.data.initialPaymentAmount / 100;
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
+        console.log(this.Recurrences);
         this.singleRecurring = true;
         this.single = false;
         this.recurring = false;
@@ -395,8 +396,7 @@ export class BillingModelOverviewComponent implements OnInit {
       this.PullRecurrenceETH = cost.toFixed(5).replace(/0+$/, '');
       let costUSD = this.PullRecurrence * this.model.TransferUSD;
       this.model.PullRecurrencecostUSD = parseFloat(costUSD.toFixed(2).replace(/0+$/, ''));
-      let Total =
-        parseFloat(this.RecurrencesETH) + parseFloat(this.intialETH) + parseFloat(this.PullRecurrenceETH);
+      let Total = parseFloat(this.RecurrencesETH) + parseFloat(this.intialETH) + parseFloat(this.PullRecurrenceETH);
       this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       let USD = this.model.initialUSD + this.model.RecurrenceETHUSD + this.model.PullRecurrencecostUSD;
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));

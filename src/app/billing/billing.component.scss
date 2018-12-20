@@ -1,10 +1,10 @@
 .billingModelContainer {
-  width: 98.6%; 
+  width: 98.6%;
   .bm-header {
     background-color: #fcfdff;
     height: 50px;
     margin-bottom: 2px;
-    padding: 14px 30px;
+    padding: 14px 0px;
     font-size: 16px;
     button {
       display: inline-block;
@@ -24,9 +24,9 @@
     }
   }
   .bm-main {
-    background-color: #ffffff;   
+    background-color: #ffffff;
     min-height: 120px;
-    overflow-x: hidden;    
+    overflow-x: hidden;
     top: 82px;
     .billingImg {
       display: block;
@@ -43,12 +43,12 @@
       cursor: pointer;
       height: 38px;
       border-radius: 3px;
-      border: none;      
+      border: none;
       box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
       margin-bottom: 30px !important;
     }
     .billingBoxCont {
-      padding: 20px 20px;     
+      padding: 20px 20px;
       overflow-y: scroll;
       .billingBox.active {
         border-color: #f9b741;
@@ -58,13 +58,13 @@
         .boxHead {
           color: #f9b741;
         }
-        .LinkTag {          
+        .LinkTag {
           color: #003aa7;
           font-size: 12px;
           line-height: 123%;
         }
       }
-      .billingBox.active1 {        
+      .billingBox.active1 {
         background: #ffffff;
         /* puma blue */
         border: 0.5px solid #1e6af6;
@@ -74,13 +74,13 @@
         .boxHead {
           color: #1e6af6;
         }
-        .LinkTag {         
+        .LinkTag {
           color: #1e6af6;
           font-size: 10px;
           line-height: 123%;
         }
       }
-      .billingBox.active2 {   
+      .billingBox.active2 {
         background: #ffffff;
         /* purple */
         border: 0.5px solid #ac8bfc;
@@ -99,7 +99,7 @@
       .billingBox {
         min-height: 300px;
         cursor: pointer;
-        margin-bottom: 20px;      
+        margin-bottom: 20px;
         border: 0.5px solid #1c67f5;
         border-radius: 6px 6px 0px 0px;
         .boxHead {
@@ -109,14 +109,14 @@
           line-height: 20px;
           .ImgCont {
             width: 90%;
-            position: relative;           
+            position: relative;
             display: inline-block;
             p {
               margin-top: -1px;
-              margin-right: 5px;             
+              margin-right: 5px;
               font-size: 12px;
             }
-            img {            
+            img {
               float: left;
               margin-right: -12px;
               margin-top: 0px;
@@ -126,13 +126,13 @@
             }
           }
         }
-        .boxCont {        
+        .boxCont {
           margin-left: 5px !important;
           background-color: #fcfdff;
-          .pad-l-20 {         
+          .pad-l-20 {
             p {
               font-size: 15.5021px;
-              color: #000;            
+              color: #000;
               span {
                 font-size: 20px;
               }
@@ -146,9 +146,9 @@
             }
           }
           .number {
-            font-size: 19.5021px;           
+            font-size: 19.5021px;
             color: #000;
-            font-weight: bold;            
+            font-weight: bold;
             margin-bottom: 5px;
             word-wrap: break-word;
             .p {
@@ -158,7 +158,7 @@
           .large {
             margin: 0px 0px;
             font-size: 30px;
-            font-weight: 600;           
+            font-weight: 600;
             color: #333333;
             word-wrap: break-word;
             padding-top: 4%;
@@ -169,13 +169,13 @@
                 color: black;
               }
             }
-            .new1 {            
+            .new1 {
               color: #828282;
             }
-            .new2 {             
+            .new2 {
               color: #828282;
             }
-            .new3 {          
+            .new3 {
               color: #828282;
             }
             .labelcolor {
@@ -183,17 +183,17 @@
             }
           }
           .footerText {
-            color: #828282;           
-            font-size: 15.5021px;           
-            .footerTextPma {             
+            color: #828282;
+            font-size: 15.5021px;
+            .footerTextPma {
               height: 50px;
               margin-top: 64px;
-              margin-left: 15px;            
+              margin-left: 15px;
               .footertype {
                 margin-top: 10px;
               }
             }
-            p {            
+            p {
               font-size: 18px;
             }
           }
@@ -355,15 +355,15 @@
   color: #ac8bfc !important;
   font-size: 10px;
 }
-fieldset.scheduler-border {  
+fieldset.scheduler-border {
   border: 0.5px solid #82828278 !important;
   border-radius: 3px;
-  padding: 0 0.4em 0em 0.4em !important;  
+  padding: 0 0.4em 0em 0.4em !important;
   -webkit-box-shadow: 0px 0px 0px 0px #828282;
   box-shadow: 0px 0px 0px 0px #828282;
-  width: 100%;  
+  width: 100%;
   word-wrap: break-word;
-  float: left;  
+  float: left;
   label {
     font-size: 28px;
     align-items: center;
@@ -378,18 +378,18 @@ fieldset.scheduler-border {
   }
 }
 legend.scheduler-border {
-  font-size: 8px !important; 
+  font-size: 8px !important;
   font-weight: normal !important;
   text-align: left !important;
   width: auto;
-  padding: 0 5px;  
+  padding: 0 5px;
   word-wrap: break-word;
   margin-bottom: 0px !important;
 }
 
 /*** Scroll Bar Style ***/
 
-.billingBox::-webkit-scrollbar-track {  
+.billingBox::-webkit-scrollbar-track {
   background-color: #f4f6fb;
   border: 0.5px solid #c5ccce;
   margin: 0px 5px;
@@ -516,7 +516,7 @@ fieldset label {
   background-color: #c5ccce;
 }
 .new legend.scheduler-border {
-  color: #304053 !important; 
+  color: #304053 !important;
 }
 /*** Scroll Bar Style ***/
 
@@ -535,28 +535,27 @@ fieldset label {
   color: #304053 !important;
 }
 .new2 legend.scheduler-border {
-  color: #304053 !important;  
+  color: #304053 !important;
 }
 .active2 .new1 legend.scheduler-border {
   color: #828282 !important;
 }
 .LinkTag label {
   margin-bottom: 0px !important;
-  
 }
 .trialPeriod-sub span {
   color: #333333 !important;
   line-height: 14px !important;
-  font-size: 11px !important; 
+  font-size: 11px !important;
 }
 .trialPeriod-sub label {
-  color:#333333 !important;
+  color: #333333 !important;
   line-height: 14px !important;
   font-size: 11px !important;
   margin-left: 10%;
 }
 
-.billingModelContainer .bm-main .billingBoxCont .billingBox .boxCont .large .new1 {  
+.billingModelContainer .bm-main .billingBoxCont .billingBox .boxCont .large .new1 {
   color: #828282;
 }
 .borderLineS {
@@ -606,7 +605,7 @@ fieldset label {
   text-align: center;
   width: 100%;
   float: left;
-  color:#000; 
+  color: #000;
 }
 .billingBox {
   border: none !important;
@@ -616,4 +615,17 @@ fieldset label {
 .billingBox hr {
   float: right;
   width: 92%;
+}
+
+.HeadingClass {
+  padding-left: 36px;
+}
+.bm-header .row {
+  margin-bottom: 12px !important;
+}
+.col.text-right button {
+  margin-right: 30px !important;
+}
+.load_sec {
+  padding-left: 25px !important;
 }

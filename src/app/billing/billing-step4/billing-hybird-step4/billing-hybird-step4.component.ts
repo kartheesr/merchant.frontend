@@ -31,7 +31,7 @@ export class BillingHybirdStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.model = {
@@ -93,31 +93,9 @@ export class BillingHybirdStep4Component implements OnInit {
         this.model.recurrencegas = val.toFixed(5).replace(/0+$/, '');
         let valUSD = this.model.USDValue * this.model.recurrencegas;
         this.model.RecurrenceUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
-        this.service4.gastransferpull().subscribe(result => {
-          let gas = result.data * 0.00000001;
-          this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
-          let gasUSD = this.model.USDValue * this.model.Transfergas;
-          this.model.TransferUSD = parseFloat(gasUSD.toFixed(2).replace(/0+$/, ''));
-          let val = this.model.initialRecurrence * this.model.recurrencegas;
-          this.model.initialETH = val.toFixed(5).replace(/0+$/, '');
-          let valUSD = this.model.initialRecurrence * this.model.RecurrenceUSD;
-          this.model.initialUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
-          let sample = this.model.recurrencegas * this.Step3data.Recurringdays;
-          this.model.RecurrenceETH = sample.toFixed(5).replace(/0+$/, '');
-          let sampleUSD = this.model.RecurrenceUSD * this.Step3data.Recurringdays;
-          this.model.RecurrenceETHUSD = parseFloat(sampleUSD.toFixed(2).replace(/0+$/, ''));
-          let cost = this.model.PullRecurrence * this.model.Transfergas;
-          this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
-          let costUSD = this.model.PullRecurrence * this.model.TransferUSD;
-          this.model.PullRecurrencecostUSD = parseFloat(costUSD.toFixed(2).replace(/0+$/, ''));
-          let Total =
-            parseFloat(this.model.RecurrenceETH) +
-            parseFloat(this.model.initialETH) +
-            parseFloat(this.model.PullRecurrencecost);
-          this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
-          let USD = this.model.initialUSD + this.model.RecurrenceETHUSD + this.model.PullRecurrencecostUSD;
-          this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
-        });
+        setTimeout(() => {
+          this.gasValueCalculation();
+        }, 3000);
       });
     });
     this.model.Recurrence = this.Step3data.Recurringdays;
@@ -138,6 +116,33 @@ export class BillingHybirdStep4Component implements OnInit {
 
   onPublish() {
     this.publish();
+  }
+  gasValueCalculation() {
+    this.service4.gastransferpull().subscribe(result => {
+      let gas = result.data * 0.00000001;
+      this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
+      let gasUSD = this.model.USDValue * this.model.Transfergas;
+      this.model.TransferUSD = parseFloat(gasUSD.toFixed(2).replace(/0+$/, ''));
+      let val = this.model.initialRecurrence * this.model.recurrencegas;
+      this.model.initialETH = val.toFixed(5).replace(/0+$/, '');
+      let valUSD = this.model.initialRecurrence * this.model.RecurrenceUSD;
+      this.model.initialUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
+      let sample = this.model.recurrencegas * this.Step3data.Recurringdays;
+      this.model.RecurrenceETH = sample.toFixed(5).replace(/0+$/, '');
+      let sampleUSD = this.model.RecurrenceUSD * this.Step3data.Recurringdays;
+      this.model.RecurrenceETHUSD = parseFloat(sampleUSD.toFixed(2).replace(/0+$/, ''));
+      let cost = this.model.PullRecurrence * this.model.Transfergas;
+      this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
+      let costUSD = this.model.PullRecurrence * this.model.TransferUSD;
+      this.model.PullRecurrencecostUSD = parseFloat(costUSD.toFixed(2).replace(/0+$/, ''));
+      let Total =
+        parseFloat(this.model.RecurrenceETH) +
+        parseFloat(this.model.initialETH) +
+        parseFloat(this.model.PullRecurrencecost);
+      this.model.TotalETH = Total.toFixed(5).replace(/0+$/, '');
+      let USD = this.model.initialUSD + this.model.RecurrenceETHUSD + this.model.PullRecurrencecostUSD;
+      this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
+    });
   }
   handleChangetransactions(data) {
     if (data.value == 'Once at the end of contract') {

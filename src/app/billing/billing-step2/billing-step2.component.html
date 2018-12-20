@@ -24,7 +24,7 @@
           <input type="text" class="productInput" name="billingModelName" placeholder="" [(ngModel)]="model.billingModelName" #billingModelName="ngModel"
             [ngClass]="{
               'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
-            }" required minlength="2" />
+            }" required minlength="2" maxlength="50"  />
         </div>
 
         <div *ngIf="f.submitted">

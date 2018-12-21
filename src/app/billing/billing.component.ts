@@ -87,6 +87,13 @@ export class BillingComponent implements OnInit {
   ngOnInit() {
     this.sample = [];
     this.show1 = true;
+    this.billingService.gasvalueCalcualtion().subscribe(res => {
+      this.gasBalance = parseFloat(res.data)
+        .toFixed(5)
+        .replace(/0+$/, ''); // GAS VALUE
+      var nf = new Intl.NumberFormat();
+      this.gasBalance = nf.format(this.gasBalance);
+    });
     this.billingService.gasusdvalue().subscribe(result => {
       this.USDValue = result.data.USD;
       this.billingService.gastransferpull().subscribe(result => {

@@ -73,6 +73,7 @@ export class BillingModelOverviewComponent implements OnInit {
   public TransRecurrence;
   public TotalCost;
   public TotalcostRecuurence;
+  automatedCashoutFrequency;
 
   //API value
   public Transfergas;
@@ -271,6 +272,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.frequency = this.temp;
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
+        this.automatedCashoutFrequency=result.data.automatedCashOut;
         this.recurring = true;
         this.single = false;
         this.singleRecurring = false;
@@ -306,15 +308,17 @@ export class BillingModelOverviewComponent implements OnInit {
         this.initalamount = result.data.initialPaymentAmount / 100;
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
+        this.automatedCashoutFrequency=result.data.automatedCashOut;
         this.singleRecurring = true;
         this.single = false;
         this.recurring = false;
         this.initialRecurrence = 1;
-        this.PullRecurrence = 1;
+        this.PullRecurrence = this.automatedCashoutFrequency==true ? this.Recurrences : 1;
         this.intialETH = 0;
         this.RecurrencesETH = 0;
         this.PullRecurrenceETH = 0;
         this.TotalETH = 0;
+        
 
         this.overviewdata.gasusdvalue().subscribe(result => {
           this.model.USDValue = result.data.USD;
@@ -366,7 +370,7 @@ export class BillingModelOverviewComponent implements OnInit {
       this.TotalCost = sample.toFixed(5).replace(/0+$/, '');
       let USDCost = this.model.RecurrenceUSD * this.Recurrences;
       this.model.TotalUSDCost = parseFloat(USDCost.toFixed(2).replace(/0+$/, ''));
-      this.model.TransRecurrence = 1;
+      this.model.TransRecurrence = this.automatedCashoutFrequency==true ? this.Recurrences : 1;
       let data = parseFloat(this.Transfergas) * this.model.TransRecurrence;
       this.TotalcostRecuurence = data.toFixed(5).replace(/0+$/, '');
       let dataUSD = this.model.TransferUSD * this.model.TransRecurrence;

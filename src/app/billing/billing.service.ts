@@ -41,7 +41,7 @@ export class BillingService {
   /**
    *@method {get}
    * @apiDescription Retrieve the USD value
-   * @usdvalue: http://202.61.120.46:9500/api/v2/Dashboard/usdvalue
+   * @usdvalue: http://202.61.120.46:9500/api/v2/Dashboard/usd-value
    *
    *
    * @methodName gasusdvalue
@@ -57,7 +57,7 @@ export class BillingService {
   /**
    *@method {get}
    * @apiDescription Retrieve the Pull Payment gas fee
-   * @recurrencegas: http://202.61.120.46:9500/api/v2/Dashboard/pullPaymentGas
+   * @recurrencegas: http://202.61.120.46:9500/api/v2/Dashboard/pull-payment-gas
    *
    *
    * @methodName gastransferpull
@@ -73,7 +73,7 @@ export class BillingService {
   /**
    *@method {get}
    * @apiDescription Retrieve the PMA Transfer gas
-   * @transfergasUrl: http://202.61.120.46:9500/api/v2/Dashboard/transferGas
+   * @transfergasUrl: http://202.61.120.46:9500/api/v2/Dashboard/transfer-Gas
    *
    *
    * @methodName gasrecurrence
@@ -141,7 +141,7 @@ export class BillingService {
   /**
    * @method {get}
    * @apiDescription Retrieve the gas balance
-   * @gasactionUrl: http://202.61.120.46:9500/api/v2/Dashboard/etherBalance
+   * @gasactionUrl: http://202.61.120.46:9500/api/v2/Dashboard/ether-balance
    *
    *
    * @methodName gasvalueCalcualtion
@@ -157,7 +157,7 @@ export class BillingService {
   /**
    * @method {post}
    * @apiDescription Retrieve the transcation history of particular billing model
-   * @tabledataurl: http://202.61.120.46:9500/api/v2/Dashboard/hashOverView
+   * @tabledataurl: http://202.61.120.46:9500/api/v2/Dashboard/hash-overview
    *
    * @data:Details of billing model created by merchant.
    *

@@ -83,7 +83,7 @@ export class DashboardService {
   /**
    * @method {get}
    * @apiDescription Retrieve the gas balance
-   * @gasactionUrl: http://202.61.120.46:9500/api/v2/Dashboard/etherBalance
+   * @gasactionUrl: http://202.61.120.46:9500/api/v2/Dashboard/ether-Balance
    *
    *
    * @methodName gasvalueCalcualtion

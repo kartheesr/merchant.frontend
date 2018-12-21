@@ -97,7 +97,7 @@
         }
       }
       .billingBox {
-        min-height: 366px !important;
+        min-height: 390px !important;
         cursor: pointer;
         margin-bottom: 20px;
         border: 0.5px solid #1c67f5;
@@ -601,7 +601,6 @@ fieldset label {
   float: left;
   width: 100%;
   height: 50px;
-
 }
 
 .Footergas {
@@ -634,4 +633,22 @@ fieldset label {
 }
 .load_sec {
   padding-left: 25px !important;
+}
+.ImgCont {
+  position: absolute;
+  z-index: 99999;
+  float: left;
+  width: 187px;
+  background: #fff;
+}
+.ImgCont img {
+  width: 18px;
+  float: left;
+  margin-left: 10px;
+}
+.billingBox {
+  background: #8080803d !important;
+}
+.boxCont.row {
+  background-color: #e1e1e1 !important;
 }

@@ -36,46 +36,11 @@ export class BillingServiceCall {
   /**
    * @method {post}
    * @apiDescription To create a new billing model in database.
-   * @url: http://202.61.120.46:9500/api/v2/pull-payment-models/
-   * @data:{
-            "merchantID": "4a17335e-bf18-11e8-a355-000000fb1459",
-            "title": "National Cryptographic Gold Mebmership",
-            "description": "Access to all gold articles",
-            "amount": 1099,
-            "initialPaymentAmount": 199,
-            "trialPeriod": 86400,
-            "currency": "USD",
-            "numberOfPayments": 12,
-            "typeID": 2,
-            "frequency": 604800,
-            "networkID": 3,
-            "automatedCashOut": true,
-            "cashOutFrequency": 1
-          }
+   * @actionUrl: http://202.61.120.46:9500/api/v2/pull-payment-models/
+   * @data: Details of the billing model created in json structure.
    *
    * @methodName billingPost
    *
-   * @apiResponse (200) {
-                          "code": 200,
-                          "success": true,
-                          "message": "Billing model details retrieved successfully",
-                          "data": {
-                            "id": "4a17335e-bf18-11e8-a355-000000fb1459",
-                            "merchantID": "4a17335e-bf18-11e8-a355-111111fb1459",
-                            "title": "National Cryptographic Gold Mebmership",
-                            "description": "Access to all gold articles",
-                            "amount": 1099,
-                            "initialPaymentAmount": 199,
-                            "trialPeriod": 86400,
-                            "currency": "USD",
-                            "numberOfPayments": 12,
-                            "typeID": 2,
-                            "frequency": 604800,
-                            "networkID": 3,
-                            "automatedCashOut": true,
-                            "cashOutFrequency": 1
-                          }
-   *                    }
    *
    */
   public billingPost(data): Observable<any> {
@@ -88,15 +53,10 @@ export class BillingServiceCall {
   /**
    * @method {get}
    * @apiDescription Retrieve the gas balance
-   * @url: http://202.61.120.46:9500/api/v2/Dashboard/etherBalance
+   * @gasactionUrl: http://202.61.120.46:9500/api/v2/Dashboard/etherBalance
    *
    *
    * @methodName gasvalueCalcualtion
-   *
-   * @apiResponse (200) {"success": true,
-   *                     "status": 200,
-   *                     "message": "Balance retrieve successfully",
-   *                     "data": "45.221430273509750478"}
    *
    */
   public gasvalueCalcualtion(): Observable<any> {
@@ -107,24 +67,14 @@ export class BillingServiceCall {
     );
   }
   /**
-     *@method {get}
-     * @apiDescription Retrieve the USD value 
-     * @url: http://202.61.120.46:9500/api/v2/Dashboard/usdvalue
-     * 
-     *
-     * @apiName gasusdvalue
-     *
-     * @apiSuccess (200) {
-                          "success": true,
-                          "status": 200,
-                          "message": "Balance retrieve successfully",
-                          "data":{
-                              "USD": 103.99,
-                              "EUR": 90.69
-                          }
-                        }
-     *
-     */
+   *@method {get}
+   * @apiDescription Retrieve the USD value
+   * @usdvalue: http://202.61.120.46:9500/api/v2/Dashboard/usdvalue
+   *
+   *
+   * @methodName gasusdvalue
+   *
+   */
   public gasusdvalue(): Observable<any> {
     return this._http.get(this.usdvalue).pipe(
       map((response: HttpResponse) => {
@@ -133,21 +83,14 @@ export class BillingServiceCall {
     );
   }
   /**
-     *@method {get}
-     * @apiDescription Retrieve the Pull Payment gas fee 
-     * @url: http://202.61.120.46:9500/api/v2/Dashboard/pullPaymentGas
-     * 
-     *
-     * @apiName gastransferpull
-     *
-     * @apiSuccess (200) {
-                          success": true,
-                          "status": 200,
-                          "message": "Pull Payment gas fee retrieve successfully.",
-                          "data": 107795
-                        }
-     *
-     */
+   *@method {get}
+   * @apiDescription Retrieve the Pull Payment gas fee
+   * @recurrencegas: http://202.61.120.46:9500/api/v2/Dashboard/pullPaymentGas
+   *
+   *
+   * @methodName gastransferpull
+   *
+   */
   public gastransferpull(): Observable<any> {
     return this._http.get(this.recurrencegas).pipe(
       map((response: HttpResponse) => {
@@ -156,21 +99,14 @@ export class BillingServiceCall {
     );
   }
   /**
-         *@method {get}
-         * @apiDescription Retrieve the PMA Transfer gas
-         * @url: http://202.61.120.46:9500/api/v2/Dashboard/transferGas
-         * 
-         *
-         * @apiName gasrecurrence
-         *
-         * @apiSuccess (200) {
-                              success": true,
-                              "status": 200,
-                              "message": "PMA Transfer gas retrieve successfully.",
-                              "data": 37244
-                            }
-         *
-         */
+   *@method {get}
+   * @apiDescription Retrieve the PMA Transfer gas
+   * @transfergas: http://202.61.120.46:9500/api/v2/Dashboard/transferGas
+   *
+   *
+   * @methodName gasrecurrence
+   *
+   */
   public gasrecurrence(): Observable<any> {
     return this._http.get(this.transfergas).pipe(
       map((response: HttpResponse) => {

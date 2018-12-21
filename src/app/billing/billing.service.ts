@@ -100,8 +100,8 @@ export class BillingService {
   }
   /**
    *@method {get}
-   * @apiDescription Retrieve payment model with ID: fa3cee06-fecc-11e8-8606-a76cd3f1a78a
-   * @billingModelUrl: http://202.61.120.46:9500/api/v2/pull-payment-models/fa3cee06-fecc-11e8-8606-a76cd3f1a78a
+   * @apiDescription Retrieve payment model of particular merchant ID
+   * @billingModelUrl: http://202.61.120.46:9500/api/v2/pull-payment-models/{id}
    * @id: Billing model ID
    *
    * @methodName getByIdBillingModel
@@ -112,8 +112,8 @@ export class BillingService {
   }
   /**
    *@method {get}
-   * @apiDescription Retrieve value for QR code of ID: fa3cee06-fecc-11e8-8606-a76cd3f1a78a
-   * @OverViewQrcodeUrl: http://202.61.120.46:9500/api/v2/qr/fa3cee06-fecc-11e8-8606-a76cd3f1a78a
+   * @apiDescription Retrieve value for QR code of particular merchant ID
+   * @OverViewQrcodeUrl: http://202.61.120.46:9500/api/v2/qr/{id}
    * @id: Billing model ID
    *
    * @methodName getByIdBillingModelqr
@@ -158,7 +158,8 @@ export class BillingService {
    * @method {post}
    * @apiDescription Retrieve the transcation history of particular billing model
    * @tabledataurl: http://202.61.120.46:9500/api/v2/Dashboard/hashOverView
-   * @data:Details of billing model created in json structure.
+   *
+   * @data:Details of billing model created by merchant.
    *
    * @methodName gettabledatasingle
    *

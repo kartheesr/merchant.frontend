@@ -64,7 +64,7 @@ export class DashboardService {
   /**
    * @method {get}
    * @apiDescription Retrieve the value to show as QR code
-   * @url: http://202.61.120.46:9500/api/v2/qr/0x8aecfd4a6657bdb8ca125fbc682c97da4ea78f8f/1000000000000000000/45.221
+   * @url: http://202.61.120.46:9500/api/v2/qr/${address}/1000000000000000000/${gas}
    *
    * @gas : gas value
    * @address: treasury address
@@ -116,9 +116,10 @@ export class DashboardService {
   /**
    * @method {get}
    * @apiDescription Retrieve the transaction history
-   * @sample: http://api-ropsten.etherscan.io/api?module=account&action=tokentx&address=0x29Dd72356f6cEddDe9E86b4A7a1e02D7F1AF4618&startblock=4619669&endblock=4619669
-   * @blockNumber: 4619669 (retrived from transcation history)
-   * @address : 0x29Dd72356f6cEddDe9E86b4A7a1e02D7F1AF4618 (retrived from transcation history)
+   * @sample: http://api-ropsten.etherscan.io/api?module=account&action=tokentx&address=${address}&startblock=${blocknumber}&endblock=${blocknumber}
+   *
+   * @blockNumber: particular merchant block number.
+   * @address : particular merchant address.
    *
    * @methodName getvalue
    *

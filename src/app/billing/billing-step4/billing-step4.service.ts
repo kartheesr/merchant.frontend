@@ -37,7 +37,7 @@ export class BillingServiceCall {
    * @method {post}
    * @apiDescription To create a new billing model in database.
    * @actionUrl: http://202.61.120.46:9500/api/v2/pull-payment-models/
-   * @data: Details of the billing model created in json structure.
+   * @data: Details of the billing model created by merchant.
    *
    * @methodName billingPost
    *

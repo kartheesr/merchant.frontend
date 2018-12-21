@@ -2,7 +2,7 @@
   width: 100%;
   margin-bottom: 20px;
   .bm-header {
-    background-color: #fcfdff;
+    background-color: #ffffff;
     height: 50px;
     margin-bottom: 2px;
     padding: 14px 30px;
@@ -78,10 +78,11 @@
           min-height: 250px;
           overflow-y: auto;
           padding: 0px 15px !important;
-          background-color: #fcfdff;
+          background-color: #ffffff;
           .pad-l-20 {
             padding-left: 20px;
             margin-top: 20px;
+            line-height: 13px !important;
             p {
               font-size: 22px;
               word-break: break-word;
@@ -145,7 +146,7 @@
           min-height: 250px;
           overflow-y: auto;
           padding: 0px 15px;
-          background-color: #fcfdff;
+          background-color: #ffffff;
           a {
             color: #ac8bfc;
             font-size: 12px;
@@ -153,6 +154,7 @@
           .pad-l-20 {
             padding-left: 20px;
             margin-top: 10px !important;
+            line-height: 13px !important;
             p {
               font-size: 22px;
               span {
@@ -220,11 +222,12 @@
 
           padding: 0px 15px;
 
-          background-color: #fcfdff;
+          background-color: #ffffff;
 
           .pad-l-20 {
             padding-left: 20px;
             margin-top: 20px;
+            line-height: 13px !important;
             p {
               font-size: 16px;
               word-break: break-word;
@@ -1058,7 +1061,7 @@ legend.scheduler-border {
 
   font-weight: normal;
 
-  line-height: 11px;
+  line-height: 11px !important;
 
   font-size: 10px;
 

@@ -32,11 +32,11 @@ export class BillingService {
     this.billingModelUrl = `${Constants.apiHost}${Constants.apiPrefix}pull-payment-models/`;
     this.OverViewQrcodeUrl = `${Constants.apiHost}${Constants.apiPrefix}qr/`;
     this.QRCodeURL = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/address`;
-    this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/etherBalance`;
-    this.usdvalue = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usdvalue`;
-    this.transfergasUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transferGas`;
-    this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pullPaymentGas`;
-    this.tabledataurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/hashOverView`;
+    this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/ether-balance`;
+    this.usdvalue = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usd-value`;
+    this.transfergasUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transfer-gas`;
+    this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pull-payment-gas`;
+    this.tabledataurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/hash-overview`;
   }
   /**
    *@method {get}

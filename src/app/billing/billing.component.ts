@@ -104,7 +104,7 @@ export class BillingComponent implements OnInit {
       });
     });
     this.billingService.getQRCodeaddress().subscribe(result => {
-      this.treasuryAddress = result.address; // TREASURY ADDRESS
+      this.treasuryAddress = result.data; // TREASURY ADDRESS
     });
     setTimeout(() => {
       this.qrValue();
@@ -131,6 +131,7 @@ export class BillingComponent implements OnInit {
     this.SingleWithRecurringValue = 0;
     this.RecurringWithTrialValue = 0;
     this.billingService.Getpull().subscribe(result => {
+      console.log('Five', result);
       if (result.success == true) {
         if (result.data.length != 0) {
           this.show1 = false;

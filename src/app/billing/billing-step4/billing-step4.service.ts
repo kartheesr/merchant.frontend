@@ -29,9 +29,9 @@ export class BillingServiceCall {
     this.headers.append('Access-Control-Allow-Origin', '*');
     this.headers.append('Access-Control-Allow-Methods', 'OPTIONS, TRACE, GET, HEAD, POST');
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/gas`;
-    this.usdvalue = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usdvalue`;
-    this.transfergas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transferGas`;
-    this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pullPaymentGas`;
+    this.usdvalue = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usd-value`;
+    this.transfergas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/transfer-gas`;
+    this.recurrencegas = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pull-payment-gas`;
   }
   /**
    * @method {post}

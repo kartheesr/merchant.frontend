@@ -183,6 +183,7 @@ export class BillingModelOverviewComponent implements OnInit {
       this.nextlist = '>';
       result.data.map((value, index) => {
         this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(res => {
+          console.log(res);
           if (res.status != 0) this.singletable.push(res.result[0]);
         });
         setTimeout(() => {
@@ -305,7 +306,6 @@ export class BillingModelOverviewComponent implements OnInit {
         this.initalamount = result.data.initialPaymentAmount / 100;
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
-        console.log(this.Recurrences);
         this.singleRecurring = true;
         this.single = false;
         this.recurring = false;

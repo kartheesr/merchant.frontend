@@ -1109,7 +1109,7 @@ legend.scheduler-border {
   width: 100%;
   float: left;
   color: #000;
-  margin-bottom: 50px;
+  //margin-bottom: 50px;
 }
 .extra_div {
   margin: 20px 0px 30px 0px !important;
@@ -1170,8 +1170,11 @@ legend.scheduler-border {
   height: 38px !important;
 }
 .Initaltrails {
-  height: 28px !important;
+  height: 30px !important;
 }
 .billingBox.active2 .boxCont {
   min-height: 300px !important;
+}
+.Align_div {
+  height: 50px;
 }

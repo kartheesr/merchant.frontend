@@ -13,4 +13,14 @@ export class ShellComponent implements OnInit {
   handleActive(data) {
     this.activeTab = data;
   }
+  logout() {
+    localStorage.removeItem('credentials');
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('id');
+    localStorage.removeItem('newForm');
+    localStorage.removeItem('reqId');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('usertype');
+  }
 }

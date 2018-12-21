@@ -23,7 +23,7 @@ export class DashboardService {
     this.headers.append('Access-Control-Allow-Methods', 'OPTIONS, TRACE, GET, HEAD, POST');
     this.QRCodeURL = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/address`;
     this.treasuryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pmabalance`;
-    this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/etherBalance`;
+    this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/ether-Balance`;
     this.transcationurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/hash`;
   }
 
@@ -92,6 +92,7 @@ export class DashboardService {
   public gasvalueCalcualtion(): Observable<any> {
     return this.http.get(this.gasactionUrl).pipe(
       map((response: HttpResponse) => {
+     
         return response;
       })
     );

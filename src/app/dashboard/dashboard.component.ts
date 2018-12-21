@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
     //     }
     //   }
     // });
-    this.dashboardService.gasvalueCalcualtion().subscribe(res => {
+    this.dashboardService.gasvalueCalcualtion().subscribe(res => {     
       this.gasBalance = parseFloat(res.data)
         .toFixed(5)
         .replace(/0+$/, ''); // GAS VALUE
@@ -71,7 +71,7 @@ export class DashboardComponent implements OnInit {
       this.treasuryAddress = result.data; // TREASURY ADDRESS
     });
 
-    this.dashboardService.getTreasurybalance().subscribe(result => {
+    this.dashboardService.getTreasurybalance().subscribe(result => {      
       this.treasuryBalance = parseFloat(result.data)
         .toFixed(5)
         .replace(/0+$/, ''); // TREASURY BALANCE
@@ -82,11 +82,11 @@ export class DashboardComponent implements OnInit {
       }, 3000);
     });
 
-    this.dashboardService.gettabledata().subscribe(result => {
+    this.dashboardService.gettabledata().subscribe(result => {      
       this.previouslist = '<';
       this.nextlist = '>';
       result.data.map((value, index) => {
-        this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(result => {
+        this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(result => {         
           result.result[0].billName = value.billingName;
           this.transactionHistorArray.push(result.result[0]);
         });
@@ -120,7 +120,7 @@ export class DashboardComponent implements OnInit {
   }
 
   qr() {
-    this.dashboardService.getQRValue(this.gasBalance, this.treasuryAddress).subscribe(result => {
+    this.dashboardService.getQRValue(this.gasBalance, this.treasuryAddress).subscribe(result => {     
       this.value = JSON.stringify(result.data);
     });
   }

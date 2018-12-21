@@ -438,6 +438,8 @@ legend.scheduler-border {
   .row {
     margin-right: 0px !important;
   }
+}
+@media screen and (min-width:1025px) and (max-width:1920)  {
   .ImgCont {
     width: 242px !important;
   }
@@ -645,7 +647,8 @@ fieldset label {
   width: 187px;
   background: #fff;
   border-radius: 5px 5px 0px 0px;
-  width: 201px !important;
+  // 
+  width: 90% !important;
 }
 .ImgCont img {
   width: 18px;

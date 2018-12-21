@@ -97,7 +97,7 @@
         }
       }
       .billingBox {
-        min-height: 390px !important;
+        min-height: 350px !important;
         cursor: pointer;
         margin-bottom: 20px;
         border: 0.5px solid #1c67f5;
@@ -115,6 +115,7 @@
               margin-top: -1px;
               margin-right: 5px;
               font-size: 12px;
+              
             }
             img {
               float: left;
@@ -123,6 +124,7 @@
               position: relative;
               left: -15px;
               width: 18px;
+              color: #003aa7
             }
           }
         }
@@ -366,7 +368,7 @@ fieldset.scheduler-border {
   word-wrap: break-word;
   float: left;
   label {
-    font-size: 28px;
+    font-size: 26px;
     align-items: center;
     float: left;
     word-wrap: break-word;
@@ -502,7 +504,7 @@ label.labelcolor {
   margin-bottom: 0px !important;
 }
 fieldset label {
-  margin-bottom: 5px !important;
+  margin-bottom: 0px !important;
 }
 
 /*** Scroll Bar Style ***/
@@ -640,15 +642,35 @@ fieldset label {
   float: left;
   width: 187px;
   background: #fff;
+  border-radius: 5px 5px 0px 0px;
+  width: 201px !important;
 }
 .ImgCont img {
   width: 18px;
   float: left;
-  margin-left: 10px;
+  margin-left: 7px;
+  margin-top: 10px;
 }
 .billingBox {
-  background: #8080803d !important;
+  background: #fcfdff !important;
 }
 .boxCont.row {
-  background-color: #e1e1e1 !important;
+  background-color: #fcfdff !important;
+}
+.billingModelContainer .bm-main .billingBoxCont .billingBox .boxHead{
+  padding: 0px !important;
+}
+.pad-l-20{
+  margin-top: 50px !important;
+}
+.ImgCont p{
+  margin-top: 10px !important;
+  font-size: 11px !important;
+  color: #f9b741;
+}
+label{
+  margin-bottom: 0px !important;
+}
+fieldset.scheduler-border{
+  line-height: 20px !important;
 }

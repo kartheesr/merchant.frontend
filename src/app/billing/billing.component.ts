@@ -178,7 +178,7 @@ export class BillingComponent implements OnInit {
             } else if (cal.typeID == 3 || cal.typeID == 5) {
               let recurrence = cal.numberOfPayments;
               this.workdata = (this.recurrencegas * recurrence).toFixed(2).replace(/0+$/, '');
-              let TransRecurrence = 1;
+              let TransRecurrence = cal.automatedCashOut == true ? recurrence : 1;
               this.workdata2 = (this.Transfergas * TransRecurrence).toFixed(2).replace(/0+$/, '');
               let Total = parseFloat(this.workdata) + parseFloat(this.workdata2);
               this.Totalgas = parseFloat(Total.toFixed(2).replace(/0+$/, ''));
@@ -188,7 +188,7 @@ export class BillingComponent implements OnInit {
               this.workdata = (this.recurrencegas * inital).toFixed(2).replace(/0+$/, '');
               let recurrence = cal.numberOfPayments;
               this.workdata1 = (this.recurrencegas * recurrence).toFixed(2).replace(/0+$/, '');
-              let TransRecurrence = 1;
+              let TransRecurrence = cal.automatedCashOut == true ? recurrence : 1;
               this.workdata2 = (this.Transfergas * TransRecurrence).toFixed(2).replace(/0+$/, '');
               let Total = parseFloat(this.workdata) + parseFloat(this.workdata1) + parseFloat(this.workdata2);
               this.Totalgas = parseFloat(Total.toFixed(2).replace(/0+$/, ''));

@@ -20,12 +20,12 @@
     </div>
     <div class="col">
       <label>
-        Gas Wallet
+        ETH Balance
         <a *ngIf="gasBalance <= 0.01" class="gasAlert">
           <img src="assets/images/warning-sign.png" />
           <div class="GasAlertBody">
-            Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing
-            Model contracts, the payment will fail
+            Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing Model contracts,
+            the payment will fail
           </div>
         </a>
       </label>
@@ -39,16 +39,23 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to send ETH to your Gas wallet</label></div>
+    <div class="col-xs-12 col-sm-12 cols-md-12">
+      <label>Scan the QR code to send ETH to your ETH Balance</label>
+    </div>
     <div class="col-xs-12 col-sm-2 cols-md-2 QRCodeClass">
-      <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
+      <div class="qrCont">
+        <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-10 cols-md-10">
       <div class="qrContents">
         <p>
-          <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span><br />
-          <span>Gas fees are used to execute any transaction over the Ethereum network.</span><br />
-          <span>You will be unable to accept new subscriptions or execute any transfers <br />without enough ETH.</span>
+          <span>You need to always fund your balance with ETH to pay for your gas fees.</span>
+          <br />
+          <span>Gas fees are used to execute any transaction over the Ethereum network.</span>
+          <br />
+          <span>You will be unable to accept new subscriptions or execute any transfers
+            <br />without enough ETH.</span>
           <span class="learnMore" (click)="learnMore()"> Learn More ></span>
         </p>
         <div class="qrCodeField">
@@ -61,15 +68,12 @@
 
   <div class="transaction-table">
     <div class="row">
-      <div class="col"><label>Transaction History</label></div>
+      <div class="col">
+        <label>Transaction History</label>
+      </div>
       <div class="col ">
         <div class="text-right">
-          <pagination-controls
-            *ngIf="pageShow"
-            (pageChange)="p = $event"
-            previousLabel="{{previouslist}}"
-            nextLabel="{{nextlist}}"
-          ></pagination-controls>
+          <pagination-controls *ngIf="pageShow" (pageChange)="p = $event" previousLabel="{{previouslist}}" nextLabel="{{nextlist}}"></pagination-controls>
         </div>
       </div>
     </div>

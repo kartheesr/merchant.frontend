@@ -50,6 +50,8 @@
     .billingBoxCont {
       padding: 20px 20px;
       overflow-y: scroll;
+      position: relative;
+      z-index: 99;
       .billingBox.active {
         border-color: #f9b741;
         background: #ffffff;
@@ -218,7 +220,8 @@
   justify-content: center;
 }
 .alertbilling {
-  margin-left: 500px;
+  margin-left: 94px;
+  float: right;
 }
 .alertTag {
   line-height: 14px;
@@ -248,7 +251,7 @@
     border-radius: 5px;
     min-width: 405px;
     font-size: 11px;
-    z-index: 1;
+    z-index: 9999 !important;
   }
   .BillingAlertBody:before {
     content: "";
@@ -257,6 +260,7 @@
     border-top: 5px solid black;
     position: absolute;
     top: -5px;
+    z-index: 999999999999 !important;
   }
 }
 .billingAlert img {
@@ -265,6 +269,7 @@
 }
 .billingAlert:hover .BillingAlertBody {
   display: block;
+  z-index: 999999999999 !important;
 }
 .alert {
   line-height: 10px;
@@ -678,4 +683,9 @@ label {
 }
 fieldset.scheduler-border {
   line-height: 20px !important;
+}
+.GasWallet {
+  padding-left:50px;
+  position: relative;
+  z-index: 9999 !important; 
 }

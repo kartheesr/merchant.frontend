@@ -21,10 +21,10 @@
         <div class="line">
           <label class="title">Billing Model Name</label>
           <br />
-          <input type="text" class="productInput" name="billingModelName" placeholder="" [(ngModel)]="model.billingModelName" #billingModelName="ngModel"
-            [ngClass]="{
+          <input type="text" class="productInput" placeholder="x months subscription" name="billingModelName" placeholder="" [(ngModel)]="model.billingModelName"
+            #billingModelName="ngModel" [ngClass]="{
               'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
-            }" required minlength="2" maxlength="50"  />
+            }" required minlength="2" maxlength="50" />
         </div>
 
         <div *ngIf="f.submitted">
@@ -38,7 +38,8 @@
         <div class="line">
           <label class="title">Billing Model Description</label>
           <br />
-          <textarea class="inputDes" name="billModelDes" placeholder="" [(ngModel)]="model.billModelDes" #billModelDes="ngModel" [ngClass]="{
+          <textarea class="inputDes" name="billModelDes" placeholder="Explain what is the service or product you provide for this billing model"
+            [(ngModel)]="model.billModelDes" #billModelDes="ngModel" [ngClass]="{
               'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
             }" required minlength="2" maxlength="140" (input)="handleCount(billModelDes)"></textarea>
         </div>

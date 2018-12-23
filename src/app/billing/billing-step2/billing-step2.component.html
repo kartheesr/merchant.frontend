@@ -21,7 +21,7 @@
         <div class="line">
           <label class="title">Billing Model Name</label>
           <br />
-          <input type="text" class="productInput" placeholder="x months subscription" name="billingModelName" placeholder="" [(ngModel)]="model.billingModelName"
+          <input type="text" class="productInput" name="billingModelName" placeholder="x months subscription" [(ngModel)]="model.billingModelName"
             #billingModelName="ngModel" [ngClass]="{
               'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
             }" required minlength="2" maxlength="50" />

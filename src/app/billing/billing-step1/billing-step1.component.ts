@@ -1,5 +1,5 @@
 import { Component, OnInit, NgModule, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Event } from '@angular/router';
 import { BillingServiceStep1 } from './billing-step1.service';
 import { BillingService } from '@app/billing/billing.service';
 
@@ -37,7 +37,13 @@ export class BillingStep1Component implements OnInit {
     private step1: StepperComponent,
     private modalService: NgbModal,
     private dashboardService: DashboardService
-  ) {}
+  ) {
+    router.events.subscribe((event: Event) => {
+      if (location.hash === '#/pullpayments/step2') {
+        this.step1.onStep2(this.model.billing);
+      }
+    });
+  }
   ngOnInit() {
     this.ProductNamelist = [
       {

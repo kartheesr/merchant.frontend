@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Event } from '@angular/router';
 import { BillingServiceStep3 } from './billing-step3.service';
 import { StepperComponent } from '../stepper/stepper.component';
 
@@ -43,6 +43,14 @@ export class BillingStep3Component implements OnInit {
     ];
     this.model.rupees = this.selectOption[0].label;
     this.Placeholdername = '$0.00';
+    router.events.subscribe((event: Event) => {
+      if (location.hash === '#/pullpayments/step2') {
+        this.stepTrack.onBackStep2();
+      }
+      if (location.hash === '#/pullpayments/single/step4') {
+        this.stepTrack.onStep4();
+      }
+    });
   }
   ngOnInit() {
     this.newForm = localStorage.getItem('newForm');

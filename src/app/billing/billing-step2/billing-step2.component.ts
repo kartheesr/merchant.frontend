@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, Event, ActivatedRoute } from '@angular/router';
 import { BillingServiceStep2 } from './billing-step2.service';
 import { BillingServiceStep1 } from '../billing-step1/billing-step1.service';
 import { StepperComponent } from '../stepper/stepper.component';
@@ -23,7 +23,16 @@ export class BillingStep2Component implements OnInit {
     private service: BillingServiceStep2,
     private billingdata: BillingServiceStep1,
     private stepTrack: StepperComponent
-  ) {}
+  ) {
+    router.events.subscribe((event: Event) => {
+      if (location.hash === '#/pullpayments/step1') {
+        this.stepTrack.onBackStep1();
+      }
+      if (location.hash === '#/pullpayments/single/step3') {
+        this.stepTrack.onStep3();
+      }
+    });
+  }
   ngOnInit() {
     this.homePage = {
       count: 140

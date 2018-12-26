@@ -3,7 +3,7 @@ import { BillingServiceStep1 } from '../../billing-step1/billing-step1.service';
 import { BillingServiceStep2 } from '../../billing-step2/billing-step2.service';
 import { BillingServiceStep3 } from '../../billing-step3/billing-step3.service';
 import { BillingServiceCall } from '../billing-step4.service';
-import { Router } from '@angular/router';
+import { Router, Event } from '@angular/router';
 import { JsonpCallbackContext } from '@angular/common/http/src/jsonp';
 import { StepperComponent } from '@app/billing/stepper/stepper.component';
 import Web3 from 'web3';
@@ -31,7 +31,13 @@ export class BillingHybirdStep4Component implements OnInit {
     private service3: BillingServiceStep3,
     private service4: BillingServiceCall,
     private stepTrack: StepperComponent
-  ) { }
+  ) {
+    router.events.subscribe((event: Event) => {
+      if (location.hash === '#/pullpayments/hybrid/step3') {
+        this.stepTrack.onBackStep3();
+      }
+    });
+  }
 
   ngOnInit() {
     this.model = {

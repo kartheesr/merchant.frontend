@@ -28,7 +28,11 @@ export class BillingStep2Component implements OnInit {
       if (location.hash === '#/pullpayments/step1') {
         this.stepTrack.onBackStep1();
       }
-      if (location.hash === '#/pullpayments/single/step3') {
+      if (
+        location.hash === '#/pullpayments/single/step3' ||
+        location.hash === '#/pullpayments/recurring/step3' ||
+        location.hash === '#/pullpayments/hybrid/step3'
+      ) {
         this.stepTrack.onStep3();
       }
     });

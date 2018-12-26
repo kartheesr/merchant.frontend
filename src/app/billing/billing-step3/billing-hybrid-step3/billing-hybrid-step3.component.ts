@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BillingServiceStep3 } from '../billing-step3.service';
-import { Router } from '@angular/router';
+import { Router, Event } from '@angular/router';
 import { StepperComponent } from '@app/billing/stepper/stepper.component';
 
 @Component({
@@ -65,6 +65,14 @@ export class BillingHybridStep3Component implements OnInit {
         value: 1
       }
     ];
+    router.events.subscribe((event: Event) => {
+      if (location.hash === '#/pullpayments/step2') {
+        this.stepTrack.onBackStep2();
+      }
+      if (location.hash === '#/pullpayments/hybrid/step4') {
+        this.stepTrack.onStep4();
+      }
+    });
   }
 
   ngOnInit() {

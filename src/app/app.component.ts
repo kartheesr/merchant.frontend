@@ -23,11 +23,15 @@ export class AppComponent implements OnInit {
     private translateService: TranslateService,
     private i18nService: I18nService
   ) {
-    // router.events.subscribe((event: Event) => {
-    //   if (location.hash === "#/billing") {
-    //     history.pushState(null, document.title, location.href);
-    //   }
-    // });
+    router.events.subscribe((event: Event) => {
+      if (
+        location.hash === '#/billing' ||
+        location.hash === '#/dashboard' ||
+        location.hash === '#/billing/billingmodeloverview'
+      ) {
+        history.pushState(null, document.title, location.href);
+      }
+    });
   }
 
   ngOnInit() {

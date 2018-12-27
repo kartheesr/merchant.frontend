@@ -89,13 +89,16 @@
       </div>
     </app-root>
 
-    <!--
-      <script type="text/javascript">
-        history.pushState(null, document.title, location.href);
-        window.addEventListener('popstate', function (e) {
+    <script type="text/javascript">
+      history.pushState(null, document.title, location.href);
+      window.addEventListener('popstate', function(e) {
+        if (
+          location.hash === '#/billing' ||
+          location.hash === '#/dashboard' ||
+          location.hash === '#/billing/billingmodeloverview'
+        )
           history.pushState(null, document.title, location.href);
-        });
-      </script>
-    -->
+      });
+    </script>
   </body>
 </html>

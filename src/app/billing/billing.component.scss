@@ -444,7 +444,7 @@ legend.scheduler-border {
     margin-right: 0px !important;
   }
 }
-@media screen and (min-width:1025px) and (max-width:1920)  {
+@media screen and (min-width: 1025px) and (max-width: 1920) {
   .ImgCont {
     width: 242px !important;
   }
@@ -513,7 +513,7 @@ label.labelcolor {
   margin-bottom: 0px !important;
 }
 fieldset label {
-  margin-bottom: 0px !important;
+  margin-bottom: 1px !important;
 }
 
 /*** Scroll Bar Style ***/
@@ -652,7 +652,7 @@ fieldset label {
   width: 187px;
   background: #fff;
   border-radius: 5px 5px 0px 0px;
-  // 
+  //
   width: 90% !important;
 }
 .ImgCont img {
@@ -682,10 +682,10 @@ label {
   margin-bottom: 0px !important;
 }
 fieldset.scheduler-border {
-  line-height: 20px !important;
+  line-height: 21px !important;
 }
 .GasWallet {
-  padding-left:50px;
+  padding-left: 50px;
   position: relative;
-  z-index: 9999 !important; 
+  z-index: 9999 !important;
 }

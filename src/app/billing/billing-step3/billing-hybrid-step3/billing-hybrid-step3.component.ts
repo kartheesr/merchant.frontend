@@ -16,6 +16,7 @@ export class BillingHybridStep3Component implements OnInit {
   public Placeholdername: any;
   public Priceplaceholdername: any;
   public hideerror: boolean = false;
+  public indefinite: boolean;
   constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
     this.amountCurrency = [
       {
@@ -95,6 +96,7 @@ export class BillingHybridStep3Component implements OnInit {
       daycount: '',
       billingdaycount: ''
     };
+    this.indefinite = false;
     this.model.Currency = this.amountCurrency[0].label;
     this.model.calendar = this.calendarlist[0].label;
     this.model.PeriodCurrency = this.amountCurrency[0].label;
@@ -183,6 +185,15 @@ export class BillingHybridStep3Component implements OnInit {
     if (this.model.calendar == 'Days') {
       let val = this.model.days;
       this.model.billingdaycount = val * 24 * 60 * 60;
+    }
+  }
+
+  checkbox() {
+    if (this.indefinite == false) {
+      this.indefinite = true;
+      this.model.Recurringdays = '';
+    } else {
+      this.indefinite = false
     }
   }
 }

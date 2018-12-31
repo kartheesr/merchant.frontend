@@ -12,6 +12,7 @@ export class BillingRecurringStep3Component implements OnInit {
   public model;
   newForm;
   public selectOption: any;
+  public indefinite: boolean;
   public recurrenceOption = [];
   constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
     this.selectOption = [
@@ -93,6 +94,7 @@ export class BillingRecurringStep3Component implements OnInit {
       daycount: '',
       trialdaycount: 0
     };
+    this.indefinite = false;
     this.model.Period2 = this.recurrenceOption[0].label;
     this.model.Period1 = this.recurrenceOption[0].label;
     this.model.rupees = this.selectOption[0].label;
@@ -108,10 +110,18 @@ export class BillingRecurringStep3Component implements OnInit {
   }
   onSubmit(data) {
     if (data.value) {
+      if(this.indefinite){
+        this.model.No2 = "indefinite"
+        this.model.amount = this.model.amount * 100;
+        this.stepTrack.onStep4();
+        this.service.setValues(this.model);
+        this.router.navigate(['pullpayments/recurring/step4']);
+      }else{
       this.model.amount = this.model.amount * 100;
       this.stepTrack.onStep4();
       this.service.setValues(this.model);
       this.router.navigate(['pullpayments/recurring/step4']);
+      }
     }
   }
   handlechangetrial(data) {
@@ -165,6 +175,17 @@ export class BillingRecurringStep3Component implements OnInit {
     if (this.model.Period2 == 'Days') {
       let val = this.model.No3;
       this.model.trialdaycount = val * 24 * 60 * 60;
+    }
+  }
+
+  checkbox() {
+    if (this.indefinite == false) {
+      this.indefinite = true;
+      this.model.No2 = '';
+      console.log(this.indefinite);
+    } else {
+      this.indefinite = false
+      console.log(this.indefinite);
     }
   }
 }

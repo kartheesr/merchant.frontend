@@ -52,12 +52,12 @@
             </div>
             <div class="row ">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <span class="BillingCycleClass">Subscriptions</span>
+                <span class="BillingCycleClass">Recurrences</span>
                 <br />
                 <label>Number of billing cycles</label>
                 <div class="row SingleRecurringClass">
                   <div class="col-xs-12 col-sm-3 col-md-3">
-                    <input class="col-xs-12 col-sm-11 col-md-11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    <input class="col-xs-12 col-sm-11 col-md-11" [disabled]="indefinite" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                       placeholder="0" type="number" name="No2" [(ngModel)]="model.No2" required #NoOfRecuurence2="ngModel"
                       [ngClass]="{
                         'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
@@ -67,6 +67,12 @@
                       <div class="errorMSg" [hidden]="!NoOfRecuurence2.errors?.required">Subscriptions is required</div>
                     </div>
                     <div class="errorMSg" *ngIf="NoOfRecuurence2.errors?.min">Need to be more than 1</div>
+                  </div>
+                  <div>
+                      <label class="container">Indefinite
+                          <input type="checkbox" name="checkbox" [(ngModel)]="indefinite" (click)="checkbox()">
+                          <span type="checkbox" class="checkmark"></span>
+                      </label>
                   </div>
                 </div>
               </div>

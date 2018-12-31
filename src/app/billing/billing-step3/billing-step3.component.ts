@@ -37,8 +37,14 @@ export class BillingStep3Component implements OnInit {
       {
         id: 4,
         label: 'JPY',
-        value: 4,
+        value: 3,
         name: '¥'
+      },
+      {
+        id: 5,
+        label: 'KRW',
+        value: 4,
+        name: '₩'
       }
     ];
     this.model.rupees = this.selectOption[0].label;
@@ -76,5 +82,6 @@ export class BillingStep3Component implements OnInit {
     else if (data.value == 'EUR') this.Placeholdername = '€0.00';
     else if (data.value == 'GBP') this.Placeholdername = '£0.00';
     else if (data.value == 'JPY') this.Placeholdername = '¥0.00';
+    else if (data.value == 'KRW') this.Placeholdername = '₩0.00';
   }
 }

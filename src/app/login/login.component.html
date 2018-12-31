@@ -24,7 +24,7 @@
                 placeholder="Email address"
                 (input)="falseMsg()"
                 autofocus
-                [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || errormsg }"
+                [ngClass]="{ 'invalid\': ': (submitted && f.email.errors) || errormsg }"
               />
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div class="errorIcon"><img src="assets/images/warning-sign.png" width="18" /></div>
@@ -43,11 +43,11 @@
             <div class="field-container">
               <label>Password</label>
               <input
-                class="form-control"
+                class="form-control password"
                 type="password"
                 formControlName="password"
                 (input)="falseMsg()"
-                [ngClass]="{ 'is-invalid': (submitted && f.password.errors) || passworderrormsg }"
+                [ngClass]="{ 'invalid\': ': (submitted && f.password.errors) || passworderrormsg }"
                 required
               />
 

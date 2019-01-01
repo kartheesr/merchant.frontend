@@ -224,6 +224,7 @@ li {
 .gasAlert {
   position: relative;
   margin-left: 6px;
+  z-index: 1;
   .GasAlertBody {
     position: absolute;
     top: 23px;

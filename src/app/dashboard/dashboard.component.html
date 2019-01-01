@@ -1,79 +1,107 @@
 <section class="dashboardContainer">
   <div class="row">
     <div class="col">
-      <label>Treasury</label>
       <div class="pma-box active">
         <div>
-          <h3>{{ treasuryCurrency ? treasuryCurrency : 'PMA' }}</h3>
-          <p>{{ treasuryBalance ? treasuryBalance : '0.0' }}</p>
+          <label class="dash_widget_title white">Treasury</label>
+          <a class="gasAlert">
+            <div class="GasAlertBodywhite">
+              Your Treasury is your PMA wallet where your customers’ payments will be transferred...
+            </div>
+            <img class="curPoint" src="assets/images/Info_Grey.png" />
+          </a>
+          <p>
+            <span class="bold">{{ treasuryBalance ? treasuryBalance : '0.00' }}</span
+            ><span class="small">{{ treasuryCurrency ? treasuryCurrency : 'PMA' }}</span>
+          </p>
+          <span class="min_small white">${{ usdTreasuryBal ? usdTreasuryBal : '0.00' }}</span>
         </div>
       </div>
     </div>
     <div class="col">
-      <label>PullPayments</label>
       <div class="pma-box">
         <div>
-          <h3>{{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}</h3>
-          <p>{{ pullPaymentsBalance ? pullPaymentsBalance : '0.0' }}</p>
+          <label class="dash_widget_title">Transferred Accounts</label
+          ><a class="gasAlert">
+            <div class="GasAlertBodywhite">Your Accounts</div>
+            <img class="curPoint" src="assets/images/Info_Grey.png" />
+          </a>
+          <p>
+            <span class="bold blue">{{ pullPaymentsBalance ? pullPaymentsBalance : '0.00' }}</span
+            ><span class="small">{{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}</span>
+          </p>
+          <span class="min_small">${{ usdPullPayBalance ? usdPullPayBalance : '0.00' }}</span>
         </div>
       </div>
     </div>
     <div class="col">
-      <label>
-        ETH Balance
-        <a *ngIf="gasBalance <= 0.01" class="gasAlert">
-          <img src="assets/images/warning-sign.png" />
-          <div class="GasAlertBody">
-            Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing Model contracts,
-            the payment will fail
-          </div>
-        </a>
-      </label>
       <div class="pma-box active">
-        <div>
-          <h3>{{ gasCurrency ? gasCurrency : 'ETH' }}</h3>
-          <p>{{ gasBalance ? gasBalance : '0.0' }}</p>
+        <div class="ETHclass">
+          <label class="dash_widget_title white"> ETH Balance </label
+          ><a class="gasAlert">
+            <div class="GasAlertBodywhite">Your ETH Balance</div>
+            <img class="curPoint" src="assets/images/Info_Grey.png" />
+          </a>
+          <a *ngIf="gasBalance <= 0.01" class="gasAlert">
+            <div class="GasAlertBody">
+              Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing
+              Model contracts, the payment will fail
+            </div>
+            <img class="warn" src="assets/images/warning-sign.png" />
+          </a>
+          <div class="row col-xs-12 col-sm-12 cols-md-12">
+            <div class="cols-md-8">
+              <p>
+                <span class="bold white">{{ gasBalance ? gasBalance : '0.00' }}</span
+                ><span class="small">{{ gasCurrency ? gasCurrency : 'ETH' }}</span>
+              </p>
+              <span class="min_small white">${{ usdGasBalance ? usdGasBalance : '0.00' }}</span>
+            </div>
+            <div class="imgSpace cols-md-4"><img class="curPoint" [src]="imgSrc" (click)="open(content)" /></div>
+          </div>
+          <h3></h3>
+          <p></p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 cols-md-12">
-      <label>Scan the QR code to send ETH to your ETH Balance</label>
-    </div>
-    <div class="col-xs-12 col-sm-2 cols-md-2 QRCodeClass">
-      <div class="qrCont">
-        <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
+  <div class="barcodeborder" *ngIf="qrShow">
+    <div class="row barbody">
+      <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to send ETH to your ETH Balance</label></div>
+      <div class=" QRCodeClass">
+        <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-10 cols-md-10">
-      <div class="qrContents">
-        <p>
-          <span>You need to always fund your balance with ETH to pay for your gas fees.</span>
-          <br />
-          <span>Gas fees are used to execute any transaction over the Ethereum network.</span>
-          <br />
-          <span>You will be unable to accept new subscriptions or execute any transfers
-            <br />without enough ETH.</span>
-          <span class="learnMore" (click)="learnMore()"> Learn More ></span>
-        </p>
-        <div class="qrCodeField">
-          <input readonly type="text" value="{{treasuryAddress}}" #userinput />
-          <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+      <div class="" style="width:calc(100% - 180px); display:inline-block; vertical-align:top;">
+        <div class="qrContents">
+          <p>
+            <span>You need to always fund your balance with ETH to pay for your gas fees.</span> <br />
+            <span>Gas fees are used to execute any transaction over the Ethereum network.</span> <br />
+            <span
+              >You will be unable to accept new subscriptions or execute any transfers <br />without enough ETH.</span
+            >
+            <span class="learnMore" (click)="learnMore()"> Learn More ></span>
+          </p>
+          <div class="qrCodeField">
+            <input readonly type="text" value="{{treasuryAddress}}" #userinput />
+            <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="transaction-table">
+  <div class="transaction-table" *ngIf="pageShow">
     <div class="row">
-      <div class="col">
-        <label>Transaction History</label>
-      </div>
+      <div class="col"><label>Transaction History</label></div>
       <div class="col ">
         <div class="text-right">
-          <pagination-controls *ngIf="pageShow" (pageChange)="p = $event" previousLabel="{{previouslist}}" nextLabel="{{nextlist}}"></pagination-controls>
+          <pagination-controls
+            *ngIf="pageShow"
+            (pageChange)="p = $event"
+            previousLabel="{{previouslist}}"
+            nextLabel="{{nextlist}}"
+          ></pagination-controls>
         </div>
       </div>
     </div>
@@ -93,7 +121,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let val of (transactionHistorArray | paginate: { itemsPerPage: 10, currentPage: p })">
-          <td>{{ (val.timeStamp * 1000) | date: 'dd MMM' }}</td>
+          <td>{{ val.timeStamp * 1000 | date: 'dd MMM' }}</td>
           <!-- <td>{{ val.billingModel }}</td> -->
           <td>{{ val.billName }}</td>
           <!-- <td>{{ val.statusID }}/6</td> -->
@@ -112,3 +140,31 @@
     </table>
   </div>
 </section>
+
+<ng-template class="noRadius" id="content" #content let-c="close" let-d="dismiss">
+  <img class="closeIcon" src="assets/images/Close.png" (click)="d('Cross click')" />
+  <div>
+    <div class="row modalQr">
+      <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to send ETH to your ETH Balance</label></div>
+      <div class=" QRCodeClass">
+        <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
+      </div>
+      <div class="" style="width:calc(100% - 180px); display:inline-block; vertical-align:top;">
+        <div class="qrContents">
+          <p>
+            <span>You need to always fund your balance with ETH to pay for your gas fees.</span> <br />
+            <span>Gas fees are used to execute any transaction over the Ethereum network.</span> <br />
+            <span
+              >You will be unable to accept new subscriptions or execute any transfers <br />without enough ETH.</span
+            >
+            <span class="learnMore" (click)="learnMore()"> Learn More ></span>
+          </p>
+          <div class="qrCodeField">
+            <input readonly type="text" value="{{treasuryAddress}}" #userinput />
+            <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

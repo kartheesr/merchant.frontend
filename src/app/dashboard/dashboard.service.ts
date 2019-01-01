@@ -15,6 +15,7 @@ export class DashboardService {
   private treasuryUrl;
   private gasactionUrl;
   public transcationurl;
+  public getUsdUrl;
 
   constructor(private http: HttpClient) {
     this.pullpaymentURL2 = '&tag=latest&apikey=YourApiKeyToken';
@@ -25,6 +26,7 @@ export class DashboardService {
     this.treasuryUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/pmabalance`;
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/ether-Balance`;
     this.transcationurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/hash`;
+    this.getUsdUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usd-value`;
   }
 
   /**
@@ -92,7 +94,6 @@ export class DashboardService {
   public gasvalueCalcualtion(): Observable<any> {
     return this.http.get(this.gasactionUrl).pipe(
       map((response: HttpResponse) => {
-     
         return response;
       })
     );
@@ -128,6 +129,22 @@ export class DashboardService {
   public getvalue(address, blocknumber): Observable<any> {
     let sample = `http://api-ropsten.etherscan.io/api?module=account&action=tokentx&address=${address}&startblock=${blocknumber}&endblock=${blocknumber}`;
     return this.http.get(sample).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+  /**
+   * @method {get}
+   * @apiDescription Retrieve the usd value for current ether
+   * @transcationurl: /api/v2/Dashboard/usd-value
+   *
+   *
+   * @methodName getUsd
+   *
+   */
+  public getUsd(): Observable<any> {
+    return this.http.get(this.getUsdUrl).pipe(
       map((response: HttpResponse) => {
         return response;
       })

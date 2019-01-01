@@ -51,12 +51,12 @@
     width: 100%;
     margin-bottom: 30px;
     background-color: #d8e0ef;
-    height: 110px;
+    height: 140px;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: start;
-    padding: 25px;
+    padding: 20px;
     h3 {
       font-size: 20px;
       margin-bottom: 2px;
@@ -156,6 +156,9 @@
 .QRCodeClass {
   padding-left: 0px !important;
   padding-right: 0px !important;
+  width: 175px;
+  display: inline-block;
+  vertical-align: top;
 }
 .table th,
 .table td {
@@ -176,7 +179,7 @@
   cursor: pointer;
 }
 .qrCodeField input[type="text"] {
-  width: 35% !important;
+  width: 85% !important;
   padding: 7px 15px !important;
   font-size: 14px !important;
   white-space: nowrap;
@@ -223,8 +226,8 @@ li {
   margin-left: 6px;
   .GasAlertBody {
     position: absolute;
-    top: 30px;
-    left: -5px;
+    top: 23px;
+    left: -92px;
     background-color: #000000;
     color: #ffffff;
     display: none;
@@ -240,6 +243,28 @@ li {
     border-bottom: 5px solid black;
     position: absolute;
     top: -5px;
+    left: 220px;
+  }
+  .GasAlertBodywhite {
+    position: absolute;
+    top: 30px;
+    left: -60px;
+    color: #000000;
+    background-color: #fcfdff;
+    display: none;
+    padding: 15px 10px;
+    border-radius: 5px;
+    min-width: 180px;
+    font-size: 11px;
+  }
+  .GasAlertBodywhite:before {
+    content: "";
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #fcfdff;
+    position: absolute;
+    top: -5px;
+    left: 65px;
   }
 }
 .gasAlert img {
@@ -249,6 +274,80 @@ li {
 .gasAlert:hover .GasAlertBody {
   display: block;
 }
+.gasAlert:hover .GasAlertBodywhite {
+  display: block;
+}
 .pma-box.active p {
   color: #ffffff;
+}
+.dash_widget_title {
+  padding-right: 8px;
+  padding-bottom: 25px;
+}
+.white {
+  color: #ffffff;
+}
+.blue {
+  color: #1e6af6;
+}
+
+.bold {
+  font-size: 20px;
+  font-weight: bold;
+}
+.small {
+  font-size: 15px;
+  padding-left: 8px;
+}
+.min_small {
+  font-size: 14px !important;
+  padding-top: 10px;
+}
+
+.space {
+  padding-left: 8px;
+  padding-top: 3px;
+}
+
+.ETHclass {
+  width: 100%;
+}
+
+.warn {
+  float: right !important;
+}
+.barcodeborder {
+  border: 1px solid #d4d8df;
+  box-shadow: 0px 4px 10px rgba(218, 218, 218, 0.25);
+  border-radius: 6px;
+}
+.barbody {
+  width: 640px;
+  margin: 100px auto;
+}
+.imgSpace {
+  padding-top: 15px;
+  padding-left: 20px;
+  height: 50px;
+  width: 50px;
+}
+
+.closeIcon {
+  float: right;
+  margin-right: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+// .modal_show{
+// border-radius: 0px !important;
+// }
+.curPoint {
+  cursor: pointer;
+}
+.modalQr {
+  width: 660px;
+  margin: 50px 45px 45px 50px !important;
+}
+.modal-content {
+  border-radius: 0px !important;
 }

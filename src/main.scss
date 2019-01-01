@@ -56,8 +56,9 @@ body {
   margin-top: 6px !important;
 }
 .modal-content {
-  left: 6%;
-  margin-top: 30px;
+  left: 4%;
+  margin-top: 63px;
+  border-radius: 2px;
 }
 select {
   -webkit-appearance: none !important;
@@ -85,6 +86,6 @@ input {
   width: 100% !important;
   // float: left !important;
 }
-.number{
+.number {
   height: 62px !important;
 }

@@ -89,3 +89,12 @@ input {
 .number {
   height: 62px !important;
 }
+.ng2-tag-input.ng2-tag-input--focused {
+  border-bottom: none !important;
+}
+.ng2-tag-input__text-input {
+  box-shadow: none !important;
+}
+.ng2-tag-input {
+  border-bottom: none !important;
+}

@@ -110,17 +110,17 @@ export class BillingRecurringStep3Component implements OnInit {
   }
   onSubmit(data) {
     if (data.value) {
-      if(this.indefinite){
-        this.model.No2 = "indefinite"
+      if (this.indefinite) {
+        this.model.No2 = 'indefinite';
         this.model.amount = this.model.amount * 100;
         this.stepTrack.onStep4();
         this.service.setValues(this.model);
         this.router.navigate(['pullpayments/recurring/step4']);
-      }else{
-      this.model.amount = this.model.amount * 100;
-      this.stepTrack.onStep4();
-      this.service.setValues(this.model);
-      this.router.navigate(['pullpayments/recurring/step4']);
+      } else {
+        this.model.amount = this.model.amount * 100;
+        this.stepTrack.onStep4();
+        this.service.setValues(this.model);
+        this.router.navigate(['pullpayments/recurring/step4']);
       }
     }
   }
@@ -184,7 +184,7 @@ export class BillingRecurringStep3Component implements OnInit {
       this.model.No2 = '';
       console.log(this.indefinite);
     } else {
-      this.indefinite = false
+      this.indefinite = false;
       console.log(this.indefinite);
     }
   }

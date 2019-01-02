@@ -1,120 +1,142 @@
 <div class="mainContent">
-  <label class="titleOne">Transfer from PullPayment Accounts to Treasury</label>
-  <br />
+  <label class="titleOne">Transfer from PullPayment Accounts to Treasury</label> <br />
   <label class="subtitle">Choose how often you will receive your payments from the PullPayment Accounts</label>
-  <div class="col-xs-12 col-sm-8 col-md-8">
-    <select name="transactions" [(ngModel)]="model.transactions" #transactions="ngModel" (change)="handleChangetransactions(transactions)">
-      <option *ngFor="let item of transcationoption" [selected]="item.value === 0" [ngValue]="item.label">{{ item.label }}
-      </option>
-    </select>
-    <div *ngIf="showNoOfRecurrence">
-        <label>Transfer funds to Treasury every {{recurrence}} recurrences</label>
+  <div class="row SingleRecurringClass">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <select
+        name="transactions"
+        [(ngModel)]="model.transactions"
+        #transactions="ngModel"
+        (change)="handleChangetransactions(transactions)"
+      >
+        <option *ngFor="let item of transcationoption" [selected]="item.value === 0" [ngValue]="item.label"
+          >{{ item.label }}
+        </option>
+      </select>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="numberofrecurrence" *ngIf="showNoOfRecurrence">
+        <label>Transfer funds to Treasury every {{ recurrence }} recurrences</label>
       </div>
+    </div>
   </div>
-  
+
   <div class="row " *ngIf="showInputRecurrence">
     <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="row">
+      <form #f="ngForm" (ngSubmit)="f.valid && noOfRecurrence()">
+        <div class="row">
           <div class="col-xs-12 col-sm-3 col-md-3 billingTitile">
-              <span class="BillingCycleClass">Transfer funds to Treasury every</span>
+            <span class="BillingCycleClass">Transfer funds to Treasury every</span>
           </div>
           <div class="col-xs-12 col-sm-1 col-md-1 forminput">
-              <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-              placeholder="0" type="number" name="No2" [(ngModel)]="recurrence" required #NoOfRecuurence2="ngModel"
-               [min]="2" min="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57" appBlockCopyPaste
+            <input
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+              placeholder="0"
+              type="number"
+              name="No2"
+              [(ngModel)]="recurrence"
+              required
+              #NoOfRecuurence2="ngModel"
+              [min]="2"
+              min="2"
+              onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+              appBlockCopyPaste
+              [ngClass]="{
+                'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+              }"
             />
           </div>
-          <div class="col-xs-12 col-sm-1 col-md-1 billingRecurrence">
-            <span>recurrences</span>
-          </div>
-          <div class="col-xs-12 col-sm-1 col-md-1 okbtndiv">
-            <button class="okbtn" (click)="noOfRecurrence()">OK</button>
-          </div>
-      </div>
+          <div *ngIf="f.submitted">
+            <div class="notifyMsg" [hidden]="!NoOfRecuurence2.errors?.required">Subscriptions is required</div>
 
+            <div class="notifyMsg1" *ngIf="NoOfRecuurence2.errors?.min">Amount needs to be more than 1</div>
+          </div>
+
+          <div class="col-xs-12 col-sm-1 col-md-1 billingRecurrence"><span>recurrences</span></div>
+          <div class="col-xs-12 col-sm-1 col-md-1 okbtndiv"><button class="okbtn" type="submit">OK</button></div>
+          <br />
+        </div>
+      </form>
     </div>
   </div>
-<div *ngIf="showTable">
-  <div class="tablecontent">
-    <label class="tabletitle">Gas cost</label>
-    <div class="row noMargin">
-      <div class="col-xs-12 col-sm-10 col-md-10">
-        <table>
-          <tr>
-            <td>Transaction</td>
-            <td>
-              Chosen number of
-              <br /> subscriptions
-            </td>
-            <td>Estimated Gas
-              <br />Cost/transaction (ETH)</td>
-            <td>Total Estimated Gas cost (ETH)</td>
-          </tr>
-          <tr>
-            <td>Subscriptions Pull Transaction</td>
-            <td class="tablevalue">{{ model.Recurrence == "indefinite"? recurrence : model.Recurrence }}</td>
-            <td class="tablevalue">
-              <span class="Totalvalue">{{ model.recurrencegas }}</span>
-              <span class="TotalUSD">(~${{ model.RecurrenceUSD }})</span>
-            </td>
-            <td class="tablevalue">
-              <span class="Totalvalue">{{ model.TotalCost }}</span>
-              <span class="TotalUSD">(~${{ model.TotalUSDCost }})</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Transfers from
-              <br /> PullPayment Account to Treasury
-            </td>
-            <td class="tablevalue">{{ model.TransRecurrence }}</td>
-            <td class="tablevalue">
-              <span class="Totalvalue">{{ model.Transfergas }}</span>
-              <span class="TotalUSD">(~${{ model.TransferUSD }})</span>
-            </td>
-            <td class="tablevalue">
-              <span class="Totalvalue">{{ model.TotalcostRecuurence }}</span>
-              <span class="TotalUSD">(~${{ model.TotalcostRecuurenceUSD }})</span>
-            </td>
-          </tr>
-          <tr>
-            <td>Total</td>
-            <td class="tablevalue"></td>
-            <td class="tablevalue"></td>
-            <td class="tableresult">
-              <span class="Totalvalue">{{ model.TotalETH }}</span>
-              <span class="TotalUSD">(~${{ model.TotalUSD }})</span>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-xs-12 col-sm-2 col-md-2">
-        <label class="Pricedecription">will be paid for
-          <b>Gas fees</b>
-          <br /> every time a new customer subscribes</label>
+  <div *ngIf="showTable">
+    <div class="tablecontent">
+      <label class="tabletitle">Gas cost</label>
+      <div class="row noMargin">
+        <div class="col-xs-12 col-sm-10 col-md-10">
+          <table>
+            <tr>
+              <td>Transaction</td>
+              <td>
+                Chosen number of <br />
+                subscriptions
+              </td>
+              <td>Estimated Gas <br />Cost/transaction (ETH)</td>
+              <td>Total Estimated Gas cost (ETH)</td>
+            </tr>
+            <tr>
+              <td>Subscriptions Pull Transaction</td>
+              <td class="tablevalue">{{ model.Recurrence == 'indefinite' ? recurrence : model.Recurrence }}</td>
+              <td class="tablevalue">
+                <span class="Totalvalue">{{ model.recurrencegas }}</span>
+                <span class="TotalUSD">(~${{ model.RecurrenceUSD }})</span>
+              </td>
+              <td class="tablevalue">
+                <span class="Totalvalue">{{ model.TotalCost }}</span>
+                <span class="TotalUSD">(~${{ model.TotalUSDCost }})</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Transfers from <br />
+                PullPayment Account to Treasury
+              </td>
+              <td class="tablevalue">{{ model.TransRecurrence }}</td>
+              <td class="tablevalue">
+                <span class="Totalvalue">{{ model.Transfergas }}</span>
+                <span class="TotalUSD">(~${{ model.TransferUSD }})</span>
+              </td>
+              <td class="tablevalue">
+                <span class="Totalvalue">{{ model.TotalcostRecuurence }}</span>
+                <span class="TotalUSD">(~${{ model.TotalcostRecuurenceUSD }})</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td class="tablevalue"></td>
+              <td class="tablevalue"></td>
+              <td class="tableresult">
+                <span class="Totalvalue">{{ model.TotalETH }}</span>
+                <span class="TotalUSD">(~${{ model.TotalUSD }})</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2">
+          <label class="Pricedecription"
+            >will be paid for <b>Gas fees</b> <br />
+            every time a new customer subscribes</label
+          >
+        </div>
       </div>
     </div>
   </div>
-</div>
   <div class="textcontent">
     <img src="assets/images/info.svg" />
     <p class="contenttitle">PullPayment Accounts and Gas Costs</p>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
         <p class="decripitionContent">
-          <b>Every</b> time a
-          <b>new customer</b> subscribes to a billing model, the system creates a
-          <b>new PullPayment account.</b> The PullPayment account will continuously bill the customer according to the billing
-          model’s parameters. The
-          <b>PMA</b> tokens will be kept in
-          <b>the PullPayment</b> accounts until they are transferred to the Treasury.
+          <b>Every</b> time a <b>new customer</b> subscribes to a billing model, the system creates a
+          <b>new PullPayment account.</b> The PullPayment account will continuously bill the customer according to the
+          billing model’s parameters. The <b>PMA</b> tokens will be kept in <b>the PullPayment</b> accounts until they
+          are transferred to the Treasury.
         </p>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
         <p class="decripitionContent">
-          <b>Choose how often</b> you want to transfer funds from all the PullPayment accounts associated with this billing
-          model to your Treasury. Depending on your choice, the specific amount of
-          <b>ETH is allocated</b>
+          <b>Choose how often</b> you want to transfer funds from all the PullPayment accounts associated with this
+          billing model to your Treasury. Depending on your choice, the specific amount of <b>ETH is allocated</b>
           <b> to pay for all </b>the gas fees. Upon every subscription, the above
 
           <b>Total Estimated Gas cost (ETH)</b> will be transferred from the ETH Balance to a new PullPayment account

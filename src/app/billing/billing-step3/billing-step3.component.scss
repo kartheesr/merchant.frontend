@@ -58,7 +58,7 @@
         width: 260px;
         height: 442px;
         float: right;
-        padding-right: 10%; 
+        padding-right: 10%;
       }
       .backbtn {
         display: block;
@@ -127,10 +127,10 @@
 
 @media (min-width: 1025px) and (max-width: 1280px) {
 }
-@media (min-width: 768px){
-.col-md-12 {
+@media (min-width: 768px) {
+  .col-md-12 {
     flex: 0 0 100%;
     max-width: 96%;
-}
+  }
 }
 /*** Responsive CSS ***/

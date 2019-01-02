@@ -7,7 +7,34 @@
       <option *ngFor="let item of transcationoption" [selected]="item.value === 0" [ngValue]="item.label">{{ item.label }}
       </option>
     </select>
+    <div *ngIf="showNoOfRecurrence">
+        <label>Transfer funds to Treasury every {{recurrence}} recurrences</label>
+      </div>
   </div>
+
+  <div class="row " *ngIf="showInputRecurrence">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3 billingTitile">
+                <span class="BillingCycleClass">Transfer funds to Treasury every</span>
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 forminput">
+                <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                placeholder="0" type="number" name="No2" [(ngModel)]="recurrence" required #NoOfRecuurence2="ngModel"
+                 [min]="2" min="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57" appBlockCopyPaste
+              />
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 billingRecurrence">
+              <span>recurrences</span>
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 okbtndiv">
+              <button class="okbtn" (click)="noOfRecurrence()">OK</button>
+            </div>
+        </div>
+  
+      </div>
+    </div>
+  <div *ngIf="showTable">
   <div class="tablecontent">
     <label class="tabletitle">Gas cost</label>
     <div class="row noMargin">
@@ -34,7 +61,7 @@
           </tr>
           <tr>
             <td>Subscription Pull Transaction</td>
-            <td class="tablevalue">{{ model.Recurrence }}</td>
+            <td class="tablevalue">{{ model.Recurringdays == "indefinite"? recurrence : model.Recurringdays }}</td>
             <td class="tablevalue">
               <span class="Totalvalue">{{ model.recurrencegas }}</span>
               <span class="TotalUSD">(~${{ model.RecurrenceUSD }})</span>
@@ -77,6 +104,8 @@
       </div>
     </div>
   </div>
+</div>
+
   <div class="textcontent">
     <img src="assets/images/info.svg" />
     <p class="contenttitle">PullPayment Accounts and Gas Costs</p>

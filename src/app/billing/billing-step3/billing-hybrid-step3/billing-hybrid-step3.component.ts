@@ -112,11 +112,22 @@ export class BillingHybridStep3Component implements OnInit {
     if (data.value.Recurringdays == 1) {
       this.hideerror == true;
     } else if (data.value) {
+      if(this.indefinite){
+        this.model.price = this.model.price * 100;
+        this.model.Periodprice = this.model.Periodprice * 100;
+        this.model.Recurringdays = "indefinite";
+        this.stepTrack.onStep4();
+        this.service.setValues(this.model);
+        console.log(this.model);
+        this.router.navigate(['pullpayments/hybrid/step4']);
+      }else{
       this.model.price = this.model.price * 100;
       this.model.Periodprice = this.model.Periodprice * 100;
       this.stepTrack.onStep4();
       this.service.setValues(this.model);
+      console.log(this.model);
       this.router.navigate(['pullpayments/hybrid/step4']);
+      }
     }
   }
   onBack() {
@@ -192,8 +203,10 @@ export class BillingHybridStep3Component implements OnInit {
     if (this.indefinite == false) {
       this.indefinite = true;
       this.model.Recurringdays = '';
+      console.log(this.indefinite);
     } else {
-      this.indefinite = false
+      this.indefinite = false;
+      console.log(this.indefinite);
     }
   }
 }

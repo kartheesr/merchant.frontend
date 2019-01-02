@@ -53,6 +53,7 @@ export class BillingHybirdStep4Component implements OnInit {
       RecurrenceETH: '',
       PullRecurrence: 1,
       PullRecurrencecost: '',
+      Recurringdays: '',
       TotalETH: '',
       USDValue: '',
       TotalUSD: '',
@@ -119,7 +120,7 @@ export class BillingHybirdStep4Component implements OnInit {
         }, 3000);
       });
     });
-    // this.model.Recurrence = (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+    this.model.Recurrence = this.Step3data.Recurringdays;
     this.service4.setValues(this.model);
   }
   publish() {

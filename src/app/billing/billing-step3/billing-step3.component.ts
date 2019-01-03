@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, Event } from '@angular/router';
 import { BillingServiceStep3 } from './billing-step3.service';
 import { StepperComponent } from '../stepper/stepper.component';
+import { BillingServiceStep2 } from '../billing-step2/billing-step2.service';
 
 @Component({
   selector: 'app-billing-step3',
@@ -13,8 +14,14 @@ export class BillingStep3Component implements OnInit {
   newForm;
   public selectOption: any;
   Placeholdername: string;
+  data;
 
-  constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
+  constructor(
+    private router: Router,
+    private service: BillingServiceStep3,
+    private stepTrack: StepperComponent,
+    private service2: BillingServiceStep2
+  ) {
     this.selectOption = [
       {
         id: 1,
@@ -59,6 +66,7 @@ export class BillingStep3Component implements OnInit {
     });
   }
   ngOnInit() {
+    this.data = this.service2.model;
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {
       this.model.billing = '';

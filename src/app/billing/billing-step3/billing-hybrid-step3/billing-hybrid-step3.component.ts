@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BillingServiceStep3 } from '../billing-step3.service';
 import { Router, Event } from '@angular/router';
 import { StepperComponent } from '@app/billing/stepper/stepper.component';
-
+import { BillingServiceStep2 } from '../../billing-step2/billing-step2.service';
+import * as moment from 'moment';
 @Component({
   selector: 'app-billing-hybrid-step3',
   templateUrl: './billing-hybrid-step3.component.html',
@@ -10,14 +11,21 @@ import { StepperComponent } from '@app/billing/stepper/stepper.component';
 })
 export class BillingHybridStep3Component implements OnInit {
   public model: any;
-  newForm;
   public amountCurrency: any;
   public calendarlist: any;
   public Placeholdername: any;
   public Priceplaceholdername: any;
   public hideerror: boolean = false;
   public indefinite: boolean;
-  constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
+  newForm;
+  data;
+  BillingPeriod;
+  constructor(
+    private router: Router,
+    private service: BillingServiceStep3,
+    private stepTrack: StepperComponent,
+    private service1: BillingServiceStep2
+  ) {
     this.amountCurrency = [
       {
         id: 1,
@@ -83,6 +91,10 @@ export class BillingHybridStep3Component implements OnInit {
   }
 
   ngOnInit() {
+    var dt = new Date();
+    this.BillingPeriod = moment(dt).format('D MMM YYYY');
+    this.data = this.service1.model;
+    console.log('This.data-->', this.data);
     this.model = {
       Currency: '',
       price: '',
@@ -112,21 +124,21 @@ export class BillingHybridStep3Component implements OnInit {
     if (data.value.Recurringdays == 1) {
       this.hideerror == true;
     } else if (data.value) {
-      if(this.indefinite){
+      if (this.indefinite) {
         this.model.price = this.model.price * 100;
         this.model.Periodprice = this.model.Periodprice * 100;
-        this.model.Recurringdays = "indefinite";
+        this.model.Recurringdays = 'indefinite';
         this.stepTrack.onStep4();
         this.service.setValues(this.model);
         console.log(this.model);
         this.router.navigate(['pullpayments/hybrid/step4']);
-      }else{
-      this.model.price = this.model.price * 100;
-      this.model.Periodprice = this.model.Periodprice * 100;
-      this.stepTrack.onStep4();
-      this.service.setValues(this.model);
-      console.log(this.model);
-      this.router.navigate(['pullpayments/hybrid/step4']);
+      } else {
+        this.model.price = this.model.price * 100;
+        this.model.Periodprice = this.model.Periodprice * 100;
+        this.stepTrack.onStep4();
+        this.service.setValues(this.model);
+        console.log(this.model);
+        this.router.navigate(['pullpayments/hybrid/step4']);
       }
     }
   }

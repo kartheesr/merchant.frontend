@@ -7,15 +7,32 @@
             <label>Inital charge</label>
             <div class="row divalign">
               <div class="col-xs-12 col-sm-3 col-md-3 amountselect">
-                <select name="Currency" [(ngModel)]="model.Currency" #Currency="ngModel" required [ngClass]="{ 'is-invalid': hybirdForm.submitted && Currency.errors?.required }"
-                  (change)="handlechangecurrency(Currency)">
-                  <option *ngFor="let item of amountCurrency" [ngValue]="item.label">{{ item.name }} {{ item.label }}</option>
+                <select
+                  name="Currency"
+                  [(ngModel)]="model.Currency"
+                  #Currency="ngModel"
+                  required
+                  [ngClass]="{ 'is-invalid': hybirdForm.submitted && Currency.errors?.required }"
+                  (change)="handlechangecurrency(Currency)"
+                >
+                  <option *ngFor="let item of amountCurrency" [ngValue]="item.label"
+                    >{{ item.name }} {{ item.label }}</option
+                  >
                 </select>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 amountinput">
-                <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="{{ Placeholdername }}"
-                  name="price" [(ngModel)]="model.price" #price="ngModel" required [ngClass]="{  'is-invalid': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
-                  [gt]="0" maxlength="17" />
+                <input
+                  class="input"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  placeholder="{{ Placeholdername }}"
+                  name="price"
+                  [(ngModel)]="model.price"
+                  #price="ngModel"
+                  required
+                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
+                  [gt]="0"
+                  maxlength="17"
+                />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" [hidden]="!price.errors?.required">Price is required</div>
                 </div>
@@ -26,9 +43,21 @@
             <label>Start subscription billing</label>
             <div class="row">
               <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
-                <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number"
-                  placeholder="1" name="days" [min]="1" min="1" [(ngModel)]="model.days" #days="ngModel" required [ngClass]="{  'is-invalid': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
-                  onkeypress="return event.charCode >= 48 && event.charCode <= 57" appBlockCopyPaste (input)="handlechangestartdays()"
+                <input
+                  class="input"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="number"
+                  placeholder="1"
+                  name="days"
+                  [min]="1"
+                  min="1"
+                  [(ngModel)]="model.days"
+                  #days="ngModel"
+                  required
+                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  appBlockCopyPaste
+                  (input)="handlechangestartdays()"
                 />
                 <div class="aligntxt" *ngIf="days.errors?.min">Needs to be at least 1 day</div>
                 <div *ngIf="hybirdForm.submitted">
@@ -36,13 +65,17 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 Dayselect dayselect">
-                <select name="calendar" [(ngModel)]="model.calendar" #calendar="ngModel" required (change)="handlechangestartbilling(calendar)">
+                <select
+                  name="calendar"
+                  [(ngModel)]="model.calendar"
+                  #calendar="ngModel"
+                  required
+                  (change)="handlechangestartbilling(calendar)"
+                >
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
                 </select>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4 textalign">
-                <label>after initial charge</label>
-              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 textalign"><label>after initial charge</label></div>
             </div>
 
             <div class="col-xs-12 col-sm-10 col-md-10 firstblock"></div>
@@ -50,17 +83,34 @@
             <label>Amount charged at the begining of each period</label>
             <div class="row ">
               <div class="col-xs-12 col-sm-3 col-md-3 amountselect ">
-                <select name="PeriodCurrency" [(ngModel)]="model.PeriodCurrency" #PeriodCurrency="ngModel" required [ngClass]="{ 'is-invalid': hybirdForm.submitted && PeriodCurrency.errors?.required }"
-                  disabled>
-                  <option *ngFor="let item of amountCurrency" [ngValue]="item.label">{{ item.name }} {{ item.label }}</option>
+                <select
+                  name="PeriodCurrency"
+                  [(ngModel)]="model.PeriodCurrency"
+                  #PeriodCurrency="ngModel"
+                  required
+                  [ngClass]="{ 'is-invalid': hybirdForm.submitted && PeriodCurrency.errors?.required }"
+                  disabled
+                >
+                  <option *ngFor="let item of amountCurrency" [ngValue]="item.label"
+                    >{{ item.name }} {{ item.label }}</option
+                  >
                 </select>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 amountinput">
-                <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="Periodprice"
-                  placeholder="{{ Placeholdername }}" name="Periodprice" [(ngModel)]="model.Periodprice" #Periodprice="ngModel"
-                  required [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
-                  }" [gt]="0" />
+                <input
+                  class="input"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  id="Periodprice"
+                  placeholder="{{ Placeholdername }}"
+                  name="Periodprice"
+                  [(ngModel)]="model.Periodprice"
+                  #Periodprice="ngModel"
+                  required
+                  [ngClass]="{
+                    'invalid\': ': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
+                  }"
+                  [gt]="0"
+                />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" *ngIf="Periodprice.errors?.required">Amount is required</div>
                 </div>
@@ -69,23 +119,41 @@
             </div>
 
             <div class="titlediv">
-              <span class="titlealign">Billing Cycle</span>
-              <br />
+              <span class="titlealign">Billing Cycle</span> <br />
               <span>Customer will be billed every</span>
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
-                <input class="input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number"
-                  placeholder="0" name="billingdays" [min]="1" min="1" [(ngModel)]="model.billingdays" #billingdays="ngModel"
-                  required (input)="handlechangedayscycle()" [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
-                  }" onkeypress="return event.charCode >= 48 && event.charCode <= 57" appBlockCopyPaste />
+                <input
+                  class="input"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="number"
+                  placeholder="0"
+                  name="billingdays"
+                  [min]="1"
+                  min="1"
+                  [(ngModel)]="model.billingdays"
+                  #billingdays="ngModel"
+                  required
+                  (input)="handlechangedayscycle()"
+                  [ngClass]="{
+                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                  }"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  appBlockCopyPaste
+                />
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 calendarselect dayselect">
-                <select name="billingcalendar" [(ngModel)]="model.billingcalendar" #billingcalendar="ngModel" required (change)="handlechangecalculatecycle(billingcalendar)"
+                <select
+                  name="billingcalendar"
+                  [(ngModel)]="model.billingcalendar"
+                  #billingcalendar="ngModel"
+                  required
+                  (change)="handlechangecalculatecycle(billingcalendar)"
                   [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
-                  }">
+                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                  }"
+                >
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
                 </select>
                 <div *ngIf="hybirdForm.submitted">
@@ -96,36 +164,106 @@
             </div>
 
             <div class="titlediv">
-              <span class="titlealign">Subscriptions</span>
-              <br />
+              <span class="titlealign">Subscriptions</span> <br />
               <span>Number of billing cycle</span>
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-3 col-md-3 dayinput">
-                <input class="input" type="number" [disabled]="indefinite" placeholder="0" name="Recurringdays" min="2" [(ngModel)]="model.Recurringdays" #Recurringdays="ngModel"
-                  required (input)="handlevalidate(Recurringdays)" [ngClass]="{
+                <input
+                  class="input"
+                  type="number"
+                  [disabled]="indefinite"
+                  placeholder="0"
+                  name="Recurringdays"
+                  min="2"
+                  [(ngModel)]="model.Recurringdays"
+                  #Recurringdays="ngModel"
+                  required
+                  (input)="handlevalidate(Recurringdays)"
+                  [ngClass]="{
                     '':
                       (hybirdForm.submitted && Recurringdays.errors?.required) || hideerror || Recurringdays.errors?.min
-                  }" [min]="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" appBlockCopyPaste />
+                  }"
+                  [min]="1"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  appBlockCopyPaste
+                />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg1" *ngIf="Recurringdays.errors?.required">Subscriptions is required</div>
                 </div>
-                <div *ngIf="hideerror">
-                  <div class="aligntxt">Subscription must be larger than or equal to 2</div>
-                </div>
+                <div *ngIf="hideerror"><div class="aligntxt">Subscription must be larger than or equal to 2</div></div>
                 <div class="notifyMsg1" *ngIf="Recurringdays.errors?.min">Needs to be more than 0</div>
               </div>
               <div>
-                <label class="container">Indefinite
-                    <input type="checkbox" name="checkbox" [(ngModel)]="indefinite" (click)="checkbox()">
-                    <span type="checkbox" class="checkmark"></span>
+                <label class="container"
+                  >Indefinite
+                  <input
+                    type="checkbox"
+                    name="checkbox"
+                    [(ngModel)]="indefinite"
+                    (click)="checkbox()"
+                    #Indef="ngModel"
+                  />
+                  <span type="checkbox" class="checkmark"></span>
                 </label>
-            </div>
+              </div>
             </div>
           </div>
 
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <img src="assets/images/step3-hybird.png" class="singleimg" />
+            <div class="mobileImg">
+              <div class="textBody">
+                <label *ngIf="data.productName" class="dynamicData">{{ data.productName }}</label
+                ><br />
+                <label *ngIf="data.billingModelName" class="dynamicData2">{{ data.billingModelName }}</label
+                ><br />
+                <label *ngIf="data.billModelDes" class="dynamicData3">{{ data.billModelDes }}</label
+                ><br />
+                <div class="data-info">
+                  <table>
+                    <tr>
+                      <td><img class="img-size" src="assets/images/initial.svg" /></td>
+                      <td>
+                        Initial:
+                        <a>
+                          <span *ngIf="Currency.value == 'USD'">$</span> <span *ngIf="Currency.value == 'EUR'">€</span>
+                          <span *ngIf="Currency.value == 'GBP'">£</span> <span *ngIf="Currency.value == 'JPY'">¥</span>
+                          <span *ngIf="Currency.value == 'KRW'">₩</span>
+                        </a>
+                        {{ price.value }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><img class="img-size" src="assets/images/amount.svg" /></td>
+                      <td>
+                        Amount:
+                        <a>
+                          <span *ngIf="PeriodCurrency.value == 'USD'">$</span>
+                          <span *ngIf="PeriodCurrency.value == 'EUR'">€</span>
+                          <span *ngIf="PeriodCurrency.value == 'GBP'">£</span>
+                          <span *ngIf="PeriodCurrency.value == 'JPY'">¥</span>
+                          <span *ngIf="PeriodCurrency.value == 'KRW'">₩</span>
+                        </a>
+                        {{ Periodprice.value }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><img class="img-size" src="assets/images/period.svg" /></td>
+                      <td>Billing Starts: {{ BillingPeriod }}</td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                      <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
+                      <td>Payment Cycle: {{ billingdays.value }} {{ billingcalendar.value }}</td>
+                    </tr>
+                    <tr>
+                      <td><img class="img-size" src="assets/images/cycle.svg" /></td>
+                      <td>Recurrences: {{ Indef.value == true ? 0 : Recurringdays.value }}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
             <button class="backbtn" type="reset" (click)="onBack()">back</button>

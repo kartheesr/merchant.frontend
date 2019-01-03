@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, Event } from '@angular/router';
 import { BillingServiceStep3 } from '../billing-step3.service';
 import { StepperComponent } from '@app/billing/stepper/stepper.component';
+import { BillingServiceStep2 } from '../../billing-step2/billing-step2.service';
 
 @Component({
   selector: 'app-billing-recurring-step3',
@@ -14,7 +15,13 @@ export class BillingRecurringStep3Component implements OnInit {
   public selectOption: any;
   public indefinite: boolean;
   public recurrenceOption = [];
-  constructor(private router: Router, private service: BillingServiceStep3, private stepTrack: StepperComponent) {
+  data;
+  constructor(
+    private router: Router,
+    private service: BillingServiceStep3,
+    private stepTrack: StepperComponent,
+    private service1: BillingServiceStep2
+  ) {
     this.selectOption = [
       {
         id: 1,
@@ -80,6 +87,7 @@ export class BillingRecurringStep3Component implements OnInit {
   }
 
   ngOnInit() {
+    this.data = this.service1.model;
     this.model = {
       rupees: '',
       amount: '',

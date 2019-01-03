@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ 'is-invalid': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
+                  [ngClass]="{ 'invalid\': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
@@ -42,7 +42,29 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <img src="assets/images/Single_billing.png" class="singleimg" />
+            <div class="mobileImg">
+              <div class="textBody">
+                <label *ngIf="data.productName" class="dynamicData">{{ data.productName }}</label
+                ><br />
+                <label *ngIf="data.billingModelName" class="dynamicData2">{{ data.billingModelName }}</label
+                ><br />
+                <label *ngIf="data.billModelDes" class="dynamicData3">{{ data.billModelDes }}</label
+                ><br />
+                <div class="data-info">
+                  <table>
+                    <tr>
+                      <td><img class="img-size" src="assets/images/amount.svg" /></td>
+                      <td>Price: {{ amount.value }} {{ rupees.value }}</td>
+                    </tr>
+
+                    <tr>
+                      <td><img class="img-size" src="assets/images/initial.svg" /></td>
+                      <td>Tranfer: Instanly</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
             <button type="reset" (click)="onBack()" class="backbtn">Back</button>

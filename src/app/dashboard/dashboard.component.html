@@ -161,7 +161,12 @@
           </p>
           <div class="qrCodeField">
             <input readonly type="text" value="{{treasuryAddress}}" #userinput />
-            <img src="assets/images/copy.png" (click)="copyInputMessage(userinput)" value="click to copy" />
+            <img
+              class="imgModel"
+              src="assets/images/copy.png"
+              (click)="copyInputMessage(userinput)"
+              value="click to copy"
+            />
           </div>
         </div>
       </div>

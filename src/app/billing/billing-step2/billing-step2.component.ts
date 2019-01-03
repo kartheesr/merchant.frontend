@@ -11,6 +11,7 @@ import { StepperComponent } from '../stepper/stepper.component';
 })
 export class BillingStep2Component implements OnInit {
   model: any = {};
+  productName;
   // editId;
   datavalidation: any = {};
   newForm;
@@ -69,5 +70,9 @@ export class BillingStep2Component implements OnInit {
       this.homePage.count = 140;
       this.valid = false;
     }
+  }
+  valueChanged(value) {
+    console.log('Value==>', value);
+    this.productName = value;
   }
 }

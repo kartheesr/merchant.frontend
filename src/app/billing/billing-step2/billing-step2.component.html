@@ -4,12 +4,21 @@
       <br />
       <div class="form-group">
         <div class="line">
-          <label class="title">Product Name</label>
-          <br />
-          <input type="text" class="productInput" name="productName" placeholder="" [(ngModel)]="model.productName" #productName="ngModel"
+          <label class="title">Product Name</label> <br />
+          <input
+            type="text"
+            class="productInput"
+            name="productName"
+            placeholder=""
+            [(ngModel)]="model.productName"
+            #productName="ngModel"
             [ngClass]="{
-              'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength
-            }" required minlength="2" maxlength="50" />
+              'invalid\': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+            }"
+            required
+            minlength="2"
+            maxlength="50"
+          />
         </div>
 
         <div *ngIf="f.submitted">
@@ -19,12 +28,21 @@
       </div>
       <div class="form-group">
         <div class="line">
-          <label class="title">Billing Model Name</label>
-          <br />
-          <input type="text" class="productInput" name="billingModelName" placeholder="x months subscription" [(ngModel)]="model.billingModelName"
-            #billingModelName="ngModel" [ngClass]="{
-              'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
-            }" required minlength="2" maxlength="50" />
+          <label class="title">Billing Model Name</label> <br />
+          <input
+            type="text"
+            class="productInput"
+            name="billingModelName"
+            placeholder="x months subscription"
+            [(ngModel)]="model.billingModelName"
+            #billingModelName="ngModel"
+            [ngClass]="{
+              'invalid\': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+            }"
+            required
+            minlength="2"
+            maxlength="50"
+          />
         </div>
 
         <div *ngIf="f.submitted">
@@ -36,12 +54,21 @@
       </div>
       <div class="form-group">
         <div class="line">
-          <label class="title">Billing Model Description</label>
-          <br />
-          <textarea class="inputDes" name="billModelDes" placeholder="Explain what is the service or product you provide for this billing model"
-            [(ngModel)]="model.billModelDes" #billModelDes="ngModel" [ngClass]="{
-              'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
-            }" required minlength="2" maxlength="140" (input)="handleCount(billModelDes)"></textarea>
+          <label class="title">Billing Model Description</label> <br />
+          <textarea
+            class="inputDes"
+            name="billModelDes"
+            placeholder="Explain what is the service or product you provide for this billing model"
+            [(ngModel)]="model.billModelDes"
+            #billModelDes="ngModel"
+            [ngClass]="{
+              'invalid\': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+            }"
+            required
+            minlength="2"
+            maxlength="140"
+            (input)="handleCount(billModelDes)"
+          ></textarea>
         </div>
         <div>
           <label class="char-msg" *ngIf="!billModelDes.errors">{{ this.homePage.count }} characters</label>
@@ -56,8 +83,14 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4">
-      <div>
-        <img src="assets/images/mobile.png" class="mobile" />
+      <div class="mobileImg">
+        <!-- <img src="assets/images/Blank_Mobile.png" class="mobile" /> -->
+        <div class="textBody">
+          <label *ngIf="productName.value" class="dynamicData">{{ productName.value }}</label>
+          <label *ngIf="billingModelName.value" class="dynamicData2">{{ billingModelName.value }}</label>
+          <label *ngIf="billModelDes.value" class="dynamicData3">{{ billModelDes.value }}</label>
+        </div>
+        <!-- <Label class="dynamicData">BillingModelName</Label> -->
       </div>
     </div>
     <div class="btCtrl col-xs-12 col-sm-10 col-md-11">

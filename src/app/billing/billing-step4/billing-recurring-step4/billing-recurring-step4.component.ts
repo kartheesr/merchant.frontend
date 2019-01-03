@@ -74,15 +74,15 @@ export class BillingRecurringStep4Component implements OnInit {
         value: 2
       }
     ];
-    
+
     this.data1 = this.service1.model;
     this.data2 = this.service2.model;
     this.data3 = this.service3.model;
-    if(this.data3.No2 == "indefinite"){
+    if (this.data3.No2 == 'indefinite') {
       this.model.transactions = this.transcationoption[0].label;
       this.showInputRecurrence = true;
       this.showTable = false;
-    }else{
+    } else {
       this.model.transactions = this.transcationoption[1].label;
       this.showInputRecurrence = false;
       this.showTable = true;
@@ -127,9 +127,9 @@ export class BillingRecurringStep4Component implements OnInit {
       this.model.Transfergas = gas.toFixed(5).replace(/0+$/, '');
       let gasUSD = this.model.Transfergas * this.model.USDValue;
       this.model.TransferUSD = parseFloat(gasUSD.toFixed(2).replace(/0+$/, ''));
-      let sample = this.model.recurrencegas * (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      let sample = this.model.recurrencegas * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
-      let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalUSDCost = parseFloat(USDCost.toFixed(2).replace(/0+$/, ''));
       this.model.TransRecurrence = 1;
       let data = parseFloat(this.model.Transfergas) * this.model.TransRecurrence;
@@ -163,9 +163,9 @@ export class BillingRecurringStep4Component implements OnInit {
       this.disabledBtn = false;
       this.data.automatedCashOut = false;
       this.data.cashOutFrequency = 0;
-      let sample = this.model.recurrencegas * (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      let sample = this.model.recurrencegas * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
-      let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalUSDCost = parseFloat(USDCost.toFixed(2).replace(/0+$/, ''));
       this.model.TransRecurrence = 1;
       let data = parseFloat(this.model.Transfergas) * this.model.TransRecurrence;
@@ -182,11 +182,11 @@ export class BillingRecurringStep4Component implements OnInit {
       this.data.automatedCashOut = true;
       this.data.cashOutFrequency = 1;
       // this.model.TransRecurrence = this.data3.No2;
-      let sample = this.model.recurrencegas * (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      let sample = this.model.recurrencegas * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
-      let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalUSDCost = parseFloat(USDCost.toFixed(2).replace(/0+$/, ''));
-      this.model.TransRecurrence = (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      this.model.TransRecurrence = this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2;
       let data = parseFloat(this.model.Transfergas) * this.model.TransRecurrence;
       this.model.TotalcostRecuurence = data.toFixed(5).replace(/0+$/, '');
       let dataUSD = this.model.TransferUSD * this.model.TransRecurrence;
@@ -198,9 +198,9 @@ export class BillingRecurringStep4Component implements OnInit {
       this.service4.setValues(this.model);
     } else {
       this.disabledBtn = true;
-      let sample = this.model.recurrencegas * (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      let sample = this.model.recurrencegas * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
-      let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == "indefinite"? this.recurrence : this.data3.No2);
+      let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalUSDCost = parseFloat(USDCost.toFixed(2).replace(/0+$/, ''));
       this.model.TransRecurrence = 1;
       let data = parseFloat(this.model.Transfergas) * this.model.TransRecurrence;
@@ -215,10 +215,10 @@ export class BillingRecurringStep4Component implements OnInit {
     }
   }
 
-  noOfRecurrence(){
+  noOfRecurrence() {
     console.log(this.recurrence);
     this.showNoOfRecurrence = true;
     this.showInputRecurrence = false;
-    this.showTable = true;  
+    this.showTable = true;
   }
 }

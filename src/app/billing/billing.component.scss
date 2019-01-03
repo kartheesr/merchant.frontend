@@ -544,7 +544,9 @@ fieldset label {
   top: -4px;
 }
 .billingModelContainer .bm-main .billingBoxCont {
-  overflow-y: inherit !important;
+  overflow-y: scroll !important;
+  // height: calc(100% - 100px)!important ;
+  height: 800px;
 }
 .new1 legend.scheduler-border {
   color: #304053 !important;

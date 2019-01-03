@@ -59,10 +59,29 @@
               -->
             </div>
           </div>
+          <!--
+            <div class="singleimg">
+              <div class="mob-img">
+                <span class="img-title">{{ title }}</span><br>
+                <span class="img-des">{{ billingdescription }}</span><br>
+                <div class="tab-box">
+                  <div class="tab-box1">
+                    <img src="assets/images/Mask@2x.png"> &nbsp;
+                    <span class="img-currency"> Amount: {{ currency | CustomeCurrency }}{{ amount }}</span><br>
+                  </div>
+                  <hr />
+                  <div class="tab-box1">
+                    <img src="assets/images/cycle.svg"> &nbsp;
+                    <span class="img-transfer">Transfer: Instantly</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          -->
           <div class=""><img src="assets/images/Single_billing.png" class="singleimg" /></div>
         </div>
 
-        <div class="col-xs-12 col-sm-9 cols-md-9">
+        <div class="col-xs-12 col-sm-9 cols-md-9 right-side">
           <div class="product-div">
             <label class="title"
               >{{ title }}
@@ -145,7 +164,7 @@
             <label class="title new_title">Contract QR code <img src="assets/images/info-billing.svg" /> </label> <br />
             <label class="subTitle">Customers can scan the QR Code and approve it in their PumaPay Wallet app.</label>
             <div class="row">
-              <div class="col-xs-12 col-sm-3 cols-md-3">
+              <div class="col-xs-12 col-sm-3 cols-md-3 QR-div">
                 <div class="QRCode">
                   <!-- <img src="assets/images/QrCode.png" width="150" /> -->
                   <ngx-qrcode
@@ -331,8 +350,51 @@
             </div>
           </div>
           <div><img src="assets/images/Step3-Recurring.png" class="singleimg" /></div>
+          <!--
+            <div class="recurring-img">
+              <div class="mob-img">
+                  <span class="img-title">{{ title }}</span><br>
+                  <span class="img-des">{{ billingdescription }}</span><br>
+                  <div class="tab-box">
+                    <div class="tab-box1">
+                      <img src="assets/images/Mask@2x.png"> &nbsp;
+                      <span class="img-currency"> Amount: {{ currency | CustomeCurrency }}{{ amount }}</span><br>
+                    </div>
+                    <hr />
+                    <div class="tab-box1">
+                      <img src="assets/images/cycle.svg"> &nbsp;
+                      <span class="img-transfer">Trial Period: <span *ngIf="this.trialDays.years != ''">
+                          {{ this.trialDays.years }} {{ this.trialDays.years == 1 ? 'year ' : 'years ' }}</span>
+                        <span *ngIf="this.trialDays.months != ''">{{ this.trialDays.months }} {{ this.trialDays.months
+                          == 1 ? 'month ' : 'months ' }}
+                        </span>
+                        <span *ngIf="this.trialDays.weeks != ''">{{ this.trialDays.weeks }} {{ this.trialDays.weeks ==
+                          1 ? 'week ' : 'weeks ' }}
+                        </span>
+                        <span *ngIf="this.trialDays.days != ''">{{ this.trialDays.days }} {{ this.trialDays.days == 1 ?
+                          'day ' : 'days ' }}
+                        </span></span>
+                    </div>
+                    <hr />
+                    <div class="tab-box1">
+                        <img src="assets/images/period.svg"> &nbsp;
+                        <span class="img-transfer">Billing Cycle: <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
+                        <span *ngIf="temp.months != ''">{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
+                        </span>
+                        <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
+                        <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span></span>
+                    </div>
+                    <hr />
+                    <div class="tab-box1">
+                        <img src="assets/images/billingcycle.svg"> &nbsp;
+                        <span class="img-transfer">Recurrences: <span>{{ Recurrences }}</span></span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          -->
         </div>
-        <div class="col-xs-12 col-sm-9 cols-md-9">
+        <div class="col-xs-12 col-sm-9 cols-md-9 right-side">
           <div class="product-div">
             <label class="title"
               >{{ title }}
@@ -603,10 +665,58 @@
               -->
             </div>
           </div>
+          <!--
+            <div class="singleimg">
+                <div class="mob-img">
+                    <span class="img-title">{{ title }}</span><br>
+                    <span class="img-des">{{ billingdescription }}</span><br>
+                    <div class="tab-box">
+                        <div class="tab-box1">
+                            <img src="assets/images/initial.svg"> &nbsp;
+                            <span class="img-currency"> Initial: {{ currency | CustomeCurrency }}{{ initalamount }}</span><br>
+                          </div>
+                          <hr />
+                      <div class="tab-box1">
+                        <img src="assets/images/Mask@2x.png"> &nbsp;
+                        <span class="img-currency"> Amount: {{ currency | CustomeCurrency }}{{ amount }}</span><br>
+                      </div>
+                      <hr />
+                      <div class="tab-box1">
+                        <img src="assets/images/cycle.svg"> &nbsp;
+                        <span class="img-transfer">Trial Period: <span *ngIf="this.trialDays.years != ''">
+                            {{ this.trialDays.years }} {{ this.trialDays.years == 1 ? 'year ' : 'years ' }}</span>
+                          <span *ngIf="this.trialDays.months != ''">{{ this.trialDays.months }} {{ this.trialDays.months
+                            == 1 ? 'month ' : 'months ' }}
+                          </span>
+                          <span *ngIf="this.trialDays.weeks != ''">{{ this.trialDays.weeks }} {{ this.trialDays.weeks ==
+                            1 ? 'week ' : 'weeks ' }}
+                          </span>
+                          <span *ngIf="this.trialDays.days != ''">{{ this.trialDays.days }} {{ this.trialDays.days == 1 ?
+                            'day ' : 'days ' }}
+                          </span></span>
+                      </div>
+                      <hr />
+                      <div class="tab-box1">
+                          <img src="assets/images/period.svg"> &nbsp;
+                          <span class="img-transfer">Billing Cycle: <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
+                          <span *ngIf="temp.months != ''">{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
+                          </span>
+                          <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
+                          <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span></span>
+                      </div>
+                      <hr />
+                      <div class="tab-box1">
+                          <img src="assets/images/billingcycle.svg"> &nbsp;
+                          <span class="img-transfer">Recurrences: <span>{{ Recurrences }}</span></span>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          -->
           <div><img src="assets/images/step3-hybird.png" class="singleSubscription" /></div>
         </div>
 
-        <div class="col-xs-12 col-sm-9 cols-md-9">
+        <div class="col-xs-12 col-sm-9 cols-md-9 right-side">
           <div class="product-div">
             <label class="title"
               >{{ title }}
@@ -656,10 +766,7 @@
                   </tr>
 
                   <tr>
-                    <td class="userId">
-                      Transfers from <br />
-                      Transferred Accounts to Treasury
-                    </td>
+                    <td class="userId">Transfers from <br />Transferred Accounts to Treasury</td>
                     <td class="value-td">{{ data.PullRecurrence ? data.PullRecurrence : PullRecurrence }}</td>
                     <td class="value-td">{{ Transfergas ? Transfergas : '0.0' }}</td>
                     <td class="value-td">

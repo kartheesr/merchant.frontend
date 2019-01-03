@@ -376,6 +376,7 @@ legend.scheduler-border {
 .new_title {
   //text-transform: uppercase;
   margin-top: 15px;
+  padding: 2px;
 }
 
 table {
@@ -516,7 +517,7 @@ table {
   resize: none;
 }
 .paymentBtn {
-  padding-left: 20px;
+  padding-left: 3px;
   margin-bottom: 10px;
 }
 
@@ -1039,20 +1040,119 @@ legend.scheduler-border {
   height: 50px;
 }
 .singleimg {
-  margin-right: -33px;
-  width: 260px;
-  height: 442px;
+  margin-right: -23px;
+  width: 232px;
+  height: 465px;
   float: right;
-  margin-top: 24px;
+  margin-top: 0px;
   padding: 13px 1px;
   padding-right: 10%;
+  // margin-right: -28px;
+  // width: 237px;
+  // height: 430px;
+  // float: right;
+  // margin-top: 24px;
+  // padding: 13px 1px;
+  // padding-right: 10%;
+  // background-image: url("assets/images/Blank_Mobile.png");
+  // background-repeat: no-repeat;
+  // background-size: 215px;
 }
+// .singleimg img{
+//   margin-right: -28px;
+//   width: 237px;
+//   height: 430px;
+//   float: right;
+//   margin-top: 24px;
+//   padding: 13px 1px;
+//   padding-right: 10%;
+// }
 .singleSubscription {
-  margin-right: -52px;
-  width: 306px;
-  height: 442px;
+  margin-right: -46px;
+  width: 275px;
+  height: 478px;
   float: right;
-  margin-top: 3px;
+  margin-top: 0px;
   padding: 13px 1px;
   padding-right: 10%;
+  // margin-right: -52px;
+  // width: 306px;
+  // height: 442px;
+  // float: right;
+  // margin-top: 3px;
+  // padding: 13px 1px;
+  // padding-right: 10%;
+}
+.mob-img {
+  margin-top: 50px;
+  width: 197px;
+  padding-left: 18px;
+  height: 345px;
+}
+.img-title {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 9px;
+  font-size: 10.39801px;
+  text-align: justify;
+  color: #080808;
+}
+.img-des {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 9px;
+  font-size: 7.83px;
+  text-align: justify;
+  color: #080808;
+}
+.img-currency {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 9.37127px;
+  color: #000000;
+}
+.img-transfer {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 9.35254px;
+  color: #080808;
+}
+.tab-box {
+  margin-top: 20px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  hr {
+    width: 95%;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+  .tab-box1 {
+    padding: 4px;
+    img {
+      height: 15px;
+    }
+  }
+}
+.recurring-img {
+  margin-right: -28px;
+  width: 237px;
+  height: 430px;
+  float: right;
+  margin-top: 10px;
+  padding: 13px 1px;
+  padding-right: 10%;
+  background-image: url("assets/images/Blank_Mobile.png");
+  background-repeat: no-repeat;
+  background-size: 212px 408px;
+}
+.right-side {
+  left: 40px;
+}
+.QR-div {
+  right: 7px;
 }

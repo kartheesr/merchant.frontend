@@ -11,8 +11,8 @@
             <img class="curPoint" src="assets/images/Info_Grey.png" />
           </a>
           <p>
-            <span class="bold">{{ treasuryBalance ? treasuryBalance : '0.00' }}</span
-            ><span class="small">{{ treasuryCurrency ? treasuryCurrency : 'PMA' }}</span>
+            <span class="bold">{{ treasuryBalance ? treasuryBalance : '0.00' }}</span>
+            <span class="small">{{ treasuryCurrency ? treasuryCurrency : 'PMA' }}</span>
           </p>
           <span class="min_small white">${{ usdTreasuryBal ? usdTreasuryBal : '0.00' }}</span>
         </div>
@@ -21,14 +21,14 @@
     <div class="col">
       <div class="pma-box">
         <div>
-          <label class="dash_widget_title">Transferred Accounts</label
-          ><a class="gasAlert">
+          <label class="dash_widget_title">Transferred Accounts</label>
+          <a class="gasAlert">
             <div class="GasAlertBodywhite">Your Accounts</div>
             <img class="curPoint" src="assets/images/Info_Grey.png" />
           </a>
           <p>
-            <span class="bold blue">{{ pullPaymentsBalance ? pullPaymentsBalance : '0.00' }}</span
-            ><span class="small">{{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}</span>
+            <span class="bold blue">{{ pullPaymentsBalance ? pullPaymentsBalance : '0.00' }}</span>
+            <span class="small">{{ pullPaymentsCurrency ? pullPaymentsCurrency : 'PMA' }}</span>
           </p>
           <span class="min_small">${{ usdPullPayBalance ? usdPullPayBalance : '0.00' }}</span>
         </div>
@@ -37,23 +37,23 @@
     <div class="col">
       <div class="pma-box active">
         <div class="ETHclass">
-          <label class="dash_widget_title white"> ETH Balance </label
-          ><a class="gasAlert">
+          <label class="dash_widget_title white"> ETH Balance </label>
+          <a class="gasAlert">
             <div class="GasAlertBodywhite">Your ETH Balance</div>
             <img class="curPoint" src="assets/images/Info_Grey.png" />
           </a>
           <a *ngIf="gasBalance <= 0.01" class="gasAlert">
             <div class="GasAlertBody">
-              Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing
-              Model contracts, the payment will fail
+              Your ETH Balance balance is very low. If you don't have ETH when a customer scans and confirms your
+              Billing Model contracts, the payment will fail
             </div>
             <img class="warn" src="assets/images/warning-sign.png" />
           </a>
           <div class="row col-xs-12 col-sm-12 cols-md-12">
             <div class="cols-md-8">
               <p>
-                <span class="bold white">{{ gasBalance ? gasBalance : '0.00' }}</span
-                ><span class="small">{{ gasCurrency ? gasCurrency : 'ETH' }}</span>
+                <span class="bold white">{{ gasBalance ? gasBalance : '0.00' }}</span>
+                <span class="small">{{ gasCurrency ? gasCurrency : 'ETH' }}</span>
               </p>
               <span class="min_small white">${{ usdGasBalance ? usdGasBalance : '0.00' }}</span>
             </div>

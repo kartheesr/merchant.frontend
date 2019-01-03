@@ -101,7 +101,7 @@
                     <td class="value-td">{{ model.SingleETH ? model.SingleETH : 0.0 }}</td>
                   </tr>
                   <tr>
-                    <td class="userId">Transfers from <br />PullPayment Account to Treasury</td>
+                    <td class="userId">Transfers from <br />Transferred Accounts to Treasury</td>
                     <td class="value-td">{{ TransRecurrence ? TransRecurrence : 0 }}</td>
                     <td class="value-td">{{ model.Transfergas ? model.Transfergas : '0.0' }}</td>
                     <td class="value-td">{{ model.TransferETH ? model.TransferETH : 0.0 }}</td>
@@ -372,7 +372,7 @@
                     <td class="value-td">{{ data.TotalCost ? data.TotalCost : TotalCost }}</td>
                   </tr>
                   <tr>
-                    <td class="userId">Transfers from <br />PullPayment Account to Treasury</td>
+                    <td class="userId">Transfers from <br />Transferred Accounts to Treasury</td>
                     <td class="value-td">{{ data.TransRecurrence ? data.TransRecurrence : TransRecurrence }}</td>
                     <td class="value-td">{{ Transfergas ? Transfergas : '0.0' }}</td>
                     <td class="value-td">
@@ -658,7 +658,7 @@
                   <tr>
                     <td class="userId">
                       Transfers from <br />
-                      PullPayment Account to Treasury
+                      Transferred Accounts to Treasury
                     </td>
                     <td class="value-td">{{ data.PullRecurrence ? data.PullRecurrence : PullRecurrence }}</td>
                     <td class="value-td">{{ Transfergas ? Transfergas : '0.0' }}</td>

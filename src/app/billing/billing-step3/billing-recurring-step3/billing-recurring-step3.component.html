@@ -29,7 +29,7 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ ': \': \': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [ngClass]="{ 'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
@@ -58,7 +58,7 @@
                       #NoOfRecuurence1="ngModel"
                       (input)="handlechangedays()"
                       [ngClass]="{
-                        ': \': \': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -71,7 +71,7 @@
                       #Period1="ngModel"
                       (change)="handlechangecalculate(Period1)"
                       [ngClass]="{
-                        ': \': \': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
@@ -103,7 +103,7 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        ': \': \': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
                       [min]="2"
                       min="2"
@@ -174,7 +174,7 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        ': \': \': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -187,7 +187,7 @@
                       #Period2="ngModel"
                       (change)="handlechangetrailperiods(Period2)"
                       [ngClass]="{
-                        ': \': \': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
@@ -207,12 +207,9 @@
             <!-- <img src="assets/images/Step3-Recurring.png" class="singleimg" /> -->
             <div class="mobileImg">
               <div class="textBody">
-                <label *ngIf="data.productName" class="dynamicData">{{ data.productName }}</label
-                ><br />
-                <label *ngIf="data.billingModelName" class="dynamicData2">{{ data.billingModelName }}</label
-                ><br />
-                <label *ngIf="data.billModelDes" class="dynamicData3">{{ data.billModelDes }}</label
-                ><br />
+                <label *ngIf="data.productName" class="dynamicData">{{ data.productName }}</label> <br />
+                <label *ngIf="data.billingModelName" class="dynamicData2">{{ data.billingModelName }}</label> <br />
+                <label *ngIf="data.billModelDes" class="dynamicData3">{{ data.billModelDes }}</label> <br />
                 <div class="data-info">
                   <table>
                     <tr>

@@ -4,8 +4,7 @@
     <div class="bm-main flex-center-center">
       <div class="noBilling">
         <img src="assets/images/billing-img.png" class="billingImg" width="120" />
-        <button href="" routerLink="/pullpayments/step1">
-          <img src="assets/images/plus.svg" /> BILLING MODEL</button>
+        <button href="" routerLink="/pullpayments/step1"><img src="assets/images/plus.svg" /> BILLING MODEL</button>
       </div>
     </div>
   </div>
@@ -20,17 +19,16 @@
             <a class="billingAlert">
               <img height="16" src="assets/images/warning-sign.png" />
               <div class="BillingAlertBody">
-                Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing Model contracts,the
-                payment will fail
+                Your ETH Balance balance is very low. If you don't have ETH when a customer scans and confirms your
+                Billing Model contracts,the payment will fail
               </div>
             </a>
-            <a (click)="open(QRPopup)" class="alertTag"> Send ETH to your Gas Wallet first</a>
+            <a (click)="open(QRPopup)" class="alertTag"> Send ETH to your ETH Balance first</a>
           </label>
         </div>
         <div class="alertbilling">
           <!-- <div> -->
-          <div *ngIf="gasBalance <= 0.01">
-          </div>
+          <div *ngIf="gasBalance <= 0.01"></div>
           <div class="col text-right">
             <button href="" (click)="new()" routerLink="/pullpayments/step1">
               <img src="assets/images/plus.svg" /> NEW
@@ -62,21 +60,22 @@
                 <div (click)="onClick(array.id)" [ngClass]="{ 'billingBox active col-md-12': array.typeID == 2 }">
                   <div (click)="onClick(array.id)" [ngClass]="{ 'billingBox active1 col-md-12': array.typeID == 3 }">
                     <div (click)="onClick(array.id)" [ngClass]="{ 'billingBox active1 col-md-12': array.typeID == 5 }">
-                      <div (click)="onClick(array.id)" [ngClass]="{ 'billingBox active2 col-md-12': array.typeID == 6 }">
+                      <div
+                        (click)="onClick(array.id)"
+                        [ngClass]="{ 'billingBox active2 col-md-12': array.typeID == 6 }"
+                      >
                         <div class="boxHead col-md-12"></div>
                         <div class="boxCont row">
                           <div class="pad-l-20 col-md-12">
                             <p class="number">{{ array.title }}</p>
                             <div style="height:58px;">
                               <div class="LinkTag">
-                                <a *ngIf="array.typeID == 2" class="single_sec">
-                                  <label></label>
-                                  <label></label>
-                                </a>
+                                <a *ngIf="array.typeID == 2" class="single_sec"> <label></label> <label></label> </a>
                                 <a *ngIf="array.typeID == 3" class="sub_sec">
                                   <label>Every </label>
                                   <span *ngIf="array.data.years != ''">
-                                    {{ array.data.years }} {{ array.data.years == 1 ? ' year ' : 'years ' }}</span>
+                                    {{ array.data.years }} {{ array.data.years == 1 ? ' year ' : 'years ' }}</span
+                                  >
                                   <span *ngIf="array.data.months != ''">
                                     {{ array.data.months }} {{ array.data.months == 1 ? ' month ' : 'months ' }}
                                   </span>
@@ -91,7 +90,8 @@
                                 <a *ngIf="array.typeID == 5">
                                   <label>Every </label>
                                   <span *ngIf="array.data.years != ''">
-                                    {{ array.data.years }} {{ array.data.years == 1 ? ' year ' : 'years ' }}</span>
+                                    {{ array.data.years }} {{ array.data.years == 1 ? ' year ' : 'years ' }}</span
+                                  >
                                   <span *ngIf="array.data.months != ''">
                                     {{ array.data.months }} {{ array.data.months == 1 ? ' month ' : 'months ' }}
                                   </span>
@@ -106,7 +106,8 @@
                                 <a *ngIf="array.typeID == 6" class="single_sub">
                                   <label>Every </label>
                                   <span *ngIf="array.data.years != ''">
-                                    {{ array.data.years }} {{ array.data.years == 1 ? ' year ' : 'years ' }}</span>
+                                    {{ array.data.years }} {{ array.data.years == 1 ? ' year ' : 'years ' }}</span
+                                  >
                                   <span *ngIf="array.data.months != ''">
                                     {{ array.data.months }} {{ array.data.months == 1 ? ' month ' : 'months ' }}
                                   </span>
@@ -118,8 +119,9 @@
                                   </span>
                                   <label>for</label>
                                 </a>
-                                <label *ngIf="array.typeID != 2">&nbsp;{{ array.numberOfPayments }} {{ array.numberOfPayments == 1 ? 'Subscription' : 'Subscriptions'
-                                  }}
+                                <label *ngIf="array.typeID != 2"
+                                  >&nbsp;{{ array.numberOfPayments }}
+                                  {{ array.numberOfPayments == 1 ? 'Subscription' : 'Subscriptions' }}
                                 </label>
                               </div>
                               <div class="trialPeriod-sub">
@@ -127,12 +129,16 @@
                                   <span> Free trial period </span>
                                   <b>
                                     <span *ngIf="array.data1.year != ''">
-                                      {{ array.data1.year }} {{ array.data1.year == 1 ? ' year ' : ' years ' }}</span>
-                                    <span *ngIf="array.data1.month != ''">{{ array.data1.month }}{{ array.data1.month == 1 ? ' month' : ' months ' }}
+                                      {{ array.data1.year }} {{ array.data1.year == 1 ? ' year ' : ' years ' }}</span
+                                    >
+                                    <span *ngIf="array.data1.month != ''"
+                                      >{{ array.data1.month }}{{ array.data1.month == 1 ? ' month' : ' months ' }}
                                     </span>
-                                    <span *ngIf="array.data1.week != ''">{{ array.data1.week }}{{ array.data1.week == 1 ? ' week ' : ' weeks ' }}
+                                    <span *ngIf="array.data1.week != ''"
+                                      >{{ array.data1.week }}{{ array.data1.week == 1 ? ' week ' : ' weeks ' }}
                                     </span>
-                                    <span *ngIf="array.data1.day != ''">{{ array.data1.day }}{{ array.data1.day == 1 ? ' day ' : ' days ' }}
+                                    <span *ngIf="array.data1.day != ''"
+                                      >{{ array.data1.day }}{{ array.data1.day == 1 ? ' day ' : ' days ' }}
                                     </span>
                                   </b>
                                 </div>
@@ -140,7 +146,8 @@
                                   <span *ngIf="array.typeID == 6"> Initial trial period </span>
                                   <b>
                                     <span *ngIf="array.data1.year != ''">
-                                      {{ array.data1.year }}{{ array.data1.year == 1 ? ' year' : ' years' }}</span>
+                                      {{ array.data1.year }}{{ array.data1.year == 1 ? ' year' : ' years' }}</span
+                                    >
                                     <span *ngIf="array.data1.month != ''">
                                       {{ array.data1.month }} {{ array.data1.month == 1 ? ' month ' : ' months ' }}
                                     </span>
@@ -159,40 +166,50 @@
                             <div class="new" *ngIf="array.typeID == 2">
                               <fieldset class="scheduler-border">
                                 <legend class="scheduler-border">SINGLE CHARGE</legend>
-                                <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                                <label class="labelcolor"
+                                  >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
+                                >
                               </fieldset>
                             </div>
                             <div class="new2" *ngIf="array.typeID == 3">
                               <fieldset class="scheduler-border">
                                 <legend class="scheduler-border">SUBSCRIPTION CHARGE</legend>
-                                <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                                <label class="labelcolor"
+                                  >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
+                                >
                               </fieldset>
                             </div>
                             <div class="new3" *ngIf="array.typeID == 5">
                               <fieldset class="scheduler-border">
                                 <legend class="scheduler-border">SUBSCRIPTION CHARGE</legend>
-                                <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                                <label class="labelcolor"
+                                  >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
+                                >
                               </fieldset>
                             </div>
                             <div class="new" *ngIf="array.typeID == 6">
                               <fieldset class="scheduler-border">
                                 <legend class="scheduler-border">SUBSCRIPTION CHARGE</legend>
-                                <label class="labelcolor">{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label>
+                                <label class="labelcolor"
+                                  >{{ array.currency | CustomeCurrency }}{{ array.amount / 100 }}</label
+                                >
                               </fieldset>
                             </div>
                             <div class="extra_box">
                               <div class="new1" *ngIf="array.typeID == 6">
                                 <fieldset class="scheduler-border">
                                   <legend class="scheduler-border">INITIAL CHARGE</legend>
-                                  <label class="intialvalue">{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label>
+                                  <label class="intialvalue"
+                                    >{{ array.currency | CustomeCurrency }}{{ array.initialPaymentAmount / 100 }}</label
+                                  >
                                 </fieldset>
                               </div>
                             </div>
                           </div>
                         </div>
                         <hr />
-                        <em class="Footergas">Est. gas cost/customer:
-                          <b>${{ array.data.gascost }}</b>
+                        <em class="Footergas"
+                          >Est. gas cost/customer: <b>${{ array.data.gascost }}</b>
                         </em>
                       </div>
                     </div>
@@ -209,23 +226,18 @@
   </div>
   <ng-template #QRPopup let-c="close" let-d="dismiss">
     <div class="modelSize2">
-      <div class="closeBtn" (click)="d()">
-        <img src="assets/images/Close-Btn.svg" />
-      </div>
+      <div class="closeBtn" (click)="d()"><img src="assets/images/Close-Btn.svg" /></div>
       <div class="row">
         <div class="col-xs-12 col-sm-12 cols-md-12">
-          <label>Scan the QR code to Send eth to your gas wallet</label>
+          <label>Scan the QR code to Send eth to your ETH Balance</label>
         </div>
         <div class="col-xs-12 col-sm-4 cols-md-4 QRCodeClass">
-          <div class="qrCont">
-            <ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode>
-          </div>
+          <div class="qrCont"><ngx-qrcode [(qrc-value)]="value"> </ngx-qrcode></div>
         </div>
         <div class="col-xs-12 col-sm-8 cols-md-8">
           <div class="qrContents">
             <p>
-              <span>You need to always fund your Gas wallet with ETH to pay for your gas fees.</span>
-              <br />
+              <span>You need to always fund your ETH Balance with ETH to pay for your gas fees.</span> <br />
               <span>Gas fees are used to execute any transaction over the Ethereum network.</span>
               <span>You will be unable to accept new subscriptions or execute any transfers without enough ETH.</span>
             </p>

@@ -9,11 +9,11 @@
             type="text"
             class="productInput"
             name="productName"
-            placeholder=""
+            placeholder="Product Name"
             [(ngModel)]="model.productName"
             #productName="ngModel"
             [ngClass]="{
-              'lid\': \': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+              'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength
             }"
             required
             minlength="2"
@@ -37,7 +37,7 @@
             [(ngModel)]="model.billingModelName"
             #billingModelName="ngModel"
             [ngClass]="{
-              'lid\': \': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+              'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
             }"
             required
             minlength="2"
@@ -62,7 +62,7 @@
             [(ngModel)]="model.billModelDes"
             #billModelDes="ngModel"
             [ngClass]="{
-              'lid\': \': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+              'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
             }"
             required
             minlength="2"
@@ -86,12 +86,9 @@
       <div class="mobileImg">
         <!-- <img src="assets/images/Blank_Mobile.png" class="mobile" /> -->
         <div class="textBody">
-          <label *ngIf="productName.value" class="dynamicData">{{ productName.value }}</label
-          ><br />
-          <label *ngIf="billingModelName.value" class="dynamicData2">{{ billingModelName.value }}</label
-          ><br />
-          <label *ngIf="billModelDes.value" class="dynamicData3">{{ billModelDes.value }}</label
-          ><br />
+          <label *ngIf="productName.value" class="dynamicData">{{ productName.value }}</label> <br />
+          <label *ngIf="billingModelName.value" class="dynamicData2">{{ billingModelName.value }}</label> <br />
+          <label *ngIf="billModelDes.value" class="dynamicData3">{{ billModelDes.value }}</label> <br />
         </div>
         <!-- <Label class="dynamicData">BillingModelName</Label> -->
       </div>

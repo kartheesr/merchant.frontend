@@ -78,16 +78,16 @@ export class BillingHybirdStep4Component implements OnInit {
         value: 2
       }
     ];
-    
+
     this.Step1data = this.service1.model;
     this.Step2data = this.service2.model;
     this.Step3data = this.service3.model;
     console.log(this.Step3data);
-    if(this.Step3data.Recurringdays=="indefinite"){
+    if (this.Step3data.Recurringdays == 'indefinite') {
       this.model.transactions = this.transcationoption[0].label;
       this.showInputRecurrence = true;
       this.showTable = false;
-    }else {
+    } else {
       this.model.transactions = this.transcationoption[1].label;
       this.showInputRecurrence = false;
       this.showTable = true;
@@ -100,7 +100,7 @@ export class BillingHybirdStep4Component implements OnInit {
       initialPaymentAmount: this.Step3data.price,
       trialPeriod: this.Step3data.billingdaycount,
       currency: this.Step3data.Currency,
-      numberOfPayments: (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays),
+      numberOfPayments: this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays,
       typeID: 6,
       frequency: this.Step3data.daycount,
       networkID: 3,
@@ -125,6 +125,7 @@ export class BillingHybirdStep4Component implements OnInit {
   }
   publish() {
     this.service4.billingPost(this.data).subscribe(result => {
+      console.log('hybird', result);
       if (result.success == true) {
         localStorage.setItem('publishId', result.data.id);
         this.router.navigate(['./billing/billingmodeloverview']);
@@ -149,9 +150,13 @@ export class BillingHybirdStep4Component implements OnInit {
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');
       let valUSD = this.model.initialRecurrence * this.model.RecurrenceUSD;
       this.model.initialUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
-      let sample = this.model.recurrencegas * (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      let sample =
+        this.model.recurrencegas *
+        (this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays);
       this.model.RecurrenceETH = sample.toFixed(5).replace(/0+$/, '');
-      let sampleUSD = this.model.RecurrenceUSD * (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      let sampleUSD =
+        this.model.RecurrenceUSD *
+        (this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays);
       this.model.RecurrenceETHUSD = parseFloat(sampleUSD.toFixed(2).replace(/0+$/, ''));
       let cost = this.model.PullRecurrence * this.model.Transfergas;
       this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
@@ -176,9 +181,13 @@ export class BillingHybirdStep4Component implements OnInit {
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');
       let valUSD = this.model.initialRecurrence * this.model.RecurrenceUSD;
       this.model.initialUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
-      let sample = this.model.recurrencegas * (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      let sample =
+        this.model.recurrencegas *
+        (this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays);
       this.model.RecurrenceETH = sample.toFixed(5).replace(/0+$/, '');
-      let sampleUSD = this.model.RecurrenceUSD * (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      let sampleUSD =
+        this.model.RecurrenceUSD *
+        (this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays);
       this.model.RecurrenceETHUSD = parseFloat(sampleUSD.toFixed(2).replace(/0+$/, ''));
       let cost = this.model.PullRecurrence * this.model.Transfergas;
       this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
@@ -196,14 +205,19 @@ export class BillingHybirdStep4Component implements OnInit {
       this.disabledBtn = false;
       this.data.automatedCashOut = true;
       this.data.cashOutFrequency = 1;
-      this.model.PullRecurrence = (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      this.model.PullRecurrence =
+        this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays;
       let val = this.model.initialRecurrence * this.model.recurrencegas;
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');
       let valUSD = this.model.initialRecurrence * this.model.RecurrenceUSD;
       this.model.initialUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
-      let sample = this.model.recurrencegas * (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      let sample =
+        this.model.recurrencegas *
+        (this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays);
       this.model.RecurrenceETH = sample.toFixed(5).replace(/0+$/, '');
-      let sampleUSD = this.model.RecurrenceUSD * (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      let sampleUSD =
+        this.model.RecurrenceUSD *
+        (this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays);
       this.model.RecurrenceETHUSD = parseFloat(sampleUSD.toFixed(2).replace(/0+$/, ''));
       let cost = this.model.PullRecurrence * this.model.Transfergas;
       this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
@@ -224,9 +238,13 @@ export class BillingHybirdStep4Component implements OnInit {
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');
       let valUSD = this.model.initialRecurrence * this.model.RecurrenceUSD;
       this.model.initialUSD = parseFloat(valUSD.toFixed(2).replace(/0+$/, ''));
-      let sample = this.model.recurrencegas * (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      let sample =
+        this.model.recurrencegas *
+        (this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays);
       this.model.RecurrenceETH = sample.toFixed(5).replace(/0+$/, '');
-      let sampleUSD = this.model.RecurrenceUSD * (this.Step3data.Recurringdays == "indefinite"? this.recurrence : this.Step3data.Recurringdays);
+      let sampleUSD =
+        this.model.RecurrenceUSD *
+        (this.Step3data.Recurringdays == 'indefinite' ? this.recurrence : this.Step3data.Recurringdays);
       this.model.RecurrenceETHUSD = parseFloat(sampleUSD.toFixed(2).replace(/0+$/, ''));
       let cost = this.model.PullRecurrence * this.model.Transfergas;
       this.model.PullRecurrencecost = cost.toFixed(5).replace(/0+$/, '');
@@ -242,10 +260,10 @@ export class BillingHybirdStep4Component implements OnInit {
     }
   }
 
-  noOfRecurrence(){
+  noOfRecurrence() {
     console.log(this.recurrence);
     this.showNoOfRecurrence = true;
     this.showInputRecurrence = false;
-    this.showTable = true;  
+    this.showTable = true;
   }
 }

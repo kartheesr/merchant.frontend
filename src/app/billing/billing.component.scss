@@ -411,7 +411,21 @@ legend.scheduler-border {
   margin: 0px 5px;
 }
 /*** Scroll Bar Style ***/
+@media (min-width: 1366px) {
+  .billingModelContainer .bm-main .billingBoxCont {
+    height: 590px !important;
+  }
+}
+@media (min-width: 1440px) {
+  .billingModelContainer .bm-main .billingBoxCont {
+    height: 720px !important;
+  }
+}
+
 @media (min-width: 1920px) {
+  .billingModelContainer .bm-main .billingBoxCont {
+    height: 900px !important;
+  }
   .billingBox {
     height: 275px !important;
     width: 245px !important;
@@ -545,7 +559,6 @@ fieldset label {
 }
 .billingModelContainer .bm-main .billingBoxCont {
   overflow-y: scroll !important;
-  // height: calc(100% - 100px)!important ;
   height: 470px;
 }
 .new1 legend.scheduler-border {

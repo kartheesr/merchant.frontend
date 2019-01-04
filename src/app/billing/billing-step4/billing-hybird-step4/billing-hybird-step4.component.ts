@@ -22,7 +22,7 @@ export class BillingHybirdStep4Component implements OnInit {
   getputdata: any = {};
   public model: any = {};
   public transcationoption: any;
-  public disabledBtn: boolean = false;
+  public disabledBtn: boolean = true;
   public automatedCashOut: boolean = false;
   public showNoOfRecurrence: boolean = false;
   public showInputRecurrence: boolean = false;

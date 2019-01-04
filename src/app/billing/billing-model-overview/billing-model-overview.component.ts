@@ -188,7 +188,6 @@ export class BillingModelOverviewComponent implements OnInit {
       this.nextlist = '>';
       result.data.map((value, index) => {
         this.dashboardService.getvalue(value.from, value.blockNumber).subscribe(res => {
-          console.log(res);
           if (res.status != 0) this.singletable.push(res.result[0]);
         });
         setTimeout(() => {
@@ -238,10 +237,9 @@ export class BillingModelOverviewComponent implements OnInit {
         this.billingService.gasusdvalue().subscribe(result => {
           this.usd = result.data.USD;
           this.model.USDValue = result.data.USD;
-          console.log('Usd: ', this.usd);
-          console.log('the amount', this.amount);
+
           this.pmaValue = this.usd * this.amount;
-          console.log('pma Value new:', this.pmaValue);
+
           this.billingService.gasrecurrence().subscribe(result => {
             let val = result.data * 0.00000001;
             this.model.recurrencegas = val.toFixed(5).replace(/0+$/, '');
@@ -257,9 +255,6 @@ export class BillingModelOverviewComponent implements OnInit {
         this.description = 'Single';
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
-
-        console.log('this.usd11', this.usd);
-        console.log('pma valud:', this.pmaValue);
         this.currency = result.data.currency;
         if (this.currency == 'USD') this.currencySymbol = '$';
         else if (this.currency == 'EUR') this.currencySymbol = '€';
@@ -375,7 +370,6 @@ export class BillingModelOverviewComponent implements OnInit {
       this.EtherValue = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
       let USD = this.model.SingleUSD + this.model.TransferUSD;
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
-      console.log('single', this.model.TotalUSD);
     });
   }
   gasValueCalculationSubscrption() {
@@ -397,7 +391,6 @@ export class BillingModelOverviewComponent implements OnInit {
       this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       let USD = this.model.TotalUSDCost + this.model.TotalcostRecuurenceUSD;
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
-      console.log(this.model.TotalUSD);
     });
   }
   gasValueCalculationSingleSubscrption() {
@@ -422,7 +415,6 @@ export class BillingModelOverviewComponent implements OnInit {
       this.TotalETH = Total.toFixed(5).replace(/0+$/, '');
       let USD = this.model.initialUSD + this.model.RecurrenceETHUSD + this.model.PullRecurrencecostUSD;
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
-      console.log(this.model.TotalUSD);
     });
   }
   getdecimal() {

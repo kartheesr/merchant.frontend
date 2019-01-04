@@ -13,7 +13,7 @@
             [(ngModel)]="model.productName"
             #productName="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+              'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength
             }"
             required
             minlength="2"
@@ -37,7 +37,7 @@
             [(ngModel)]="model.billingModelName"
             #billingModelName="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+              'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
             }"
             required
             minlength="2"
@@ -62,7 +62,7 @@
             [(ngModel)]="model.billModelDes"
             #billModelDes="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+              'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
             }"
             required
             minlength="2"
@@ -87,17 +87,18 @@
         <!-- <img src="assets/images/Blank_Mobile.png" class="mobile" /> -->
         <div class="textBody">
           <label class="dynamicData">{{ productName.value ? productName.value : 'Product name' }}</label> <br />
-          <label class="dynamicData2">{{
-            billingModelName.value ? billingModelName.value : 'Billing Model name'
-          }}</label>
+          <label class="dynamicData2"
+            >{{ billingModelName.value ? billingModelName.value : 'Billing Model name' }}
+          </label>
           <br />
-          <label class="dynamicData3">{{
-            billModelDes.value
-              ? billModelDes.value
-              : 'Billing
-            Model description.
-            Explain briefly what your Billing Model offers'
-          }}</label>
+          <label class="dynamicData3"
+            >{{
+              billModelDes.value
+                ? billModelDes.value
+                : 'Billing Model description. Explain briefly what your Billing Model
+            offers'
+            }}
+          </label>
           <br />
         </div>
         <!-- <Label class="dynamicData">BillingModelName</Label> -->

@@ -29,7 +29,7 @@
                   [(ngModel)]="model.price"
                   #price="ngModel"
                   required
-                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
+                  [ngClass]="{ 'lid\': \': ': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
@@ -54,7 +54,7 @@
                   [(ngModel)]="model.days"
                   #days="ngModel"
                   required
-                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
+                  [ngClass]="{ 'lid\': \': ': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   appBlockCopyPaste
                   (input)="handlechangestartdays()"
@@ -107,7 +107,7 @@
                   #Periodprice="ngModel"
                   required
                   [ngClass]="{
-                    'invalid\': ': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
+                    'lid\': \': ': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
                   }"
                   [gt]="0"
                   maxlength="17"
@@ -138,7 +138,7 @@
                   required
                   (input)="handlechangedayscycle()"
                   [ngClass]="{
-                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'lid\': \': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   appBlockCopyPaste
@@ -152,7 +152,7 @@
                   required
                   (change)="handlechangecalculatecycle(billingcalendar)"
                   [ngClass]="{
-                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'lid\': \': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
                 >
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
@@ -195,19 +195,21 @@
                 <div *ngIf="hideerror"><div class="aligntxt">Subscription must be larger than or equal to 2</div></div>
                 <div class="notifyMsg1" *ngIf="Recurringdays.errors?.min">Needs to be more than 0</div>
               </div>
-              <div>
-                <label class="container"
-                  >Indefinite
-                  <input
-                    type="checkbox"
-                    name="checkbox"
-                    [(ngModel)]="indefinite"
-                    (click)="checkbox()"
-                    #Indef="ngModel"
-                  />
-                  <span type="checkbox" class="checkmark"></span>
-                </label>
-              </div>
+              <!--
+                <div>
+                  <label class="container"
+                    >Indefinite
+                    <input
+                      type="checkbox"
+                      name="checkbox"
+                      [(ngModel)]="indefinite"
+                      (click)="checkbox()"
+                      #Indef="ngModel"
+                    />
+                    <span type="checkbox" class="checkmark"></span>
+                  </label>
+                </div>
+              -->
             </div>
           </div>
 
@@ -261,7 +263,7 @@
                     <hr />
                     <tr>
                       <td><img class="img-size" src="assets/images/cycle.svg" /></td>
-                      <td>Recurrences: {{ Indef.value == true ? 0 : Recurringdays.value }}</td>
+                      <td>Recurrences: {{ Recurringdays.value }}</td>
                     </tr>
                   </table>
                 </div>

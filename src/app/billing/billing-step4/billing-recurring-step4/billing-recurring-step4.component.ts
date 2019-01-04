@@ -22,7 +22,7 @@ export class BillingRecurringStep4Component implements OnInit {
   public model: any = {};
   public recurrence;
   public transcationoption: any;
-  public disabledBtn: boolean = true;
+  public disabledBtn: boolean = false;
   public automatedCashOut: boolean = false;
   public showNoOfRecurrence: boolean = false;
   public showInputRecurrence: boolean = false;
@@ -160,7 +160,6 @@ export class BillingRecurringStep4Component implements OnInit {
   }
   handleChangetransactions(data) {
     if (data.value == 'Once at the end of contract') {
-      this.disabledBtn = false;
       this.data.automatedCashOut = false;
       this.data.cashOutFrequency = 0;
       let sample = this.model.recurrencegas * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
@@ -177,8 +176,8 @@ export class BillingRecurringStep4Component implements OnInit {
       let USD = this.model.TotalUSDCost + this.model.TotalcostRecuurenceUSD;
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
       this.service4.setValues(this.model);
+      this.disabledBtn = true;
     } else if (data.value == 'On every billing cycle') {
-      this.disabledBtn = false;
       this.data.automatedCashOut = true;
       this.data.cashOutFrequency = 1;
       // this.model.TransRecurrence = this.data3.No2;
@@ -196,8 +195,9 @@ export class BillingRecurringStep4Component implements OnInit {
       let USD = this.model.TotalUSDCost + this.model.TotalcostRecuurenceUSD;
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
       this.service4.setValues(this.model);
-    } else {
       this.disabledBtn = true;
+    } else {
+      this.disabledBtn = false;
       let sample = this.model.recurrencegas * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);
       this.model.TotalCost = sample.toFixed(5).replace(/0+$/, '');
       let USDCost = this.model.RecurrenceUSD * (this.data3.No2 == 'indefinite' ? this.recurrence : this.data3.No2);

@@ -22,7 +22,7 @@ export class BillingHybirdStep4Component implements OnInit {
   getputdata: any = {};
   public model: any = {};
   public transcationoption: any;
-  public disabledBtn: boolean = true;
+  public disabledBtn: boolean = false;
   public automatedCashOut: boolean = false;
   public showNoOfRecurrence: boolean = false;
   public showInputRecurrence: boolean = false;
@@ -173,7 +173,7 @@ export class BillingHybirdStep4Component implements OnInit {
   }
   handleChangetransactions(data) {
     if (data.value == 'Once at the end of contract') {
-      this.disabledBtn = false;
+      this.disabledBtn = true;
       this.data.automatedCashOut = false;
       this.data.cashOutFrequency = 0;
       this.model.PullRecurrence = 1;
@@ -202,7 +202,7 @@ export class BillingHybirdStep4Component implements OnInit {
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
       this.service4.setValues(this.model);
     } else if (data.value == 'On every billing cycle') {
-      this.disabledBtn = false;
+      this.disabledBtn = true;
       this.data.automatedCashOut = true;
       this.data.cashOutFrequency = 1;
       this.model.PullRecurrence =
@@ -232,7 +232,7 @@ export class BillingHybirdStep4Component implements OnInit {
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
       this.service4.setValues(this.model);
     } else {
-      this.disabledBtn = true;
+      this.disabledBtn = false;
       this.model.PullRecurrence = 1;
       let val = this.model.initialRecurrence * this.model.recurrencegas;
       this.model.initialETH = val.toFixed(5).replace(/0+$/, '');

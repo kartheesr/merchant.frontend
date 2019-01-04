@@ -53,13 +53,13 @@ export class BillingHybridStep3Component implements OnInit {
         label: 'JPY',
         value: 3,
         name: '¥'
-      },
-      {
-        id: 5,
-        label: 'KRW',
-        value: 4,
-        name: '₩'
       }
+      // {
+      //   id: 5,
+      //   label: 'KRW',
+      //   value: 4,
+      //   name: '₩'
+      // }
     ];
     this.calendarlist = [
       {
@@ -169,13 +169,14 @@ export class BillingHybridStep3Component implements OnInit {
     } else if (data.value == 'GBP') {
       this.Placeholdername = '£0.00';
       this.model.PeriodCurrency = this.model.Currency;
-    } else if (data.value == 'JPY') {
+    } else {
       this.Placeholdername = '¥0.00';
       this.model.PeriodCurrency = this.model.Currency;
-    } else {
-      this.Placeholdername = '₩0.00';
-      this.model.PeriodCurrency = this.model.Currency;
     }
+    //  else {
+    //   this.Placeholdername = '₩0.00';
+    //   this.model.PeriodCurrency = this.model.Currency;
+    // }
   }
   handlecurrency(data) {
     this.ApiService.getPMA(data.value).subscribe(result => {

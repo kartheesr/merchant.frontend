@@ -47,15 +47,15 @@ export class BillingRecurringStep3Component implements OnInit {
       {
         id: 4,
         label: 'JPY',
-        value: 3,
-        name: '¥'
-      },
-      {
-        id: 5,
-        label: 'KRW',
         value: 4,
-        name: '₩'
+        name: '¥'
       }
+      // {
+      //   id: 5,
+      //   label: 'KRW',
+      //   value: 4,
+      //   name: '₩'
+      // }
     ];
     this.recurrenceOption = [
       {

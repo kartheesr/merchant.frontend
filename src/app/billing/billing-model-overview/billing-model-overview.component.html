@@ -929,7 +929,7 @@
             <tbody>
               <tr>
                 <td><img class="img-size" src="assets/images/amount.svg" /></td>
-                <td>Amount: {{ currency | CustomeCurrency }} {{ amount }} PMA</td>
+                <td>Amount: {{ currency | CustomeCurrency }} {{ pmaValue }} PMA</td>
               </tr>
 
               <tr>
@@ -992,7 +992,7 @@
             <tbody>
               <tr>
                 <td><img class="img-size" src="assets/images/amount.svg" /></td>
-                <td>Amount: {{ currency | CustomeCurrency }} {{ amount }} PMA</td>
+                <td>Amount: {{ currency | CustomeCurrency }} {{ pmaValue }} PMA</td>
               </tr>
               <tr *ngIf="trialPeriod != 0">
                 <td><img class="img-size" src="assets/images/period.svg" /></td>
@@ -1090,12 +1090,12 @@
             <tbody>
               <tr>
                 <td><img class="img-size" src="assets/images/initial.svg" /></td>
-                <td>Initial: {{ currency | CustomeCurrency }} {{ initalamount }} PMA</td>
+                <td>Initial: {{ currency | CustomeCurrency }} {{ initialUSD }} PMA</td>
               </tr>
 
               <tr>
                 <td><img class="img-size" src="assets/images/amount.svg" /></td>
-                <td>Amount: {{ currency | CustomeCurrency }}{{ amount }} PMA</td>
+                <td>Amount: {{ currency | CustomeCurrency }}{{ pmaValue }} PMA</td>
               </tr>
 
               <tr>

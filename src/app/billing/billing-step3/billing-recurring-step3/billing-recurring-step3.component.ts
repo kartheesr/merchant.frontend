@@ -172,22 +172,22 @@ export class BillingRecurringStep3Component implements OnInit {
   }
   handlechangetrailperiods(data) {
     if (data.value == 'Days') {
-      let val = this.model.No3;
+      let val = this.model.NoOfRecuurence3;
       this.model.trialdaycount = val * 24 * 60 * 60;
     } else if (data.value == 'Weeks') {
-      let val = this.model.No3 * 7;
+      let val = this.model.NoOfRecuurence3 * 7;
       this.model.trialdaycount = val * 24 * 60 * 60;
     } else if (data.value == 'Months') {
-      let val = this.model.No3 * 30;
+      let val = this.model.NoOfRecuurence3 * 30;
       this.model.trialdaycount = val * 24 * 60 * 60;
     } else {
-      let val = this.model.No3 * 365;
+      let val = this.model.NoOfRecuurence3 * 365;
       this.model.trialdaycount = val * 24 * 60 * 60;
     }
   }
   handlechangetraildays() {
     if (this.model.Period2 == 'Days') {
-      let val = this.model.No3;
+      let val = this.model.NoOfRecuurence3;
       this.model.trialdaycount = val * 24 * 60 * 60;
     }
   }

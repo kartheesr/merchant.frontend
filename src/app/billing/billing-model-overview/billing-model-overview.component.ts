@@ -238,8 +238,6 @@ export class BillingModelOverviewComponent implements OnInit {
           this.usd = result.data.USD;
           this.model.USDValue = result.data.USD;
 
-          this.pmaValue = this.usd * this.amount;
-
           this.billingService.gasrecurrence().subscribe(result => {
             let val = result.data * 0.00000001;
             this.model.recurrencegas = val.toFixed(5).replace(/0+$/, '');
@@ -260,6 +258,10 @@ export class BillingModelOverviewComponent implements OnInit {
         else if (this.currency == 'EUR') this.currencySymbol = '€';
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
+        this.dashboardService.getPMA(this.currency).subscribe(result => {
+          console.log('thisPMSA', result);
+          this.pmaValue = this.amount * result.PMA;
+        });
         this.billingdescription = result.data.description;
 
         this.single = true;
@@ -270,12 +272,16 @@ export class BillingModelOverviewComponent implements OnInit {
         this.description = 'Recurring';
         this.title = result.data.title;
         this.amount = result.data.amount / 100;
-        this.pmaValue = this.usd * this.amount;
+
         this.currency = result.data.currency;
         if (this.currency == 'USD') this.currencySymbol = '$';
         else if (this.currency == 'EUR') this.currencySymbol = '€';
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
+        this.dashboardService.getPMA(this.currency).subscribe(result => {
+          console.log('thisPMSA', result);
+          this.pmaValue = this.amount * result.PMA;
+        });
         this.trialPeriod = result.data.trialPeriod / (24 * 3600);
         this.frequency = this.temp;
         this.billingdescription = result.data.description;
@@ -291,7 +297,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.billingService.gasusdvalue().subscribe(result => {
           this.model.USDValue = result.data.USD;
           this.usd = result.data.USD;
-          this.pmaValue = this.usd * this.amount;
+
           this.billingService.gasrecurrence().subscribe(result => {
             let val = result.data * 0.00000001;
             this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
@@ -313,9 +319,14 @@ export class BillingModelOverviewComponent implements OnInit {
         else if (this.currency == 'EUR') this.currencySymbol = '€';
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
+        this.initalamount = result.data.initialPaymentAmount / 100;
+        this.dashboardService.getPMA(this.currency).subscribe(result => {
+          console.log('thisPMSA', result);
+          this.pmaValue = this.amount * result.PMA;
+          this.initialUSD = result.PMA * this.initalamount;
+        });
         this.frequency = this.temp;
         this.trialPeriod = result.data.trialPeriod / (24 * 3600);
-        this.initalamount = result.data.initialPaymentAmount / 100;
 
         this.billingdescription = result.data.description;
         this.Recurrences = result.data.numberOfPayments;
@@ -333,8 +344,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.billingService.gasusdvalue().subscribe(result => {
           this.model.USDValue = result.data.USD;
           this.usd = result.data.USD;
-          this.initialUSD = this.usd * this.initalamount;
-          this.pmaValue = this.usd * this.amount;
+
           this.billingService.gasrecurrence().subscribe(result => {
             let val = result.data * 0.00000001;
             this.recurrencegas = val.toFixed(5).replace(/0+$/, '');
@@ -506,6 +516,8 @@ export class BillingModelOverviewComponent implements OnInit {
       '</svg></td><td>Amount: ' +
       this.currencySymbol +
       '&nbsp' +
+      this.amount +
+      ' - ' +
       this.pmaValue +
       ' PMA</td></tr><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="12">' +
@@ -586,6 +598,8 @@ export class BillingModelOverviewComponent implements OnInit {
       '</svg></td><td>Amount: ' +
       this.currencySymbol +
       '&nbsp' +
+      this.amount +
+      ' - ' +
       this.pmaValue +
       ' PMA</td></tr><tr id="trial" style="display:none;"  ><td><svg width="18" height="18" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="11">' +
@@ -730,6 +744,8 @@ export class BillingModelOverviewComponent implements OnInit {
       '</svg></td><td>Initial: ' +
       this.currencySymbol +
       '&nbsp' +
+      this.initalamount +
+      ' - ' +
       this.initialUSD +
       ' PMA</td></tr><tr><td><svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="12">' +
@@ -743,6 +759,8 @@ export class BillingModelOverviewComponent implements OnInit {
       '</td><td>Amount: ' +
       this.currencySymbol +
       '&nbsp' +
+      this.amount +
+      ' - ' +
       this.pmaValue +
       ' PMA</td></tr><tr><td><svg width="18" height="18" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<mask id="mask2" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="11">' +

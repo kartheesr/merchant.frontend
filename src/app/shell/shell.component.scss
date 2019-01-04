@@ -136,22 +136,33 @@
 @media (min-width: 769px) and (max-width: 991px) {
 }
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1199px) {
 }
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) and (max-width: 1400px) {
+@media (min-width: 1200px) and (max-width: 1399px) {
   .container {
     max-width: 96%;
+  }
+  .appContainer .mainContainer .sidebar ul.d-abs {
+    left: 3% !important;
   }
 }
 @media (min-width: 1400px) and (max-width: 1600px) {
   .container {
     max-width: 90%;
   }
+  .appContainer .mainContainer .sidebar ul.d-abs {
+    left: 6% !important;
+  }
 }
 @media (min-width: 1600px) {
   .container {
     max-width: 80%;
+  }
+}
+@media (min-width: 1601px) and (max-width: 1920px) {
+  .appContainer .mainContainer .sidebar ul.d-abs {
+    left: 10% !important;
   }
 }
 .link {

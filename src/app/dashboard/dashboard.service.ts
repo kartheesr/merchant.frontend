@@ -16,6 +16,7 @@ export class DashboardService {
   private gasactionUrl;
   public transcationurl;
   public getUsdUrl;
+  public getEthUsdUrl;
 
   constructor(private http: HttpClient) {
     this.pullpaymentURL2 = '&tag=latest&apikey=YourApiKeyToken';
@@ -27,6 +28,7 @@ export class DashboardService {
     this.gasactionUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/ether-Balance`;
     this.transcationurl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/hash`;
     this.getUsdUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/usd-value`;
+    this.getEthUsdUrl = `${Constants.apiHost}${Constants.apiPrefix}Dashboard/ETH-value`;
   }
 
   /**
@@ -163,6 +165,22 @@ export class DashboardService {
     let url = 'https://min-api.cryptocompare.com/data/price?fsym=' + currency + '&tsyms=PMA';
     console.log('PMA URL-->', url);
     return this.http.get(url).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
+  /**
+   * @method {get}
+   * @apiDescription Retrieve the PMA value for current Currency
+   * @transcationurl: /api/v2/Dashboard/ETH-value
+   *
+   *
+   * @methodName getEther
+   *
+   */
+  public getEther(): Observable<any> {
+    return this.http.get(this.getEthUsdUrl).pipe(
       map((response: HttpResponse) => {
         return response;
       })

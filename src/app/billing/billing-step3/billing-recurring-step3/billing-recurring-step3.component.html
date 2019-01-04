@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'lid\': \': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [ngClass]="{ 'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
@@ -59,7 +59,7 @@
                       #NoOfRecuurence1="ngModel"
                       (input)="handlechangedays()"
                       [ngClass]="{
-                        'lid\': \': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -72,7 +72,7 @@
                       #Period1="ngModel"
                       (change)="handlechangecalculate(Period1)"
                       [ngClass]="{
-                        'lid\': \': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
@@ -104,7 +104,7 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'lid\': \': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
                       [min]="2"
                       min="2"
@@ -177,7 +177,7 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        'lid\': \': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -190,7 +190,7 @@
                       #Period2="ngModel"
                       (change)="handlechangetrailperiods(Period2)"
                       [ngClass]="{
-                        'lid\': \': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"

@@ -284,6 +284,7 @@ li {
 .dash_widget_title {
   padding-right: 8px;
   padding-bottom: 25px;
+  font-family: "Noto Sans" !important;
 }
 .white {
   color: #ffffff;
@@ -291,7 +292,6 @@ li {
 .blue {
   color: #1e6af6;
 }
-
 .bold {
   font-size: 20px;
   font-weight: bold;
@@ -355,4 +355,7 @@ li {
 .imgModel {
   width: 41px;
   margin-bottom: 2px;
+}
+.alignImg {
+  padding-left: 20px;
 }

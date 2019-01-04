@@ -57,7 +57,16 @@
               </p>
               <span class="min_small white">${{ usdGasBalance ? usdGasBalance : '0.00' }}</span>
             </div>
-            <div class="imgSpace col-md-5"><img class="curPoint" [src]="imgSrc" (click)="open(content)" /></div>
+            <div class="imgSpace col-md-5" *ngIf="gasBalance == 0.0 && pullPaymentsBalance == 0.0">
+              <button (click)="open(content)"><img src="assets/images/btn_qr.svg" />Get some ETH</button>
+            </div>
+            <div class="imgSpace col-md-5" *ngIf="gasBalance >= 0.01 && pullPaymentsBalance >= 0.01">
+              <span
+                ><button class="secondBtn" (click)="open(content)">
+                  <img src="assets/images/btn_qr.svg" />Get some ETH
+                </button></span
+              >
+            </div>
           </div>
           <h3></h3>
           <p></p>

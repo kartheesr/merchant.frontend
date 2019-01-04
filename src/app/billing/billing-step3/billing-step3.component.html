@@ -32,7 +32,7 @@
                   required
                   [ngClass]="{ 'is-invalid': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
                   [gt]="0"
-                  maxlength="17"
+                  maxlength="8"
                 />
                 <div *ngIf="f.submitted">
                   <div class="notifyMsg" [hidden]="!amount.errors?.required">Amount is required</div>

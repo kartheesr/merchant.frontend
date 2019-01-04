@@ -31,7 +31,7 @@
                   required
                   [ngClass]="{ 'is-invalid': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
                   [gt]="0"
-                  maxlength="17"
+                  maxlength="8"
                 />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" [hidden]="!price.errors?.required">Price is required</div>
@@ -110,7 +110,7 @@
                     'is-invalid': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
                   }"
                   [gt]="0"
-                  maxlength="17"
+                  maxlength="8"
                 />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" *ngIf="Periodprice.errors?.required">Amount is required</div>

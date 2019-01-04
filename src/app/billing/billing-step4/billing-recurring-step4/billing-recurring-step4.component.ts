@@ -58,20 +58,20 @@ export class BillingRecurringStep4Component implements OnInit {
     };
 
     this.transcationoption = [
+      // {
+      //   id: 1,
+      //   label: 'Choose custom frequency',
+      //   value: 0
+      // },
       {
         id: 1,
-        label: 'Choose custom frequency',
+        label: 'Once at the end of contract',
         value: 0
       },
       {
         id: 2,
-        label: 'Once at the end of contract',
-        value: 1
-      },
-      {
-        id: 3,
         label: 'On every billing cycle',
-        value: 2
+        value: 1
       }
     ];
 

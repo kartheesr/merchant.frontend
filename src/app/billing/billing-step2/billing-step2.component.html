@@ -13,7 +13,7 @@
             [(ngModel)]="model.productName"
             #productName="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+              'lid\': \': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
             }"
             required
             minlength="2"
@@ -37,7 +37,7 @@
             [(ngModel)]="model.billingModelName"
             #billingModelName="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+              'lid\': \': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
             }"
             required
             minlength="2"
@@ -62,7 +62,7 @@
             [(ngModel)]="model.billModelDes"
             #billModelDes="ngModel"
             [ngClass]="{
-              'invalid\': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+              'lid\': \': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
             }"
             required
             minlength="2"
@@ -86,9 +86,12 @@
       <div class="mobileImg">
         <!-- <img src="assets/images/Blank_Mobile.png" class="mobile" /> -->
         <div class="textBody">
-          <label *ngIf="productName.value" class="dynamicData">{{ productName.value }}</label>
-          <label *ngIf="billingModelName.value" class="dynamicData2">{{ billingModelName.value }}</label>
-          <label *ngIf="billModelDes.value" class="dynamicData3">{{ billModelDes.value }}</label>
+          <label *ngIf="productName.value" class="dynamicData">{{ productName.value }}</label
+          ><br />
+          <label *ngIf="billingModelName.value" class="dynamicData2">{{ billingModelName.value }}</label
+          ><br />
+          <label *ngIf="billModelDes.value" class="dynamicData3">{{ billModelDes.value }}</label
+          ><br />
         </div>
         <!-- <Label class="dynamicData">BillingModelName</Label> -->
       </div>

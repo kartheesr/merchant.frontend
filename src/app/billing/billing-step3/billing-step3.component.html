@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ 'lid\': \': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
+                  [ngClass]="{ ': \': \': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
@@ -63,7 +63,7 @@
                         {{ amount.value }}
                       </td>
                     </tr>
-
+                    <hr />
                     <tr>
                       <td><img class="img-size" src="assets/images/initial.svg" /></td>
                       <td>Tranfer: Instanly</td>

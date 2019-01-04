@@ -88,7 +88,7 @@ export class BillingHybirdStep4Component implements OnInit {
       this.showInputRecurrence = true;
       this.showTable = false;
     } else {
-      this.model.transactions = this.transcationoption[1].label;
+      this.model.transactions = this.transcationoption[0].label;
       this.showInputRecurrence = false;
       this.showTable = true;
     }

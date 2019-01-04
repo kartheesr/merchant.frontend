@@ -123,6 +123,18 @@
   .notifyMsg {
     margin-right: 0px !important;
   }
+  .dynamicData {
+    width: 88% !important;
+  }
+  .dynamicData2 {
+    width: 91% !important;
+  }
+  .dynamicData3 {
+    width: 91% !important;
+  }
+  .data-info {
+    width: 82% !important;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -162,7 +174,7 @@
   padding: 7px 8px 7px 10px;
   word-wrap: break-word;
   min-height: 20px;
-  min-width: 105%;
+  // min-width: 105%;
   width: 105%;
 }
 .textBody {

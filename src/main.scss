@@ -56,9 +56,16 @@ body {
   margin-top: 6px !important;
 }
 .modal-content {
-  left: 4%;
-  margin-top: 63px;
+  left: unset !important;
   border-radius: 2px;
+  top: unset !important;
+}
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0px auto !important;
 }
 select {
   -webkit-appearance: none !important;

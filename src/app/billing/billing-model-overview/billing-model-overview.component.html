@@ -965,95 +965,98 @@
 </ng-template>
 
 <ng-template #pumacopyRecurring let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <label class="md-title">Contract Details</label> <br />
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-
-  <div class="modelSize2">
-    <div>
-      <div class="qr-image">
-        <ngx-qrcode
-          class="qr-value"
-          qrc-element-type="canvas"
-          id="qr-value"
-          qrc-element-type="“img”"
-          [(qrc-value)]="value"
-        ></ngx-qrcode>
-      </div>
+  <div class="modelRecurring">
+    <div class="modal-header">
+      <label class="md-title">Contract Details</label> <br />
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
 
-    <div class="row box-main ">
-      <div class="col-xs-12 col-sm-7 col-md-7">
-        <div class="data-info">
-          <table>
-            <tbody>
-              <tr>
-                <td><img class="img-size" src="assets/images/amount.svg" /></td>
-                <td>Amount: {{ currency | CustomeCurrency }} {{ pmaValue }} PMA</td>
-              </tr>
-              <tr *ngIf="trialPeriod != 0">
-                <td><img class="img-size" src="assets/images/period.svg" /></td>
-                <td>
-                  Trial Period:
-                  <a>
-                    <span *ngIf="trialDays.years != ' '">
-                      {{ trialDays.years }} {{ trialDays.years == 1 ? 'year ' : 'years ' }}</span
-                    >
-                    <span *ngIf="trialDays.months != ' '"
-                      >{{ trialDays.months }} {{ trialDays.months == 1 ? 'month ' : 'months ' }}
-                    </span>
-                    <span *ngIf="trialDays.weeks != ' '"
-                      >{{ trialDays.weeks }} {{ trialDays.weeks == 1 ? 'week ' : 'weeks ' }}
-                    </span>
-                    <span *ngIf="trialDays.days != ' '"
-                      >{{ trialDays.days }} {{ trialDays.days == 1 ? 'day ' : 'days ' }}
-                    </span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
-                <td>
-                  Billing Cycle:
-                  <a>
-                    <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
-                    <span *ngIf="temp.months != ''"
-                      >{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
-                    </span>
-                    <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
-                    <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td><img class="img-size" src="assets/images/cycle.svg" /></td>
-                <td>Subscriptions: {{ Recurrences }}</td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="modelSize2">
+      <div>
+        <div class="qr-image">
+          <ngx-qrcode
+            class="qr-value"
+            qrc-element-type="canvas"
+            id="qr-value"
+            qrc-element-type="“img”"
+            [(qrc-value)]="value"
+          ></ngx-qrcode>
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-5 col-md-5">
-        <label class="tit-text">{{ title }}</label> <br />
-        <br />
-        <!--
-          <label class="bm-text">{{ description }}</label>
+      <div class="row box-main ">
+        <div class="col-xs-12 col-sm-7 col-md-7">
+          <div class="data-info">
+            <table>
+              <tbody>
+                <tr>
+                  <td><img class="img-size" src="assets/images/amount.svg" /></td>
+                  <td>Amount: {{ currency | CustomeCurrency }} {{ pmaValue }} PMA</td>
+                </tr>
+                <tr *ngIf="trialPeriod != 0">
+                  <td><img class="img-size" src="assets/images/period.svg" /></td>
+                  <td>
+                    Trial Period:
+                    <a>
+                      <span *ngIf="trialDays.years != ' '">
+                        {{ trialDays.years }} {{ trialDays.years == 1 ? 'year ' : 'years ' }}</span
+                      >
+                      <span *ngIf="trialDays.months != ' '"
+                        >{{ trialDays.months }} {{ trialDays.months == 1 ? 'month ' : 'months ' }}
+                      </span>
+                      <span *ngIf="trialDays.weeks != ' '"
+                        >{{ trialDays.weeks }} {{ trialDays.weeks == 1 ? 'week ' : 'weeks ' }}
+                      </span>
+                      <span *ngIf="trialDays.days != ' '"
+                        >{{ trialDays.days }} {{ trialDays.days == 1 ? 'day ' : 'days
+                        ' }}
+                      </span>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
+                  <td>
+                    Billing Cycle:
+                    <a>
+                      <span *ngIf="temp.years != ''"> {{ temp.years }} {{ temp.years == 1 ? 'year ' : 'years ' }}</span>
+                      <span *ngIf="temp.months != ''"
+                        >{{ temp.months }} {{ temp.months == 1 ? 'month ' : 'months ' }}
+                      </span>
+                      <span *ngIf="temp.weeks != ''">{{ temp.weeks }} {{ temp.weeks == 1 ? 'week ' : 'weeks ' }} </span>
+                      <span *ngIf="temp.days != ''">{{ temp.days }} {{ temp.days == 1 ? 'day ' : 'days ' }} </span>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><img class="img-size" src="assets/images/cycle.svg" /></td>
+                  <td>Subscriptions: {{ Recurrences }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-5 col-md-5">
+          <label class="tit-text">{{ title }}</label> <br />
           <br />
-          <label class="bill-info">Billing Model description.</label>
-          <br />
-        -->
-        <p class="bill-info1">{{ billingdescription }}</p>
-        <!--
-          <label class="bill-info">
-          Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing
-          Model offers
-          </label>
-        -->
+          <!--
+            <label class="bm-text">{{ description }}</label>
+            <br />
+            <label class="bill-info">Billing Model description.</label>
+            <br />
+          -->
+          <p class="bill-info1">{{ billingdescription }}</p>
+          <!--
+            <label class="bill-info">
+            Explain briefly what your Billing Model offers Billing Model description.Explain briefly what your Billing
+            Model offers
+            </label>
+          -->
+        </div>
       </div>
     </div>
   </div>

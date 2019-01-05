@@ -108,7 +108,17 @@ input {
 .wrapper .billingModelContainer {
   margin-bottom: 95px !important;
 }
-
-footer {
-  z-index: 999999999;
+body.home .appContainer {
+  filter: blur(3px);
 }
+body.home .modal-backdrop.show {
+  opacity: 0.2 !important;
+}
+
+body.home .modal-content {
+  border: 1px solid #1c67f5 !important;
+}
+
+// footer {
+//   z-index: 999999999;
+// }

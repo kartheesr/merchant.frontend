@@ -157,6 +157,10 @@ export class DashboardComponent implements OnInit {
   }
   open(content) {
     this.modalService.open(content);
+    document.body.classList.add('home');
+  }
+  closepopup() {
+    document.body.classList.remove('home');
   }
   mouseOver() {
     this.imgSrc = 'assets/images/BTC2.png';

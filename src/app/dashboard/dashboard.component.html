@@ -151,7 +151,7 @@
 </section>
 
 <ng-template class="noRadius" id="content" #content let-c="close" let-d="dismiss">
-  <img class="closeIcon" src="assets/images/Close.png" (click)="d('Cross click')" />
+  <img class="closeIcon" src="assets/images/Close.png" (click)="d('Cross click'); closepopup()" />
   <div>
     <div class="row modalQr">
       <div class="col-xs-12 col-sm-12 cols-md-12"><label>Scan the QR code to send ETH to your ETH Balance</label></div>

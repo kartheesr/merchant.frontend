@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit {
   treasuryAddress;
   collection;
   usdValue;
+  usdETHValue;
   previouslist = '';
   nextlist = '';
   imgSrc: string = 'assets/images/BTC1.png';
@@ -75,10 +76,13 @@ export class DashboardComponent implements OnInit {
         .replace(/0+$/, ''); // GAS VALUE
       var nf = new Intl.NumberFormat();
       this.gasBalance = nf.format(this.gasBalance);
-      this.usdGasBalance = (this.gasBalance * this.usdValue).toFixed(2);
+      this.usdGasBalance = (this.gasBalance * this.usdETHValue).toFixed(2);
     });
     this.dashboardService.getUsd().subscribe(result => {
       this.usdValue = result.data.USD; //EASURY ADDRESS
+    });
+    this.dashboardService.getEther().subscribe(result => {
+      this.usdETHValue = result.data.USD; //EASURY ADDRESS
     });
     this.dashboardService.getQRCodeaddress().subscribe(result => {
       this.treasuryAddress = result.data; // TREASURY ADDRESS

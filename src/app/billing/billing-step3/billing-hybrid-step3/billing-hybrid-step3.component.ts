@@ -3,6 +3,7 @@ import { BillingServiceStep3 } from '../billing-step3.service';
 import { Router, Event } from '@angular/router';
 import { StepperComponent } from '@app/billing/stepper/stepper.component';
 import { BillingServiceStep2 } from '../../billing-step2/billing-step2.service';
+import { DashboardService } from '../../../dashboard/dashboard.service';
 import * as moment from 'moment';
 @Component({
   selector: 'app-billing-hybrid-step3',
@@ -19,12 +20,14 @@ export class BillingHybridStep3Component implements OnInit {
   public indefinite: boolean;
   newForm;
   data;
+  pmavalue;
   BillingPeriod;
   constructor(
     private router: Router,
     private service: BillingServiceStep3,
     private stepTrack: StepperComponent,
-    private service1: BillingServiceStep2
+    private service1: BillingServiceStep2,
+    private ApiService: DashboardService
   ) {
     this.amountCurrency = [
       {
@@ -91,6 +94,9 @@ export class BillingHybridStep3Component implements OnInit {
   }
 
   ngOnInit() {
+    this.ApiService.getPMA('USD').subscribe(result => {
+      this.pmavalue = result.PMA;
+    });
     var dt = new Date();
     this.BillingPeriod = moment(dt).format('D MMM YYYY');
     this.data = this.service1.model;
@@ -151,6 +157,9 @@ export class BillingHybridStep3Component implements OnInit {
     else this.hideerror = false;
   }
   handlechangecurrency(data) {
+    this.ApiService.getPMA(data.value).subscribe(result => {
+      this.pmavalue = result.PMA;
+    });
     if (data.value == 'USD') {
       this.Placeholdername = '$0.00';
       this.model.PeriodCurrency = this.model.Currency;
@@ -167,6 +176,11 @@ export class BillingHybridStep3Component implements OnInit {
       this.Placeholdername = '₩0.00';
       this.model.PeriodCurrency = this.model.Currency;
     }
+  }
+  handlecurrency(data) {
+    this.ApiService.getPMA(data.value).subscribe(result => {
+      this.pmavalue = result.PMA;
+    });
   }
   handlechangecalculatecycle(data) {
     if (data.value == 'Days') {

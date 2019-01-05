@@ -49,17 +49,15 @@
             </div>
             <img class="warn" src="assets/images/warning-sign.png" />
           </a>
-          <div class="row col-xs-12 col-sm-12 cols-md-12">
-            <div class="cols-md-8">
+          <div class="row col-xs-12 col-sm-12 col-md-12">
+            <div class="col-md-6 padSpace">
               <p>
                 <span class="bold white">{{ gasBalance ? gasBalance : '0.00' }}</span>
                 <span class="small">{{ gasCurrency ? gasCurrency : 'ETH' }}</span>
               </p>
               <span class="min_small white">${{ usdGasBalance ? usdGasBalance : '0.00' }}</span>
             </div>
-            <div class="imgSpace cols-md-4">
-              <img class="curPoint alignImg" [src]="imgSrc" (click)="open(content)" />
-            </div>
+            <div class="imgSpace col-md-5"><img class="curPoint" [src]="imgSrc" (click)="open(content)" /></div>
           </div>
           <h3></h3>
           <p></p>

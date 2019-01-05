@@ -3,6 +3,7 @@ import { Router, Event } from '@angular/router';
 import { BillingServiceStep3 } from './billing-step3.service';
 import { StepperComponent } from '../stepper/stepper.component';
 import { BillingServiceStep2 } from '../billing-step2/billing-step2.service';
+import { DashboardService } from '../../dashboard/dashboard.service';
 
 @Component({
   selector: 'app-billing-step3',
@@ -15,12 +16,14 @@ export class BillingStep3Component implements OnInit {
   public selectOption: any;
   Placeholdername: string;
   data;
+  pmavalue;
 
   constructor(
     private router: Router,
     private service: BillingServiceStep3,
     private stepTrack: StepperComponent,
-    private service2: BillingServiceStep2
+    private service2: BillingServiceStep2,
+    private ApiService: DashboardService
   ) {
     this.selectOption = [
       {
@@ -66,6 +69,9 @@ export class BillingStep3Component implements OnInit {
     });
   }
   ngOnInit() {
+    this.ApiService.getPMA('USD').subscribe(result => {
+      this.pmavalue = result.PMA;
+    });
     this.data = this.service2.model;
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {
@@ -86,6 +92,9 @@ export class BillingStep3Component implements OnInit {
     this.router.navigate(['pullpayments/step2']);
   }
   handleChangeCurrency(data) {
+    this.ApiService.getPMA(data.value).subscribe(result => {
+      this.pmavalue = result.PMA;
+    });
     if (data.value == 'USD') this.Placeholdername = '$0.00';
     else if (data.value == 'EUR') this.Placeholdername = '€0.00';
     else if (data.value == 'GBP') this.Placeholdername = '£0.00';

@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ 'invalid\': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
+                  [ngClass]="{ 'lid\': \': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
                   [gt]="0"
                   maxlength="17"
                 />
@@ -59,6 +59,7 @@
                           <span *ngIf="rupees.value == 'KRW'">₩</span>
                         </a>
                         {{ amount.value }}
+                        <span *ngIf="amount.value">- {{ (pmavalue * amount.value).toFixed(2) }} PMA</span>
                       </td>
                     </tr>
 

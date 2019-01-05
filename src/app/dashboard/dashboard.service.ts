@@ -150,4 +150,22 @@ export class DashboardService {
       })
     );
   }
+  /**
+   * @method {get}
+   * @apiDescription Retrieve the PMA value for current Currency
+   * @transcationurl: https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=PMA
+   *
+   *
+   * @methodName getPMA
+   *
+   */
+  public getPMA(currency): Observable<any> {
+    let url = 'https://min-api.cryptocompare.com/data/price?fsym=' + currency + '&tsyms=PMA';
+    console.log('PMA URL-->', url);
+    return this.http.get(url).pipe(
+      map((response: HttpResponse) => {
+        return response;
+      })
+    );
+  }
 }

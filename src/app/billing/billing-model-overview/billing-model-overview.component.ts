@@ -8,6 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Constants } from '@app/app.constants';
 import { NgbActiveModal, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: 'round' })
 @Component({
   selector: 'app-billing-model-overview',
   templateUrl: './billing-model-overview.component.html',
@@ -84,7 +87,7 @@ export class BillingModelOverviewComponent implements OnInit {
   getid;
   public pmaValue;
   public usd = 1;
-  public initialUSD = 1;
+  public initialUSD: any = 1;
 
   constructor(
     public service: BillingService,
@@ -259,8 +262,8 @@ export class BillingModelOverviewComponent implements OnInit {
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
         this.dashboardService.getPMA(this.currency).subscribe(result => {
-          console.log('thisPMSA', result);
-          this.pmaValue = this.amount * result.PMA;
+          var x = this.amount * result.PMA;
+          this.pmaValue = x.toFixed(2);
         });
         this.billingdescription = result.data.description;
 
@@ -279,8 +282,8 @@ export class BillingModelOverviewComponent implements OnInit {
         else if (this.currency == 'GBP') this.currencySymbol = '£';
         else this.currencySymbol = '$';
         this.dashboardService.getPMA(this.currency).subscribe(result => {
-          console.log('thisPMSA', result);
-          this.pmaValue = this.amount * result.PMA;
+          var x = this.amount * result.PMA;
+          this.pmaValue = x.toFixed(2);
         });
         this.trialPeriod = result.data.trialPeriod / (24 * 3600);
         this.frequency = this.temp;
@@ -321,9 +324,11 @@ export class BillingModelOverviewComponent implements OnInit {
         else this.currencySymbol = '$';
         this.initalamount = result.data.initialPaymentAmount / 100;
         this.dashboardService.getPMA(this.currency).subscribe(result => {
-          console.log('thisPMSA', result);
-          this.pmaValue = this.amount * result.PMA;
-          this.initialUSD = result.PMA * this.initalamount;
+          var x = this.amount * result.PMA;
+          this.pmaValue = x.toFixed(2);
+
+          var y = result.PMA * this.initalamount;
+          this.initialUSD = y.toFixed(2);
         });
         this.frequency = this.temp;
         this.trialPeriod = result.data.trialPeriod / (24 * 3600);

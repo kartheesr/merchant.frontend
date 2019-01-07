@@ -2,7 +2,7 @@
 //   line-height: 2.45;
 // }
 .step2container {
-  background-color: #ffffff;
+  background-color: #fcfdff;
 }
 .title {
   font-size: 14px;
@@ -57,14 +57,14 @@ textarea.is-invalid {
 }
 .backbtn {
   display: block;
-  background-color: #ffffff;
+  background-color: #fcfdff;
   color: #1c67f5;
   width: 180px;
   height: 38px;
   border-radius: 3px;
   border-color: #1c67f5;
   border-width: 1px;
-  margin-top: 25px;
+  margin-top: 15px;
   cursor: pointer;
   // box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   float: left;
@@ -78,7 +78,7 @@ textarea.is-invalid {
   border-radius: 3px;
   border: none;
   cursor: pointer;
-  margin-top: 25px;
+  margin-top: 15px;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   float: right;
 }
@@ -230,4 +230,8 @@ textarea.is-invalid {
 }
 .btCtrl {
   padding-bottom: 15px !important;
+}
+.nxtbtn {
+  background: #ffffff;
+  padding-right: 98px;
 }

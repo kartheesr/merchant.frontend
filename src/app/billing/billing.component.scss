@@ -414,20 +414,22 @@ legend.scheduler-border {
 /*** Scroll Bar Style ***/
 @media (min-width: 1366px) {
   .billingModelContainer .bm-main .billingBoxCont {
-    height: 590px !important;
+    // height: 590px !important;
     // height: 465px !important;
-    // height: 490px !important;
+    height: 490px !important;
   }
 }
 @media (min-width: 1440px) {
   .billingModelContainer .bm-main .billingBoxCont {
-    height: 720px !important;
+    //height: 720px !important;
+    height: 610px !important;
   }
 }
 
 @media (min-width: 1920px) {
   .billingModelContainer .bm-main .billingBoxCont {
-    height: 900px !important;
+    //height: 900px !important;
+    height: 790px !important;
   }
   .billingBox {
     height: 275px !important;

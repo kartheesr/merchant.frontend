@@ -176,6 +176,13 @@ textarea.is-invalid {
   .dynamicData3 {
     max-width: 85% !important;
   }
+  .mobileImg {
+    background-position-x: 80px !important;
+  }
+  .textBody {
+    width: 55% !important ;
+    margin-left: 95px !important ;
+  }
 }
 .mobileImg {
   background-image: url("../../../assets/images/Blank_Mobile.png");
@@ -218,10 +225,9 @@ textarea.is-invalid {
 .textBody {
   position: absolute;
   top: 113px;
-  width: 54%;
-  margin-left: 43px;
+  width: 56%;
+  margin-left: 42px;
 }
-
 .btCtrl {
   padding-bottom: 15px !important;
 }

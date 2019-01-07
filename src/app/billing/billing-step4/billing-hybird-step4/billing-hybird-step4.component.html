@@ -42,7 +42,7 @@
               onkeypress="return event.charCode >= 48 && event.charCode <= 57"
               appBlockCopyPaste
               [ngClass]="{
-                'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                'invalid\': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
               }"
             />
           </div>
@@ -137,7 +137,7 @@
         <p class="decripitionContent">
           <b>Every</b> time a <b>new customer</b> subscribes to a billing model, the system creates a
           <b>new Transferred account.</b> The Transferred account will continuously bill the customer according to the
-          billing model’s parameters. The <b>PMA</b> tokens will be kept in <b>the PullPayment</b> accounts until they
+          billing model’s parameters. The <b>PMA</b> tokens will be kept in <b>the Transferred</b> accounts until they
           are transferred to the Treasury.
         </p>
       </div>

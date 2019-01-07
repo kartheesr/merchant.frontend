@@ -461,12 +461,14 @@ span.Round-tab {
   box-shadow: 4px #000000;
   font-size: 14px;
 }
-.char-msg {
-  font-size: 12px;
-  float: right;
-}
+
 input.is-invalid,
 textarea.is-invalid {
+  border-color: #eb3232 !important;
+  box-shadow: none !important;
+  border-width: 1px;
+}
+tag-input.is-invalid {
   border-color: #eb3232 !important;
   box-shadow: none !important;
   border-width: 1px;
@@ -475,4 +477,33 @@ textarea.is-invalid {
   .notifyMsg {
     margin-right: 17.5%;
   }
+}
+.ntfyMsgproduct {
+  color: red;
+  font-size: 12px;
+  // padding-left: 61%;
+  width: 550px;
+  text-align: right;
+  margin-left: 20px;
+}
+.ntfyMsgmin {
+  color: red;
+  font-size: 12px;
+  padding-left: 47%;
+}
+.char-msg {
+  font-size: 12px;
+  margin-left: 551px !important;
+  // margin-top: -10px !important ;
+}
+tag-input {
+  border: 1px solid #ccc !important;
+  width: 572px;
+}
+.tag-char {
+  width: 572px;
+}
+.tag-char-msg {
+  font-size: 12px !important;
+  margin-left: 530px;
 }

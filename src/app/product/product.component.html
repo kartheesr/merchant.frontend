@@ -1,77 +1,109 @@
 <div class="billingModelContainer">
   <div class="bm-header"><b>New Product</b></div>
-  <form #f="ngForm" (ngSubmit)="f.valid && postProduct(model)">
+  <form #f="ngForm" (ngSubmit)="f.valid && onPublish(model)">
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
         <div class="row">
           <div class="col-xs-12 col-sm-7 col-md-7">
             <div class="form-group">
-              <label class="title">Product Name</label> <br />
-              <input
-                type="text"
-                class="productInput"
-                name="productName"
-                placeholder="Product Name"
-                minlength="2"
-                maxlength="50"
-                required
-                [(ngModel)]="model.productName"
-                #productName="ngModel"
-                [ngClass]="{ 'is-invalid': productName.errors?.required || productName.errors?.minlength }"
-              />
-              <div><label [hidden]="productName.errors" class="char-msg">50</label></div>
-              <div class="notifyMsg" [hidden]="!productName.errors?.required">Product name is required</div>
-              <div class="notifyMsg" [hidden]="!productName.errors?.minlength">
-                Product name must be atleast 2 characters
+              <div class="line">
+                <label class="title">Product Name</label> <br />
+                <input
+                  type="text"
+                  class="productInput"
+                  name="productName"
+                  placeholder=""
+                  [(ngModel)]="model.productName"
+                  #productName="ngModel"
+                  [ngClass]="{
+                    'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+                  }"
+                  required
+                  minlength="2"
+                  maxlength="50"
+                  (input)="productNameCount(productName)"
+                />
+              </div>
+
+              <div>
+                <label class="char-msg" *ngIf="!productName.errors">{{ productCount.count }}</label>
+                <label class="char-msg" *ngIf="productName.errors">{{ productCount.count }}</label>
+              </div>
+              <div *ngIf="f.submitted">
+                <div class="ntfyMsgproduct" *ngIf="productName.errors?.required">Product name is required</div>
+                <div class="ntfyMsgproduct" *ngIf="productName.errors?.minlength">
+                  Product name must be atleast 2 characters
+                </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="title">Product Description</label> <br />
-              <textarea
-                class="inputDes"
-                [(ngModel)]="model.Description"
-                name="Description"
-                #Description="ngModel"
-                [ngClass]="{ 'is-invalid': Description.errors?.required || Description.errors?.minlength }"
-                placeholder="Product Description"
-                maxlength="140"
-                minlength="2"
-                required
-              ></textarea>
-              <div><label [hidden]="Description.errors" class="char-msg">140</label></div>
-              <div class="notifyMsg" [hidden]="!Description.errors?.required">Product description is required</div>
-              <div class="notifyMsg" [hidden]="!Description.errors?.minlength">
-                Product description must be atleast 2 characters
+              <div class="line">
+                <label class="title">Product Description</label> <br />
+                <textarea
+                  class="inputDes"
+                  name="productDes"
+                  placeholder=""
+                  [(ngModel)]="model.productDes"
+                  #productDes="ngModel"
+                  [ngClass]="{
+                    'is-invalid': (f.submitted && productDes.errors?.required) || productDes.errors?.minlength
+                  }"
+                  required
+                  minlength="2"
+                  maxlength="140"
+                  (input)="handleCount(productDes)"
+                ></textarea>
+              </div>
+              <div>
+                <label class="char-msg" *ngIf="!productDes.errors">{{ description.count }}</label>
+                <label class="char-msg" *ngIf="productDes.errors">{{ description.count }}</label>
+              </div>
+              <div *ngIf="f.submitted">
+                <div class="ntfyMsgproduct" *ngIf="productDes.errors?.required">Product description is required</div>
+                <div class="ntfyMsgproduct" *ngIf="productDes.errors?.minlength">
+                  Product description must be atleast 2 characters
+                </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="title">Product Tags</label> <br />
-              <input
-                type="text"
-                class="productInput"
-                name="tags"
-                placeholder="Enter tags"
-                required
-                minlength="1"
-                maxlength="10"
-                [(ngModel)]="model.tags"
-                #tags="ngModel"
-                [ngClass]="{ 'is-invalid': tags.errors?.required || tags.errors?.minlength }"
-              />
-              <div><label [hidden]="tags.errors" class="char-msg">10 tags</label></div>
-              <div class="notifyMsg" [hidden]="!tags.errors?.required">Product description is required</div>
-              <div class="notifyMsg" [hidden]="!tags.errors?.minlength">
-                Product description must be atleast 2 characters
+              <div class="line">
+                <label class="title">Product Tags</label> <br />
+                <tag-input
+                  name="productTags"
+                  placeholder="add a tag"
+                  tabindex
+                  placeholder="add a tag1"
+                  aria-label="1Enter a new tag"
+                  [(ngModel)]="model.tags"
+                  [maxItems]="10"
+                  #productTags="ngModel"
+                  required
+                  minlength="1"
+                  (onAdd)="TagsCount(productTags)"
+                  (onRemove)="TagsCount(productTags)"
+                  [ngClass]="{
+                    'is-invalid': (f.submitted && productTags.errors?.required) || productTags.errors?.minlength
+                  }"
+                >
+                </tag-input>
+              </div>
+              <div class="tag-char">
+                <label class="tag-char-msg" *ngIf="!productTags.errors">{{ tagsCount.count }} tags</label>
+                <label class="tag-char-msg" *ngIf="productTags.errors">{{ tagsCount.count }} tags</label>
+              </div>
+              <div *ngIf="f.submitted">
+                <div class="ntfyMsgproduct" *ngIf="productTags.errors?.required">Product tag is required</div>
+                <div class="ntfyMsgproduct" *ngIf="productTags.errors?.minlength">
+                  Atleat two product tags is required
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="bs-footer">
-      <button type="submit" class="button" [disabled]="!f.valid">{{ f.valid ? 'Creat Product' : 'Continue' }}</button>
-    </div>
+    <div class="bs-footer"><button type="submit" class="button">Continue</button></div>
   </form>
 </div>

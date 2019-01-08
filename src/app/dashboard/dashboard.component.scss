@@ -6,7 +6,7 @@
   padding: 24px 46px;
   background-color: #ffffff;
   label {
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 5px;
     font-weight: bold;
   }
@@ -249,7 +249,7 @@ li {
   .GasAlertBodywhite {
     position: absolute;
     top: 30px;
-    left: -60px;
+    left: -75px;
     color: #000000;
     background-color: #fcfdff;
     display: none;
@@ -265,12 +265,13 @@ li {
     border-bottom: 5px solid #fcfdff;
     position: absolute;
     top: -5px;
-    left: 65px;
+    left: 81px;
   }
 }
 .gasAlert img {
   width: 20px;
   height: 20px;
+  margin-bottom: 1px;
 }
 .gasAlert:hover .GasAlertBody {
   display: block;
@@ -282,7 +283,7 @@ li {
   color: #ffffff;
 }
 .dash_widget_title {
-  padding-right: 8px;
+  padding-right: 4px;
   padding-bottom: 25px;
   font-family: "Noto Sans" !important;
 }

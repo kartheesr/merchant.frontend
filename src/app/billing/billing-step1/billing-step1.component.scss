@@ -457,14 +457,17 @@ select {
   float: right;
 }
 .productdiv {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .errormsg {
+  position: relative;
+  top: 3px;
   color: #1c67f5;
   font-size: 12px;
   margin-left: 10px;
   cursor: pointer;
   margin-top: 5px;
+  text-decoration: underline;
 }
 .gasAlert {
   position: relative;

@@ -81,30 +81,30 @@
   <form #f="ngForm" (ngSubmit)="f.valid && onSubmit(f)">
     <div class="bm-main flex-center-center">
       <div class="billingBoxCont">
-        <!--
-          <div class="row productdiv">
-            <div class="col-xs-12 col-sm-6 col-md-6">
-              <a class="gasAlert" [hidden]="!disabledBtn">
-                <img src="assets/images/warning-sign.png" />
-                <label (click)="openpopup(QRPopup)" class="errormsg">Send ETH to your Gas wallet first</label>
-                <div class="GasAlertBody">
-                  Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your Billing Model contracts,
-                  the payment will fail
-                </div>
-              </a>
-            </div>
+        <div class="row productdiv">
+          <div class="col-xs-12 col-sm-6 col-md-6" *ngIf="gasBalance <= 0.01">
+            <a class="gasAlert">
+              <img src="assets/images/warning-sign.png" />
+              <label (click)="openpopup(QRPopup)" class="errormsg">Send ETH to your Gas wallet first</label>
+              <div class="GasAlertBody">
+                Your Gas Wallet balance is very low. If you don't have ETH when a customer scans and confirms your
+                Billing Model contracts, the payment will fail
+              </div>
+            </a>
+          </div>
+          <!--
             <div class="col-xs-12 col-sm-6 col-md-6">
               <select name="ProductName" [(ngModel)]="model.ProductName" #ProductName="ngModel">
                 <option *ngFor="let item of ProductNamelist" [selected]="item.value === 0" [ngValue]="item.label">{{ item.label }}
                 </option>
               </select>
             </div>
-          </div>
-        -->
+          -->
+        </div>
 
         <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div [ngClass]="{ 'billingBox-active': button1 }" class="billingBox" [class.disabled]="disabledBtn">
+            <div [ngClass]="{ 'billingBox-active': button1 }" class="billingBox">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6">
@@ -142,7 +142,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div [ngClass]="{ 'billingBox-active': button2 }" class="billingBox" [class.disabled]="disabledBtn">
+            <div [ngClass]="{ 'billingBox-active': button2 }" class="billingBox">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6">
@@ -186,7 +186,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <div [ngClass]="{ 'billingBox-active': button3 }" class="billingBox" [class.disabled]="disabledBtn">
+            <div [ngClass]="{ 'billingBox-active': button3 }" class="billingBox">
               <div class="boxHead">
                 <div class="row">
                   <div class="col-xs-12 col-sm-8 col-md-8">

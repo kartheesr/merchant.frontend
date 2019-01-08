@@ -58,16 +58,10 @@ export class BillingStep1Component implements OnInit {
       this.model.billing = '';
     }
     this.dashboardService.gasvalueCalcualtion().subscribe(res => {
-      this.gasBalance = res.balance; // GAS VALUE
-      // if (this.gasBalance > 0.01) {
-      //   this.disabledBtn = false;
-      // }
-      // else {
-      //   this.disabledBtn = true;
-      // }
+      this.gasBalance = res.data; // GAS VALUE
     });
     this.billingService.getQRCodeaddress().subscribe(result => {
-      this.treasuryAddress = result.address; // TREASURY ADDRESS
+      this.treasuryAddress = result.data; // TREASURY ADDRESS
     });
     setTimeout(() => {
       this.qrValue();

@@ -30,9 +30,10 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'is-invalid': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [ngClass]="{ 'invalid\': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                   maxlength="8"
+                  (ngModelChange)="valueChanged(model.amount)"
                 />
                 <div *ngIf="f.submitted">
                   <div class="notifyMsg" [hidden]="!amountentry.errors?.required">Amount is required</div>
@@ -59,10 +60,11 @@
                       #NoOfRecuurence1="ngModel"
                       (input)="handlechangedays()"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                       min="1"
+                      (ngModelChange)="valueChanged1(model.No1)"
                     />
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 dayselect">
@@ -72,7 +74,7 @@
                       #Period1="ngModel"
                       (change)="handlechangecalculate(Period1)"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
@@ -104,12 +106,13 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
                       [min]="2"
                       min="2"
                       onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                       appBlockCopyPaste
+                      (ngModelChange)="valueChanged2(model.No2)"
                     />
                     <div *ngIf="f.submitted">
                       <div class="errorMSg" [hidden]="!NoOfRecuurence2.errors?.required">Subscriptions is required</div>
@@ -177,10 +180,11 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                       min="1"
+                      (ngModelChange)="valueChanged3(model.NoOfRecuurence3)"
                     />
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 dayselect">
@@ -190,7 +194,7 @@
                       #Period2="ngModel"
                       (change)="handlechangetrailperiods(Period2)"
                       [ngClass]="{
-                        'is-invalid': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
@@ -215,7 +219,7 @@
                 <label *ngIf="data.billModelDes" class="dynamicData3">{{ data.billModelDes }}</label> <br />
                 <div class="data-info">
                   <table>
-                    <tr>
+                    <tr [ngClass]="{ bgColor: style1 }">
                       <td><img class="img-size" src="assets/images/amount.svg" /></td>
                       <td>
                         Amount:
@@ -229,17 +233,17 @@
                       </td>
                     </tr>
                     <hr />
-                    <tr *ngIf="Toggle.value">
+                    <tr [ngClass]="{ bgColor: style4 }" *ngIf="Toggle.value">
                       <td><img class="img-size" src="assets/images/period.svg" /></td>
                       <td>Trial Period: {{ model.NoOfRecuurence3 }} {{ model.Period2 }}</td>
                     </tr>
                     <hr *ngIf="Toggle.value" />
-                    <tr>
+                    <tr [ngClass]="{ bgColor: style2 }">
                       <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
                       <td>Billing Cycle: {{ NoOfRecuurence1.value }} {{ Period1.value }}</td>
                     </tr>
                     <hr />
-                    <tr>
+                    <tr [ngClass]="{ bgColor: style3 }">
                       <td><img class="img-size" src="assets/images/cycle.svg" /></td>
                       <td>Recurrences: {{ NoOfRecuurence2.value }}</td>
                     </tr>

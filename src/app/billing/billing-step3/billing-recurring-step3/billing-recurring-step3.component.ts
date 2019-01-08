@@ -18,6 +18,10 @@ export class BillingRecurringStep3Component implements OnInit {
   public recurrenceOption = [];
   data;
   pmavalue;
+  style1 = false;
+  style2 = false;
+  style3 = false;
+  style4 = false;
   constructor(
     private router: Router,
     private service: BillingServiceStep3,
@@ -206,6 +210,51 @@ export class BillingRecurringStep3Component implements OnInit {
     } else {
       this.indefinite = false;
       console.log(this.indefinite);
+    }
+  }
+
+  valueChanged(value) {
+    console.log('Value', value);
+    if (value.length != 0) {
+      this.style1 = true;
+      this.style2 = false;
+      this.style3 = false;
+      this.style4 = false;
+    } else {
+      this.style1 = false;
+    }
+  }
+  valueChanged1(value) {
+    console.log('Value', value);
+    if (value.length != 0) {
+      this.style1 = false;
+      this.style2 = true;
+      this.style3 = false;
+      this.style4 = false;
+    } else {
+      this.style2 = false;
+    }
+  }
+  valueChanged2(value) {
+    console.log('Value', value);
+    if (value.length != 0) {
+      this.style1 = false;
+      this.style2 = false;
+      this.style3 = true;
+      this.style4 = false;
+    } else {
+      this.style3 = false;
+    }
+  }
+  valueChanged3(value) {
+    console.log('Value', value);
+    if (value.length != 0) {
+      this.style1 = false;
+      this.style2 = false;
+      this.style3 = false;
+      this.style4 = true;
+    } else {
+      this.style4 = false;
     }
   }
 }

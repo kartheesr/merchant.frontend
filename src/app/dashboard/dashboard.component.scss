@@ -197,6 +197,10 @@
     width: 100px !important;
     text-align: left;
   }
+  .dashboardContainer .pma-box {
+    height: 160px;
+    border-radius: 10px;
+  }
 }
 :host {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;

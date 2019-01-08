@@ -42,7 +42,7 @@
             <div class="GasAlertBodywhite">Your ETH Balance</div>
             <img class="curPoint" src="assets/images/Info1.svg" />
           </a>
-          <a *ngIf="gasBalance >= 0.01" class="gasAlert">
+          <a *ngIf="gasBalance <= 0.01" class="gasAlert">
             <div class="GasAlertBody">
               Your ETH Balance balance is very low. If you don't have ETH when a customer scans and confirms your
               Billing Model contracts, the payment will fail

@@ -433,6 +433,10 @@ span.Round-tab {
 }
 .billingBox-active {
   border: 1px solid #1c67f5 !important;
+  background-color: #ffffff !important;
+}
+.billingBox-active .boxCont {
+  background-color: #ffffff !important;
 }
 .container p b {
   font-family: "noto_sansregular" !important;

@@ -7,7 +7,7 @@ import { Logger } from '@app/core';
 // import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { DOCUMENT, DecimalPipe } from '@angular/common';
 import { BillingServiceCall } from '../billing/billing-step4/billing-step4.service';
-import { NgbActiveModal, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal, NgbModalConfig, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { Constants } from '@app/app.constants';
 import { $ } from 'protractor';
 // import { ConsoleReporter } from 'jasmine';
@@ -156,7 +156,12 @@ export class DashboardComponent implements OnInit {
     window.open(`https://wiki.pumapay.io/#/page/backendtreasury`, '_blank');
   }
   open(content) {
-    this.modalService.open(content);
+    let ngbModalOptions: NgbModalOptions = {
+      backdrop: 'static',
+      keyboard: false
+    };
+    console.log('NgbModalOptions', ngbModalOptions);
+    this.modalService.open(content, ngbModalOptions);
     document.body.classList.add('home');
   }
   closepopup() {

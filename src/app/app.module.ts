@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TagInputModule } from 'ngx-chips';
 
 import { environment } from '@env/environment';
 import { CoreModule } from '@app/core';
@@ -62,6 +63,7 @@ import { ProductHomeRoutingModule } from './product-home/productHome-routing.mod
     CustomFormsModule,
     ProductRoutingModule,
     ProductHomeRoutingModule,
+    TagInputModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [

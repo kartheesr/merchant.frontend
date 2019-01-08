@@ -1,0 +1,120 @@
+<div>
+  <div class="productContainer">
+    <div class="productHeading">Products</div>
+    <div class="col-md-12 col-sm-12 bm-main" *ngIf="noProducts">
+      <div class="col-md-5 FloatLeft">
+        <div class="productsDiv">
+          <p>Products</p>
+          <div class="noBilling">
+            <img src="assets/images/Product 2.1.png" class="billingImg" width="120" />
+            <p class="fontSize">
+              Your Products are the items or services your customer will buy.<br />
+              Create your first product now.
+            </p>
+            <button href="" routerLink="/product" class="button">
+              <img class="plusImg" src="assets/images/plus.svg" /> NEW PRODUCT
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 FloatLeft">
+        <div class="SeparateArrow"><img src="assets/images/arrow.png" /></div>
+      </div>
+      <div class="col-md-5 FloatLeft">
+        <div class="productsDiv billingModel">
+          <p>Billing Models</p>
+          <div class="noBilling">
+            <img src="assets/images/Billing-Models.png" class="billingImg" width="120" />
+            <p class="fontSize">
+              Billing Models are different pricing plans for your products.<br />
+              They reflect your billing logic.
+            </p>
+            <button href="" routerLink="/pullpayments/step1" class="billingButton">
+              <img class="plusImg" src="assets/images/plus.svg" /> NEW BILLING MODEL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!noProducts">
+      <table class="table table-responsive dInlineTable tableData tableStyle1">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product name</th>
+            <th>Total Earnings</th>
+
+            <th>
+              Active Customers&nbsp;&nbsp;&nbsp;
+              <a class="gasAlert">
+                <div class="GasAlertBodywhite">
+                  You can only delete (/remove) a Product as long as you don't have any customers subscribed to it.
+                </div>
+                <img class="curPoint" src="assets/images/info-billing.svg" />
+              </a>
+            </th>
+            <th>No. of Billing Models</th>
+            <th>Creation Date</th>
+          </tr>
+        </thead>
+        <tbody class="tableBody">
+          <tr *ngFor="let val of productArray">
+            <!-- <img *ngIf="activeTab == 'dashboard'" src="assets/images/dashboard.png" /> -->
+            <td>
+              <img *ngIf="val.activeCustomers > '0'" src="assets/images/EllipseGreen.png" />
+              <img *ngIf="val.activeCustomers == '0'" src="assets/images/EllipseRed.png" />
+              <img *ngIf="val.activeCustomers == ' '" src="assets/images/EllipseGray.png" />
+            </td>
+
+            <td>
+              <span *ngIf="val.activeCustomers > '0'" class="spanOfproductName" (click)="productName(val)">{{
+                val.productName
+              }}</span
+              ><span *ngIf="val.activeCustomers > '0'" class="tableArrow">&nbsp;&nbsp;&nbsp;&nbsp;></span>
+              <span *ngIf="val.activeCustomers == '0' || val.activeCustomers == ' '">{{ val.productName }}</span>
+            </td>
+            <td>{{ val.totalEarnings }}</td>
+            <td>{{ val.activeCustomers == ' ' ? '-' : val.activeCustomers }}</td>
+            <td>{{ val.NoOfBillingModels }}</td>
+            <td>
+              {{ val.creationDate }}&nbsp;&nbsp;&nbsp;
+              <div class="tooltip_new">
+                <img
+                  *ngIf="val.activeCustomers == '0' || val.activeCustomers == ' '"
+                  src="assets/images/3dots_icon.png"
+                />
+                <span class="tooltiptext_new"
+                  ><img src="assets/images/Delete_icon.png" />&nbsp;&nbsp;Delete Product</span
+                >
+              </div>
+              <!--
+                <a>
+                  &nbsp;&nbsp; <img *ngIf="val.activeCustomers== '0' || val.activeCustomers == ' '" src="assets/images/3Dotted.png" />
+                  <div class="GasAlertBodywhite" (click)="deletefunction(deletePopup,val.activeCustomers)">
+                    Delete Product
+                  </div>
+                </a>
+              -->
+            </td>
+            <!--
+              <td>
+                <div class="tooltip_new">Hover over me
+                  <span class="tooltiptext_new">Tooltip text</span>
+                </div>
+              </td>
+            -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #deletePopup let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <label class="md-title">Contract Details</label> <br />
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</ng-template>

@@ -37,6 +37,8 @@ import { BillingHybridStep3Component } from './billing/billing-step3/billing-hyb
 import { BlockCopyPasteDirective } from '@app/block-copy-paste.directive';
 import { ProductComponent } from './product/product.component';
 import { ProductRoutingModule } from './product/product-routing.module';
+import { ProductHomeComponent } from './product-home/product-home.component';
+import { ProductHomeRoutingModule } from './product-home/productHome-routing.module';
 
 @NgModule({
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
@@ -59,6 +61,7 @@ import { ProductRoutingModule } from './product/product-routing.module';
     NgxQRCodeModule,
     CustomFormsModule,
     ProductRoutingModule,
+    ProductHomeRoutingModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [
@@ -71,7 +74,8 @@ import { ProductRoutingModule } from './product/product-routing.module';
     BillingHybridStep3Component,
     BillingHybirdStep4Component,
     BlockCopyPasteDirective,
-    ProductComponent
+    ProductComponent,
+    ProductHomeComponent
   ],
   providers: [
     AuthenticationService,

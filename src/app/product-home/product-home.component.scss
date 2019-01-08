@@ -1,0 +1,194 @@
+.productsDiv {
+  text-align: center;
+}
+.productsDiv p {
+  padding: 20px 0px;
+}
+.productHeading {
+  background-color: #fcfdff;
+  height: 50px;
+  margin-bottom: 2px;
+  padding: 14px 0px;
+  font-size: 16px;
+}
+.bm-main {
+  background-color: #ffffff;
+  min-height: 220px;
+  overflow-x: hidden;
+}
+.completePtag {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 29px;
+  font-size: 18px;
+  text-align: center;
+
+  color: #000000;
+}
+.button {
+  background: #1c67f5;
+  box-shadow: none;
+  border-radius: 3px;
+  color: #fff;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 8px 12px;
+  text-align: center;
+}
+.billingModel {
+  color: #556486;
+  // background: linear-gradient(0deg, #959FAF, #959FAF);
+  background-blend-mode: color, normal;
+}
+.billingImg {
+  background: #fcfdff;
+}
+.FloatLeft {
+  float: left;
+}
+.fontSize {
+  font-size: 13px;
+}
+.billingButton {
+  background-color: #556486;
+  color: #fff;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 3px;
+  padding: 8px 12px;
+  text-align: center;
+}
+.plusImg {
+  margin-top: -7px;
+}
+.tableData {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: normal !important;
+  line-height: 20px;
+  font-size: 12px;
+
+  color: #304053;
+}
+.spanOfproductName {
+  color: #1c67f5;
+  float: left;
+  // margin-left: 10px;
+}
+tr:hover {
+  background-color: #dfe8fb;
+  cursor: pointer;
+  font-weight: 600;
+}
+tr:hover .tableArrow {
+  display: block !important;
+  font-weight: 600;
+}
+.tableArrow {
+  color: #1c67f5;
+  display: none;
+}
+.tableBody {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 20px;
+  font-size: 15px;
+
+  color: #333333;
+}
+td {
+  font-weight: none !important;
+}
+
+//tooltip
+.GasAlertBodywhite {
+  font-family: "Noto Sans" !important;
+  font-weight: normal;
+  font-style: normal !important;
+  position: absolute;
+  top: 29px;
+  left: 56%;
+  bottom: 100%;
+  color: #556486;
+  background-color: #fcfdff;
+  display: none;
+  padding: 0px 10px;
+  border-radius: 5px;
+  min-width: 180px;
+  font-size: 11px;
+  width: 285px;
+  border-radius: 5px;
+  float: left;
+  height: 58px;
+}
+.GasAlertBodywhite::before {
+  content: "";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  position: absolute;
+  top: 58px;
+  left: 10px;
+  color: #fff;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(1800deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.gasAlert img {
+  width: 20px;
+  height: 20px;
+}
+.gasAlert:hover .GasAlertBody {
+  display: block;
+}
+.gasAlert:hover .GasAlertBodywhite {
+  display: block;
+}
+.curPoint {
+  cursor: pointer;
+}
+
+.tooltip_new {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip_new .tooltiptext_new {
+  visibility: hidden;
+  min-width: 120px;
+  background-color: #fff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  color: #333;
+  text-align: center;
+  // border-radius: 6px;
+  padding: 8px 1px;
+  position: absolute;
+  z-index: 1;
+  top: 110%;
+  left: -38px;
+  margin-left: -60px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 13px;
+  font-size: 10px;
+}
+
+.tooltip_new .tooltiptext_new::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 70%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.tooltip_new:hover .tooltiptext_new {
+  visibility: visible;
+}

@@ -17,6 +17,7 @@ export class BillingStep3Component implements OnInit {
   Placeholdername: string;
   data;
   pmavalue;
+  style1 = false;
 
   constructor(
     private router: Router,
@@ -100,5 +101,12 @@ export class BillingStep3Component implements OnInit {
     else if (data.value == 'GBP') this.Placeholdername = '£0.00';
     else if (data.value == 'JPY') this.Placeholdername = '¥0.00';
     // else if (data.value == 'KRW') this.Placeholdername = '₩0.00';
+  }
+  valueChanged(value) {
+    if (value.value.length != 0) {
+      this.style1 = true;
+    } else {
+      this.style1 = false;
+    }
   }
 }

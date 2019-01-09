@@ -13,11 +13,12 @@
             [(ngModel)]="model.productName"
             #productName="ngModel"
             [ngClass]="{
-              'is-invalid': (f.submitted && productName.errors?.required) || productName.errors?.minlength
+              'invalid\': ': (f.submitted && productName.errors?.required) || productName.errors?.minlength
             }"
             required
             minlength="2"
             maxlength="50"
+            (ngModelChange)="valueChanged(productName)"
           />
         </div>
 
@@ -37,11 +38,12 @@
             [(ngModel)]="model.billingModelName"
             #billingModelName="ngModel"
             [ngClass]="{
-              'is-invalid': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
+              'invalid\': ': (f.submitted && billingModelName.errors?.required) || billingModelName.errors?.minlength
             }"
             required
             minlength="2"
             maxlength="50"
+            (ngModelChange)="valueChanged2(billingModelName)"
           />
         </div>
 
@@ -62,12 +64,13 @@
             [(ngModel)]="model.billModelDes"
             #billModelDes="ngModel"
             [ngClass]="{
-              'is-invalid': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
+              'invalid\': ': (f.submitted && billModelDes.errors?.required) || billModelDes.errors?.minlength
             }"
             required
             minlength="2"
             maxlength="140"
             (input)="handleCount(billModelDes)"
+            (ngModelChange)="valueChanged3(billModelDes)"
           ></textarea>
         </div>
         <div>
@@ -86,12 +89,15 @@
       <div class="mobileImg">
         <!-- <img src="assets/images/Blank_Mobile.png" class="mobile" /> -->
         <div class="textBody">
-          <label class="dynamicData">{{ productName.value ? productName.value : 'Product name' }}</label> <br />
-          <label class="dynamicData2"
+          <label [ngClass]="{ bgColor: style1 }" class="dynamicData">{{
+            productName.value ? productName.value : 'Product name'
+          }}</label>
+          <br />
+          <label [ngClass]="{ bgColor: style2 }" class="dynamicData2"
             >{{ billingModelName.value ? billingModelName.value : 'Billing Model name' }}
           </label>
           <br />
-          <label class="dynamicData3"
+          <label [ngClass]="{ bgColor: style3 }" class="dynamicData3"
             >{{
               billModelDes.value
                 ? billModelDes.value

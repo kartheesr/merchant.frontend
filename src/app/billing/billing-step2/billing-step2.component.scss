@@ -192,7 +192,7 @@ textarea.is-invalid {
   background-repeat: no-repeat;
 }
 .dynamicData {
-  background-color: rgba(30, 105, 246, 0.3);
+  // background-color: rgba(30, 105, 246, 0.3);
   font-size: 10px;
   padding: 3px 9px;
   word-wrap: break-word;
@@ -201,8 +201,11 @@ textarea.is-invalid {
   max-width: 100%;
   font-weight: 600;
 }
-.dynamicData2 {
+.bgColor {
   background-color: rgba(30, 105, 246, 0.3);
+}
+.dynamicData2 {
+  // background-color: rgba(30, 105, 246, 0.3);
   left: 0px;
   font-size: 10px;
   padding: 3px 8px 3px 10px;
@@ -213,7 +216,7 @@ textarea.is-invalid {
   max-width: 100%;
 }
 .dynamicData3 {
-  background-color: rgba(30, 105, 246, 0.3);
+  // background-color: rgba(30, 105, 246, 0.3);
   left: 0px;
   font-size: 10px;
   padding: 7px 8px 7px 10px;

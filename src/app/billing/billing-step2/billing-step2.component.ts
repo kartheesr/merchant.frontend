@@ -18,6 +18,9 @@ export class BillingStep2Component implements OnInit {
   homePage;
   // homePage1;
   valid: boolean;
+  style1 = false;
+  style2 = false;
+  style3 = false;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -72,7 +75,30 @@ export class BillingStep2Component implements OnInit {
     }
   }
   valueChanged(value) {
-    console.log('Value==>', value);
-    this.productName = value;
+    if (value.value.length != 0) {
+      this.style1 = true;
+      this.style2 = false;
+      this.style3 = false;
+    } else {
+      this.style1 = false;
+    }
+  }
+  valueChanged2(value) {
+    if (value.value.length != 0) {
+      this.style2 = true;
+      this.style1 = false;
+      this.style3 = false;
+    } else {
+      this.style2 = false;
+    }
+  }
+  valueChanged3(value) {
+    if (value.value.length != 0) {
+      this.style1 = false;
+      this.style2 = false;
+      this.style3 = true;
+    } else {
+      this.style3 = false;
+    }
   }
 }

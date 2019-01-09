@@ -30,9 +30,10 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ 'invalid\': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
+                  [ngClass]="{ 'lid\': \': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
                   [gt]="0"
                   maxlength="8"
+                  (ngModelChange)="valueChanged(amount)"
                 />
                 <div *ngIf="f.submitted">
                   <div class="notifyMsg" [hidden]="!amount.errors?.required">Amount is required</div>
@@ -49,7 +50,7 @@
                 <label *ngIf="data.billModelDes" class="dynamicData3">{{ data.billModelDes }}</label> <br />
                 <div class="data-info">
                   <table>
-                    <tr>
+                    <tr [ngClass]="{ bgColor: style1 }">
                       <td><img class="img-size" src="assets/images/amount.svg" /></td>
                       <td>
                         Price:

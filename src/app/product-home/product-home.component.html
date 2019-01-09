@@ -1,6 +1,11 @@
 <div>
   <div class="productContainer">
-    <div class="productHeading">Products</div>
+    <div class="productHeading">
+      Products
+      <button href="" routerLink="/product" class="buttonNew">
+        <img class="plusImg" src="assets/images/plus.svg" /> NEW
+      </button>
+    </div>
     <div class="col-md-12 col-sm-12 bm-main" *ngIf="noProducts">
       <div class="col-md-5 FloatLeft">
         <div class="productsDiv">
@@ -62,7 +67,7 @@
             <!-- <img *ngIf="activeTab == 'dashboard'" src="assets/images/dashboard.png" /> -->
             <td>
               <img *ngIf="val.activeCustomers > '0'" src="assets/images/EllipseGreen.png" />
-              <img *ngIf="val.activeCustomers == '0'" src="assets/images/EllipseRed.png" />
+              <img *ngIf="val.activeCustomers == '0'" src="assets/images/Ellipse.png" />
               <img *ngIf="val.activeCustomers == ' '" src="assets/images/EllipseGray.png" />
             </td>
 
@@ -78,10 +83,10 @@
             <td>{{ val.NoOfBillingModels }}</td>
             <td>
               {{ val.creationDate }}&nbsp;&nbsp;&nbsp;
-              <div class="tooltip_new">
+              <div class="tooltip_new" (click)="deletefunction(deletePopup, val.activeCustomers)">
                 <img
                   *ngIf="val.activeCustomers == '0' || val.activeCustomers == ' '"
-                  src="assets/images/3dots_icon.png"
+                  src=" assets/images/3dots_icon.png"
                 />
                 <span class="tooltiptext_new"
                   ><img src="assets/images/Delete_icon.png" />&nbsp;&nbsp;Delete Product</span
@@ -111,10 +116,22 @@
 </div>
 
 <ng-template #deletePopup let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <label class="md-title">Contract Details</label> <br />
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+  <img class="closeIcon" src="assets/images/Close.png" (click)="d('Cross click')" />
+  <div class="deletepopup">
+    <div class="deleteContent">
+      <img src="assets/images/deletePopup.png" /> <br />
+      <p class="textBlack">
+        Are you sure you want to permanently delete this Product<br />
+        from your database?
+      </p>
+      <p class="textGrey">
+        <span class="textRed">There's no going back.</span> You will be unable to restore any of the billing models and
+        Transaction history associated with this Product.
+      </p>
+    </div>
+    <div class="BtnCollection">
+      <button (click)="delete()" class="deleteBtn">Delete</button>
+      <button class="cancelBtn" (click)="d('Cross click')">Cancel</button>
+    </div>
   </div>
 </ng-template>

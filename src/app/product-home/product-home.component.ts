@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbActiveModal, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal, NgbModalConfig, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-home',
@@ -52,9 +52,13 @@ export class ProductHomeComponent implements OnInit {
   }
 
   deletefunction(deletePopup, id) {
+    let ngbModalOptions: NgbModalOptions = {
+      backdrop: 'static',
+      keyboard: false
+    };
     console.log('delete fuction', id);
     this.id = id;
-    this.modalService.open(deletePopup);
+    this.modalService.open(deletePopup, ngbModalOptions);
   }
   delete() {
     console.log('this.id', this.id);

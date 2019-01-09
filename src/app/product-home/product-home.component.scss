@@ -36,6 +36,18 @@
   padding: 8px 12px;
   text-align: center;
 }
+.buttonNew {
+  background: #1c67f5;
+  float: right;
+  box-shadow: none;
+  border-radius: 3px;
+  color: #fff;
+  box-shadow: none !important;
+  border: none !important;
+  margin: 0px 60px 0px 0px;
+  padding: 6px 17px 5px 13px;
+  text-align: center;
+}
 .billingModel {
   color: #556486;
   // background: linear-gradient(0deg, #959FAF, #959FAF);
@@ -191,4 +203,108 @@ td {
 
 .tooltip_new:hover .tooltiptext_new {
   visibility: visible;
+}
+.deletepopup {
+  background-color: #f4f6fb;
+  width: 600px;
+  height: 300px;
+}
+.deleteContent {
+  background-color: #f4f6fb;
+  text-align: center;
+  // margin: 50px auto;
+  padding: 50px;
+}
+.deleteContent img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.closeIcon {
+  float: right;
+  margin-right: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+.texBlack {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 25px;
+  font-size: 15px;
+  text-align: center;
+  padding: 20px;
+  color: #000000;
+}
+.textGrey {
+  color: #bec4cd;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 15px;
+  font-size: 12px;
+  text-align: center;
+}
+.textRed {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 15px;
+  font-size: 12px;
+  text-align: center;
+
+  color: #eb3232;
+}
+.cancelBtn {
+  background: #ffffff;
+  border: 1px solid #1c67f5;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 12.9243px;
+  text-align: center;
+
+  display: block;
+
+  color: #1c67f5;
+  width: 106px;
+  height: 31px;
+  border-radius: 3px;
+
+  border-width: 1px;
+  margin-top: 15px;
+  cursor: pointer;
+  // box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  float: right;
+}
+.deleteBtn {
+  display: block;
+  background-color: #1c67f5;
+  color: #ffffff;
+  width: 106px;
+  height: 31px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-left: 10px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  float: right;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 12.9243px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.BtnCollection {
+  width: 100%;
+  float: right;
+  padding: 19px 17px;
 }

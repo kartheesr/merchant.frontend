@@ -240,6 +240,7 @@ export class BillingModelOverviewComponent implements OnInit {
         this.billingService.gasusdvalue().subscribe(result => {
           this.usd = result.data.USD;
           this.model.USDValue = result.data.USD;
+          console.log('usd value', result.data.USD, this.model.USDValue);
 
           this.billingService.gasrecurrence().subscribe(result => {
             let val = result.data * 0.00000001;
@@ -385,6 +386,7 @@ export class BillingModelOverviewComponent implements OnInit {
       this.EtherValue = parseFloat(Total.toFixed(5).replace(/0+$/, ''));
       let USD = this.model.SingleUSD + this.model.TransferUSD;
       this.model.TotalUSD = parseFloat(USD.toFixed(2).replace(/0+$/, ''));
+      console.log('totalUsd', this.model.TotalUSD);
     });
   }
   gasValueCalculationSubscrption() {

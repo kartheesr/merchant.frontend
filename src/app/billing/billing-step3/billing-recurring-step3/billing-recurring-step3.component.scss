@@ -353,9 +353,10 @@ input.is-invalid {
     width: 100%;
     position: relative;
     tr {
-      background-color: rgba(30, 105, 246, 0.3);
+      // background-color: rgba(30, 105, 246, 0.3);
       display: block;
       margin-bottom: 5px;
+      padding-left: 3px;
     }
     th,
     td {
@@ -363,7 +364,7 @@ input.is-invalid {
       font-size: 10px;
       font-weight: 600;
       padding: 0px;
-      border-bottom: 1px solid #ddd;
+      // border-bottom: 1px solid #ddd;
     }
     hr {
       margin: 6px !important;
@@ -403,4 +404,8 @@ input.is-invalid {
   cursor: pointer;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   float: right;
+}
+
+.bgColor {
+  background-color: rgba(30, 105, 246, 0.3);
 }

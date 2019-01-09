@@ -13,7 +13,7 @@
                   #Currency="ngModel"
                   required
                   [ngClass]="{ 'is-invalid': hybirdForm.submitted && Currency.errors?.required }"
-                  (change)="handlechangecurrency(Currency)"
+                  (change)="handlechangecurrency(Currency); valueChanged(1)"
                 >
                   <option *ngFor="let item of amountCurrency" [ngValue]="item.label"
                     >{{ item.name }} {{ item.label }}</option
@@ -29,7 +29,7 @@
                   [(ngModel)]="model.price"
                   #price="ngModel"
                   required
-                  [ngClass]="{ 'is-invalid': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
+                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
                   [gt]="0"
                   maxlength="8"
                   (ngModelChange)="valueChanged(model.price)"
@@ -55,7 +55,7 @@
                   [(ngModel)]="model.days"
                   #days="ngModel"
                   required
-                  [ngClass]="{ 'is-invalid': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
+                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   appBlockCopyPaste
                   (input)="handlechangestartdays()"
@@ -108,7 +108,7 @@
                   #Periodprice="ngModel"
                   required
                   [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
+                    'invalid\': ': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
                   }"
                   [gt]="0"
                   maxlength="8"
@@ -140,7 +140,7 @@
                   required
                   (input)="handlechangedayscycle()"
                   [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   appBlockCopyPaste
@@ -153,9 +153,9 @@
                   [(ngModel)]="model.billingcalendar"
                   #billingcalendar="ngModel"
                   required
-                  (change)="handlechangecalculatecycle(billingcalendar)"
+                  (change)="handlechangecalculatecycle(billingcalendar); valueChanged2(1)"
                   [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
                 >
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
@@ -185,7 +185,7 @@
                   required
                   (input)="handlevalidate(Recurringdays)"
                   [ngClass]="{
-                    'is-invalid':
+                    '':
                       (hybirdForm.submitted && Recurringdays.errors?.required) || hideerror || Recurringdays.errors?.min
                   }"
                   [min]="1"

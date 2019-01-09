@@ -60,7 +60,7 @@
             <div class="imgSpace col-md-5" *ngIf="gasBalance == 0.0">
               <button (click)="open(content)"><img src="assets/images/btn_qr.svg" />Get some ETH</button>
             </div>
-            <div class="imgSpace col-md-5" *ngIf="gasBalance >= 0.01 && pullPaymentsBalance >= 0.01">
+            <div class="imgSpace col-md-5" *ngIf="gasBalance == 0.01 && pullPaymentsBalance >= 0.01">
               <span>
                 <button class="secondBtn" (click)="open(content)">
                   <img src="assets/images/btn_qr.svg" />Get some ETH

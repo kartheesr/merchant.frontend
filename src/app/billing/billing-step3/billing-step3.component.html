@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ ': \': \': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
+                  [ngClass]="{ 'is-invalid': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
                   [gt]="0"
                   maxlength="8"
                   (ngModelChange)="valueChanged(model.amount)"

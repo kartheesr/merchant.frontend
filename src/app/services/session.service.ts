@@ -27,7 +27,7 @@ export class SessionService {
         this.timerComplete();
       });
     } else {
-      this.showSessionCountdownModal(timeOut);
+      // this.showSessionCountdownModal(timeOut);
     }
   }
 
@@ -45,7 +45,7 @@ export class SessionService {
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();
     }
-    this.showSessionCountdownModal(Constants.SESSION_RENEW_COUNTDOWN);
+    // this.showSessionCountdownModal(Constants.SESSION_RENEW_COUNTDOWN);
     if (this.resetOnTrigger) {
       this.startTimer();
     }

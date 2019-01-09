@@ -92,10 +92,11 @@
               </div>
             </a>
           </div>
+
           <!--
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <select name="ProductName" [(ngModel)]="model.ProductName" #ProductName="ngModel">
-                <option *ngFor="let item of ProductNamelist" [selected]="item.value === 0" [ngValue]="item.label">{{ item.label }}
+              <select name="ProductName" placeholder="Explain what " [(ngModel)]="model.ProductName" #ProductName="ngModel">
+                <option *ngFor="let item of ProductNamelist" [selected]="item.value === 0" [ngValue]="item.productname">{{ item.productname }}
                 </option>
               </select>
             </div>

@@ -45,14 +45,23 @@ export class BillingStep1Component implements OnInit {
     });
   }
   ngOnInit() {
-    this.ProductNamelist = [
-      {
-        id: 1,
-        label: 'Choose frequency',
-        value: 0
+    this.service.productNameList().subscribe(result => {
+      console.log('Five', result);
+      if (result.success == true) {
+        this.ProductNamelist = result.data.data;
+        //[
+        //   // {
+        //   //   id: 1,
+        //   //   label: 'Choose frequency',
+
+        //   // }
+        // ];
+        this.model.ProductName = result.data.data.productname;
+        console.log('this.ProductNamelist', this.ProductNamelist);
+        console.log('result.data.data.productname', result.data.data);
       }
-    ];
-    this.model.ProductName = this.ProductNamelist[0].label;
+    });
+
     this.newForm = localStorage.getItem('newForm');
     if (this.newForm) {
       this.model.billing = '';

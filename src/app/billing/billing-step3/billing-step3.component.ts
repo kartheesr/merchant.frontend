@@ -103,7 +103,7 @@ export class BillingStep3Component implements OnInit {
     // else if (data.value == 'KRW') this.Placeholdername = '₩0.00';
   }
   valueChanged(value) {
-    if (value.value.length != 0) {
+    if (value.length != 0) {
       this.style1 = true;
     } else {
       this.style1 = false;

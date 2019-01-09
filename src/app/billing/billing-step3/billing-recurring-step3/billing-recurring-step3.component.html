@@ -13,7 +13,7 @@
                   #rupees="ngModel"
                   required
                   [ngClass]="{ 'is-invalid': f.submitted && rupees.errors?.required }"
-                  (change)="handleChangeCurrency(rupees)"
+                  (change)="handleChangeCurrency(rupees); valueChanged(1)"
                 >
                   <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label"
                     >{{ item.name }} {{ item.label }}
@@ -30,7 +30,7 @@
                   [(ngModel)]="model.amount"
                   required
                   #amountentry="ngModel"
-                  [ngClass]="{ 'invalid\': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
+                  [ngClass]="{ 'lid\': \': ': (f.submitted && amountentry.errors?.required) || amountentry.errors?.gt }"
                   [gt]="0"
                   maxlength="8"
                   (ngModelChange)="valueChanged(model.amount)"
@@ -60,7 +60,7 @@
                       #NoOfRecuurence1="ngModel"
                       (input)="handlechangedays()"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'lid\': \': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -72,9 +72,9 @@
                       name="Period1"
                       [(ngModel)]="model.Period1"
                       #Period1="ngModel"
-                      (change)="handlechangecalculate(Period1)"
+                      (change)="handlechangecalculate(Period1); valueChanged1(1)"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
+                        'lid\': \': ': (f.submitted && NoOfRecuurence1.errors?.required) || NoOfRecuurence1.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"
@@ -106,7 +106,7 @@
                       required
                       #NoOfRecuurence2="ngModel"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
+                        'lid\': \': ': (f.submitted && NoOfRecuurence2.errors?.required) || NoOfRecuurence2.errors?.min
                       }"
                       [min]="2"
                       min="2"
@@ -180,7 +180,7 @@
                       required
                       #NoOfRecuurence3="ngModel"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'lid\': \': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                       [min]="1"
                       min="1"
@@ -192,9 +192,9 @@
                       name="Period2"
                       [(ngModel)]="model.Period2"
                       #Period2="ngModel"
-                      (change)="handlechangetrailperiods(Period2)"
+                      (change)="handlechangetrailperiods(Period2); valueChanged3(1)"
                       [ngClass]="{
-                        'invalid\': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
+                        'lid\': \': ': (f.submitted && NoOfRecuurence3.errors?.required) || NoOfRecuurence3.errors?.min
                       }"
                     >
                       <option *ngFor="let option of recurrenceOption" [ngValue]="option.label"

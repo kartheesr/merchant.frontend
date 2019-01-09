@@ -13,7 +13,7 @@
                   #rupees="ngModel"
                   required
                   [ngClass]="{ 'is-invalid': f.submitted && rupees.errors?.required }"
-                  (change)="handleChangeCurrency(rupees)"
+                  (change)="handleChangeCurrency(rupees); valueChanged(1)"
                 >
                   <option *ngFor="let item of selectOption" [selected]="item.value === 0" [ngValue]="item.label"
                     >{{ item.name }} {{ item.label }}
@@ -30,10 +30,10 @@
                   [(ngModel)]="model.amount"
                   #amount="ngModel"
                   required
-                  [ngClass]="{ 'lid\': \': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
+                  [ngClass]="{ ': \': \': ': (f.submitted && amount.errors?.required) || amount.errors?.gt }"
                   [gt]="0"
                   maxlength="8"
-                  (ngModelChange)="valueChanged(amount)"
+                  (ngModelChange)="valueChanged(model.amount)"
                 />
                 <div *ngIf="f.submitted">
                   <div class="notifyMsg" [hidden]="!amount.errors?.required">Amount is required</div>

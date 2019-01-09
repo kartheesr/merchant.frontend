@@ -22,6 +22,11 @@ export class BillingHybridStep3Component implements OnInit {
   data;
   pmavalue;
   BillingPeriod;
+  style1 = false;
+  style2 = false;
+  style3 = false;
+  style4 = false;
+  style5 = false;
   constructor(
     private router: Router,
     private service: BillingServiceStep3,
@@ -234,6 +239,51 @@ export class BillingHybridStep3Component implements OnInit {
     } else {
       this.indefinite = false;
       console.log(this.indefinite);
+    }
+  }
+
+  valueChanged(value) {
+    if (value.length != 0) {
+      this.style1 = true;
+      this.style2 = false;
+      this.style3 = false;
+      this.style4 = false;
+      this.style5 = false;
+    } else {
+      this.style1 = false;
+    }
+  }
+  valueChanged1(value) {
+    if (value.length != 0) {
+      this.style1 = false;
+      this.style2 = true;
+      this.style3 = false;
+      this.style4 = false;
+      this.style5 = false;
+    } else {
+      this.style2 = false;
+    }
+  }
+  valueChanged2(value) {
+    if (value.length != 0) {
+      this.style1 = false;
+      this.style2 = false;
+      this.style3 = true;
+      this.style4 = false;
+      this.style5 = false;
+    } else {
+      this.style3 = false;
+    }
+  }
+  valueChanged3(value) {
+    if (value.length != 0) {
+      this.style1 = false;
+      this.style2 = false;
+      this.style3 = false;
+      this.style4 = true;
+      this.style5 = false;
+    } else {
+      this.style4 = false;
     }
   }
 }

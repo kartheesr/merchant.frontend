@@ -29,9 +29,10 @@
                   [(ngModel)]="model.price"
                   #price="ngModel"
                   required
-                  [ngClass]="{ 'is-invalid': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
+                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && price.errors?.required) || price.errors?.gt }"
                   [gt]="0"
                   maxlength="8"
+                  (ngModelChange)="valueChanged(model.price)"
                 />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" [hidden]="!price.errors?.required">Price is required</div>
@@ -54,7 +55,7 @@
                   [(ngModel)]="model.days"
                   #days="ngModel"
                   required
-                  [ngClass]="{ 'is-invalid': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
+                  [ngClass]="{ 'invalid\': ': (hybirdForm.submitted && days.errors?.required) || days.errors?.min }"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   appBlockCopyPaste
                   (input)="handlechangestartdays()"
@@ -107,10 +108,11 @@
                   #Periodprice="ngModel"
                   required
                   [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
+                    'invalid\': ': (hybirdForm.submitted && Periodprice.errors?.required) || Periodprice.errors?.gt
                   }"
                   [gt]="0"
                   maxlength="8"
+                  (ngModelChange)="valueChanged1(model.Periodprice)"
                 />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg" *ngIf="Periodprice.errors?.required">Amount is required</div>
@@ -138,10 +140,11 @@
                   required
                   (input)="handlechangedayscycle()"
                   [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   appBlockCopyPaste
+                  (ngModelChange)="valueChanged2(model.billingdays)"
                 />
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 calendarselect dayselect">
@@ -152,7 +155,7 @@
                   required
                   (change)="handlechangecalculatecycle(billingcalendar)"
                   [ngClass]="{
-                    'is-invalid': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
+                    'invalid\': ': (hybirdForm.submitted && billingdays.errors?.required) || billingdays.errors?.min
                   }"
                 >
                   <option *ngFor="let item of calendarlist" [ngValue]="item.label">{{ item.label }}</option>
@@ -182,12 +185,13 @@
                   required
                   (input)="handlevalidate(Recurringdays)"
                   [ngClass]="{
-                    'is-invalid':
+                    '':
                       (hybirdForm.submitted && Recurringdays.errors?.required) || hideerror || Recurringdays.errors?.min
                   }"
                   [min]="1"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   appBlockCopyPaste
+                  (ngModelChange)="valueChanged3(model.Recurringdays)"
                 />
                 <div *ngIf="hybirdForm.submitted">
                   <div class="notifyMsg1" *ngIf="Recurringdays.errors?.required">Subscriptions is required</div>
@@ -221,7 +225,7 @@
                 <label *ngIf="data.billModelDes" class="dynamicData3">{{ data.billModelDes }}</label> <br />
                 <div class="data-info">
                   <table>
-                    <tr>
+                    <tr [ngClass]="{ bgColor: style1 }">
                       <td><img class="img-size" src="assets/images/initial.svg" /></td>
                       <td>
                         Initial:
@@ -235,7 +239,7 @@
                       </td>
                     </tr>
                     <hr />
-                    <tr>
+                    <tr [ngClass]="{ bgColor: style2 }">
                       <td><img class="img-size" src="assets/images/amount.svg" /></td>
                       <td>
                         Amount:
@@ -256,12 +260,12 @@
                       <td>Billing Starts: {{ BillingPeriod }}</td>
                     </tr>
                     <hr />
-                    <tr>
+                    <tr [ngClass]="{ bgColor: style3 }">
                       <td><img class="img-size" src="assets/images/billingcycle.svg" /></td>
                       <td>Payment Cycle: {{ billingdays.value }} {{ billingcalendar.value }}</td>
                     </tr>
                     <hr />
-                    <tr>
+                    <tr [ngClass]="{ bgColor: style4 }">
                       <td><img class="img-size" src="assets/images/cycle.svg" /></td>
                       <td>Recurrences: {{ Recurringdays.value }}</td>
                     </tr>
